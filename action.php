@@ -29,7 +29,7 @@ require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
 $cmid = required_param('id', PARAM_INT);
 
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'cardbox');
-$cardbox = $DB->get_record('cardbox', array('id' => $cm->instance), '*', MUST_EXIST);
+$cardbox = $DB->get_record('cardbox', ['id' => $cm->instance], '*', MUST_EXIST);
 
 require_login($course, true, $cm);
 require_sesskey();
@@ -54,7 +54,7 @@ if ($action === 'updateandnext') {
     $cardsleft = required_param('cardsleft', PARAM_INT);
     $correction = required_param('mode', PARAM_INT);
 
-    $dataobject = $DB->get_record('cardbox_progress', array('userid' => $USER->id, 'card' => $cardid), $fields = '*', MUST_EXIST);
+    $dataobject = $DB->get_record('cardbox_progress', ['userid' => $USER->id, 'card' => $cardid], $fields = '*', MUST_EXIST);
     if (empty($dataobject)) {
         echo json_encode(['status' => 'error', 'reason' => 'nocardboxentryfound']);
     }
