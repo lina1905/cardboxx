@@ -38,20 +38,30 @@ require_once("$CFG->dirroot/mod/cardbox/locallib.php");
  */
 class mod_cardbox_external extends external_api {
 
+    /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
     public static function deletetopic_parameters() {
         return new external_function_parameters(
-            array(
+            [
                 "topicid" => new external_value(PARAM_INT, "topicid"),
-            )
+            ]
         );
     }
 
+    /**
+     * Delete a topic in a cardbox instance.
+     *
+     * @param int $topicid
+     * @return bool
+     */
     public static function deletetopic($topicid) {
         global $DB;
 
         $params = self::validate_parameters(
             self::deletetopic_parameters(),
-            array('topicid' => $topicid)
+            ['topicid' => $topicid]
         );
 
         $cmid = self::get_cmid($params['topicid']);
@@ -63,41 +73,67 @@ class mod_cardbox_external extends external_api {
         return $success;
     }
 
+    /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
     public static function deletetopic_returns() {
         return null;
     }
 
+    /**
+     * Returns description of method result value
+     * @return external_description
+     */
     public static function renametopic_parameters() {
         return new external_function_parameters(
-            array(
+            [
                 "topicid" => new external_value(PARAM_INT, "topicid"),
                 "newtopicname" => new external_value(PARAM_TEXT, "newtopicname"),
-            )
+            ]
         );
     }
 
+    /**
+     * Rename a topic in a cardbox instance.
+     *
+     * @param int $topicid
+     * @param string $newtopicname
+     * @return bool
+     */
     public static function renametopic($topicid, $newtopicname) {
         global $DB;
 
         $params = self::validate_parameters(
             self::renametopic_parameters(),
-            array('topicid' => $topicid,
-                  'newtopicname' => $newtopicname)
+            ['topicid' => $topicid,
+                  'newtopicname' => $newtopicname]
         );
 
         $cmid = self::get_cmid($params['topicid']);
         $context = context_module::instance($cmid);
         require_capability('mod/cardbox:edittopics', $context);
 
-        $success = $DB->set_field_select('cardbox_topics', 'topicname', $params['newtopicname'], 'id = :id', ['id' => $params['topicid']]);
+        $success = $DB->set_field_select('cardbox_topics', 'topicname', $params['newtopicname'], 'id = :id',
+            ['id' => $params['topicid']]);
 
         return $success;
     }
 
+    /**
+     * Returns description of method parameters
+     * @return external_function_parameters
+     */
     public static function renametopic_returns() {
         return null;
     }
 
+    /**
+     * Get the course module id of a cardbox instance.
+     *
+     * @param int $topicid
+     * @return int
+     */
     public static function get_cmid($topicid) {
         global $DB;
         $sql = 'SELECT cardboxid FROM {cardbox_topics} WHERE id = :id';

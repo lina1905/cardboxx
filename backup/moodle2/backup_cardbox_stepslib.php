@@ -51,29 +51,29 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
         $userinfo = $this->get_setting_value('userinfo'); // This variable is always 0.
 
         // 2. Define each element separately.
-        $cardbox = new backup_nested_element('cardbox', array('id'), array('name', 'intro', 'introformat', 'enablenotifications',
-                'autocorrection', 'necessaryanswers', 'necessaryanswerslocked', 'casesensitive', 'timecreated', 'timemodified'));
+        $cardbox = new backup_nested_element('cardbox', ['id'], ['name', 'intro', 'introformat', 'enablenotifications',
+            'autocorrection', 'necessaryanswers', 'necessaryanswerslocked', 'casesensitive', 'timecreated', 'timemodified']);
 
         $cards = new backup_nested_element('cards');
-        $card = new backup_nested_element('card', array('id'), array('topic', 'author', 'timecreated', 'timemodified', 'approved',
-                                                                     'approvedby', 'necessaryanswers', 'disableautocorrect'));
+        $card = new backup_nested_element('card', ['id'], ['topic', 'author', 'timecreated', 'timemodified', 'approved',
+            'approvedby', 'necessaryanswers', 'disableautocorrect']);
 
         $cardcontents = new backup_nested_element('cardcontents');
-        $cardcontent = new backup_nested_element('cardcontent', array('id'),
-                                                                array('card', 'cardside', 'contenttype', 'area', 'content'));
+        $cardcontent = new backup_nested_element('cardcontent', ['id'],
+            ['card', 'cardside', 'contenttype', 'area', 'content']);
 
         $topics = new backup_nested_element('topics');
-        $topic = new backup_nested_element('topic', array('id'), array('topicname', 'cardboxid'));
+        $topic = new backup_nested_element('topic', ['id'], ['topicname', 'cardboxid']);
 
         if ($userinfo != 0) {
 
             $progress = new backup_nested_element('progress');
-            $singleprogress = new backup_nested_element('singleprogress', array('id'),
-                                                        array('userid', 'card', 'cardposition', 'lastpracticed', 'repetitions'));
+            $singleprogress = new backup_nested_element('singleprogress', ['id'],
+                ['userid', 'card', 'cardposition', 'lastpracticed', 'repetitions']);
 
             $statistics = new backup_nested_element('statistics');
-            $statistic = new backup_nested_element('statistic', array('id'),
-                                                    array('userid', 'cardboxid', 'timeofpractice', 'percentcorrect'));
+            $statistic = new backup_nested_element('statistic', ['id'],
+                ['userid', 'cardboxid', 'timeofpractice', 'percentcorrect']);
         }
 
         // 3. Build the tree (mind the right order!)
@@ -94,24 +94,24 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
         }
 
         // 4. Define db sources
-        $cardbox->set_source_table('cardbox', array('id' => backup::VAR_ACTIVITYID)); // Pass the course module id.
+        $cardbox->set_source_table('cardbox', ['id' => backup::VAR_ACTIVITYID]); // Pass the course module id.
 
         // 4.1 Add all cards that belong to this cardbox instance.
-        $card->set_source_table('cardbox_cards', array('cardbox' => backup::VAR_PARENTID));
+        $card->set_source_table('cardbox_cards', ['cardbox' => backup::VAR_PARENTID]);
 
         // 4.2 Add any topics that were created in this cardbox instance.
-        $topic->set_source_table('cardbox_topics', array('cardboxid' => backup::VAR_PARENTID));
+        $topic->set_source_table('cardbox_topics', ['cardboxid' => backup::VAR_PARENTID]);
 
         // 4.3 Add the contents such as images and questions to the cards in this cardbox.
-        $cardcontent->set_source_table('cardbox_cardcontents', array('card' => backup::VAR_PARENTID));
+        $cardcontent->set_source_table('cardbox_cardcontents', ['card' => backup::VAR_PARENTID]);
 
         if ($userinfo != 0) {
 
             // 4.4 Add the statistics of this cardbox instance.
-            $statistic->set_source_table('cardbox_statistics', array('cardboxid' => backup::VAR_PARENTID));
+            $statistic->set_source_table('cardbox_statistics', ['cardboxid' => backup::VAR_PARENTID]);
 
             // 4.5 Add the information on user progresses in this cardbox.
-            $singleprogress->set_source_table('cardbox_progress', array('card' => backup::VAR_PARENTID));
+            $singleprogress->set_source_table('cardbox_progress', ['card' => backup::VAR_PARENTID]);
 
         }
 

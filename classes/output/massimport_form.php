@@ -31,6 +31,9 @@ require_once($CFG->dirroot . '/user/editlib.php');
  * Form for mass import of cards
  */
 class massimport_form extends \moodleform {
+    /**
+     * Form definition
+     */
     public function definition() {
         $mform = $this->_form;
         $cbxdata = $this->_customdata;

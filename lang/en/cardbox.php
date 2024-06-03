@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-// Meta information
+// Meta information.
 $string['cardbox'] = 'Card Box';
 $string['activityname'] = 'Cardbox activity';
 $string['modulename'] = 'Card Box';
@@ -36,7 +36,7 @@ $string['cardboxname'] = 'Name of this Card Box';
 $string['pluginadministration'] = 'Flashcards Administration';
 $string['setting_autocorrection'] = 'Allow autocorrection';
 $string['setting_autocorrection_help'] = 'Autocorrection only works for normal text. If students may be expected to give formulae answers, you should deactivate autocorrection.';
-$string['setting_autocorrection_label'] = '<font color="red">only suitable for text</font>'; // 'Activate with care.';
+$string['setting_autocorrection_label'] = '<font color="red">only suitable for text</font>'; // Activate with care.
 $string['setting_enablenotifications'] = 'Allow notifications';
 $string['setting_enablenotifications_help'] = 'Students receive notifications when cards have been edited or it is time to practice again.';
 $string['setting_enablenotifications_label'] = 'Enable sending notifications to students';
@@ -53,7 +53,7 @@ $string['messageprovider:changenotification'] = 'Notify when a flashcard was edi
 $string['changenotification:subject'] = 'Change notification';
 $string['changenotification:message'] = 'A flashcard was edited in your cardbox. Here is the card in its current form.';
 
-// Reminders
+// Reminders.
 $string['send_practice_reminders'] = 'Send e-mail reminders to the course participants';
 $string['messageprovider:memo'] = 'Reminders to practice with cardbox';
 $string['remindersubject'] = 'Practice reminder';
@@ -61,7 +61,7 @@ $string['remindergreeting'] = 'Hello {$a}, ';
 $string['remindermessagebody'] = 'please remember to study with your cardbox on a regular basis.';
 $string['reminderfooting'] = 'This reminder was sent automatically by your cardbox "{$a->cardboxname}" in the course "{$a->coursename}".';
 
-// Tab navigation
+// Tab navigation.
 $string['addflashcard'] = 'Add a card';
 $string['practice'] = 'Practice';
 $string['statistics'] = 'Progress';
@@ -70,14 +70,14 @@ $string['review'] = 'Review';
 $string['massimport'] = 'Import cards';
 $string['edittopic'] = 'Manage topics';
 
-// Subpage titles
+// Subpage titles.
 $string['titleforaddflashcard'] = 'New card';
 $string['titleforpractice'] = 'Practice';
 $string['titleforreview'] = 'Check card';
 $string['titleforcardedit'] = 'Edit card';
 $string['intro:overview'] = 'This overview displays all cards that have been approved.';
 
-// Form elements for creating a new card
+// Form elements for creating a new card.
 $string['choosetopic'] = 'Topic';
 $string['reviewtopic'] = 'TOPIC: ';
 $string['notopic'] = 'not assigned';
@@ -116,19 +116,19 @@ $string['autocorrectlocked'] = 'Disable Automatic Check';
 $string['savecard'] = 'Save';
 $string['saveandaccept'] = 'Save and accept';
 
-// Success notifications
+// Success notifications.
 $string['success:addnewcard'] = 'The card was created and awaits approval.';
 $string['success:addandapprovenewcard'] = 'The card was created and approved for practice.';
 $string['success:approve'] = 'The card was approved and is now free to use.';
 $string['success:edit'] = 'The card was edited.';
 $string['success:reject'] = 'The card was deleted.';
 
-// Error notifications
+// Error notifications.
 $string['error:updateafterreview'] = 'Update failed.';
 $string['error:createcard'] = 'The card was not created, because it is either missing a question and/or answer or if you uploaded a picture the imagedescription might be missing.';
 
 
-// Import cards
+// Import cards.
 $string['examplesinglecsv'] = 'Example text file for cards having single answers';
 $string['examplesinglecsv_help'] = 'Example text file for cards having single answers';
 $string['examplemulticsv'] = 'Example text file for cards having multiple answers';
@@ -144,7 +144,7 @@ $string['acontext'] = 'Column name for answer context';
 $string['topic'] = 'Column name for topic';
 $string['acdisable'] = 'Column name to disable Automatic Check for a card. Yes = 1; No = 0.';
 
-// Info notifications
+// Info notifications.
 $string['info:statisticspage'] = 'This page tells you how many cards there are in your cardbox (due and not-due) and how well you did in your previous practice sessions.';
 $string['info:nocardsavailableforreview'] = 'There are no new cards to review at present.';
 $string['info:waslastcardforreview'] = 'This was the last card to be reviewed.';
@@ -164,7 +164,7 @@ $string['help:whenarecardsdue'] = 'When are cards due';
 $string['help:whenarecardsdue_help'] = 'New cards are immediately due for practice. For any other card the deck decides:<ol><li>deck: daily</li><li>deck: after 3 days</li><li>deck: after 7 days</li><li>deck: after 16 days</li><li>deck: after 34 days</li></ol>';
 $string['help:practiceanyway'] = 'If you practice anyway, correctly answered cards do not move on, but remain in their current tray.';
 
-// Title and form elements for choosing the settings for a new practice session
+// Title and form elements for choosing the settings for a new practice session.
 $string['titleforchoosesettings'] = 'Practice options';
 $string['choosecorrectionmode'] = 'Practice mode';
 $string['selfcorrection'] = 'Check yourself';
@@ -202,7 +202,7 @@ $string['cardsleft'] = 'Remaining cards:';
 $string['solution'] = 'Solution';
 $string['yoursolution'] = 'Your answer';
 
-// Practice mode: Feedback
+// Practice mode: Feedback.
 $string['feedback:correctandcomplete'] = 'Well done!';
 $string['feedback:incomplete'] = 'Answers missing!';
 $string['feedback:correctbutincomplete'] = 'There are {$a} answers missing.';
@@ -252,7 +252,7 @@ $string['oneanswersnecessary'] = "One";
 $string['allanswersnecessary_help'] = "all answers necessary";
 $string['oneanswersnecessary_help'] = "one answer necessary";
 
-// Statistics
+// Statistics.
 $string['strftimedate'] = '%d. %B %Y';
 $string['strftimedatetime'] = '%d. %b %Y, %H:%M';
 $string['strftimedateshortmonthabbr'] = '%d %b';

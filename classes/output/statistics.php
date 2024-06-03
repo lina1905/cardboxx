@@ -103,6 +103,12 @@ class cardbox_statistics implements \renderable, \templatable {
      */
     private $durationofsessionavg;
 
+    /**
+     * Constructor.
+     *
+     * @param int $cardboxid
+     * @param bool $ismanager
+     */
     public function __construct($cardboxid, $ismanager) {
         $this->ismanager = $ismanager;
         if ($ismanager) {
@@ -112,6 +118,11 @@ class cardbox_statistics implements \renderable, \templatable {
         }
     }
 
+    /**
+     * Initialize the statistics for a student.
+     *
+     * @param int $cardboxid
+     */
     private function init_student($cardboxid) {
         global $CFG, $DB, $USER;
         require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
@@ -130,6 +141,11 @@ class cardbox_statistics implements \renderable, \templatable {
         }
     }
 
+    /**
+     * Initialize the statistics for a manager.
+     *
+     * @param int $cardboxid
+     */
     private function init_manager($cardboxid) {
         global $DB;
 
@@ -240,6 +256,11 @@ class cardbox_statistics implements \renderable, \templatable {
         }
     }
 
+    /**
+     * Set the information about the enrolled students threshold.
+     *
+     * @param bool $ismanager
+     */
     private function set_enrolled_students_threshold_info($ismanager) {
         $enrolledstudentsthreshold = get_config('mod_cardbox', 'weekly_statistics_enrolled_students_threshold');
         if ($enrolledstudentsthreshold > 0) {
@@ -250,6 +271,12 @@ class cardbox_statistics implements \renderable, \templatable {
         }
     }
 
+    /**
+     * Check if the enrolled students threshold is reached.
+     *
+     * @param int $cardboxid
+     * @return bool
+     */
     public static function is_enrolled_students_threshold_reached($cardboxid) {
         $cm = get_coursemodule_from_instance('cardbox', $cardboxid);
         $context = context_module::instance($cm->id);
@@ -258,6 +285,12 @@ class cardbox_statistics implements \renderable, \templatable {
         return count($enrolledstudents) >= $enrolledstudentsthreshold;
     }
 
+    /**
+     * Export data for template.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
 
         $data = [];

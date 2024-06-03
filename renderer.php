@@ -42,7 +42,7 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      * @return tabobject
      */
     private function cardbox_create_tab(moodle_url $baseurl, $action, $namekey = null, $cardboxname = null, $nameargs = null) {
-        $taburl = new moodle_url($baseurl, array('action' => $action));
+        $taburl = new moodle_url($baseurl, ['action' => $action]);
         $tabname = get_string($namekey, 'cardbox', $nameargs);
         if ($cardboxname) {
             strlen($cardboxname) > 20 ? $tabname = substr($cardboxname, 0, 21) . "..." : $tabname = $cardboxname;
@@ -66,7 +66,7 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         global $USER;
 
         if (has_capability('mod/cardbox:submitcard', $context)) {
-            $level1 = array($this->cardbox_create_tab($baseurl, 'addflashcard', 'addflashcard'));
+            $level1 = [$this->cardbox_create_tab($baseurl, 'addflashcard', 'addflashcard')];
             $level1[] = $this->cardbox_create_tab($baseurl, 'massimport', 'massimport');
         }
         $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
@@ -91,7 +91,8 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      */
     public function cardbox_render_studyview(\templatable $studyview) {
         $data = $studyview->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/studyview', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardbox/studyview', $data);
     }
     /**
      *
@@ -120,7 +121,8 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      */
     public function cardbox_render_statistics(\templatable $statistics) {
         $data = $statistics->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/statistics', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardbox/statistics', $data);
     }
     /**
      *
@@ -129,7 +131,8 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      */
     public function cardbox_render_review(\templatable $review) {
         $data = $review->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/review', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardbox/review', $data);
     }
     /**
      *
@@ -155,6 +158,7 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      */
     public function cardbox_render_topics(\templatable $topics) {
         $data = $topics->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/topic', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardbox/topic', $data);
     }
 }

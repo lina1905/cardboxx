@@ -59,9 +59,9 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * processed by the link decoder.
      */
     public static function define_decode_contents() {
-        $contents = array();
+        $contents = [];
 
-        $contents[] = new restore_decode_content('cardbox', array('intro'), 'cardbox');
+        $contents[] = new restore_decode_content('cardbox', ['intro'], 'cardbox');
 
         return $contents;
     }
@@ -71,7 +71,7 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * to the activity to be executed by the link decoder
      */
     public static function define_decode_rules() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_decode_rule('CARDBOXVIEWBYID', '/mod/cardbox/view.php?id=$1', 'course_module');
         $rules[] = new restore_decode_rule('CARDBOXINDEX', '/mod/cardbox/index.php?id=$1', 'course');
@@ -87,7 +87,7 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * of {@link restore_log_rule} objects
      */
     public static function define_restore_log_rules() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_log_rule('cardbox', 'add', 'view.php?id={course_module}', '{cardbox}');
         $rules[] = new restore_log_rule('cardbox', 'update', 'view.php?id={course_module}', '{cardbox}');
@@ -107,7 +107,7 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * activity level. All them are rules not linked to any module instance (cmid = 0)
      */
     public static function define_restore_log_rules_for_course() {
-        $rules = array();
+        $rules = [];
 
         $rules[] = new restore_log_rule('cardbox', 'view all', 'index.php?id={course}', null);
 

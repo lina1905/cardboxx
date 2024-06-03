@@ -45,11 +45,11 @@ class cardbox_card implements \renderable, \templatable {
     /**
      * @var array $question
      */
-    private $question = array('images' => array(), 'texts' => array());
+    private $question = ['images' => [], 'texts' => []];
     /**
      * @var array $answer
      */
-    private $answer = array('images' => array(), 'texts' => array());
+    private $answer = ['images' => [], 'texts' => []];
     /**
      * @var bool $multipleanswers
      */
@@ -90,6 +90,16 @@ class cardbox_card implements \renderable, \templatable {
      * @var int $acimgurl
      */
     private $acimgurl;
+
+    /**
+     * This function constructs the card object.
+     *
+     * @param $cardid
+     * @param $context
+     * @param $cmid
+     * @param $allowedtoedit
+     * @param $seestatus
+     */
     public function __construct($cardid, $context, $cmid, $allowedtoedit, $seestatus) {
 
         require_once('model/cardcollection.class.php');
@@ -149,29 +159,29 @@ class cardbox_card implements \renderable, \templatable {
                 $downloadurl = cardbox_get_download_url($context, $content->id, $content->content);
                 if ($content->cardside == CARDBOX_CARDSIDE_QUESTION) {
                     if ($content->area == CARD_IMAGEDESCRIPTION_INFORMATION) {
-                        $this->question['images'][0] += array('imagealt' => $content->content);
+                        $this->question['images'][0] += ['imagealt' => $content->content];
                         continue;
                     }
-                    $this->question['images'][] = array('imagesrc' => $downloadurl);
+                    $this->question['images'][] = ['imagesrc' => $downloadurl];
                 } else {
-                    $this->answer['images'][] = array('imagesrc' => $downloadurl);
+                    $this->answer['images'][] = ['imagesrc' => $downloadurl];
                     $answercount++;
                 }
 
             } else if ($content->cardside == CARDBOX_CARDSIDE_QUESTION && $content->contenttype == CARDBOX_CONTENTTYPE_AUDIO) {
 
                 $downloadurl = cardbox_get_download_url($context, $content->id, $content->content);
-                $this->question['sounds'][] = array('soundsrc' => $downloadurl);
+                $this->question['sounds'][] = ['soundsrc' => $downloadurl];
 
             } else if ($content->cardside == CARDBOX_CARDSIDE_QUESTION) {
 
                 $content->content = format_text($content->content);
-                $this->question['texts'][] = array('text' => $content->content);
+                $this->question['texts'][] = ['text' => $content->content];
 
             } else {
 
                 $content->content = format_text($content->content);
-                $this->answer['texts'][] = array('text' => $content->content);
+                $this->answer['texts'][] = ['text' => $content->content];
                 $answercount++;
             }
         }
@@ -180,6 +190,14 @@ class cardbox_card implements \renderable, \templatable {
         }
 
     }
+
+    /**
+     * This function gets the number of repetitions for a card if it is mastered.
+     *
+     * @param int $cardid
+     * @param bool $allowedtoedit
+     * @return void
+     */
     public function getcardreps_ifmastered(int $cardid, bool $allowedtoedit) {
         global $DB, $USER;
         $showreps = "";
@@ -220,6 +238,11 @@ class cardbox_card implements \renderable, \templatable {
             $this->reps = false;
         }
     }
+    /**
+     * Get the card id.
+     *
+     * @return int
+     */
     public function cardbox_getcarddeck(int $cardid, bool $allowedtoedit) {
         global $CFG, $DB, $USER;
         $acval = $DB->get_field('cardbox_cards', 'disableautocorrect', ['id' => $cardid]);
@@ -281,14 +304,25 @@ class cardbox_card implements \renderable, \templatable {
 
     }
 
+    /**
+     * Get the card id.
+     *
+     * @return int
+     */
     public function cardbox_getcarddecknumber() {
         return $this->deck;
     }
+    /**
+     * Export for template.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
 
         global $OUTPUT;
 
-        $data = array();
+        $data = [];
         $data['cmid'] = $this->cmid;
         $data['cardid'] = $this->cardid;
         $data['topic'] = strtoupper($this->topic);

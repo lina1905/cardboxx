@@ -63,7 +63,7 @@ function cardbox_add_instance($data, $mform) {
     $data->id = $DB->insert_record('cardbox', $data);
 
     // We need to use context now, so we need to make sure all needed info is already in db.
-    $DB->set_field('course_modules', 'instance', $data->id, array('id' => $cmid));
+    $DB->set_field('course_modules', 'instance', $data->id, ['id' => $cmid]);
 
     $completiontimeexpected = !empty($data->completionexpected) ? $data->completionexpected : null;
     \core_completion\api::update_completion_date_event($cmid, 'cardbox', $data->id, $completiontimeexpected);
@@ -106,13 +106,13 @@ function cardbox_delete_instance($cardboxinstanceid) {
 
     global $DB;
 
-    if (!$cardbox = $DB->get_record('cardbox', array('id' => $cardboxinstanceid))) {
+    if (!$cardbox = $DB->get_record('cardbox', ['id' => $cardboxinstanceid])) {
         return false;
     }
     if (!$cm = get_coursemodule_from_instance('cardbox', $cardboxinstanceid)) {
         return false;
     }
-    if (!$course = $DB->get_record('course', array('id' => $cm->course))) {
+    if (!$course = $DB->get_record('course', ['id' => $cm->course])) {
         return false;
     }
 
@@ -159,7 +159,7 @@ function cardbox_delete_instance($cardboxinstanceid) {
  * @param object $data Data object
  */
 function cardbox_set_display_options($data) {
-    $displayoptions = array();
+    $displayoptions = [];
     $displayoptions['printintro'] = (int) !empty($data->printintro);
     $data->displayoptions = serialize($displayoptions);
 }
@@ -177,7 +177,7 @@ function cardbox_set_display_options($data) {
  * @param array $options additional options affecting the file serving
  * @return bool false if the file not found, just send the file otherwise and do not return anything
  */
-function mod_cardbox_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
+function mod_cardbox_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=[]) {
     global $DB;
     // 1. Check the contextlevel is as expected - if your plugin is a block, this becomes CONTEXT_BLOCK, etc.
     if ($context->contextlevel != CONTEXT_MODULE) {
@@ -187,7 +187,8 @@ function mod_cardbox_pluginfile($course, $cm, $context, $filearea, $args, $force
     if ($filearea != 'content') {
         return false;
     }
-    // 3. Make sure the user is logged in and has access to the module (plugins that are not course modules should leave out the 'cm' part).
+    // 3. Make sure the user is logged in and has access to the module (plugins that are not course modules should leave
+    // out the 'cm' part).
     // Disabled, so that students can see images in changenotification emails:
 
     // 4. Check the relevant capabilities - these may vary depending on the filearea being accessed.

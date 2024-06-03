@@ -48,11 +48,17 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      */
     private $practiceall;
 
+    /**
+     * Constructor for the card selection algorithm.
+     *
+     * @param int $topicid The id of the priority topic.
+     * @param bool $practiceall Flag indicating if all cards should be practiced.
+     */
     public function __construct($topicid = null, $practiceall = true) {
 
         global $DB;
 
-        $this->spacing = array();
+        $this->spacing = [];
         $this->spacing[1] = new DateInterval('P1D');
         $this->spacing[2] = new DateInterval('P3D');
         $this->spacing[3] = new DateInterval('P7D');
@@ -62,7 +68,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
         $this->practiceall = $practiceall;
 
         if (!empty($topicid) && $topicid != -1) {
-            self::$prioritytopic = $DB->get_field('cardbox_topics', 'topicname', array('id' => $topicid), $strictness = MUST_EXIST);
+            self::$prioritytopic = $DB->get_field('cardbox_topics', 'topicname', ['id' => $topicid], $strictness = MUST_EXIST);
         }
 
     }
@@ -70,7 +76,6 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * This function creates a priority queue from the user's cards
      * and then selects the first 21 items of the queue for practice.
      *
-     * @global type $CFG
      * @param type $cards
      * @return type
      */
@@ -108,9 +113,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
         // 2. Sort the cards according to their ideal repetition date times, deck, number of repetitions and time of last practice.
         // There is an option to prioritise cards by topic first.
         if (!empty(self::$prioritytopic)) {
-            usort($priorityqueue, array('cardbox_card_selection_algorithm', 'cardbox_compare_cards_priority_topic'));
+            usort($priorityqueue, ['cardbox_card_selection_algorithm', 'cardbox_compare_cards_priority_topic']);
         } else {
-            usort($priorityqueue, array('cardbox_card_selection_algorithm', 'cardbox_compare_cards_1st_level'));
+            usort($priorityqueue, ['cardbox_card_selection_algorithm', 'cardbox_compare_cards_1st_level']);
         }
 
         // 3. Pick the first 21 cards from the queue.
@@ -122,9 +127,16 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
         return $selection;
     }
 
+    /**
+     * This function counts the number of cards that are due and not due for repetition.
+     *
+     * @param type $cards
+     * @param type $now
+     * @return type
+     */
     public function cardbox_count_due_and_not_due($cards, $now) {
 
-        $result = array('due' => 0, 'notdue' => 0);
+        $result = ['due' => 0, 'notdue' => 0];
 
         foreach ($cards as $card) {
 
@@ -249,7 +261,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      */
     public static function cardbox_compare_cards_4th_level($a, $b) {
 
-        if ($a->lastpracticed == $b->lastpracticed) { // practically never happens because of the precision of timestamps.
+        if ($a->lastpracticed == $b->lastpracticed) { // Practically never happens because of the precision of timestamps.
             return 0;
         }
         // Cards that were last practiced longer ago get fourth priority.

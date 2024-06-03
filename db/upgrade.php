@@ -52,7 +52,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         $table->add_field('approvedby', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'timemodified');
 
         // Adding keys to table cardbox_cards.
-        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
 
         // Conditionally launch create table for cardbox_cards.
         if (!$dbman->table_exists($table)) {
@@ -78,7 +78,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         $table->add_field('repetitions', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'lastpracticed');
 
         // Adding keys to table cardbox_progress.
-        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
 
         // Conditionally launch create table for cardbox_progress.
         if (!$dbman->table_exists($table)) {
@@ -102,7 +102,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         $table->add_field('content', XMLDB_TYPE_TEXT, null, null, XMLDB_NOTNULL, null, null, 'contenttype');
 
         // Adding keys to table cardbox_cardcontents.
-        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
 
         // Conditionally launch create table for cardbox_cardcontents.
         if (!$dbman->table_exists($table)) {
@@ -125,7 +125,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         $table->add_field('name', XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'type');
 
         // Adding keys to table cardbox_contenttypes.
-        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
 
         // Conditionally launch create table for cardbox_contenttypes.
         if (!$dbman->table_exists($table)) {
@@ -146,7 +146,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         $table->add_field('topicname', XMLDB_TYPE_CHAR, '255', null, XMLDB_NOTNULL, null, null, 'id');
 
         // Adding keys to table cardbox_topics.
-        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
 
         // Conditionally launch create table for cardbox_topics.
         if (!$dbman->table_exists($table)) {
@@ -279,9 +279,9 @@ function xmldb_cardbox_upgrade($oldversion) {
         $condition = [];
         $types = $DB->record_exists($table, $condition);
         if (!$types) {
-            $DB->insert_record($table, array('type' => 'file', 'name' => 'image'), false, false);
-            $DB->insert_record($table, array('type' => 'text', 'name' => 'text'), false, false);
-            $DB->insert_record($table, array('type' => 'file', 'name' => 'audio'), false, false);
+            $DB->insert_record($table, ['type' => 'file', 'name' => 'image'], false, false);
+            $DB->insert_record($table, ['type' => 'text', 'name' => 'text'], false, false);
+            $DB->insert_record($table, ['type' => 'file', 'name' => 'audio'], false, false);
         }
 
         // Cardbox savepoint reached.
@@ -291,7 +291,7 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032301) {
 
         $table = new xmldb_table('cardbox');
-        $index = new xmldb_index('course_idx', XMLDB_INDEX_NOTUNIQUE, array('course'));
+        $index = new xmldb_index('course_idx', XMLDB_INDEX_NOTUNIQUE, ['course']);
 
         // Conditionally launch add index course_idx.
         if (!$dbman->index_exists($table, $index)) {
@@ -304,7 +304,7 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032302) {
 
         $table = new xmldb_table('cardbox_topics');
-        $indexcardboxid = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, array('cardboxid'));
+        $indexcardboxid = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, ['cardboxid']);
 
         // Conditionally launch add index course_idx.
         if (!$dbman->index_exists($table, $indexcardboxid)) {
@@ -317,10 +317,10 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032303) {
 
         $tablecards = new xmldb_table('cardbox_cards');
-        $indexcardboxid = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, array('cardbox'));
-        $indextopic = new xmldb_index('topic_idx', XMLDB_INDEX_NOTUNIQUE, array('topic'));
-        $indexcardboxapproved = new xmldb_index('cardboxapproved_idx', XMLDB_INDEX_NOTUNIQUE, array('cardbox', 'approved'));
-        // Adding indexes to table cardbox_cards
+        $indexcardboxid = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, ['cardbox']);
+        $indextopic = new xmldb_index('topic_idx', XMLDB_INDEX_NOTUNIQUE, ['topic']);
+        $indexcardboxapproved = new xmldb_index('cardboxapproved_idx', XMLDB_INDEX_NOTUNIQUE, ['cardbox', 'approved']);
+        // Adding indexes to table cardbox_cards.
         if (!$dbman->index_exists($tablecards, $indexcardboxid)) {
             $dbman->add_index($tablecards, $indexcardboxid);
         }
@@ -336,9 +336,9 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032304) {
 
         $tableprogress = new xmldb_table('cardbox_progress');
-        $indexuseridcard = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, array('userid', 'card'));
-        $indexcardposition = new xmldb_index('cardboxapproved_idx', XMLDB_INDEX_NOTUNIQUE, array('cardposition'));
-        // Adding indexes to table cardbox_progress
+        $indexuseridcard = new xmldb_index('cardboxid_idx', XMLDB_INDEX_NOTUNIQUE, ['userid', 'card']);
+        $indexcardposition = new xmldb_index('cardboxapproved_idx', XMLDB_INDEX_NOTUNIQUE, ['cardposition']);
+        // Adding indexes to table cardbox_progress.
         if (!$dbman->index_exists($tableprogress, $indexuseridcard)) {
             $dbman->add_index($tableprogress, $indexuseridcard);
         }
@@ -350,11 +350,11 @@ function xmldb_cardbox_upgrade($oldversion) {
 
     if ($oldversion < 2021032305) {
         $tablecardcontents = new xmldb_table('cardbox_cardcontents');
-        $indexcardcontenttype = new xmldb_index('card_contenttype_idx', XMLDB_INDEX_NOTUNIQUE, array('card', 'contenttype'));
-        $indexcard = new xmldb_index('card_idx', XMLDB_INDEX_NOTUNIQUE, array('card'));
-        $indexcardside = new xmldb_index('cardside_idx', XMLDB_INDEX_NOTUNIQUE, array('cardside'));
-        $indexcontenttype = new xmldb_index('contenttype_idx', XMLDB_INDEX_NOTUNIQUE, array('contenttype'));
-        // Adding indexes to table cardbox_cardcontents
+        $indexcardcontenttype = new xmldb_index('card_contenttype_idx', XMLDB_INDEX_NOTUNIQUE, ['card', 'contenttype']);
+        $indexcard = new xmldb_index('card_idx', XMLDB_INDEX_NOTUNIQUE, ['card']);
+        $indexcardside = new xmldb_index('cardside_idx', XMLDB_INDEX_NOTUNIQUE, ['cardside']);
+        $indexcontenttype = new xmldb_index('contenttype_idx', XMLDB_INDEX_NOTUNIQUE, ['contenttype']);
+        // Adding indexes to table cardbox_cardcontents.
         if (!$dbman->index_exists($tablecardcontents, $indexcardcontenttype)) {
             $dbman->add_index($tablecardcontents, $indexcardcontenttype);
         }
@@ -373,10 +373,10 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032306) {
         $tablecontenttypes = new xmldb_table('cardbox_contenttypes');
 
-        $indexcontentname = new xmldb_index('contentname_idx', XMLDB_INDEX_NOTUNIQUE, array('name'));
-        $indextypes = new xmldb_index('types_idx', XMLDB_INDEX_NOTUNIQUE, array('type'));
+        $indexcontentname = new xmldb_index('contentname_idx', XMLDB_INDEX_NOTUNIQUE, ['name']);
+        $indextypes = new xmldb_index('types_idx', XMLDB_INDEX_NOTUNIQUE, ['type']);
 
-        // Adding indexes to table cardbox_contenttypes;
+        // Adding indexes to table cardbox_contenttypes.
         if (!$dbman->index_exists($tablecontenttypes, $indexcontentname)) {
             $dbman->add_index($tablecontenttypes, $indexcontentname);
         }
@@ -390,8 +390,8 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032307) {
         $tablestatistics = new xmldb_table('cardbox_statistics');
 
-        $indexuseriduserid = new xmldb_index('userid_userid_idx', XMLDB_INDEX_NOTUNIQUE, array('id', 'userid'));
-        // Adding indexes to table cardbox_statistics
+        $indexuseriduserid = new xmldb_index('userid_userid_idx', XMLDB_INDEX_NOTUNIQUE, ['id', 'userid']);
+        // Adding indexes to table cardbox_statistics.
         if (!$dbman->index_exists($tablestatistics, $indexuseriduserid)) {
             $dbman->add_index($tablestatistics, $indexuseriduserid);
         }
@@ -402,7 +402,7 @@ function xmldb_cardbox_upgrade($oldversion) {
     if ($oldversion < 2021032308) {
 
         $table = new xmldb_table('cardbox_topics');
-        $indextopicname = new xmldb_index('topicname_idx', XMLDB_INDEX_NOTUNIQUE, array('topicname'));
+        $indextopicname = new xmldb_index('topicname_idx', XMLDB_INDEX_NOTUNIQUE, ['topicname']);
 
         if (!$dbman->index_exists($table, $indextopicname)) {
             $dbman->add_index($table, $indextopicname);
@@ -501,7 +501,8 @@ function xmldb_cardbox_upgrade($oldversion) {
 
         // Define field necessaryanswerseditable to be added to cardbox.
         $table = new xmldb_table('cardbox');
-        $field = new xmldb_field('necessaryanswerslocked', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'necessaryanswers');
+        $field = new xmldb_field('necessaryanswerslocked', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0',
+            'necessaryanswers');
 
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
@@ -515,7 +516,8 @@ function xmldb_cardbox_upgrade($oldversion) {
 
         // Define field necessaryanswerseditable to be added to cardbox.
         $table = new xmldb_table('cardbox');
-        $field = new xmldb_field('casesensitive', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'necessaryanswerslocked');
+        $field = new xmldb_field('casesensitive', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0',
+            'necessaryanswerslocked');
 
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
@@ -666,7 +668,7 @@ function xmldb_cardbox_upgrade($oldversion) {
         upgrade_mod_savepoint(true, 2023052401, 'cardbox');
     }
 
-    // Enable notifications for current cardboxes
+    // Enable notifications for current cardboxes.
     if ($oldversion < 2023052402) {
         global $DB;
 

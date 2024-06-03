@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $tasks = [
     [
         'classname' => 'mod_cardbox\task\remind',
-        'blocking' => 0, // does not prevent other scheduled tasks from running at the same time.
+        'blocking' => 0, // Does not prevent other scheduled tasks from running at the same time.
         'minute' => '00',
         'hour' => '15',
         'day' => '*',

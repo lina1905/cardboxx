@@ -39,10 +39,12 @@ defined('MOODLE_INTERNAL') || die();
  * Structure step to restore one cardbox activity
  */
 class restore_cardbox_activity_structure_step extends restore_activity_structure_step {
-
+    /**
+     * Defines the structure of the cardbox activity
+     */
     protected function define_structure() {
 
-        $paths = array();
+        $paths = [];
 
         $userinfo = $this->get_setting_value('userinfo');
 
@@ -57,7 +59,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
     }
-
+    /**
+     * Process cardbox element
+     */
     protected function process_cardbox($data) {
 
         global $DB;
@@ -72,7 +76,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
 
         $this->apply_activity_instance($newitemid); // Immediately after inserting "activity" record, call this.
     }
-
+    /**
+     * Process cardbox_topics element
+     */
     protected function process_cardbox_topics($data) {
         global $DB;
 
@@ -84,7 +90,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $newitemid = $DB->insert_record('cardbox_topics', $data);
         $this->set_mapping('cardbox_topics', $oldid, $newitemid);
     }
-
+    /**
+     * Process cardbox_cards element
+     */
     protected function process_cardbox_cards($data) {
 
         global $DB;
@@ -98,7 +106,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $this->set_mapping('cardbox_cards', $oldid, $newitemid);
 
     }
-
+    /**
+     * Process cardbox_cardcontents element
+     */
     protected function process_cardbox_cardcontents($data) {
 
         global $DB;
@@ -112,7 +122,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $this->set_mapping('cardbox_cardcontents', $oldid, $newitemid, true);
 
     }
-
+    /**
+     * Process cardbox_statistics element
+     */
     protected function process_cardbox_statistics($data) {
         global $DB;
 
@@ -126,7 +138,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $newitemid = $DB->insert_record('cardbox_statistics', $data);
         $this->set_mapping('cardbox_statistics', $oldid, $newitemid);
     }
-
+    /**
+     * Process cardbox_progress element
+     */
     protected function process_cardbox_progress($data) {
         global $DB;
 
@@ -140,7 +154,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $newitemid = $DB->insert_record('cardbox_progress', $data);
         $this->set_mapping('cardbox_progress', $oldid, $newitemid);
     }
-
+    /**
+     * After the execution of the step
+     */
     protected function after_execute() {
         // Add cardbox related files, no need to match by itemname (just internally handled context).
         $this->add_related_files('mod_cardbox', 'intro', null);

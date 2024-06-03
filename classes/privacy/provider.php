@@ -184,12 +184,12 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                     JOIN {cardbox_cardcontents} cc2 on cc1.id = cc2.card
                     where cc1.author = :authorid
                     and cc1.cardbox = :cardboxid";
-            $query1cards = $DB->get_records_sql($sql1, array('authorid' => $userid, 'cardboxid' => $cardbox->id));
+            $query1cards = $DB->get_records_sql($sql1, ['authorid' => $userid, 'cardboxid' => $cardbox->id]);
             $q1count = 0;
             foreach ($query1cards as $query1card) {
                 $q1count++;
                 if (!empty($query1card->topic)) {
-                    $topicname = $DB->get_field('cardbox_topics', 'topicname', array('id' => $query1card->topic));
+                    $topicname = $DB->get_field('cardbox_topics', 'topicname', ['id' => $query1card->topic]);
                 } else {
                     $topicname = null;
                 }
@@ -230,12 +230,12 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                     JOIN {cardbox_cardcontents} cc2 on cc1.id = cc2.card
                     where cc1.approvedby = :approver
                     and cc1.cardbox = :cardboxid";
-            $query2cards = $DB->get_records_sql($sql2, array('approver' => $userid, 'cardboxid' => $cardbox->id));
+            $query2cards = $DB->get_records_sql($sql2, ['approver' => $userid, 'cardboxid' => $cardbox->id]);
             $q2count = 0;
             foreach ($query2cards as $query2card) {
                 $q2count++;
                 if (!empty($query1card->topic)) {
-                    $topicname = $DB->get_field('cardbox_topics', 'topicname', array('id' => $query1card->topic));
+                    $topicname = $DB->get_field('cardbox_topics', 'topicname', ['id' => $query1card->topic]);
                 } else {
                     $topicname = null;
                 }
@@ -256,7 +256,7 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                         from {cardbox_progress}
                             where card in (select id from {cardbox_cards} where cardbox = :cardboxid)
                                 and userid = :userid";
-            $query3cards = $DB->get_records_sql($sql3, array('userid' => $userid, 'cardboxid' => $cardbox->id));
+            $query3cards = $DB->get_records_sql($sql3, ['userid' => $userid, 'cardboxid' => $cardbox->id]);
             foreach ($query3cards as $query3card) {
                 $key = 'Card '.$query3card->card;
                 $userprogress[$key] = (object) [
@@ -271,10 +271,10 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                         from {cardbox_statistics}
                         where userid = :userid
                         and cardboxid = :cardboxid";
-            $query4cards = $DB->get_records_sql($sql4, array('userid' => $userid, 'cardboxid' => $cardbox->id));
+            $query4cards = $DB->get_records_sql($sql4, ['userid' => $userid, 'cardboxid' => $cardbox->id]);
             foreach ($query4cards as $query4card) {
                 $key = 'Cardbox '.$query4card->cardboxid;
-                $cbxname = $DB->get_field('cardbox', 'name', array('id' => $query4card->cardboxid));
+                $cbxname = $DB->get_field('cardbox', 'name', ['id' => $query4card->cardboxid]);
                 $userstats[$key] = (object) [
                     'cardboxname' => $cbxname,
                     'timeofpractice' => transform::datetime($query4card->timeofpractice),
@@ -321,8 +321,8 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
             $DB->delete_records('cardbox_progress', ['card' => $cardid->id]);
 
             // Remove author and approver details from cards. The card on a whole doesnt get deleted.
-            $DB->set_field('cardbox_cards', 'author', 0, array('cardbox' => $instanceid));
-            $DB->set_field('cardbox_cards', 'approvedby', 0, array('cardbox' => $instanceid));
+            $DB->set_field('cardbox_cards', 'author', 0, ['cardbox' => $instanceid]);
+            $DB->set_field('cardbox_cards', 'approvedby', 0, ['cardbox' => $instanceid]);
         }
 
     }
@@ -350,11 +350,11 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
             // Remove author and approver details from cards. The card on a whole doesnt get deleted.
             $usercreatedcards = $DB->get_records('cardbox_cards', ['cardbox' => $instanceid, 'author' => $userid]);
             foreach ($usercreatedcards as $usercreatedcard) {
-                $DB->set_field('cardbox_cards', 'author', 0, array('cardbox' => $instanceid, 'id' => $usercreatedcard->id));
+                $DB->set_field('cardbox_cards', 'author', 0, ['cardbox' => $instanceid, 'id' => $usercreatedcard->id]);
             }
             $userapprovedcards = $DB->get_records('cardbox_cards', ['cardbox' => $instanceid, 'approvedby' => $userid]);
             foreach ($userapprovedcards as $userapprovedcard) {
-                $DB->set_field('cardbox_cards', 'approvedby', 0, array('cardbox' => $instanceid, 'id' => $userapprovedcard->id));
+                $DB->set_field('cardbox_cards', 'approvedby', 0, ['cardbox' => $instanceid, 'id' => $userapprovedcard->id]);
             }
         }
     }

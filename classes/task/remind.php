@@ -30,6 +30,9 @@ use core_user;
  */
 class remind extends \core\task\scheduled_task {
 
+    /**
+     * Function that is executed periodically according to the task schedule
+     */
     public function execute() {
         global $DB, $SESSION;
 

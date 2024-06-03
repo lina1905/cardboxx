@@ -26,21 +26,21 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$messageproviders = array (
+$messageproviders = [
 
-    'memo' => array (
+    'memo' => [
         'capability'  => 'mod/cardbox:practice',
-        'defaults' => array(
+        'defaults' => [
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        ),
-    ),
+        ],
+    ],
 
-    'changenotification' => array (
+    'changenotification' => [
         'capability'  => 'mod/cardbox:practice',
-        'defaults' => array(
+        'defaults' => [
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        ),
-    ),
-);
+        ],
+    ],
+];

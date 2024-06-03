@@ -26,15 +26,15 @@
 
 require_once('../../config.php');
 require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
-require_once('model/cardcollection.class.php'); // model.
+require_once('model/cardcollection.class.php'); // Model.
 
 // For this type of page this is the course id.
 $id = required_param('id', PARAM_INT); // Course ID.
 
-$courseid = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+$courseid = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
 $course = get_course($courseid->id);
 require_login($course);
-$PAGE->set_url('/mod/cardbox/index.php', array('id' => $id));
+$PAGE->set_url('/mod/cardbox/index.php', ['id' => $id]);
 $PAGE->set_pagelayout('incourse');
 
 // Print the header.
@@ -122,7 +122,8 @@ foreach ($modinfo->instances['cardbox'] as $cm) {
                 $html .= '<td class="cell-c6  cbx-center-align">'.$due.'</td>';
                 $html .= '<td class="cell-c7  cbx-center-align">'.$notdue.'</td>';
             } else {
-                echo "<span class='notification alert alert-danger alert-block fade in' role='alert' style='display:block'>Something went wrong </span>";
+                echo "<span class='notification alert alert-danger alert-block fade in' role='alert'
+                        style='display:block'>Something went wrong </span>";
             }
         } else {
             $html .= '<tr>';

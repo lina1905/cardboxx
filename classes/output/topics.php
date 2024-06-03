@@ -33,12 +33,17 @@ class cardbox_topics implements \renderable, \templatable {
     /**
      * @var array The topics for the cardbox.
      */
-    private $topics = array();
+    private $topics = [];
+    /**
+     * This function prepares the topics and the amount of cards to study.
+     *
+     * @var array The amount of cards to study.
+     */
     public function __construct($list, $offset, /* $context, */ $cmid, $cardboxid) {
 
         global $DB, $PAGE;
 
-        $topic = array();
+        $topic = [];
         foreach ($list as $topicid => $titel) {
             if ($topicid != -1) {
                 $topic['id'] = $topicid;
@@ -52,8 +57,14 @@ class cardbox_topics implements \renderable, \templatable {
 
     }
 
+    /**
+     * Export data for template.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
-        $data = array();
+        $data = [];
         $data['topic'] = $this->topics;
         $data['notopics'] = empty($this->topics);
         return $data;

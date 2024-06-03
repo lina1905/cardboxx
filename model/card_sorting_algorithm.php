@@ -32,7 +32,6 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
      * 1. Cards are shuffled by topic to make them more memorable.
      * 2. New and difficult material is positioned at the beginning and end.
      *
-     * @global type $DB
      * @param type $cardselection
      * @return type
      */
@@ -40,15 +39,15 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
 
         global $DB;
 
-        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', array('id' => $cardselection[0]->card), $strictness = MUST_EXIST);
-        $topics = $DB->get_fieldset_select('cardbox_topics', 'topicname', 'cardboxid = ?', array($cardboxid));
+        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', ['id' => $cardselection[0]->card], $strictness = MUST_EXIST);
+        $topics = $DB->get_fieldset_select('cardbox_topics', 'topicname', 'cardboxid = ?', [$cardboxid]);
 
         shuffle($cardselection); // Randomize order of cards before sorting.
 
         if (empty($topics)) {
 
             // 0. Move new and difficult material to the beginning and end of the practice session.
-            usort($cardselection, array('cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency'));
+            usort($cardselection, ['cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency']);
 
             return $cardselection;
 
@@ -75,7 +74,7 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
 
         // 1.3 Mix topics.
 
-        $newselection = array();
+        $newselection = [];
 
         $remaining = count($cardselection);
 
@@ -93,7 +92,7 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
         }
 
         // 2. Move new and difficult material to the beginning and end of the practice session.
-        usort($newselection, array('cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency'));
+        usort($newselection, ['cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency']);
 
         return $newselection;
 

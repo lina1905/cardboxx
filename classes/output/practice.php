@@ -45,12 +45,12 @@ class cardbox_practice implements \renderable, \templatable {
     /**
      * @var array The question content of the card.
      */
-    private $question = array('images' => array(), 'sounds' => array(), 'texts' => array());
+    private $question = ['images' => [], 'sounds' => [], 'texts' => []];
 
     /**
      * @var array The answer content of the card.
      */
-    private $answer = array('images' => array(), 'sounds' => array(), 'texts' => array());
+    private $answer = ['images' => [], 'sounds' => [], 'texts' => []];
 
     /**
      * @var int The case number.
@@ -85,7 +85,7 @@ class cardbox_practice implements \renderable, \templatable {
     /**
      * @var array The input fields for the card.
      */
-    private $inputfields = array();
+    private $inputfields = [];
 
     /**
      * @var string|null The question context.
@@ -120,7 +120,6 @@ class cardbox_practice implements \renderable, \templatable {
     /**
      * Function builds the view of a flashcard during practice.
      *
-     * @global type $CFG
      * @param type $context
      * @param obj $cardbox
      */
@@ -133,7 +132,7 @@ class cardbox_practice implements \renderable, \templatable {
                 $this->case = QUESTION_SELFCHECK;
                 break;
             case QUESTION_AUTOCHECK:
-                $cardstatus = $DB->get_record('cardbox_cards', array('id' => $cardid));
+                $cardstatus = $DB->get_record('cardbox_cards', ['id' => $cardid]);
                 if ($cardstatus->disableautocorrect) {
                     $casename = 'case'.QUESTION_SELFCHECK;
                     $this->$casename = true;
@@ -150,7 +149,7 @@ class cardbox_practice implements \renderable, \templatable {
                 $this->case = ANSWER_SELFCHECK;
                 break;
             case ANSWER_AUTOCHECK:
-                $cardstatus = $DB->get_record('cardbox_cards', array('id' => $cardid));
+                $cardstatus = $DB->get_record('cardbox_cards', ['id' => $cardid]);
                 if ($cardstatus->disableautocorrect) {
                     $casename = 'case'.ANSWER_SELFCHECK;
                     $this->$casename = true;
@@ -167,13 +166,22 @@ class cardbox_practice implements \renderable, \templatable {
                 $this->case = SUGGEST_ANSWER;
                 break;
             default:
-                // TODO Error handling.
+                // TODO MDL-1 Error handling.
         }
         $this->cardsleft = $cardsleft;
         $this->cardbox_getcarddeck($cardid);
         $this->cardbox_prepare_cardcontents($context, $cardid, $disableautocorrect);
 
     }
+
+    /**
+     * This function prepares the content of a card for the practice view.
+     *
+     * @param $context
+     * @param $cardid
+     * @param $disableautocorrect
+     * @return void
+     */
     public function cardbox_prepare_cardcontents($context, $cardid, $disableautocorrect) {
 
         global $CFG, $DB;
@@ -186,7 +194,7 @@ class cardbox_practice implements \renderable, \templatable {
         if ($topic === 0 || $topic == "NULL") {
             $this->topic = "";
         } else {
-            $this->topic = strtoupper($DB->get_field('cardbox_topics', 'topicname', array('id' => $topic)));
+            $this->topic = strtoupper($DB->get_field('cardbox_topics', 'topicname', ['id' => $topic]));
         }
 
         $this->casesensitive = cardbox_cardboxmodel::cardbox_get_casesensitive($cardid);
@@ -208,28 +216,28 @@ class cardbox_practice implements \renderable, \templatable {
                 $downloadurl = cardbox_get_download_url($context, $content->id, $content->content);
                 if ($content->cardside == CARDBOX_CARDSIDE_QUESTION) {
                     if ($content->area == CARD_IMAGEDESCRIPTION_INFORMATION) {
-                        $this->question['images'][0] += array('imagealt' => $content->content);
+                        $this->question['images'][0] += ['imagealt' => $content->content];
                         continue;
                     }
-                    $this->question['images'][] = array('imagesrc' => $downloadurl);
+                    $this->question['images'][] = ['imagesrc' => $downloadurl];
                 } else {
-                    $this->answer['images'][] = array('imagesrc' => $downloadurl);
+                    $this->answer['images'][] = ['imagesrc' => $downloadurl];
                 }
 
             } else if ($content->contenttype == CARDBOX_CONTENTTYPE_AUDIO) { // Audio files.
 
                 $downloadurl = cardbox_get_download_url($context, $content->id, $content->content);
                 if ($content->cardside == CARDBOX_CARDSIDE_QUESTION) {
-                    $this->question['sounds'][] = array('soundsrc' => $downloadurl);
+                    $this->question['sounds'][] = ['soundsrc' => $downloadurl];
                 } else {
-                    $this->answer['sounds'][] = array('soundsrc' => $downloadurl);
+                    $this->answer['sounds'][] = ['soundsrc' => $downloadurl];
                 }
 
             } else if ($content->cardside == CARDBOX_CARDSIDE_QUESTION) {
 
                 $content->content = format_text($content->content);
 
-                $this->question['texts'][] = array('text' => $content->content, 'puretext' => $content->content);
+                $this->question['texts'][] = ['text' => $content->content, 'puretext' => $content->content];
 
             } else {
 
@@ -244,17 +252,23 @@ class cardbox_practice implements \renderable, \templatable {
                 if ($content->area === "3") {
                     continue;
                 }
-                $this->answer['texts'][] = array('text' => $content->content, 'puretext' => $content->content);
+                $this->answer['texts'][] = ['text' => $content->content, 'puretext' => $content->content];
                 $solutioncount++;
-                $this->inputfields[] = array('number' => $solutioncount);
+                $this->inputfields[] = ['number' => $solutioncount];
             }
         }
         $this->answercount = $solutioncount;
-        $this->necessaryanswers = $DB->get_field('cardbox_cards', 'necessaryanswers', array('id' => $cardid), IGNORE_MISSING);
+        $this->necessaryanswers = $DB->get_field('cardbox_cards', 'necessaryanswers', ['id' => $cardid], IGNORE_MISSING);
         if ($this->necessaryanswers != 0) {
             $this->inputfields = ['number' => '1'];
         }
     }
+    /**
+     * This function gets the deck of a card.
+     *
+     * @param int $cardid
+     * @return void
+     */
     public function cardbox_getcarddeck(int $cardid) {
         global $CFG, $DB, $USER;
         if ($DB->record_exists('cardbox_progress', ['userid' => $USER->id, 'card' => $cardid])) {
@@ -273,9 +287,16 @@ class cardbox_practice implements \renderable, \templatable {
         }
 
     }
+
+    /**
+     * This function exports the data of a card for the template.
+     *
+     * @param renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
 
-        $data = array();
+        $data = [];
         $data['topic'] = $this->topic;
         $data['question'] = $this->question;
         $data['answer'] = $this->answer;

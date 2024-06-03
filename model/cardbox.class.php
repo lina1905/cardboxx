@@ -37,7 +37,7 @@ class cardbox_cardboxmodel {
     /**
      * @var array The boxes in the cardbox, each containing an array of cards.
      */
-    private $boxes = array(0 => array(), 1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array(), 6 => array());
+    private $boxes = [0 => [], 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => []];
 
     /**
      * @var cardbox_card_selection_interface The algorithm used for card selection.
@@ -56,7 +56,8 @@ class cardbox_cardboxmodel {
      * @param cardbox_card_sorting_interface $sortingalgorithm
      * @param int $topic
      */
-    public function __construct($cardboxid, cardbox_card_selection_interface $selectionalgorithm = null, cardbox_card_sorting_interface $sortingalgorithm = null, $topic=-1) {
+    public function __construct($cardboxid, cardbox_card_selection_interface $selectionalgorithm = null,
+                                cardbox_card_sorting_interface $sortingalgorithm = null, $topic=-1) {
 
         $this->id = $cardboxid;
 
@@ -111,7 +112,7 @@ class cardbox_cardboxmodel {
      */
     public function cardbox_get_card_selection($amountcards = 0) {
 
-        $selection = array();
+        $selection = [];
 
         // Select 21 flashcards for a practice session.
         if (!empty($this->flashcards) && !empty($this->selectionalgorithm)) {
@@ -176,8 +177,6 @@ class cardbox_cardboxmodel {
      *
      * Each card is filed into one of the 'boxes' or 'decks'.
      *
-     * @global obj $DB
-     * @global obj $USER
      * @return array of objects or null
      */
     private function cardbox_get_users_cards($topic) {
@@ -191,7 +190,7 @@ class cardbox_cardboxmodel {
                 . "WHERE p.userid = ? AND c.cardbox = ? "
                 . "ORDER BY p.cardposition";
 
-        $this->flashcards = $DB->get_records_sql($sql, array($USER->id, $this->id));
+        $this->flashcards = $DB->get_records_sql($sql, [$USER->id, $this->id]);
 
         if ($topic != -1) {
             $cards = [];
@@ -212,19 +211,19 @@ class cardbox_cardboxmodel {
     /**
      * Function returns all content items belonging to this card. XXX move to locallib or card class!
      *
-     * @global obj $DB
      * @param type $cardid
      * @return type
      */
     public static function cardbox_get_card_contents($cardid) {
 
         global $DB;
-        $contents = $DB->get_records('cardbox_cardcontents', array('card' => $cardid));
-        usort($contents, array('cardbox_cardboxmodel', 'cardbox_compare_cardcontenttypes'));
+        $contents = $DB->get_records('cardbox_cardcontents', ['card' => $cardid]);
+        usort($contents, ['cardbox_cardboxmodel', 'cardbox_compare_cardcontenttypes']);
         return $contents;
     }
     /**
-     * This function orders the content elements of a card, e.g. groups question and answer elements.  XXX move to locallib or card class!
+     * This function orders the content elements of a card, e.g. groups question and answer elements.
+     * XXX move to locallib or card class!
      *
      * @param type $a
      * @param type $b
@@ -248,14 +247,13 @@ class cardbox_cardboxmodel {
 
     /**
      *
-     * @global type $DB
      * @param type $cardid
      * @return type
      */
     public static function cardbox_get_casesensitive($cardid) {
         global $DB;
 
-        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', array('id' => $cardid), IGNORE_MISSING);
-        return $DB->get_field('cardbox', 'casesensitive', array('id' => $cardboxid), IGNORE_MISSING);
+        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', ['id' => $cardid], IGNORE_MISSING);
+        return $DB->get_field('cardbox', 'casesensitive', ['id' => $cardboxid], IGNORE_MISSING);
     }
 }

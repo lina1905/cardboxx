@@ -54,39 +54,52 @@ class cardbox_overview implements \renderable, \templatable {
     /**
      * @var array The topics.
      */
-    private $topics = array();
+    private $topics = [];
 
     /**
      * @var array The cards.
      */
-    private $cards = array();
+    private $cards = [];
 
     /**
      * @var array The decks.
      */
-    private $decks = array();
+    private $decks = [];
 
+    /**
+     * Constructor.
+     *
+     * @param array $list
+     * @param int $offset
+     * @param context $context
+     * @param int $cmid
+     * @param int $cardboxid
+     * @param int $topicid
+     * @param int $deck
+     * @param int $sort
+     * @param bool $usedforemail
+     */
     public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $deck, $sort, $usedforemail = false) {
         require_once('card.php');
 
         global $DB, $PAGE;
 
-        $topics = $DB->get_records('cardbox_topics', array('cardboxid' => $cardboxid));
+        $topics = $DB->get_records('cardbox_topics', ['cardboxid' => $cardboxid]);
         $this->topicid = $topicid;
         foreach ($topics as $topic) {
             if ($topic->id == $topicid) {
-                $this->topics[] = array('topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => true);
+                $this->topics[] = ['topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => true];
             } else {
-                $this->topics[] = array('topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => false);
+                $this->topics[] = ['topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => false];
             }
         }
 
         $this->deckid = $deck;
         for ($i = 1; $i < 6; $i++) {
             if ($deck == $i) {
-                $this->decks[] = array('deck' => $i, 'selected' => true);
+                $this->decks[] = ['deck' => $i, 'selected' => true];
             } else {
-                $this->decks[] = array('deck' => $i, 'selected' => false);
+                $this->decks[] = ['deck' => $i, 'selected' => false];
             }
         }
 
@@ -114,8 +127,14 @@ class cardbox_overview implements \renderable, \templatable {
 
     }
 
+    /**
+     * Export data for template.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
-        $data = array();
+        $data = [];
 
         if ($this->topicid == -1) {
             $data['nopreference'] = true;

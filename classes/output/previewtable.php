@@ -54,7 +54,7 @@ class previewtable extends \html_table {
 
         $this->id = "cbxpreview";
         $this->attributes['class'] = 'generaltable';
-        $this->head = array();
+        $this->head = [];
         $this->data = $this->read_data($filecolumns);
         $this->head[] = get_string('uucsvline', 'tool_uploaduser');
         foreach ($filecolumns as $column) {
@@ -63,14 +63,20 @@ class previewtable extends \html_table {
         $this->head[] = ucfirst(get_string('status', 'cardbox'));
     }
 
+    /**
+     * Read data from csv file.
+     *
+     * @param array $filecolumns
+     * @return array
+     */
     protected function read_data(array $filecolumns) {
         $this->cir->init();
         $i = 1; // Always start from 1 since 0 is csv column header.
         while ($fields = $this->cir->next()) {
-            $errors = array();
+            $errors = [];
             $atleastoneanswer = 0;
             $status = "";
-            $rowcols = array();
+            $rowcols = [];
             $rowcols['line'] = $i;
             foreach ($fields as $key => $field) {
                 $rowcols[$this->filecolumns[$key]] = s(trim($field));

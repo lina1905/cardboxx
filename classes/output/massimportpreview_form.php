@@ -32,6 +32,9 @@ require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
  * Form for mass import preview
  */
 class massimportpreview_form extends \moodleform {
+    /**
+     * Form definition
+     */
     public function definition($action = null, $preselected = null) {
         $mform = $this->_form;
         $data = $this->_customdata;
@@ -58,12 +61,12 @@ class massimportpreview_form extends \moodleform {
         $mform->addElement('hidden', 'error');
         $mform->setType('error', PARAM_INT);
 
-        $reviewbtngrp = array();
+        $reviewbtngrp = [];
         if ($data['error'] == 0) {
             $reviewbtngrp[] =& $mform->createElement('submit', 'importbtn', get_string('massimport', 'cardbox'));
         }
         $reviewbtngrp[] =& $mform->createElement('submit', 'rejectbtn', get_string('cancel', 'cardbox'));
-        $mform->addGroup($reviewbtngrp, 'reviewbtnarr', '', array(''), false);
+        $mform->addGroup($reviewbtngrp, 'reviewbtnarr', '', [''], false);
         $mform->setType('reviewbtnarr', PARAM_RAW);
         $mform->closeHeaderBefore('reviewbtnarr');
 

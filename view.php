@@ -32,7 +32,7 @@ require_once('locallib.php');
 $cmid = required_param('id', PARAM_INT);
 
 list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'cardbox');
-$cardbox = $DB->get_record('cardbox', array('id' => $cm->instance), '*', MUST_EXIST);
+$cardbox = $DB->get_record('cardbox', ['id' => $cm->instance], '*', MUST_EXIST);
 
 require_login($course, true, $cm);
 
@@ -42,7 +42,7 @@ $PAGE->set_title(get_string('activityname', 'cardbox'));
 $PAGE->set_heading($course->fullname); // Set course name for display.
 
 // Go to (default) page.
-if (has_capability('mod/cardbox:practice', $context)) { // for students and other participants.
+if (has_capability('mod/cardbox:practice', $context)) { // For students and other participants.
     $action = optional_param('action', 'practice', PARAM_ALPHA);
 
 } else if (has_capability('mod/cardbox:approvecard', $context)) {
@@ -52,7 +52,7 @@ if (has_capability('mod/cardbox:practice', $context)) { // for students and othe
     $action = optional_param('action', 'addflashcard', PARAM_ALPHA);
 }
 
-$taburl = new moodle_url('/mod/cardbox/view.php', array('id' => $cmid));
+$taburl = new moodle_url('/mod/cardbox/view.php', ['id' => $cmid]);
 
 $myrenderer = $PAGE->get_renderer('mod_cardbox');
 

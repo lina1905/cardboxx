@@ -37,10 +37,6 @@ class mod_cardbox_card_form extends moodleform {
     /**
      * This function is called by the constructor.
      *
-     * @global type $CFG
-     * @global type $DB
-     * @global type $USER
-     * @global type $COURSE
      * @param type $action
      * @param array $preselected This param is saved by the constructor in $this->_customdata.
      */
@@ -76,10 +72,10 @@ class mod_cardbox_card_form extends moodleform {
         // Get topics to choose from when creating a new card.
         $topiclist = cardbox_get_topics($customdata['cardboxid'], true);
 
-        $choosetopicarray = array();
+        $choosetopicarray = [];
         $choosetopicarray[] =& $mform->createElement('select', 'topic', get_string('choosetopic', 'cardbox'), $topiclist);
         $choosetopicarray[] =& $mform->createElement('text', 'newtopic', '');
-        $mform->addGroup($choosetopicarray, 'choosetopicar', get_string('choosetopic', 'cardbox'), array(' '), false);
+        $mform->addGroup($choosetopicarray, 'choosetopicar', get_string('choosetopic', 'cardbox'), [' '], false);
 
         if (!empty($customdata['topic'])) {
             $choosetopicarray[0]->setSelected($customdata['topic']);
@@ -96,14 +92,14 @@ class mod_cardbox_card_form extends moodleform {
                            'wrap="virtual" rows="5" cols="150"');
         $mform->setType('question', PARAM_RAW);
 
-        $btnarrayquestion = array();
+        $btnarrayquestion = [];
         $btnarrayquestion[] =& $mform->createElement('button', 'addimage', get_string('addimage', 'cardbox'));
         $btnarrayquestion[] =& $mform->createElement('button', 'addsound', get_string('addsound', 'cardbox'));
         $btnarrayquestion[] =& $mform->createElement('button', 'addcontextques', get_string('addcontext', 'cardbox'));
-        $mform->addGroup($btnarrayquestion, 'buttonar', '', array(' '), false);
+        $mform->addGroup($btnarrayquestion, 'buttonar', '', [' '], false);
 
-        $options = array();
-        $options['accepted_types'] = array('.bmp', '.gif', '.jpeg', '.jpg', '.png', '.svg');
+        $options = [];
+        $options['accepted_types'] = ['.bmp', '.gif', '.jpeg', '.jpg', '.png', '.svg'];
 
         $options['maxbytes'] = 0;
         $options['maxfiles'] = 1;
@@ -114,13 +110,13 @@ class mod_cardbox_card_form extends moodleform {
         $mform->setType('imagedescription', PARAM_TEXT);
 
         $label = get_string('imgdescriptionnecessary_label', 'cardbox');
-        $imagedescriptionarray = array();
+        $imagedescriptionarray = [];
         $imagedescriptionarray[] =& $mform->createElement('checkbox', 'imgdescriptionnecessary', '');
         $imagedescriptionarray[] =& $mform->createElement('html', "<p style='margin: 1rem'>$label</p>");
-        $mform->addGroup($imagedescriptionarray, 'imgdescriptionar', '', array(' '), false);
+        $mform->addGroup($imagedescriptionarray, 'imgdescriptionar', '', [' '], false);
 
-        $audiooptions = array();
-        $audiooptions['accepted_types'] = array('.mp3');
+        $audiooptions = [];
+        $audiooptions['accepted_types'] = ['.mp3'];
         $audiooptions['maxbytes'] = 0;
         $audiooptions['maxfiles'] = 1;
         $audiooptions['mainfile'] = true;
@@ -149,13 +145,13 @@ class mod_cardbox_card_form extends moodleform {
             }
         }
 
-        $btnarrayanswer = array();
+        $btnarrayanswer = [];
         $btnarrayanswer[] =& $mform->createElement('button', 'addanswer', get_string('answer_repeat', 'cardbox'));
         $btnarrayanswer[] =& $mform->createElement('button', 'addcontextans', get_string('addcontext', 'cardbox'));
-        $mform->addGroup($btnarrayanswer, 'buttonar', '', array(' '), false);
+        $mform->addGroup($btnarrayanswer, 'buttonar', '', [' '], false);
 
         $necessaryanswerslocked = $DB->get_field('cardbox', 'necessaryanswerslocked',
-                                                 array('id' => $customdata['cardboxid']), IGNORE_MISSING);
+                                                 ['id' => $customdata['cardboxid']], IGNORE_MISSING);
         if ($necessaryanswerslocked === "0") {
             $aoptions = [
                 '0' => get_string('necessaryanswers_all', 'cardbox'),
@@ -163,7 +159,7 @@ class mod_cardbox_card_form extends moodleform {
             ];
             $select = $mform->addElement('select', 'answers', get_string('necessaryanswers_card', 'cardbox'), $aoptions);
             $necessaryanswers = $DB->get_field('cardbox', 'necessaryanswers',
-                                               array('id' => $customdata['cardboxid']), IGNORE_MISSING);
+                                               ['id' => $customdata['cardboxid']], IGNORE_MISSING);
 
             if (!empty($customdata['answers']) && $customdata['answers'] != $necessaryanswers) {
                 $necessaryanswers = $customdata['answers'];
@@ -222,7 +218,7 @@ class mod_cardbox_card_form extends moodleform {
         $mform = $this->_form;
 
         // Elements in a row need a group.
-        $buttonarray = array();
+        $buttonarray = [];
 
         if ($submit2label !== false) {
             $buttonarray[] = &$mform->createElement('submit', 'submitbutton2', $submit2label);
@@ -236,7 +232,7 @@ class mod_cardbox_card_form extends moodleform {
             $buttonarray[] = &$mform->createElement('cancel');
         }
 
-        $mform->addGroup($buttonarray, 'buttonar', '', array(' '), false);
+        $mform->addGroup($buttonarray, 'buttonar', '', [' '], false);
         $mform->setType('buttonar', PARAM_RAW);
         $mform->closeHeaderBefore('buttonar');
     }
@@ -246,7 +242,6 @@ class mod_cardbox_card_form extends moodleform {
      * This function checks whether the user entered text, an image and/or an audio file
      * for a question.
      *
-     * @global type $USER
      * @param type $data
      * @param type $files
      * @return type

@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$functions = array(
+$functions = [
 
-    'mod_cardbox_deletetopic' => array(
+    'mod_cardbox_deletetopic' => [
         'classname'    => 'mod_cardbox_external',
         'methodname'   => 'deletetopic',
         'classpath'    => 'mod/cardbox/externallib.php',
@@ -34,8 +34,8 @@ $functions = array(
         'type'         => 'write',
         'ajax'         => true,
         'capabilities' => 'mod/cardbox:edittopics',
-    ),
-    'mod_cardbox_renametopic' => array(
+    ],
+    'mod_cardbox_renametopic' => [
         'classname'    => 'mod_cardbox_external',
         'methodname'   => 'renametopic',
         'classpath'    => 'mod/cardbox/externallib.php',
@@ -43,5 +43,5 @@ $functions = array(
         'type'         => 'write',
         'ajax'         => true,
         'capabilities' => 'mod/cardbox:edittopics',
-    ),
-);
+    ],
+];
