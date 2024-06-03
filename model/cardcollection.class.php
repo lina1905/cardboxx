@@ -23,11 +23,27 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/**
+ * Interface for card selection
+ */
 class cardbox_cardcollection {
-
+    /**
+     * @var int The ID of the cardbox.
+     */
     private $cardbox;
+
+    /**
+     * @var array The new/unapproved flashcards in the cardbox.
+     */
     private $flashcards; // new/unapproved flashcards.
 
+    /**
+     * Constructor.
+     *
+     * @param int $cardboxid
+     * @param int $topic
+     * @param bool $getall
+     */
     public function __construct($cardboxid, $topic = null, $getall = false) {
 
         global $DB;
@@ -64,15 +80,27 @@ class cardbox_cardcollection {
         }
 
     }
-
+    /**
+     * Function returns the number of cards in the user's cardbox.
+     *
+     * @return int
+     */
     public function cardbox_get_first_cardid() {
         return $this->flashcards[0];
     }
-
+    /**
+     * Function returns the number of cards in the user's cardbox.
+     *
+     * @return int
+     */
     public function cardbox_get_cardcontents_initial() {
         return self::cardbox_get_cardcontents($this->flashcards[0]);
     }
-
+    /**
+     * Function returns the number of cards in the user's cardbox.
+     *
+     * @return int
+     */
     public static function cardbox_get_cardcontents($cardid) {
         global $DB;
         $cardcontents = $DB->get_records('cardbox_cardcontents', array('card' => $cardid, 'area' => CARD_MAIN_INFORMATION));

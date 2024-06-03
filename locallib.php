@@ -138,7 +138,16 @@ function cardbox_save_new_cardcontent($cardid, $cardside, $contenttype, $name, $
     return $itemid;
 
 }
-
+/**
+ * Function updates a cardcontent record in cardbox_cardcontents table.
+ *
+ * @global obj $DB
+ * @param int $cardid
+ * @param int $cardside
+ * @param int $contenttype
+ * @param string $name
+ * @return int
+ */
 function cardbox_update_cardcontent($cardid, $cardside, $contenttype, $name) {
 
     global $DB;
@@ -445,6 +454,12 @@ function cardbox_card_approved($cardid) {
     }
 }
 
+/**
+ * This function returns the number of cards in the cardbox.
+ *
+ * @param $cardboxid
+ * @return array
+ */
 function cardbox_get_absolute_cardcounts_per_deck($cardboxid) {
     global $DB;
     $cardsperdeck = $DB->get_records_sql(
@@ -461,7 +476,12 @@ function cardbox_get_absolute_cardcounts_per_deck($cardboxid) {
     }
     return $cardsperdeck;
 }
-
+/**
+ * This function returns the average number of cards in the cardbox.
+ *
+ * @param $cardboxid
+ * @return array
+ */
 function cardbox_get_average_cardcounts_per_deck($cardboxid) {
     global $DB;
     $absolutes = cardbox_get_absolute_cardcounts_per_deck($cardboxid);
@@ -653,7 +673,12 @@ function cardbox_send_change_notification($cmid, $cardbox, $cardid) {
     }
 
 }
-
+/**
+ * This function sends system and/or email notifications to
+ * inform students that a new card was added.
+ *
+ * @param type $cardbox
+ */
 function cardbox_import_cards(\csv_import_reader $cir, array $columns, int $cardboxid) {
     global $DB, $USER;
     $topiccache = [];
@@ -744,7 +769,13 @@ function cardbox_import_cards(\csv_import_reader $cir, array $columns, int $card
     }
     return $errorlines;
 }
-
+/**
+ * This function validates the columns of the uploaded CSV file.
+ *
+ * @param array $filecolumns
+ * @param int $descriptiontype
+ * @return array
+ */
 function cardbox_import_validate_columns(array $filecolumns, int $descriptiontype) {
     $errors = [];
     $processed = [];
@@ -798,7 +829,13 @@ function cardbox_import_validate_columns(array $filecolumns, int $descriptiontyp
     }
     return [$errors];
 }
-
+/**
+ * This function validates the rows of the uploaded CSV file.
+ *
+ * @param int $atleastoneanswer
+ * @param array $rowcols
+ * @return array
+ */
 function cardbox_import_validate_row(int $atleastoneanswer, array $rowcols) {
     $matches  = preg_grep ('/^ans[0-9]*$/', array_keys($rowcols));
     $errors = array();
@@ -817,7 +854,13 @@ function cardbox_import_validate_row(int $atleastoneanswer, array $rowcols) {
     }
     return $errors;
 }
-
+/**
+ * This function validates the uploaded CSV file.
+ *
+ * @param array $filecolumns
+ * @param int $descriptiontype
+ * @return array
+ */
 function cardbox_string_starts_with($fullvalue, $searchvalue) {
     return substr_compare($fullvalue, $searchvalue, 0, strlen($searchvalue)) === 0;
 }

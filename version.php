@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Version details
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes

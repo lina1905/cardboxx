@@ -111,5 +111,4 @@ class remind extends \core\task\scheduled_task {
     public function get_name(): string {
         return get_string('send_practice_reminders', 'cardbox');
     }
-
 }

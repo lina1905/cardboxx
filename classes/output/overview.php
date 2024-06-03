@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the overview page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -29,17 +31,42 @@ defined('MOODLE_INTERNAL') || die();
  * @author ah105090
  */
 class cardbox_overview implements \renderable, \templatable {
-
+    /**
+     * @var int The topic ID.
+     */
     private $topicid;
+
+    /**
+     * @var int The deck ID.
+     */
     private $deckid;
+
+    /**
+     * @var string The sort order.
+     */
     private $sort;
+
+    /**
+     * @var string The description.
+     */
     private $desc;
+
+    /**
+     * @var array The topics.
+     */
     private $topics = array();
+
+    /**
+     * @var array The cards.
+     */
     private $cards = array();
+
+    /**
+     * @var array The decks.
+     */
     private $decks = array();
 
-    public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $usedforemail = false,  $sort, $deck) {
-
+    public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $deck, $sort, $usedforemail = false) {
         require_once('card.php');
 
         global $DB, $PAGE;

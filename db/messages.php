@@ -33,7 +33,7 @@ $messageproviders = array (
         'defaults' => array(
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        )
+        ),
     ),
 
     'changenotification' => array (
@@ -41,6 +41,6 @@ $messageproviders = array (
         'defaults' => array(
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        )
+        ),
     ),
 );

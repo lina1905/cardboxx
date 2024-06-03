@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the start page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -29,8 +31,19 @@ defined('MOODLE_INTERNAL') || die();
  */
 class cardbox_start implements \renderable, \templatable {
 
+    /**
+     * @var array The topics for the cardbox.
+     */
     private $topics;
+
+    /**
+     * @var bool The autocorrection option status.
+     */
     private $autocorrectionoption = false;
+
+    /**
+     * @var array The amount of cards to study.
+     */
     private $amountcards;
 
     public function __construct($autocorrection, $cardboxid) {

@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This file keeps track of upgrades to the cardbox plugin
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -23,7 +25,12 @@
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
-
+/**
+ * This function does anything necessary to upgrade
+ *
+ * @param $oldversion
+ * @return true
+ */
 function xmldb_cardbox_upgrade($oldversion) {
 
     global $CFG, $DB;

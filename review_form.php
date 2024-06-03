@@ -28,7 +28,9 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once("$CFG->libdir/formslib.php"); // moodleform is defined in formslib.php
 require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
-
+/**
+ * Form for adding/editing a flashcard to a cardbox.
+ */
 class mod_cardbox_review_form extends moodleform {
     public function definition($action = null, $preselected = null) {
         global $CFG, $DB, $USER, $COURSE;
@@ -61,7 +63,7 @@ class mod_cardbox_review_form extends moodleform {
                 [
                     'cardid' => $cardid,
                     'areamain' => CARD_MAIN_INFORMATION,
-                    'areasugg' => CARD_ANSWERSUGGESTION_INFORMATION
+                    'areasugg' => CARD_ANSWERSUGGESTION_INFORMATION,
                 ]
             );
 

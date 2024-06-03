@@ -33,7 +33,7 @@ $functions = array(
         'description'  => 'Delete topic in a cardbox instance.',
         'type'         => 'write',
         'ajax'         => true,
-        'capabilities' => 'mod/cardbox:edittopics'
+        'capabilities' => 'mod/cardbox:edittopics',
     ),
     'mod_cardbox_renametopic' => array(
         'classname'    => 'mod_cardbox_external',
@@ -42,6 +42,6 @@ $functions = array(
         'description'  => 'Rename topic in a cardbox instance.',
         'type'         => 'write',
         'ajax'         => true,
-        'capabilities' => 'mod/cardbox:edittopics'
+        'capabilities' => 'mod/cardbox:edittopics',
     ),
 );

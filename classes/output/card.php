@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This file contains the cardbox-card class which implements renderable and templatable interfaces.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -23,22 +25,70 @@
 
 defined('MOODLE_INTERNAL') || die();
 define ('MASTERED_POSITION', 6);
-class cardbox_card implements \renderable, \templatable {
 
+/**
+ * Class cardbox_card
+ */
+class cardbox_card implements \renderable, \templatable {
+    /**
+     * @var int $cmid
+     */
     private $cmid;
+    /**
+     * @var int $cardid
+     */
     private $cardid;
+    /**
+     * @var string $topic
+     */
     private $topic;
+    /**
+     * @var array $question
+     */
     private $question = array('images' => array(), 'texts' => array());
+    /**
+     * @var array $answer
+     */
     private $answer = array('images' => array(), 'texts' => array());
+    /**
+     * @var bool $multipleanswers
+     */
     private $multipleanswers = false;
+    /**
+     * @var bool $allowedtoedit
+     */
     private $allowedtoedit = false;
+    /**
+     * @var string $questioncontext
+     */
     private $questioncontext = null;
+    /**
+     * @var string $answercontext
+     */
     private $answercontext = null;
+    /**
+     * @var bool $seestatus
+     */
     private $seestatus = false;
+    /**
+     * @var int $status
+     */
     private $status;
+    /**
+     * @var int $howmanyanswersnecessary
+     */
     private $howmanyanswersnecessary;
+    /**
+     * @var int $decktext
+     */
     private $decktext;
+    /**
+     * @var int $repsnummer
+     */
     private $repsnummer;
+    /**
+     * @var int $acimgurl
+     */
     private $acimgurl;
     public function __construct($cardid, $context, $cmid, $allowedtoedit, $seestatus) {
 
@@ -234,7 +284,6 @@ class cardbox_card implements \renderable, \templatable {
     public function cardbox_getcarddecknumber() {
         return $this->deck;
     }
-    
     public function export_for_template(\renderer_base $output) {
 
         global $OUTPUT;

@@ -15,12 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the lib page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+/**
+ * This function is called when the module is viewed. It prints the main content.
+ *
+ * @param stdClass $cm Course module object
+ * @return void
+ */
 function cardbox_supports($feature) {
     switch($feature) {
         case FEATURE_MOD_INTRO:

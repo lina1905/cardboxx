@@ -29,6 +29,9 @@ define ('AUTOCORRECTION_NOT_ALLOWED_FOR_ENTIRE_CARDBOX', 0);
 require_once("$CFG->libdir/formslib.php");
 require_once('locallib.php');
 
+/**
+ * Class mod_cardbox_card_form
+ */
 class mod_cardbox_card_form extends moodleform {
 
     /**
@@ -156,7 +159,7 @@ class mod_cardbox_card_form extends moodleform {
         if ($necessaryanswerslocked === "0") {
             $aoptions = [
                 '0' => get_string('necessaryanswers_all', 'cardbox'),
-                '1' => get_string('necessaryanswers_one', 'cardbox')
+                '1' => get_string('necessaryanswers_one', 'cardbox'),
             ];
             $select = $mform->addElement('select', 'answers', get_string('necessaryanswers_card', 'cardbox'), $aoptions);
             $necessaryanswers = $DB->get_field('cardbox', 'necessaryanswers',

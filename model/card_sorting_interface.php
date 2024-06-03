@@ -21,9 +21,16 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-
+/**
+ * Interface for card sorting
+ */
 interface cardbox_card_sorting_interface {
-
+    /**
+     * Sort cards for practice
+     *
+     * @param array $cardselection
+     * @return array
+     */
     public function cardbox_sort_cards_for_practice($cardselection);
 
 }

@@ -28,9 +28,11 @@ require_once($CFG->libdir.'/csvlib.class.php');
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/user/editlib.php');
 require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
-
+/**
+ * Form for mass import preview
+ */
 class massimportpreview_form extends \moodleform {
-    public function definition ($action = null, $preselected = null) {
+    public function definition($action = null, $preselected = null) {
         $mform = $this->_form;
         $data = $this->_customdata;
 

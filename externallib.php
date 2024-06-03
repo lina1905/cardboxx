@@ -41,7 +41,7 @@ class mod_cardbox_external extends external_api {
     public static function deletetopic_parameters() {
         return new external_function_parameters(
             array(
-                "topicid" => new external_value(PARAM_INT, "topicid")
+                "topicid" => new external_value(PARAM_INT, "topicid"),
             )
         );
     }
@@ -71,7 +71,7 @@ class mod_cardbox_external extends external_api {
         return new external_function_parameters(
             array(
                 "topicid" => new external_value(PARAM_INT, "topicid"),
-                "newtopicname" => new external_value(PARAM_TEXT, "newtopicname")
+                "newtopicname" => new external_value(PARAM_TEXT, "newtopicname"),
             )
         );
     }

@@ -27,11 +27,25 @@
  */
 defined('MOODLE_INTERNAL') || die();
 require_once('card_selection_interface.php');
-
+/**
+ * This class implements the card selection algorithm for the cardbox module.
+ * It is based on the Leitner cardbox system.
+ */
 class cardbox_card_selection_algorithm implements cardbox_card_selection_interface {
 
+    /**
+     * @var string The priority topic for the cardbox.
+     */
     private static $prioritytopic;
+
+    /**
+     * @var array The spacing for the cardbox.
+     */
     private $spacing;
+
+    /**
+     * @var bool Flag indicating if all cards should be practiced.
+     */
     private $practiceall;
 
     public function __construct($topicid = null, $practiceall = true) {

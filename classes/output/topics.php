@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the topics page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -25,12 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  * Description of statistics
- *
  */
 class cardbox_topics implements \renderable, \templatable {
 
+    /**
+     * @var array The topics for the cardbox.
+     */
     private $topics = array();
-
     public function __construct($list, $offset, /* $context, */ $cmid, $cardboxid) {
 
         global $DB, $PAGE;

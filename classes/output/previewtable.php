@@ -14,19 +14,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace mod_cardbox\output;
-
-/*
+/**
+ * This class is responsible for rendering the preview table.
+ *
  * @package   mod_cardbox
  * @copyright 2021 ITCenter RWTH Aachen (see README.md)
  * @author    Amrita Deb
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+namespace mod_cardbox\output;
 defined('MOODLE_INTERNAL') || die();
-
+/**
+ * Class previewtable
+ */
 class previewtable extends \html_table {
-    /** @var \csv_import_reader  */
+    /**
+     * @var \csv_import_reader
+     */
     protected $cir;
     /** @var array */
     protected $filecolumns;

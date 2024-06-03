@@ -24,12 +24,38 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class cardbox_cardboxmodel {
+    /**
+     * @var int The ID of the cardbox.
+     */
     private $id;
-    private $flashcards;
-    private $boxes = array(0 => array(), 1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array(), 6 => array());
-    private $selectionalgorithm;
-    private $sortingalgorithm;
 
+    /**
+     * @var array The flashcards in the cardbox.
+     */
+    private $flashcards;
+
+    /**
+     * @var array The boxes in the cardbox, each containing an array of cards.
+     */
+    private $boxes = array(0 => array(), 1 => array(), 2 => array(), 3 => array(), 4 => array(), 5 => array(), 6 => array());
+
+    /**
+     * @var cardbox_card_selection_interface The algorithm used for card selection.
+     */
+    private $selectionalgorithm;
+
+    /**
+     * @var cardbox_card_sorting_interface The algorithm used for card sorting.
+     */
+    private $sortingalgorithm;
+    /**
+     * Constructor.
+     *
+     * @param int $cardboxid
+     * @param cardbox_card_selection_interface $selectionalgorithm
+     * @param cardbox_card_sorting_interface $sortingalgorithm
+     * @param int $topic
+     */
     public function __construct($cardboxid, cardbox_card_selection_interface $selectionalgorithm = null, cardbox_card_sorting_interface $sortingalgorithm = null, $topic=-1) {
 
         $this->id = $cardboxid;
@@ -56,7 +82,11 @@ class cardbox_cardboxmodel {
             return count($this->flashcards);
         }
     }
-
+    /**
+     * Function returns the number of cards in the user's cardbox that are due for practice.
+     *
+     * @return int
+     */
     public function cardbox_count_due_cards() {
         $due = 0;
         foreach ($this->flashcards as $card) {
@@ -66,7 +96,11 @@ class cardbox_cardboxmodel {
         }
         return $due;
     }
-
+    /**
+     * Function returns the number of cards in the user's cardbox that are not due for practice.
+     *
+     * @return int
+     */
     public function cardbox_count_mastered_cards() {
         return count($this->boxes[6]);
     }

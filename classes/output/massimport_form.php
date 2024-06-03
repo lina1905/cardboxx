@@ -27,9 +27,11 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir.'/csvlib.class.php');
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/user/editlib.php');
-
+/**
+ * Form for mass import of cards
+ */
 class massimport_form extends \moodleform {
-    public function definition () {
+    public function definition() {
         $mform = $this->_form;
         $cbxdata = $this->_customdata;
 

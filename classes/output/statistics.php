@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the startistcs page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -29,23 +31,76 @@ defined('MOODLE_INTERNAL') || die();
  */
 class cardbox_statistics implements \renderable, \templatable {
 
+    /**
+     * @var bool Flag indicating if the user is a manager.
+     */
     private $ismanager;
+
+    /**
+     * @var string Information about the enrolled students threshold.
+     */
     private $infoenrolledstudentsthreshold;
 
     // Student stats.
+    /**
+     * @var array The dates for the statistics.
+     */
     private $dates;
+
+    /**
+     * @var array The performances for the statistics.
+     */
     private $performances;
+
+    /**
+     * @var bool Flag indicating if the average progress should be displayed.
+     */
     private $displayaverageprogress;
 
     // Manager stats.
+    /**
+     * @var bool Flag indicating if the weekly stats should be displayed.
+     */
     private $displayweeklystats;
+
+    /**
+     * @var array The weeks for the statistics.
+     */
     private $weeks;
+
+    /**
+     * @var stdClass The tooltips for the statistics.
+     */
     private $tooltips;
+
+    /**
+     * @var int The minimum number of cards for the statistics.
+     */
     private $numberofcardsmin;
+
+    /**
+     * @var int The maximum number of cards for the statistics.
+     */
     private $numberofcardsmax;
+
+    /**
+     * @var int The average number of cards for the statistics.
+     */
     private $numberofcardsavg;
+
+    /**
+     * @var int The minimum duration for the statistics.
+     */
     private $durationmin;
+
+    /**
+     * @var int The maximum duration for the statistics.
+     */
     private $durationmax;
+
+    /**
+     * @var int The average duration of session for the statistics.
+     */
     private $durationofsessionavg;
 
     public function __construct($cardboxid, $ismanager) {

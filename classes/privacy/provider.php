@@ -27,13 +27,16 @@ namespace mod_cardbox\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-use \core_privacy\local\request\approved_contextlist;
-use \core_privacy\local\request\deletion_criteria;
-use \core_privacy\local\request\writer;
-use \core_privacy\local\request\helper as request_helper;
-use \core_privacy\local\metadata\collection;
-use \core_privacy\local\request\transform;
+use core_privacy\local\request\approved_contextlist;
+use core_privacy\local\request\deletion_criteria;
+use core_privacy\local\request\writer;
+use core_privacy\local\request\helper as request_helper;
+use core_privacy\local\metadata\collection;
+use core_privacy\local\request\transform;
 
+/**
+ * Privacy class for cardbox implementing null_provider.
+ */
 class provider implements \core_privacy\local\metadata\provider, \core_privacy\local\request\plugin\provider {
     /**
      * This function implements the \core_privacy\local\metadata\provider interface.
@@ -198,7 +201,7 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                     'cardside' => $query1card->cardside,
                     'contenttype' => $query1card->contenttype,
                     'infotype' => $query1card->infotype,
-                    'content' => $query1card->content
+                    'content' => $query1card->content,
                 ];
             }
 
@@ -244,7 +247,7 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                     'cardside' => $query2card->cardside,
                     'contenttype' => $query2card->contenttype,
                     'infotype' => $query2card->infotype,
-                    'content' => $query2card->content
+                    'content' => $query2card->content,
                 ];
             }
 
@@ -259,7 +262,7 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                 $userprogress[$key] = (object) [
                     'deck' => $query3card->cardposition,
                     'lastpracticed' => transform::datetime($query3card->lastpracticed),
-                    'repetitions' => $query3card->repetitions
+                    'repetitions' => $query3card->repetitions,
                 ];
             }
 
@@ -277,7 +280,7 @@ class provider implements \core_privacy\local\metadata\provider, \core_privacy\l
                     'timeofpractice' => transform::datetime($query4card->timeofpractice),
                     'numberofcards' => $query4card->numberofcards,
                     'duration' => $query4card->duration,
-                    'percentcorrect' => $query4card->percentcorrect
+                    'percentcorrect' => $query4card->percentcorrect,
                 ];
             }
 

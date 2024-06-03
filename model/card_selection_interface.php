@@ -23,8 +23,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Interface for card selection
+ */
 interface cardbox_card_selection_interface {
-
+    /**
+     * Select cards for practice
+     *
+     * @param array $cards
+     * @return array
+     */
     public function cardbox_select_cards_for_practice($cards = null);
 
 }

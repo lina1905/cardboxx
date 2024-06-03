@@ -961,7 +961,7 @@ if ($action === 'overview') {
     $collection = new cardbox_cardcollection($cardbox->id, $topic, true, $deck);
     $list = $collection->cardbox_get_card_list();
 
-    //Karten sortieren
+    // Karten sortieren
     if ($sort === 0) {
         sort($list);
     } else if ($sort === 1) {
@@ -984,7 +984,7 @@ if ($action === 'overview') {
         }
     }
 
-    //filter cards deckwise 
+    // filter cards deckwise
 
     if ($deck != -1) {
         if (has_capability('mod/cardbox:approvecard', $context)) {

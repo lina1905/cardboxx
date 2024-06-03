@@ -22,7 +22,9 @@
  */
 defined('MOODLE_INTERNAL') || die();
 require_once('card_sorting_interface.php');
-
+/**
+ * Class cardbox_card_sorting_algorithm
+ */
 class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
 
     /**

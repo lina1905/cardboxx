@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Renderer for cardbox module.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -24,7 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once('../../config.php');
-
+/**
+ * Renderer for cardbox module.
+ */
 class mod_cardbox_renderer extends plugin_renderer_base {
 
     /**

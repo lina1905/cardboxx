@@ -33,6 +33,9 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/cardbox/backup/moodle2/restore_cardbox_stepslib.php'); // Because it exists (must).
 
+/**
+ * Restore task for the cardbox activity module
+ */
 class restore_cardbox_activity_task extends restore_activity_task {
 
     /**

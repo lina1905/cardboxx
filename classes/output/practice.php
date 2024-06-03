@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * This is the practice page.
+ *
  * @package   mod_cardbox
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
@@ -27,23 +29,92 @@ define ('QUESTION_AUTOCHECK', 2);
 define ('ANSWER_SELFCHECK', 3);
 define ('ANSWER_AUTOCHECK', 4);
 define('SUGGEST_ANSWER', 5);
+/**
+ * Class cardbox_practice
+ *
+ * This class represents the practice page in the cardbox module. It implements the renderable and templatable interfaces
+ * which allows it to be used with Moodle's templating engine.
+ */
 class cardbox_practice implements \renderable, \templatable {
 
+    /**
+     * @var string The topic of the card.
+     */
     private $topic;
+
+    /**
+     * @var array The question content of the card.
+     */
     private $question = array('images' => array(), 'sounds' => array(), 'texts' => array());
+
+    /**
+     * @var array The answer content of the card.
+     */
     private $answer = array('images' => array(), 'sounds' => array(), 'texts' => array());
+
+    /**
+     * @var int The case number.
+     */
     private $case;
-    private $case1 = false; // Question_selfcheck.
-    private $case2 = false; // Question_autocheck.
-    private $case3 = false; // Answer_selfcheck.
-    private $case4 = false; // Answer_autocheck.
-    private $case5 = false; // Suggest_answer.
+
+    /**
+     * @var bool Flag for Question_selfcheck case.
+     */
+    private $case1 = false;
+
+    /**
+     * @var bool Flag for Question_autocheck case.
+     */
+    private $case2 = false;
+
+    /**
+     * @var bool Flag for Answer_selfcheck case.
+     */
+    private $case3 = false;
+
+    /**
+     * @var bool Flag for Answer_autocheck case.
+     */
+    private $case4 = false;
+
+    /**
+     * @var bool Flag for Suggest_answer case.
+     */
+    private $case5 = false;
+
+    /**
+     * @var array The input fields for the card.
+     */
     private $inputfields = array();
+
+    /**
+     * @var string|null The question context.
+     */
     private $questioncontext = null;
+
+    /**
+     * @var string|null The answer context.
+     */
     private $answercontext = null;
+
+    /**
+     * @var int The number of necessary answers.
+     */
     private $necessaryanswers = 0;
+
+    /**
+     * @var int Flag for case sensitivity.
+     */
     private $casesensitive = 0;
+
+    /**
+     * @var int The count of answers.
+     */
     private $answercount = 0;
+
+    /**
+     * @var int The number of cards left.
+     */
     private $cardsleft;
 
     /**
