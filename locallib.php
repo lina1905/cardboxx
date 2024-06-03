@@ -40,7 +40,8 @@ define ('SHORT_DESCRIPTION', 0);
 /**
  * Function creates a new record in cardbox_topics table.
  *
- * @param string $topicname
+ * @param string $topicname The name of the topic
+ * @param int $cardboxid The id of the cardbox
  * @return int id of the new topic
  */
 function cardbox_save_new_topic($topicname, $cardboxid) {
@@ -57,9 +58,9 @@ function cardbox_save_new_topic($topicname, $cardboxid) {
  * Function returns an array of options for the 'select/create a topic' dropdown
  * in the card_form.
  *
- * @param type $cardboxid
- * @param type $extra
- * @return type
+ * @param int $cardboxid The id of the cardbox
+ * @param bool $extra The extra status
+ * @return array The options for the dropdown
  */
 function cardbox_get_topics($cardboxid, $extra = false) {
 
@@ -80,9 +81,13 @@ function cardbox_get_topics($cardboxid, $extra = false) {
 /**
  * Function creates a new record in cardbox_cards table.
  *
- * @param int $cardboxid
- * @param string $topic
- * @return int
+ * @param int $cardboxid The id of the cardbox
+ * @param string $context The context of the card
+ * @param string|null $submitbutton The submit button status
+ * @param int|null $topicid The id of the topic
+ * @param int $necessaryanswers The necessary answers count
+ * @param int $disableautocorrect The disable autocorrect status
+ * @return int The id of the new card
  */
 function cardbox_save_new_card($cardboxid, $context, $submitbutton = null, $topicid = null, $necessaryanswers = 0,
                                $disableautocorrect = 0) {
@@ -113,12 +118,12 @@ function cardbox_save_new_card($cardboxid, $context, $submitbutton = null, $topi
 /**
  * Function creates a new record in cardbox_cardcontents table.
  *
- * @param int $cardid
- * @param int $cardside
- * @param int $contenttype
- * @param int $area
- * @param string $name
- * @return int
+ * @param int $cardid The id of the card
+ * @param int $cardside The side of the card
+ * @param int $contenttype The type of the content
+ * @param string $name The name of the content
+ * @param int $area The area of the content
+ * @return int The id of the new card content
  */
 function cardbox_save_new_cardcontent($cardid, $cardside, $contenttype, $name, $area = 0) {
 
@@ -157,8 +162,12 @@ function cardbox_update_cardcontent($cardid, $cardside, $contenttype, $name) {
 /**
  * Function updates a card that was edited via the card_form.
  *
- * @param int $cardid
- * @param int $topicid
+ * @param int $cardid The id of the card
+ * @param int $topicid The id of the topic
+ * @param object $context The context of the card
+ * @param int $necessaryanswers The necessary answers count
+ * @param int $disableautocorrect The disable autocorrect status
+ * @param string|null $submitbutton The submit button status
  * @return bool whether or not the update was successful
  */
 function cardbox_edit_card($cardid, $topicid, $context, $necessaryanswers, $disableautocorrect, $submitbutton = null) {
@@ -230,7 +239,9 @@ function cardbox_delete_card($cardid) {
  * This function checks whether there are new cards available in the DB
  * and if so, adds them to the users virtual cardbox system.
  *
- * @return type
+ * @param int $cardboxid The id of the cardbox
+ * @param int $topic The topic of the card
+ * @return bool|null The success status of adding new cards
  */
 function cardbox_add_new_cards($cardboxid, $topic) {
 
@@ -267,11 +278,12 @@ function cardbox_add_new_cards($cardboxid, $topic) {
 
 }
 /**
+ * Function returns the download URL for the specified context and item id.
  *
- * @param type $context
- * @param type $itemid
- * @param type $filename
- * @return type
+ * @param object $context The context of the card
+ * @param int $itemid The id of the item
+ * @param string|null $filename The name of the file (optional)
+ * @return string The download URL
  */
 function cardbox_get_download_url($context, $itemid, $filename = null) {
 
@@ -340,10 +352,10 @@ function cardbox_get_questiontext($cardid) {
 }
 
 /**
- * Function returns 1...n answer items belonging to the specified card.
+ * Function returns an array of answer items belonging to the specified card.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return array The array of answer items
  */
 function cardbox_get_answers($cardid) {
     global $DB;
@@ -356,8 +368,8 @@ function cardbox_get_answers($cardid) {
 /**
  * Function returns 1...n answer items belonging to the specified card.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return array The array of not approved answer items
  */
 function cardbox_get_notapproved_answers($cardid) {
     global $DB;
@@ -370,8 +382,8 @@ function cardbox_get_notapproved_answers($cardid) {
 /**
  * Function returns the context belonging to the specified question if set.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return string The context of the question
  */
 function cardbox_get_questioncontext($cardid) {
 
@@ -388,8 +400,8 @@ function cardbox_get_questioncontext($cardid) {
 /**
  * Function returns the context belonging to the specified answer if set.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return string The context of the answer
  */
 function cardbox_get_answercontext($cardid) {
 
@@ -406,8 +418,9 @@ function cardbox_get_answercontext($cardid) {
 /**
  * Function returns the status belonging to the specified card.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @param int $userid The id of the user
+ * @return string The status of the card
  */
 function cardbox_get_status($cardid, $userid) {
 
@@ -427,8 +440,8 @@ function cardbox_get_status($cardid, $userid) {
  * Function returns true if the specified card card is approved.
  *
 
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return bool The approval status of the card
  */
 function cardbox_card_approved($cardid) {
 
@@ -444,8 +457,8 @@ function cardbox_card_approved($cardid) {
 /**
  * This function returns the number of cards in the cardbox.
  *
- * @param $cardboxid
- * @return array
+ * @param int $cardboxid The id of the cardbox
+ * @return array The number of cards in each deck
  */
 function cardbox_get_absolute_cardcounts_per_deck($cardboxid) {
     global $DB;
@@ -466,8 +479,8 @@ function cardbox_get_absolute_cardcounts_per_deck($cardboxid) {
 /**
  * This function returns the average number of cards in the cardbox.
  *
- * @param $cardboxid
- * @return array
+ * @param int $cardboxid The id of the cardbox
+ * @return array The average number of cards in each deck
  */
 function cardbox_get_average_cardcounts_per_deck($cardboxid) {
     global $DB;
@@ -487,8 +500,8 @@ function cardbox_get_average_cardcounts_per_deck($cardboxid) {
 /**
  * Function returns 0...1 image item ids belonging to the specified card.
  *
- * @param type $cardid
- * @return type
+ * @param int $cardid The id of the card
+ * @return int The id of the image item
  */
 function cardbox_get_image_itemid($cardid) {
 
@@ -501,8 +514,8 @@ function cardbox_get_image_itemid($cardid) {
 /**
  * Function returns the imagedescription belonging to the specified image if set.
  *
- * @param type $cardid
- * @return string or array
+ * @param int $cardid The id of the card
+ * @return string The description of the image
  */
 function cardbox_get_imagedescription($cardid) {
 
@@ -520,8 +533,8 @@ function cardbox_get_imagedescription($cardid) {
  * Function converts the timestamp into a human readable format (D. M Y),
  * taking the user's timezone into account.
  *
- * @param type $timestamp
- * @return type
+ * @param int $timestamp The timestamp to convert
+ * @return string The converted date
  */
 function cardbox_get_user_date($timestamp) {
     return userdate($timestamp, get_string('strftimedate', 'cardbox'), $timezone = 99, $fixday = true, $fixhour = true);
@@ -532,8 +545,8 @@ function cardbox_get_user_date($timestamp) {
  * Function converts the timestamp into a human readable format (D. M),
  * taking the user's timezone into account.
  *
- * @param type $timestamp
- * @return type
+ * @param int $timestamp The timestamp to convert
+ * @return string The converted date
  */
 function cardbox_get_user_date_short($timestamp) {
     return userdate($timestamp, get_string('strftimedateshortmonthabbr', 'cardbox'),
@@ -541,9 +554,11 @@ function cardbox_get_user_date_short($timestamp) {
 }
 
 /**
+ * Function converts the timestamp into a human readable format,
+ * taking the user's timezone into account.
  *
- * @param type $timestamp
- * @return string
+ * @param int $timestamp The timestamp to convert
+ * @return string The converted date and time
  */
 function cardbox_get_user_datetime_shortformat($timestamp) {
     $shortformat = get_string('strftimedatetime', 'cardbox'); // Format strings in moodle\lang\en\langconfig.php.
@@ -552,9 +567,10 @@ function cardbox_get_user_datetime_shortformat($timestamp) {
     return $userdatetime;
 }
 /**
+ * This function checks whether a card is due.
  *
- * @param type $carddata
- * @return boolean
+ * @param object $carddata The data of the card
+ * @return bool Whether the card is due or not
  */
 function cardbox_is_card_due($carddata) {
 
@@ -584,10 +600,11 @@ function cardbox_is_card_due($carddata) {
     }
 }
 /**
+ * This function updates the progress of a card.
  *
- * @param type $dataobject
- * @param type $iscorrect
- * @return type
+ * @param object $dataobject The data object of the card
+ * @param bool $iscorrect Whether the card was answered correctly or not
+ * @return bool The success status of the update
  */
 function cardbox_update_card_progress($dataobject, $iscorrect) {
 
@@ -620,7 +637,9 @@ function cardbox_update_card_progress($dataobject, $iscorrect) {
  * This function sends system and/or email notifications to
  * inform students that an already approved card was edited.
  *
- * @param type $cardbox
+ * @param int $cmid The course module id
+ * @param object $cardbox The cardbox object
+ * @param int $cardid The id of the card
  */
 function cardbox_send_change_notification($cmid, $cardbox, $cardid) {
 
@@ -666,10 +685,12 @@ function cardbox_send_change_notification($cmid, $cardbox, $cardid) {
 
 }
 /**
- * This function sends system and/or email notifications to
- * inform students that a new card was added.
+ * This function imports cards from a CSV file.
  *
- * @param type $cardbox
+ * @param \csv_import_reader $cir The CSV import reader
+ * @param array $columns The columns of the CSV file
+ * @param int $cardboxid The id of the cardbox
+ * @return array The lines with errors
  */
 function cardbox_import_cards(\csv_import_reader $cir, array $columns, int $cardboxid) {
     global $DB, $USER;
@@ -850,11 +871,11 @@ function cardbox_import_validate_row(int $atleastoneanswer, array $rowcols) {
     return $errors;
 }
 /**
- * This function validates the uploaded CSV file.
+ * This function checks if a string starts with a specific value.
  *
- * @param array $filecolumns
- * @param int $descriptiontype
- * @return array
+ * @param string $fullvalue The full string
+ * @param string $searchvalue The value to search for
+ * @return bool Whether the string starts with the search value or not
  */
 function cardbox_string_starts_with($fullvalue, $searchvalue) {
     return substr_compare($fullvalue, $searchvalue, 0, strlen($searchvalue)) === 0;

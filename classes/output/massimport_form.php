@@ -33,6 +33,8 @@ require_once($CFG->dirroot . '/user/editlib.php');
 class massimport_form extends \moodleform {
     /**
      * Form definition
+     *
+     * This method is used to define the Moodle form. It doesn't require any parameters.
      */
     public function definition() {
         $mform = $this->_form;

@@ -35,7 +35,9 @@ class mod_cardbox_review_form extends moodleform {
     /**
      * Form definition.
      *
-     * @param moodle_url $action URL to submit the form to.
+     * @param moodle_url|null $action URL to submit the form to (optional)
+     * @param mixed|null $customdata Custom data for the form (optional)
+     * @param mixed|null $preselected Preselected form values (optional)
      */
     public function definition($action = null, $preselected = null) {
         global $CFG, $DB, $USER, $COURSE;

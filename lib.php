@@ -23,10 +23,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 /**
- * This function is called when the module is viewed. It prints the main content.
+ * This function checks if the module supports a given feature.
  *
- * @param stdClass $cm Course module object
- * @return void
+ * @param string $feature The feature to check
+ * @return bool|null True if the feature is supported, false if not, null if the feature is unknown
  */
 function cardbox_supports($feature) {
     switch($feature) {
@@ -50,7 +50,9 @@ function cardbox_supports($feature) {
  * This is only called once when the module instance is first created, so this is where you
  * should place the logic to add the activity.
  *
- * @param type $cardbox
+ * @param stdClass $data The data from the form
+ * @param stdClass $mform The form instance
+ * @return int The instance id of the new cardbox instance
  */
 function cardbox_add_instance($data, $mform) {
     global $CFG, $DB;
@@ -76,7 +78,8 @@ function cardbox_add_instance($data, $mform) {
  * are editing is passed as the attribute instance and can be used to edit any existing values
  * in the database for that instance.
  *
- * @param type $cardbox
+ * @param stdClass $cardbox The data from the form
+ * @return bool True if the instance was updated successfully
  */
 function cardbox_update_instance($cardbox) {
 

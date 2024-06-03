@@ -37,8 +37,9 @@ class mod_cardbox_card_form extends moodleform {
     /**
      * This function is called by the constructor.
      *
-     * @param type $action
-     * @param array $preselected This param is saved by the constructor in $this->_customdata.
+     * @param string|null $action The action to perform, default is null
+     * @param array|null $preselected The preselected data, default is null
+     * @param int $cardid The id of the card, default is 0
      */
     public function definition($action = null, $preselected = null, $cardid=0) {
 
@@ -202,9 +203,9 @@ class mod_cardbox_card_form extends moodleform {
     /**
      * This function allows managers to save and accept a card in one action.
      *
-     * @param type $cancel
-     * @param type $submitlabel
-     * @param type $submit2label
+     * @param bool $cancel Whether to cancel the action, default is true
+     * @param string|null $submitlabel The label for the submit button, default is null
+     * @param string|null $submit2label The label for the second submit button, default is null
      */
     public function add_action_buttons_for_managers($cancel=true, $submitlabel=null, $submit2label=null) {
         if (is_null($submitlabel)) {
@@ -242,9 +243,9 @@ class mod_cardbox_card_form extends moodleform {
      * This function checks whether the user entered text, an image and/or an audio file
      * for a question.
      *
-     * @param type $data
-     * @param type $files
-     * @return type
+     * @param array $data The data to validate
+     * @param array $files The files to validate
+     * @return array The validation errors
      */
     public function validation($data, $files) {
 

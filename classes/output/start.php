@@ -49,7 +49,8 @@ class cardbox_start implements \renderable, \templatable {
     /**
      * This function prepares the topics and the amount of cards to study.
      *
-     * @var array The topics for the cardbox.
+     * @param bool $autocorrection The autocorrection status
+     * @param int $cardboxid The id of the cardbox
      */
     public function __construct($autocorrection, $cardboxid) {
 
@@ -68,6 +69,7 @@ class cardbox_start implements \renderable, \templatable {
      * The user can then choose to prioritise one of the topics in the
      * selection of cards for a practice session.
      *
+     * @param int $cardboxid The id of the cardbox
      */
     public function cardbox_prepare_topics_to_study($cardboxid) {
 
@@ -109,8 +111,8 @@ class cardbox_start implements \renderable, \templatable {
      * Function returns an array with data. The keys of the array have matching variables
      * in the template. These are replaced with the array values by the renderer.
      *
-     * @param \renderer_base $output
-     * @return type
+     * @param \renderer_base $output The renderer base instance
+     * @return array The data to be exported for the template
      */
     public function export_for_template(\renderer_base $output) {
 

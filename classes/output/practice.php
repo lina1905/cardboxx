@@ -118,10 +118,13 @@ class cardbox_practice implements \renderable, \templatable {
     private $cardsleft;
 
     /**
-     * Function builds the view of a flashcard during practice.
+     * This function constructs the cardbox_practice object.
      *
-     * @param type $context
-     * @param obj $cardbox
+     * @param int $case The case number
+     * @param \context $context The context object
+     * @param int $cardid The id of the card
+     * @param int $cardsleft The number of cards left
+     * @param bool $disableautocorrect Flag for disabling auto correction
      */
     public function __construct($case, $context, $cardid, $cardsleft, $disableautocorrect) {
         global $DB;
@@ -177,10 +180,9 @@ class cardbox_practice implements \renderable, \templatable {
     /**
      * This function prepares the content of a card for the practice view.
      *
-     * @param $context
-     * @param $cardid
-     * @param $disableautocorrect
-     * @return void
+     * @param \context $context The context object
+     * @param int $cardid The id of the card
+     * @param bool $disableautocorrect Flag for disabling auto correction
      */
     public function cardbox_prepare_cardcontents($context, $cardid, $disableautocorrect) {
 

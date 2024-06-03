@@ -32,8 +32,8 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
      * 1. Cards are shuffled by topic to make them more memorable.
      * 2. New and difficult material is positioned at the beginning and end.
      *
-     * @param type $cardselection
-     * @return type
+     * @param array $cardselection The selection of cards to sort
+     * @return array The sorted cards
      */
     public function cardbox_sort_cards_for_practice($cardselection) {
 
@@ -104,8 +104,9 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
      * This sorting uses the effects of primacy and recency to help students remember
      * difficult and new facts.
      *
-     * @param stdClass object representing a card $a
-     * @param stdClass object representing a card $b
+     * @param stdClass $a Object representing a card
+     * @param stdClass $b Object representing a card
+     * @return int The comparison result
      */
     public static function cardbox_compare_cards_primacy_recency($a, $b) {
 

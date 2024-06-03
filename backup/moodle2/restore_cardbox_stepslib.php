@@ -60,7 +60,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         return $this->prepare_activity_structure($paths);
     }
     /**
-     * Process cardbox element
+     * Process the cardbox element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox($data) {
 
@@ -77,7 +79,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $this->apply_activity_instance($newitemid); // Immediately after inserting "activity" record, call this.
     }
     /**
-     * Process cardbox_topics element
+     * Process the cardbox_topics element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox_topics($data) {
         global $DB;
@@ -91,7 +95,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $this->set_mapping('cardbox_topics', $oldid, $newitemid);
     }
     /**
-     * Process cardbox_cards element
+     * Process the cardbox_cards element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox_cards($data) {
 
@@ -107,7 +113,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
 
     }
     /**
-     * Process cardbox_cardcontents element
+     * Process the cardbox_cardcontents element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox_cardcontents($data) {
 
@@ -123,7 +131,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
 
     }
     /**
-     * Process cardbox_statistics element
+     * Process the cardbox_statistics element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox_statistics($data) {
         global $DB;
@@ -139,7 +149,9 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $this->set_mapping('cardbox_statistics', $oldid, $newitemid);
     }
     /**
-     * Process cardbox_progress element
+     * Process the cardbox_progress element
+     *
+     * @param array $data The data from the XML file
      */
     protected function process_cardbox_progress($data) {
         global $DB;

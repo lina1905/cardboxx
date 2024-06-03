@@ -34,6 +34,9 @@ require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
 class massimportpreview_form extends \moodleform {
     /**
      * Form definition
+     *
+     * @param string|null $action The action to perform, default is null
+     * @param array|null $preselected The preselected data, default is null
      */
     public function definition($action = null, $preselected = null) {
         $mform = $this->_form;

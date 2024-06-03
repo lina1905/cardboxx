@@ -42,10 +42,8 @@ class previewtable extends \html_table {
     /**
      * preview constructor.
      *
-     * @param \csv_import_reader $cir
-     * @param array $filecolumns
-     * @param int $previewrows
-     * @throws \coding_exception
+     * @param \csv_import_reader $cir CSV import reader instance
+     * @param array $filecolumns The columns in the file
      */
     public function __construct(\csv_import_reader $cir, array $filecolumns) {
         parent::__construct();

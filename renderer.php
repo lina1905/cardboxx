@@ -34,12 +34,12 @@ class mod_cardbox_renderer extends plugin_renderer_base {
     /**
      * Construct a tab header.
      *
-     * @param moodle_url $baseurl
-     * @param string $namekey
-     * @param string $what
-     * @param string $subpage
-     * @param string $nameargs
-     * @return tabobject
+     * @param moodle_url $baseurl Base URL for the tab
+     * @param string $action Action associated with the tab
+     * @param string|null $namekey Key for the name of the tab (optional)
+     * @param string|null $cardboxname Name of the cardbox (optional)
+     * @param string|null $nameargs Arguments for the name (optional)
+     * @return tabobject The constructed tab object
      */
     private function cardbox_create_tab(moodle_url $baseurl, $action, $namekey = null, $cardboxname = null, $nameargs = null) {
         $taburl = new moodle_url($baseurl, ['action' => $action]);
@@ -54,12 +54,11 @@ class mod_cardbox_renderer extends plugin_renderer_base {
     /**
      * Render the tab header hierarchy.
      *
-     * @param moodle_url $baseurl
-     * @param type $selected
-     * @param type $cardboxname
-     * @param type $context
-     * @param type $inactive
-     * @return type
+     * @param moodle_url $baseurl Base URL for the tabs
+     * @param context $context The context for the tabs
+     * @param string|null $selected The selected tab (optional)
+     * @param string|null $inactive The inactive tab (optional)
+     * @return string Rendered tabs
      */
     public function cardbox_render_tabs(moodle_url $baseurl, $context, $selected = null, $inactive = null) {
 
@@ -85,9 +84,10 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         return $this->tabtree($level1, $selected, $inactive);
     }
     /**
+     * Render the study view.
      *
-     * @param \templatable $studyview
-     * @return type
+     * @param \templatable $studyview The study view to render
+     * @return string Rendered study view
      */
     public function cardbox_render_studyview(\templatable $studyview) {
         $data = $studyview->export_for_template($this);
@@ -95,9 +95,10 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         return $this->render_from_template('mod_cardbox/studyview', $data);
     }
     /**
+     * Render the practice view.
      *
-     * @param \templatable $practice
-     * @return type
+     * @param \templatable $practice The practice view to render
+     * @return string Rendered practice view
      */
     public function cardbox_render_practice(\templatable $practice) {
         $data = $practice->export_for_template($this);
@@ -107,17 +108,18 @@ class mod_cardbox_renderer extends plugin_renderer_base {
      * Function renders a modal dialogue which asks the user to choose a correction mode
      * and/or topics to prefer in card selection.
      *
-     * @param \templatable $practice
-     * @return type
+     * @param \templatable $practice The practice start view to render
+     * @return string Rendered practice start view
      */
     public function cardbox_render_practice_start(\templatable $practice) {
         $data = $practice->export_for_template($this);
         return $this->render_from_template('mod_cardbox/practice_start', $data);
     }
     /**
+     * Render the statistics view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $statistics The statistics view to render
+     * @return string Rendered statistics view
      */
     public function cardbox_render_statistics(\templatable $statistics) {
         $data = $statistics->export_for_template($this);
@@ -125,9 +127,10 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         return $this->render_from_template('mod_cardbox/statistics', $data);
     }
     /**
+     * Render the review view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $review The review view to render
+     * @return string Rendered review view
      */
     public function cardbox_render_review(\templatable $review) {
         $data = $review->export_for_template($this);
@@ -135,26 +138,29 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         return $this->render_from_template('mod_cardbox/review', $data);
     }
     /**
+     * Render the overview view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $review The overview view to render
+     * @return string Rendered overview view
      */
     public function cardbox_render_overview(\templatable $review) {
         $data = $review->export_for_template($this);
         return $this->render_from_template('mod_cardbox/overview', $data);
     }
     /**
+     * Render the error import view.
      *
-     * @param \array $errorlines : consists of errored rows, no of successfully imported card, url to continue
-     * @return type
+     * @param array $errorlines The error lines to render
+     * @return string Rendered error import view
      */
     public function cardbox_render_errimport(array $errorlines) {
         return $this->render_from_template('mod_cardbox/errimport', $errorlines);
     }
     /**
+     * Render the topics view.
      *
-     * @param \templatable $edittopics
-     * @return type
+     * @param \templatable $topics The topics view to render
+     * @return string Rendered topics view
      */
     public function cardbox_render_topics(\templatable $topics) {
         $data = $topics->export_for_template($this);

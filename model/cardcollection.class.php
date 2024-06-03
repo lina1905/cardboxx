@@ -72,6 +72,7 @@ class cardbox_cardcollection {
     /**
      * Function returns all flashcards that have yet to be approved.
      *
+     * @param int|null $offset The offset for the card list (optional)
      * @return array card ids
      */
     public function cardbox_get_card_list($offset = null) {
@@ -95,7 +96,7 @@ class cardbox_cardcollection {
     /**
      * Function returns the number of cards in the user's cardbox.
      *
-     * @return int
+     * @return array The initial card contents
      */
     public function cardbox_get_cardcontents_initial() {
         return self::cardbox_get_cardcontents($this->flashcards[0]);
@@ -103,7 +104,8 @@ class cardbox_cardcollection {
     /**
      * Function returns the number of cards in the user's cardbox.
      *
-     * @return int
+     * @param int $cardid The id of the card
+     * @return array The card contents
      */
     public static function cardbox_get_cardcontents($cardid) {
         global $DB;
@@ -112,9 +114,10 @@ class cardbox_cardcollection {
         return array_merge($cardcontents, $cardcontexts);
     }
     /**
+     * Function returns the topic of the card.
      *
-     * @param type $cardid
-     * @return type
+     * @param int $cardid The id of the card
+     * @return string The topic of the card
      */
     public static function cardbox_get_topic($cardid) {
         global $DB;
@@ -126,9 +129,10 @@ class cardbox_cardcollection {
     }
 
     /**
+     * Function returns the necessary answers locked status of the card.
      *
-     * @param type $cardid
-     * @return type
+     * @param int $cardid The id of the card
+     * @return int The necessary answers locked status
      */
     public static function cardbox_get_necessaryanswerslocked($cardid) {
         global $DB;
@@ -138,9 +142,10 @@ class cardbox_cardcollection {
     }
 
     /**
+     * Function returns the question of the card.
      *
-     * @param type $cardid
-     * @return type
+     * @param int $cardid The id of the card
+     * @return string The question of the card
      */
     public static function cardbox_get_question($cardid) {
         global $DB;

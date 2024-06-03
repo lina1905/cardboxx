@@ -28,8 +28,8 @@ require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
 /**
  * This function does anything necessary to upgrade
  *
- * @param $oldversion
- * @return true
+ * @param int $oldversion The version we are upgrading from
+ * @return bool True if upgrade was successful
  */
 function xmldb_cardbox_upgrade($oldversion) {
 

@@ -94,11 +94,11 @@ class cardbox_card implements \renderable, \templatable {
     /**
      * This function constructs the card object.
      *
-     * @param $cardid
-     * @param $context
-     * @param $cmid
-     * @param $allowedtoedit
-     * @param $seestatus
+     * @param int $cardid The id of the card
+     * @param \context $context The context object
+     * @param int $cmid The course module id
+     * @param bool $allowedtoedit Whether the user is allowed to edit
+     * @param bool $seestatus Whether the user can see the status
      */
     public function __construct($cardid, $context, $cmid, $allowedtoedit, $seestatus) {
 
@@ -239,9 +239,11 @@ class cardbox_card implements \renderable, \templatable {
         }
     }
     /**
-     * Get the card id.
+    /**
+     * Get the card deck.
      *
-     * @return int
+     * @param int $cardid The id of the card
+     * @param bool $allowedtoedit Whether the user is allowed to edit
      */
     public function cardbox_getcarddeck(int $cardid, bool $allowedtoedit) {
         global $CFG, $DB, $USER;

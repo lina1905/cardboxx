@@ -37,7 +37,10 @@ class cardbox_topics implements \renderable, \templatable {
     /**
      * This function prepares the topics and the amount of cards to study.
      *
-     * @var array The amount of cards to study.
+     * @param array $list The list of topics
+     * @param int $offset The offset for the topics
+     * @param int $cmid The course module id
+     * @param int $cardboxid The id of the cardbox
      */
     public function __construct($list, $offset, /* $context, */ $cmid, $cardboxid) {
 

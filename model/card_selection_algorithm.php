@@ -76,8 +76,8 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * This function creates a priority queue from the user's cards
      * and then selects the first 21 items of the queue for practice.
      *
-     * @param type $cards
-     * @return type
+     * @param array|null $cards The cards to select from (optional)
+     * @return array|null The selected cards
      */
     public function cardbox_select_cards_for_practice($cards = null) {
 
@@ -130,9 +130,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
     /**
      * This function counts the number of cards that are due and not due for repetition.
      *
-     * @param type $cards
-     * @param type $now
-     * @return type
+     * @param array $cards The cards to count
+     * @param DateTime $now The current date and time
+     * @return array The count of due and not due cards
      */
     public function cardbox_count_due_and_not_due($cards, $now) {
 
@@ -188,9 +188,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * that cards from higher decks get a turn, too, as the current time approaches or moves
      * past their due date.
      *
-     * @param type $a
-     * @param type $b
-     * @return int
+     * @param object $a The first card
+     * @param object $b The second card
+     * @return int The comparison result
      */
     public static function cardbox_compare_cards_1st_level($a, $b) {
 
@@ -218,9 +218,10 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * This function sorts cards according to their position in the Leitner cardbox system, i.e.
      * according to the number of times they were answered correctly.
      *
-     * @param type $a
-     * @param type $b
-     * @return int
+     * @param object $a The first card
+     * @param object $b The second card
+     * @return int The comparison result
+     * /
      */
     public static function cardbox_compare_cards_2nd_level($a, $b) {
 
@@ -236,9 +237,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * This function sorts cards according to the number of repetitions a user
      * needed to get the card into its current position in the cardbox system.
      *
-     * @param type $a
-     * @param type $b
-     * @return type
+     * @param object $a The first card
+     * @param object $b The second card
+     * @return int The comparison result
      */
     public static function cardbox_compare_cards_3rd_level($a, $b) {
 
@@ -255,9 +256,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * same deck and were repeated the same amount of times, then this is the
      * last sorting criterion.
      *
-     * @param type $a
-     * @param type $b
-     * @return int
+     * @param object $a The first card
+     * @param object $b The second card
+     * @return int The comparison result
      */
     public static function cardbox_compare_cards_4th_level($a, $b) {
 

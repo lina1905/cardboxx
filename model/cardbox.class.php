@@ -108,7 +108,8 @@ class cardbox_cardboxmodel {
     /**
      * Function returns the ids of those cards selected for practice.
      *
-     * @return array of ints
+     * @param int $amountcards The amount of cards to select (optional)
+     * @return array of ints The ids of the selected cards
      */
     public function cardbox_get_card_selection($amountcards = 0) {
 
@@ -177,7 +178,7 @@ class cardbox_cardboxmodel {
      *
      * Each card is filed into one of the 'boxes' or 'decks'.
      *
-     * @return array of objects or null
+     * @param int $topic The topic of the cards
      */
     private function cardbox_get_users_cards($topic) {
 
@@ -211,8 +212,8 @@ class cardbox_cardboxmodel {
     /**
      * Function returns all content items belonging to this card. XXX move to locallib or card class!
      *
-     * @param type $cardid
-     * @return type
+     * @param int $cardid The id of the card
+     * @return array The content items of the card
      */
     public static function cardbox_get_card_contents($cardid) {
 
@@ -225,9 +226,9 @@ class cardbox_cardboxmodel {
      * This function orders the content elements of a card, e.g. groups question and answer elements.
      * XXX move to locallib or card class!
      *
-     * @param type $a
-     * @param type $b
-     * @return int
+     * @param object $a The first content element
+     * @param object $b The second content element
+     * @return int The comparison result
      */
     public static function cardbox_compare_cardcontenttypes($a, $b) {
 
@@ -246,9 +247,10 @@ class cardbox_cardboxmodel {
     }
 
     /**
+     * Function returns the case sensitivity status of the card.
      *
-     * @param type $cardid
-     * @return type
+     * @param int $cardid The id of the card
+     * @return int The case sensitivity status
      */
     public static function cardbox_get_casesensitive($cardid) {
         global $DB;
