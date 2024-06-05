@@ -48,8 +48,8 @@ class massimport_form extends \moodleform {
         $mform->setType('action', PARAM_ALPHANUM);
         $mform->setDefault('action', 'massimport');
 
-        $singleurl = new \moodle_url('example_singleans.csv');
-        $singlelink = \html_writer::link($singleurl, 'example_singleans.csv');
+        $singleurl = new \moodle_url('example_import.csv');
+        $singlelink = \html_writer::link($singleurl, 'example_import.csv');
         $mform->addElement('static', 'examplesinglecsv', get_string('examplesinglecsv', 'cardbox'), $singlelink);
 
         /*
