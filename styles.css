@@ -99,7 +99,7 @@
 .path-mod-cardbox .cardbox-review-button,
 .path-mod-cardbox .cardbox-overview-button-edit,
 .path-mod-cardbox .cardbox-overview-button-delete {
-    border-radius: 0px;
+    border-radius: 5px;
 }
 
 .path-mod-cardbox .cardbox-statistics {
