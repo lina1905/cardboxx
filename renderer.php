@@ -71,10 +71,11 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
         $level1[] = $this->cardbox_create_tab($baseurl, 'statistics', 'statistics');
 
-
+        /*
         if (has_capability('mod/cardbox:approvecard', $context)) {
             $level1[] = $this->cardbox_create_tab($baseurl, 'review', 'review');
         }
+        */
 
 
         $level1[] = $this->cardbox_create_tab($baseurl, 'overview', 'overview');

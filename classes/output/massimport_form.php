@@ -52,9 +52,11 @@ class massimport_form extends \moodleform {
         $singlelink = \html_writer::link($singleurl, 'example_singleans.csv');
         $mform->addElement('static', 'examplesinglecsv', get_string('examplesinglecsv', 'cardbox'), $singlelink);
 
+        /*
         $multiurl = new \moodle_url('example_multians.csv');
         $multilink = \html_writer::link($multiurl, 'example_multians.csv');
         $mform->addElement('static', 'examplemulticsv', get_string('examplemulticsv', 'cardbox'), $multilink);
+        */
 
         $mform->addElement('filepicker', 'cardimportfile', get_string('file'));
         $mform->addRule('cardimportfile', null, 'required');
