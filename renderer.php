@@ -63,23 +63,27 @@ class mod_cardbox_renderer extends plugin_renderer_base {
     public function cardbox_render_tabs(moodle_url $baseurl, $context, $selected = null, $inactive = null) {
 
         global $USER;
-
         if (has_capability('mod/cardbox:submitcard', $context)) {
             $level1 = [$this->cardbox_create_tab($baseurl, 'addflashcard', 'addflashcard')];
             $level1[] = $this->cardbox_create_tab($baseurl, 'massimport', 'massimport');
         }
+
         $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
         $level1[] = $this->cardbox_create_tab($baseurl, 'statistics', 'statistics');
+
 
         if (has_capability('mod/cardbox:approvecard', $context)) {
             $level1[] = $this->cardbox_create_tab($baseurl, 'review', 'review');
         }
 
+
         $level1[] = $this->cardbox_create_tab($baseurl, 'overview', 'overview');
 
+        /*
         if (has_capability('mod/cardbox:edittopics', $context)) {
             $level1[] = $this->cardbox_create_tab($baseurl, 'edittopic', 'edittopic');
         }
+        */
 
         return $this->tabtree($level1, $selected, $inactive);
     }

@@ -285,7 +285,6 @@ function cardbox_add_new_cards($cardboxid, $topic) {
  * @param string|null $filename The name of the file (optional)
  * @return string The download URL
  */
-
 function cardbox_get_download_url($context, $itemid, $filename = null) {
 
     $fs = get_file_storage();
