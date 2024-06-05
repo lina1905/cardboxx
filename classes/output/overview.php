@@ -79,7 +79,14 @@ class cardbox_overview implements \renderable, \templatable {
      * @param int $sort
      * @param bool $usedforemail
      */
-    public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $deck, $sort, $usedforemail = false) {
+    public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $usedforemail = false,
+                                $sort = null, $deck = null) {
+        if ($deck === null) {
+            throw new InvalidArgumentException("Deck parameter is required");
+        }
+        if ($sort === null) {
+            throw new InvalidArgumentException("Sort parameter is required");
+        }
         require_once('card.php');
 
         global $DB, $PAGE;
