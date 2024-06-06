@@ -70,6 +70,7 @@ class mod_cardbox_card_form extends moodleform {
         $mform->setType('next', PARAM_INT);
         $mform->setDefault('next', 0);
 
+        /*
         // Get topics to choose from when creating a new card.
         $topiclist = cardbox_get_topics($customdata['cardboxid'], true);
 
@@ -84,6 +85,7 @@ class mod_cardbox_card_form extends moodleform {
 
         // Text input field for creating a new topic.
         $mform->setType('newtopic', PARAM_CLEANHTML); // Supports german letters ä, ö, ü.
+        */
 
         /****************** end of question experiment **********************/
 
@@ -96,7 +98,7 @@ class mod_cardbox_card_form extends moodleform {
         $btnarrayquestion = [];
         $btnarrayquestion[] =& $mform->createElement('button', 'addimage', get_string('addimage', 'cardbox'));
         $btnarrayquestion[] =& $mform->createElement('button', 'addsound', get_string('addsound', 'cardbox'));
-        $btnarrayquestion[] =& $mform->createElement('button', 'addcontextques', get_string('addcontext', 'cardbox'));
+        //$btnarrayquestion[] =& $mform->createElement('button', 'addcontextques', get_string('addcontext', 'cardbox'));
         $mform->addGroup($btnarrayquestion, 'buttonar', '', [' '], false);
 
         $options = [];
@@ -124,9 +126,9 @@ class mod_cardbox_card_form extends moodleform {
         $mform->addElement('filemanager', 'cardsound', get_string('sound', 'cardbox'), null, $audiooptions);
 
         /****************** questioncontext **********************/
-        $mform->addElement('editor', 'questioncontext', get_string('entercontextquestion', 'cardbox'),
-                           'wrap="virtual" rows="5" cols="150"');
-        $mform->setType('question', PARAM_RAW);
+        //$mform->addElement('editor', 'questioncontext', get_string('entercontextquestion', 'cardbox'),
+        //                   'wrap="virtual" rows="5" cols="150"');
+        //$mform->setType('question', PARAM_RAW);
 
         /****************** end of question **********************/
 
@@ -140,17 +142,16 @@ class mod_cardbox_card_form extends moodleform {
                 $mform->addElement('html',
                 "<div class='form-group row fitem' style='margin-bottom: 1.5rem;'>
                 <div class='col-md-3 col-form-label d-flex pb-0 pr-md-0'></div>
-                <div class='col-md-9 form-inline align-items-start felement'>
-                <div style='background-color: #CD1076; color: white; padding: 5px; width: 100%; padding-left: 10px'>".
-                $infoanswer."</div></div></div>");
+                <div class='col-md-9 form-inline align-items-start felement'></div></div>");
             }
         }
 
-        $btnarrayanswer = [];
-        $btnarrayanswer[] =& $mform->createElement('button', 'addanswer', get_string('answer_repeat', 'cardbox'));
-        $btnarrayanswer[] =& $mform->createElement('button', 'addcontextans', get_string('addcontext', 'cardbox'));
-        $mform->addGroup($btnarrayanswer, 'buttonar', '', [' '], false);
+        //$btnarrayanswer = [];
+        //$btnarrayanswer[] =& $mform->createElement('button', 'addanswer', get_string('answer_repeat', 'cardbox'));
+        //$btnarrayanswer[] =& $mform->createElement('button', 'addcontextans', get_string('addcontext', 'cardbox'));
+        //$mform->addGroup($btnarrayanswer, 'buttonar', '', [' '], false);
 
+        /*
         $necessaryanswerslocked = $DB->get_field('cardbox', 'necessaryanswerslocked',
                                                  ['id' => $customdata['cardboxid']], IGNORE_MISSING);
         if ($necessaryanswerslocked === "0") {
@@ -167,13 +168,18 @@ class mod_cardbox_card_form extends moodleform {
             }
             $select->setSelected($necessaryanswers);
         }
+        */
+
+
         /****************** answercontext **********************/
 
-        $mform->addElement('editor', 'answercontext', get_string('entercontextanswer', 'cardbox'),
-                           'wrap="virtual" rows="5" cols="150"');
-        $mform->setType('question', PARAM_RAW);
+        //$mform->addElement('editor', 'answercontext', get_string('entercontextanswer', 'cardbox'),
+        //                   'wrap="virtual" rows="5" cols="150"');
+        //$mform->setType('question', PARAM_RAW);
 
         /****************** Disable Auto check setting ****************** */
+
+        /*
         if ($customdata['allowautocorrection'] == ALLOW_AUTOCORRECTION_FOR_ENTIRE_CARDBOX) {
             $mform->addElement('checkbox', 'disableautocorrect', get_string('autocorrectlocked', 'cardbox'));
             $mform->addHelpButton('disableautocorrect', 'autocorrectlocked', 'cardbox');
@@ -183,6 +189,7 @@ class mod_cardbox_card_form extends moodleform {
             $mform->addHelpButton('disableautocorrect', 'autocorrectlocked', 'cardbox');
             $mform->setDefault('disableautocorrect', 0);
         }
+        */
 
         $context = context_module::instance($customdata['cmid']);
         if (array_key_exists('cardid', $customdata)) {

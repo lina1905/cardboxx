@@ -88,7 +88,7 @@
                     btnsoundques.innerHTML = M.util.get_string('addsound', 'cardbox');
                 }
             });
-
+            /*
             btnquescontext.addEventListener('click', e => {
                 if (quescontext.style.display === '') {
                     quescontext.style.display = 'flex';
@@ -109,10 +109,14 @@
                 }            
             });
 
+
+
             document.getElementById('id_addanswer').addEventListener('click', e => {
                 document.getElementById('fitem_id_answer' + countans).style.display = 'flex';
                 countans++;
             });
+
+             */
 
         }
 

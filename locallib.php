@@ -830,11 +830,12 @@ function cardbox_import_validate_columns(array $filecolumns, int $descriptiontyp
             }
         } else {
             if ($descriptiontype == LONG_DESCRIPTION) {
-                $errstr = get_string('invalidfieldname', 'error', $filecolumn).'<br>
-                    '.get_string('allowedcolumns', 'cardbox').'<ul>';
+                $errstr = get_string('invalidfieldname', 'error', $filecolumn).'<br><ul>';
+                /*
                 foreach ($allowedwithmeaning as $shortname => $meaning) {
                     $errstr .= '<li><b>'.$shortname.'</b> => '.$meaning.'</li>';
                 }
+                */
                 $errstr .= '</ul>';
                 $errors[] = $errstr;
             } else {

@@ -88,6 +88,7 @@ if ($action === 'addflashcard') {
             $submitbutton = null;
         }
 
+        /*
         // Create or select a topic for the card.
         switch ($formdata->topic) {
             case -1: // Card belongs to no topic.
@@ -103,6 +104,7 @@ if ($action === 'addflashcard') {
             default: // Card belongs to an already existing topic.
                 $topicid = $formdata->topic;
         }
+        */
 
         $necessaryanswerslocked = $DB->get_field('cardbox', 'necessaryanswerslocked',
                                         ['id' => $customdata['cardboxid']], IGNORE_MISSING);
@@ -124,7 +126,7 @@ if ($action === 'addflashcard') {
             $disableautocorrect = false;
         }
         // Create a new entry in cardbox_cards table.
-        $cardid = cardbox_save_new_card($cardbox->id, $context, $submitbutton, $topicid, $necessaryanswers, $disableautocorrect);
+        $cardid = cardbox_save_new_card($cardbox->id, $context, $submitbutton, $necessaryanswers, $disableautocorrect);
 
         // Save the question text if there is any.
         if (!empty($formdata->question['text'])) {
