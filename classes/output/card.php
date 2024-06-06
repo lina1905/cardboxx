@@ -282,25 +282,25 @@ class cardbox_card implements \renderable, \templatable {
         if ($allowedtoedit) {
             if ($this->deck == 1 || $this->deck == null ) {
                 $this->decktext = ucfirst(get_string('new', 'cardbox'));
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/new.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/new.svg';
             } else if ($this->deck == 7) {
                 $this->decktext = ucfirst(get_string('known', 'cardbox'));
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/mastered.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/mastered.svg';
             } else {
                 $deck = $this->deck - 1;
                 $this->decktext = $deck;
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/'.$deck.'.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/'.$deck.'.svg';
             }
         } else {
             if ($this->deck == 0 || $this->deck == null) {
                 $this->decktext = $this->decktext = ucfirst(get_string('new', 'cardbox'));
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/new.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/new.svg';
             } else if ($this->deck == 6) {
                 $this->decktext = ucfirst(get_string('known', 'cardbox'));
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/mastered.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/mastered.svg';
             } else {
                 $this->decktext = $this->deck;
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/'.$this->deck.'.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/'.$this->deck.'.svg';
             }
         }
 

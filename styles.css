@@ -54,8 +54,8 @@
     width: fit-content;
 }
 .path-mod-cardbox .cardbox_card_deck_icon {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 50px;
     margin-bottom: 1%;
     padding-bottom: 2px;
 }
@@ -100,6 +100,7 @@
 .path-mod-cardbox .cardbox-overview-button-edit,
 .path-mod-cardbox .cardbox-overview-button-delete {
     border-radius: 5px;
+    margin: 5px;
 }
 
 .path-mod-cardbox .cardbox-statistics {

@@ -277,15 +277,15 @@ class cardbox_practice implements \renderable, \templatable {
             $this->deck = $DB->get_field('cardbox_progress', 'cardposition',
                                          ['userid' => $USER->id, 'card' => $cardid], IGNORE_MISSING);
             if ($this->deck == 0) {
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/new.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/new.svg';
             } else if ($this->deck == 6) {
-                $this->deckdeckimgurlimg = $CFG->wwwroot . '/mod/cardbox/pix/mastered.svg';
+                $this->deckdeckimgurlimg = $CFG->wwwroot . '/mod/cardbox/pix/newpix/mastered.svg';
             } else {
-                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/'.$this->deck.'.svg';
+                $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/'.$this->deck.'.svg';
             }
         } else {
             $this->deck = null;
-            $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/new.svg';
+            $this->deckimgurl = $CFG->wwwroot . '/mod/cardbox/pix/newpix/new.svg';
         }
 
     }
