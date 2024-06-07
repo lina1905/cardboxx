@@ -149,7 +149,8 @@
                     soundques.style.display = 'flex';
                     btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
                 }
-    
+
+                /*
                 if (_data['showquescontext']) {
                     quescontext.style.display = 'flex';
                     btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
@@ -159,8 +160,11 @@
                     anscontext.style.display = 'flex';
                     btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
                 }
+                */
+
             }
 
+            /*
             if (document.getElementById('id_questioncontext').value != '') {
                 quescontext.style.display = 'flex';
                 btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
@@ -169,6 +173,7 @@
                 quescontext.style.display = 'flex';
                 btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
             }
+            */
 
             /* if (image[0].style.display === "") {
                 imageques.style.display = 'flex';
