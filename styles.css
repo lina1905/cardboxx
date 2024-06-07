@@ -10,6 +10,10 @@
     }
 }
 
+.path-mod-cardbox .secondary-navigation {
+    max-width: 1120px;
+}
+
 
 .path-mod-cardbox button {
     border: none;
