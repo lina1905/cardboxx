@@ -114,7 +114,7 @@ $string['answer_repeat_help'] = 'If you have multiple solutions, please use a se
 $string['addanswer'] = 'Add another solution';
 $string['autocorrectlocked'] = 'Disable Automatic Check';
 $string['savecard'] = 'Save';
-$string['saveandaccept'] = 'Save and accept';
+$string['saveandaccept'] = 'Save';
 
 // Success notifications.
 $string['success:addnewcard'] = 'The card was created and awaits approval.';

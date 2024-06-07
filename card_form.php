@@ -200,9 +200,10 @@ class mod_cardbox_card_form extends moodleform {
         if (has_capability('mod/cardbox:approvecard', $context) && !$cardapproved) {
             $this->add_action_buttons_for_managers(true);
 
-        } else {
-            $this->add_action_buttons(true, get_string('savecard', 'cardbox'));
         }
+        /*else {
+            $this->add_action_buttons(true, get_string('savecard', 'cardbox'));
+        }*/
 
     }
 
@@ -213,23 +214,26 @@ class mod_cardbox_card_form extends moodleform {
      * @param string|null $submitlabel The label for the submit button, default is null
      * @param string|null $submit2label The label for the second submit button, default is null
      */
-    public function add_action_buttons_for_managers($cancel=true, $submitlabel=null, $submit2label=null) {
+    public function add_action_buttons_for_managers($cancel=true, $submitlabel=null) {
         if (is_null($submitlabel)) {
             $submitlabel = get_string('saveandaccept', 'cardbox');
         }
-
+        /*
         if (is_null($submit2label)) {
             $submit2label = get_string('savecard', 'cardbox');
         }
+        */
 
         $mform = $this->_form;
 
         // Elements in a row need a group.
         $buttonarray = [];
 
+        /*
         if ($submit2label !== false) {
             $buttonarray[] = &$mform->createElement('submit', 'submitbutton2', $submit2label);
         }
+        */
 
         if ($submitlabel !== false) {
             $buttonarray[] = &$mform->createElement('submit', 'submitbutton', $submitlabel);
