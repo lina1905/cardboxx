@@ -45,10 +45,10 @@
             var imagecheckbox = document.getElementById('fgroup_id_imgdescriptionar');
             var btnsoundques = document.getElementById('id_addsound');
             var soundques = document.getElementById('fitem_id_cardsound');
-            var btnquescontext = document.getElementById('id_addcontextques');
-            var quescontext = document.getElementById('fitem_id_questioncontext');
-            var btnanscontext = document.getElementById('id_addcontextans');
-            var anscontext = document.getElementById('fitem_id_answercontext');
+            // ...var btnquescontext = document.getElementById('id_addcontextques');
+            // ...var quescontext = document.getElementById('fitem_id_questioncontext');
+            // ...var btnanscontext = document.getElementById('id_addcontextans');
+            // ...var anscontext = document.getElementById('fitem_id_answercontext');
             var countans = (_answersvisible + 1);
 
             if (countans>2) {
@@ -129,10 +129,10 @@
             var imagecheckbox = document.getElementById('fgroup_id_imgdescriptionar');
             var btnsoundques = document.getElementById('id_addsound');
             var soundques = document.getElementById('fitem_id_cardsound');
-            var btnquescontext = document.getElementById('id_addcontextques');
-            var quescontext = document.getElementById('fitem_id_questioncontext');
-            var btnanscontext = document.getElementById('id_addcontextans');
-            var anscontext = document.getElementById('fitem_id_answercontext');
+            // ...var btnquescontext = document.getElementById('id_addcontextques');
+            // ...var quescontext = document.getElementById('fitem_id_questioncontext');
+            // ...var btnanscontext = document.getElementById('id_addcontextans');
+            // ...var anscontext = document.getElementById('fitem_id_answercontext');
 /*             var image = document.getElementById('id_cardimage_fieldset').getElementsByClassName('filemanager');
             var sound = document.getElementById('id_cardimage_fieldset').getElementsByClassName('filemanager'); */
 

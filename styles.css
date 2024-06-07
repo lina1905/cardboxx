@@ -1,3 +1,16 @@
+.path-mod-cardbox #page-content {
+    max-width: 1120px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 12px -2px rgba(0,0,0,.2);
+    #region-main-box {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 2rem 1rem;
+    }
+}
+
+
 .path-mod-cardbox button {
     border: none;
 }
@@ -100,17 +113,11 @@
 .path-mod-cardbox .cardbox-overview-button-edit,
 .path-mod-cardbox .cardbox-overview-button-delete {
     border-radius: 5px !important;
-    margin: 5px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 30px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    width: 34.5px !important;
 }
 
-.path-mod-cardbox .cardbox-overview-button-edit .fa-pencil,
-.path-mod-cardbox .cardbox-overview-button-delete .fa-trash {
-    vertical-align: middle !important;
-}
 
 .path-mod-cardbox .cardbox-statistics {
     margin-top: 3em;
@@ -250,8 +257,8 @@
 
 .path-mod-cardbox .cardbox-card-left-side,
 .path-mod-cardbox .cardbox-card-right-side {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
+    border: 3px solid #707070;
+    border-radius: 10px;
     /* margin-bottom: 2em; */
     padding: 1em;
     height: 100%;
@@ -434,12 +441,20 @@
 
 .path-mod-cardbox #id_addcontextques,
 .path-mod-cardbox #id_addcontextans,
+.path-mod-cardbox #id_addcontextques,
+.path-mod-cardbox #id_addcontextans,
 .path-mod-cardbox #id_addsound,
 .path-mod-cardbox #id_addimage {
     color: #fff;
-    background-color: #00549F;
-    border-color: #00549F;
-} 
+    background-color: #F19D38;
+    border-color: #F19D38;
+}
+
+
+.path-mod-cardbox #id_addsound:hover,
+.path-mod-cardbox #id_addimage:hover {
+    background-color: #bb2424;
+}
 
 .path-mod-cardbox #fitem_id_cardimage,
 .path-mod-cardbox #fitem_id_imagedescription,
