@@ -99,8 +99,17 @@
 .path-mod-cardbox .cardbox-review-button,
 .path-mod-cardbox .cardbox-overview-button-edit,
 .path-mod-cardbox .cardbox-overview-button-delete {
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: 5px !important;
+    margin: 5px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 30px !important;
+}
+
+.path-mod-cardbox .cardbox-overview-button-edit .fa-pencil,
+.path-mod-cardbox .cardbox-overview-button-delete .fa-trash {
+    vertical-align: middle !important;
 }
 
 .path-mod-cardbox .cardbox-statistics {

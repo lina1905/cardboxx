@@ -98,7 +98,7 @@ class mod_cardbox_card_form extends moodleform {
         $btnarrayquestion = [];
         $btnarrayquestion[] =& $mform->createElement('button', 'addimage', get_string('addimage', 'cardbox'));
         $btnarrayquestion[] =& $mform->createElement('button', 'addsound', get_string('addsound', 'cardbox'));
-        //$btnarrayquestion[] =& $mform->createElement('button', 'addcontextques', get_string('addcontext', 'cardbox'));
+        // ...$btnarrayquestion[] =& $mform->createElement('button', 'addcontextques', get_string('addcontext', 'cardbox'));
         $mform->addGroup($btnarrayquestion, 'buttonar', '', [' '], false);
 
         $options = [];
@@ -126,9 +126,9 @@ class mod_cardbox_card_form extends moodleform {
         $mform->addElement('filemanager', 'cardsound', get_string('sound', 'cardbox'), null, $audiooptions);
 
         /****************** questioncontext **********************/
-        //$mform->addElement('editor', 'questioncontext', get_string('entercontextquestion', 'cardbox'),
-        //                   'wrap="virtual" rows="5" cols="150"');
-        //$mform->setType('question', PARAM_RAW);
+        // ...$mform->addElement('editor', 'questioncontext', get_string('entercontextquestion', 'cardbox'),
+        // ...'wrap="virtual" rows="5" cols="150"');
+        // ...$mform->setType('question', PARAM_RAW);
 
         /****************** end of question **********************/
 
@@ -146,10 +146,10 @@ class mod_cardbox_card_form extends moodleform {
             }
         }
 
-        //$btnarrayanswer = [];
-        //$btnarrayanswer[] =& $mform->createElement('button', 'addanswer', get_string('answer_repeat', 'cardbox'));
-        //$btnarrayanswer[] =& $mform->createElement('button', 'addcontextans', get_string('addcontext', 'cardbox'));
-        //$mform->addGroup($btnarrayanswer, 'buttonar', '', [' '], false);
+        // ...$btnarrayanswer = [];
+        // ...$btnarrayanswer[] =& $mform->createElement('button', 'addanswer', get_string('answer_repeat', 'cardbox'));
+        // ...$btnarrayanswer[] =& $mform->createElement('button', 'addcontextans', get_string('addcontext', 'cardbox'));
+        // ...$mform->addGroup($btnarrayanswer, 'buttonar', '', [' '], false);
 
         /*
         $necessaryanswerslocked = $DB->get_field('cardbox', 'necessaryanswerslocked',
@@ -170,12 +170,11 @@ class mod_cardbox_card_form extends moodleform {
         }
         */
 
-
         /****************** answercontext **********************/
 
-        //$mform->addElement('editor', 'answercontext', get_string('entercontextanswer', 'cardbox'),
-        //                   'wrap="virtual" rows="5" cols="150"');
-        //$mform->setType('question', PARAM_RAW);
+        // ...$mform->addElement('editor', 'answercontext', get_string('entercontextanswer', 'cardbox'),
+        // ...'wrap="virtual" rows="5" cols="150"');
+        // ...$mform->setType('question', PARAM_RAW);
 
         /****************** Disable Auto check setting ****************** */
 
