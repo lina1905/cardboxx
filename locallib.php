@@ -584,10 +584,10 @@ function cardbox_is_card_due($carddata) {
 
     $spacing = [];
     $spacing[1] = new DateInterval('P1D');
-    $spacing[2] = new DateInterval('P3D');
-    $spacing[3] = new DateInterval('P7D');
-    $spacing[4] = new DateInterval('P16D');
-    $spacing[5] = new DateInterval('P34D');
+    $spacing[2] = new DateInterval('P2D');
+    $spacing[3] = new DateInterval('P4D');
+    $spacing[4] = new DateInterval('P8D');
+    $spacing[5] = new DateInterval('P16D');
 
     $last = new DateTime("@$carddata->lastpracticed");
     $interval = $spacing[$carddata->cardposition];

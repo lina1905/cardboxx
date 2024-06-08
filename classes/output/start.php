@@ -56,9 +56,12 @@ class cardbox_start implements \renderable, \templatable {
 
         $this->cardbox_prepare_topics_to_study($cardboxid);
 
+
         if ($autocorrection == 1) {
-            $this->autocorrectionoption = true;
+            // Keine Saubere Lösung, aber es funktioniert; eigentlich auf true, wenn man mit autocorrect arbeitet
+            $this->autocorrectionoption = false;
         }
+
 
         $this->cardbox_define_amount_of_cards_to_study();
 

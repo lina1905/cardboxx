@@ -60,10 +60,10 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
 
         $this->spacing = [];
         $this->spacing[1] = new DateInterval('P1D');
-        $this->spacing[2] = new DateInterval('P3D');
-        $this->spacing[3] = new DateInterval('P7D');
-        $this->spacing[4] = new DateInterval('P16D');
-        $this->spacing[5] = new DateInterval('P34D');
+        $this->spacing[2] = new DateInterval('P2D');
+        $this->spacing[3] = new DateInterval('P4D');
+        $this->spacing[4] = new DateInterval('P8D');
+        $this->spacing[5] = new DateInterval('P16D');
 
         $this->practiceall = $practiceall;
 
