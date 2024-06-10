@@ -47,8 +47,18 @@
     margin-left: 10px;
 }
 
+#cardbox-end-session {
+    border: 1px solid #F29C39 !important;
+    background-color: #FFFFFF;
+    color: #F29C39;
+}
+
 .path-mod-cardbox .cardbox-card-text p {
     margin-top: 1rem;
+}
+
+.path-mod-cardbox .question-answer .cardbox-card-text-question-answer p {
+    font-size: 15px;
 }
 
 .path-mod-cardbox .cardbox-card-audio {
