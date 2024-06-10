@@ -22,6 +22,13 @@
 .path-mod-cardbox #cardbox-cardcontainer-question {
     border: 3px solid #707070;
     border-radius: 10px;
+    min-height: 200px;
+}
+
+.path-mod-cardbox .cardbox-selfcheck-question-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .path-mod-cardbox .cardbox-cardside,
@@ -53,17 +60,20 @@
     color: #F29C39;
 }
 
+.path-mod-cardbox .cardbox-card-text,
 .path-mod-cardbox .cardbox-card-text p {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center !important;
 }
 
-.path-mod-cardbox .question-answer .cardbox-card-text-question-answer p {
+.path-mod-cardbox .question-answer .cardbox-card-text-question-answer {
     font-size: 15px;
 }
 
 .path-mod-cardbox .cardbox-card-audio {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .path-mod-cardbox audio {
@@ -72,8 +82,8 @@
 }
 
 .path-mod-cardbox .cardbox-image {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .path-mod-cardbox .cbx-center-align {
