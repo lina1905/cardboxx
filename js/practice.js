@@ -1098,7 +1098,7 @@ class Statistics {
         this.chart = chart;
         this.starttime = Math.floor(new Date().getTime()/1000.0);
     }
-    
+
     incrementCountRight() {
         this.countright++;
     }
@@ -1135,8 +1135,8 @@ class Statistics {
                 label: 'Progress',
                 data: [this.countright, this.countwrong],
                 backgroundColor: [
-                    '#00b33c',
-                    '#ff9900'
+                    '#71A87F',
+                    '#BF514C'
                 ]
             }],
 
@@ -1147,24 +1147,26 @@ class Statistics {
             ]
         };
 
+        var totalCards = this.countright + this.countwrong
+        var percentRight = (this.countright / totalCards) * 100;
+
         var myDoughnutChart = new Chart(ctx, {
             type: 'doughnut',
             data: chartdata,
             options: {
-                title: {
-                    display: true,
-                    text: M.util.get_string('titleprogresschart', 'cardbox'),
-                    fontSize: 16,
-                    position: 'top'
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom', // Position der Legende ändern
+                    },
+                    title: {
+                        display: true,
+                        text: `Lerneinheit geschafft! Du hast ${percentRight.toFixed(2)}% der Karten gewusst`
+                    }
                 },
-                legend: {
-                    position: 'bottom'
-                },
-                rotation: 1 * Math.PI,
-                circumference: 1 * Math.PI,
-                cutoutPercentage: 60
+                cutout: '70%'
             }
-        }); 
+        });
 
     }
 
