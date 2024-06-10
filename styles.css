@@ -411,12 +411,12 @@
 
     .path-mod-cardbox .cardbox-card-left-side {
         margin-right: 0.2em;
-        margin-left: 1em;
+        margin-left: 0.2em;
         padding: 2em;
     }
 
     .path-mod-cardbox .cardbox-card-right-side {
-        margin-right: 1em;
+        margin-right: 0.2em;
         margin-left: 0.2em;
         padding: 2em;
     }
@@ -446,6 +446,10 @@
 @media (min-width: 992px) {
     .path-mod-cardbox .edit-topic {
         margin-left: 13.5%;
+    }
+
+    .path-mod-cardbox .icon-deck-manager {
+        margin-right: 1.4em;
     }
 }
 
