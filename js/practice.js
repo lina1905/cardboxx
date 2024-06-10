@@ -200,13 +200,15 @@ class EventHandling {
 
             // Notify controller of this click event.
 /*             this.controller.reactTo('mark-as-incorrect'); */
-            document.getElementById('cardbox-proceed').hidden = false;
-            document.getElementById('cardbox-suggestanswer').hidden = false; 
-            document.getElementById('cardbox-mark-as-incorrect').disabled = true;
-            document.getElementById('cardbox-mark-as-correct').disabled = true;
+            //document.getElementById('cardbox-proceed').hidden = false;
+            //document.getElementById('cardbox-suggestanswer').hidden = false;
+            //document.getElementById('cardbox-mark-as-incorrect').disabled = true;
+            //document.getElementById('cardbox-mark-as-correct').disabled = true;
+            this.controller.reactTo('mark-as-incorrect');
 
         }.bind(this));
 
+        /*
         document.getElementById('cardbox-suggestanswer').addEventListener('click', function(e) {
 
             // Prevent page reload.
@@ -226,7 +228,7 @@ class EventHandling {
             this.controller.reactTo('mark-as-incorrect');
 
         }.bind(this));
-
+        */
     }
     /**
      * 

@@ -20,8 +20,50 @@
 }
 
 .path-mod-cardbox #cardbox-cardcontainer-question {
-    display: grid;
-    grid-template-columns: 90% 10%;
+    border: 3px solid #707070;
+    border-radius: 10px;
+}
+
+.path-mod-cardbox .cardbox-cardside,
+.path-mod-cardbox .cardbox-card-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal-line {
+    border-top: 1px solid #000;
+}
+
+.path-mod-cardbox .button-container-check {
+    display: flex;
+    justify-content: center;
+}
+.path-mod-cardbox .button-container-check button:first-child{
+    margin-right: 10px;
+}
+.path-mod-cardbox .button-container-check button:last-child{
+    margin-left: 10px;
+}
+
+.path-mod-cardbox .cardbox-card-text p {
+    margin-top: 1rem;
+}
+
+.path-mod-cardbox .cardbox-card-audio {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.path-mod-cardbox audio {
+    width: 250px;
+    height: 54px;
+}
+
+.path-mod-cardbox .cardbox-image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .path-mod-cardbox .cbx-center-align {
@@ -57,17 +99,18 @@
 }
 
 .path-mod-cardbox #cardbox-mark-as-correct {
-    background-color: #00b33c;
+    background-color: #71A87F;
     border: none;
 }
 
 .path-mod-cardbox #cardbox-mark-as-incorrect {
-    background-color: #ff9900;
+    background-color: #BF514C;
     border: none;
 }
 
 .path-mod-cardbox .cardbox-practice .btn {
-    float: right;
+    margin: auto;
+    display: block;
     width: fit-content;
 }
 .path-mod-cardbox .cardbox_card_deck_icon {
@@ -415,13 +458,6 @@
     padding-bottom: 0.5em;
     /*padding-left: 2em;
     padding-right: 2em;*/
-}
-
-
-.path-mod-cardbox #cardbox-suggestanswer,
-.path-mod-cardbox #cardbox-cancel-button,
-.path-mod-cardbox #cardbox-mark-as-incorrect {
-    margin-right: 0.5em;
 }
 
 .path-mod-cardbox .cardbox-success {
