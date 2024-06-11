@@ -66,10 +66,12 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         if (has_capability('mod/cardbox:submitcard', $context)) {
             $level1 = [$this->cardbox_create_tab($baseurl, 'addflashcard', 'addflashcard')];
             $level1[] = $this->cardbox_create_tab($baseurl, 'massimport', 'massimport');
+            $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
+        } else {
+            $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
+            $level1[] = $this->cardbox_create_tab($baseurl, 'statistics', 'statistics');
         }
-
-        $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
-        $level1[] = $this->cardbox_create_tab($baseurl, 'statistics', 'statistics');
+        $level1[] = $this->cardbox_create_tab($baseurl, 'overview', 'overview');
 
         /*
         if (has_capability('mod/cardbox:approvecard', $context)) {
@@ -77,7 +79,6 @@ class mod_cardbox_renderer extends plugin_renderer_base {
         }
         */
 
-        $level1[] = $this->cardbox_create_tab($baseurl, 'overview', 'overview');
 
         /*
         if (has_capability('mod/cardbox:edittopics', $context)) {
