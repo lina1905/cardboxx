@@ -115,7 +115,7 @@ class cardbox_cardboxmodel {
 
         $selection = [];
 
-        // Select 21 flashcards for a practice session.
+        // Select 10 flashcards for a practice session.
         if (!empty($this->flashcards) && !empty($this->selectionalgorithm)) {
 
             // Delegate card selection to the selection algorithm instance.

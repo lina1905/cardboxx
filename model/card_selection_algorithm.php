@@ -74,7 +74,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
     }
     /**
      * This function creates a priority queue from the user's cards
-     * and then selects the first 21 items of the queue for practice.
+     * and then selects the first 10 items of the queue for practice.
      *
      * @param array|null $cards The cards to select from (optional)
      * @return array|null The selected cards
@@ -118,8 +118,8 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
             usort($priorityqueue, ['cardbox_card_selection_algorithm', 'cardbox_compare_cards_1st_level']);
         }
 
-        // 3. Pick the first 21 cards from the queue.
-        for ($i = 0; ( ($i < count($priorityqueue)) && ($i < 21)); $i++) {
+        // 3. Pick the first 10 cards from the queue.
+        for ($i = 0; ( ($i < count($priorityqueue)) && ($i < 10)); $i++) {
             $card = $priorityqueue[$i];
             $selection[] = $card;
         }
