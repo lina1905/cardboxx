@@ -144,12 +144,12 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 label: M.util.get_string('flashcardsdue', 'cardbox'),
                 data: [__studentboxcount[0], __studentboxcount[1]['due'], __studentboxcount[2]['due'], __studentboxcount[3]['due'], __studentboxcount[4]['due'], __studentboxcount[5]['due'], 0],
                 backgroundColor: [
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
                         '#00b33c'
                 ],
                 stack: 'Stack 0'
@@ -158,12 +158,12 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 label: M.util.get_string('flashcardsnotdue', 'cardbox'),
                 data: [0, __studentboxcount[1]['notdue'], __studentboxcount[2]['notdue'], __studentboxcount[3]['notdue'], __studentboxcount[4]['notdue'], __studentboxcount[5]['notdue'], __studentboxcount[6]],
                 backgroundColor: [
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
                         '#00b33c'
                 ],
                 stack: 'Stack 0'
@@ -176,13 +176,13 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 label: M.util.get_string('averagestudentscompare', 'cardbox'),
                 data: [__averageboxcount[0], __averageboxcount[1], __averageboxcount[2], __averageboxcount[3], __averageboxcount[4], __averageboxcount[5], __averageboxcount[6]],
                 backgroundColor: [
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC'
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F'
                 ],
                 stack: 'Stack 1'
             });
@@ -193,15 +193,19 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
            data: cardboxdata,
            options: {
                responsive: true,
-               title: {
-                   display: true,
-                   text: M.util.get_string('titleoverviewchart', 'cardbox'),
-                   fontSize: 16,
-                   position: 'top'
-               },
-               legend: {
-                   display: true,
-                   position: 'top'
+               plugins: {
+                   title: {
+                       display: true,
+                       text: M.util.get_string('titleoverviewchart', 'cardbox'),
+                       font: {
+                           size: 16,
+                       },
+                       position: 'top'
+                   },
+                   legend: {
+                       display: true,
+                       position: 'top'
+                   },
                },
                ticks: {
                    beginAtZero: true,
@@ -252,18 +256,18 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
             datasets: [{
                  label: M.util.get_string('performance', 'cardbox'),
                  data: __performance.performances,
-                 backgroundColor: '#0066ff', // '#0066ff'
-                 borderColor: '#0066ff', // specifies the line color
+                 backgroundColor: '#F29C39', // '#0066ff'
+                 borderColor: '#F29C39', // specifies the line color
                  borderCapStyle: 'butt', // no change
                  borderDash: [], // no change
                  borderDashOffset: 0.0, // no change
                  borderJoinStyle: 'miter', // no change
-                 pointBorderColor: "#0066ff",
-                 pointBackgroundColor: "#0066ff",
+                 pointBorderColor: "#F29C39",
+                 pointBackgroundColor: "#F29C39",
                  pointBorderWidth: 1,
                  pointHoverRadius: 5,
-                 pointHoverBackgroundColor: "#0066ff",
-                 pointHoverBorderColor: "#0066ff",
+                 pointHoverBackgroundColor: "#F29C39",
+                 pointHoverBorderColor: "#F29C39",
                  pointHoverBorderWidth: 2,
                  pointRadius: 1,
                  pointHitRadius: 10,
@@ -278,12 +282,16 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
              type: 'line',
              data: userdata,
              options: {
-                 title: {
-                    display: true,
-                    text: M.util.get_string('titleperformancechart', 'cardbox'),
-                    fontSize: 16,
-                    position: 'top'
-                },
+                 plugins: {
+                     title: {
+                         display: true,
+                         text: M.util.get_string('titleperformancechart', 'cardbox'),
+                         font: {
+                             size: 16,
+                         },
+                         position: 'top'
+                     },
+                 },
                 legend: {
                     display: false
                 },

@@ -214,7 +214,7 @@ $string['sessioncompleted'] = 'Finished! :-)';
 $string['titleprogresschart'] = 'Results';
 $string['right'] = 'right';
 $string['wrong'] = 'wrong';
-$string['titleoverviewchart'] = 'Cardbox';
+$string['titleoverviewchart'] = 'Overview Level';
 $string['new'] = 'new';
 $string['known'] = 'mastered';
 $string['flashcards'] = 'cards';
@@ -283,7 +283,7 @@ $string['delete'] = 'Delete';
 
 
 $string['topicfilter'] = 'Topic ';
-$string['deckfilter'] = 'Deck';
+$string['deckfilter'] = 'Level';
 $string['noselection'] = 'all';
 $string['createddate'] = 'Created date';
 $string['alphabetical'] = 'Alphabetical';

@@ -1051,9 +1051,11 @@ if ($action === 'overview') {
         $baseurl = new moodle_url('/mod/cardbox/view.php', ['id' => $cmid, 'action' => 'overview',  'topic' =>
             $topic, 'sort' => $sort, 'deck' => $deck]);
 
+        /*
         $info = get_string('intro:overview', 'cardbox');
         echo "<span class='notification alert alert-info alert-block fade in' role='alert' style='display:block'>" .
             $info . "</span>";
+        */
 
         // Load strings and include js.
         $stringman = get_string_manager();
