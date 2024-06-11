@@ -14,9 +14,12 @@
     max-width: 1120px;
 }
 
-
 .path-mod-cardbox button {
     border: none;
+}
+
+#back-to-start {
+    display: none;
 }
 
 .path-mod-cardbox #cardbox-cardcontainer-question {

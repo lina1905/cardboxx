@@ -99,7 +99,6 @@ function startPractice(Y, __cmid, __selection, __case, __data, __mode, __disable
                     notificationpanel.removeChild(notificationpanel.firstChild);
             } 
         }
-
     });
 }
 
@@ -205,6 +204,16 @@ class EventHandling {
             //document.getElementById('cardbox-mark-as-incorrect').disabled = true;
             //document.getElementById('cardbox-mark-as-correct').disabled = true;
             this.controller.reactTo('mark-as-incorrect');
+
+        }.bind(this));
+
+        document.getElementById('cardbox-end-session').addEventListener('click', function(e) {
+
+            // Prevent page reload.
+            e.preventDefault();
+
+            // Notify controller of this click event.
+            this.controller.reactTo('end-practice');
 
         }.bind(this));
 
@@ -1097,6 +1106,7 @@ class Statistics {
         this.countwrong = 0;
         this.chart = chart;
         this.starttime = Math.floor(new Date().getTime()/1000.0);
+
     }
 
     incrementCountRight() {
@@ -1117,6 +1127,9 @@ class Statistics {
         // 1. Hide the last card that was practiced.
         $('#cardbox-practice-replacable').toggleClass('hidden');
 
+        // Show the "back-to-start" button when the canvas is shown
+        $('#back-to-start').show();
+
         // 2. Save this session's performance in cardbox_statistics.
         $.ajax({
             type: 'POST',
@@ -1125,6 +1138,12 @@ class Statistics {
             success: function(result){
                 result = JSON.parse(result);
             }
+        });
+
+        // adding Button for back to start page of practice
+        document.getElementById('back-to-start').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = window.location.pathname + '?id=' + cmid + '&action=practice';
         });
 
         // 3. Then display it as a doughnut chart.
