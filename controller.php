@@ -1025,9 +1025,17 @@ if ($action === 'overview') {
         foreach ($list as $flashcard) {
             $card = new cardbox_card($flashcard, $context, $cardbox->id, $allowedtoedit, $seestatus);
             $card->cardbox_getcarddeck($flashcard, $allowedtoedit);
-            if ($card->cardbox_getcarddecknumber() == ($deck + 1)) {
-                $filtereddeck[$index] = $flashcard;
-                $index++;
+
+            if (has_capability('mod/cardbox:approvecard', $context)) {
+                if ($card->cardbox_getcarddecknumber() == ($deck + 1)) {
+                    $filtereddeck[$index] = $flashcard;
+                    $index++;
+                }
+            } else {
+                if ($card->cardbox_getcarddecknumber() == ($deck)) {
+                    $filtereddeck[$index] = $flashcard;
+                    $index++;
+                }
             }
         }
         $list = $filtereddeck;
