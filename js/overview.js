@@ -35,10 +35,10 @@
 
     require(['jquery', 'core/notification'], function ($, notification) {
         //var topicfilter = document.getElementById('cardbox-overview-topicfilter');
-        var filterselect = document.getElementById('cardbox-filter-options');
+        //var filterselect = document.getElementById('cardbox-filter-options');
         var deckfilter = document.getElementById('cardbox-overview-deckfilter')
 
-        document.getElementById('cardbox-filter-options').value = __sort;        
+       //  document.getElementById('cardbox-filter-options').value = __sort;
 
         /*
         topicfilter.onchange = function() {
@@ -54,9 +54,11 @@
 
             var select = this.options[this.selectedIndex];
             __deck = select['value'];
-            window.location.href = window.location.pathname + '?id=' + __cmid + '&action=overview&sort=' + __sort + '&deck=' + __deck;
+            window.location.href = window.location.pathname + '?id=' + __cmid + '&action=overview&deck=' + __deck;
 
         }
+
+        /*
         filterselect.onchange = function() {
 
             var select = this.options[this.selectedIndex];        
@@ -64,6 +66,8 @@
             window.location.href = window.location.pathname + '?id=' + __cmid + '&action=overview&&sort=' + __sort + '&deck=' + __deck;
 
         }
+        */
+
         const editbtns = document.querySelectorAll('#cardbox-overview .cardbox-overview-button-edit');
         editbtns.forEach(btn => {
             const card = btn.closest('#cardbox-card-in-overview');

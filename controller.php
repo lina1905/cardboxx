@@ -985,9 +985,9 @@ if ($action === 'overview') {
 
     // Karten sortieren.
     if ($sort === 0) {
-        sort($list);
-    } else if ($sort === 1) {
         rsort($list);
+    } else if ($sort === 1) {
+        sort($list);
     } else if ($sort === 2 || $sort === 3) {
         $questions = [];
         for ($i = 0; $i < count($list); $i++) {
