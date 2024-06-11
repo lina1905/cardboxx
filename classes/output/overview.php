@@ -141,6 +141,7 @@ class cardbox_overview implements \renderable, \templatable {
      * @return array
      */
     public function export_for_template(\renderer_base $output) {
+        global $OUTPUT;
         $data = [];
 
         if ($this->topicid == -1) {
@@ -164,6 +165,11 @@ class cardbox_overview implements \renderable, \templatable {
         $data['sortad'] = $this->sort === 2;
         $data['sortaa'] = $this->sort === 3;
         $data['cards'] = $this->cards;
+
+
+        $help = $OUTPUT->help_icon('help:whenarecardsdue', 'cardbox');
+        $data['infoHtml'] = $help;
+
         return $data;
     }
 }

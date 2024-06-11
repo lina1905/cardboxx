@@ -162,7 +162,7 @@ $string['info:enrolledstudentsthreshold_student'] = 'Average progress among stud
 $string['help:nocardsdueforpractice'] = 'No cards due';
 $string['help:nocardsdueforpractice_help'] = 'New cards are due immediately. For any other card the deck decides:<ol><li>deck: daily</li><li>deck: after 3 days</li><li>deck: after 7 days</li><li>deck: after 16 days</li><li>deck: after 34 days</li></ol>';
 $string['help:whenarecardsdue'] = 'When are cards due';
-$string['help:whenarecardsdue_help'] = 'New cards are immediately due for practice. For any other card the deck decides:<ol><li>deck: daily</li><li>deck: after 3 days</li><li>deck: after 7 days</li><li>deck: after 16 days</li><li>deck: after 34 days</li></ol>';
+$string['help:whenarecardsdue_help'] = 'New cards are immediately due for practice. For any other card the level decides:<ol><li>Level: Repeate daily</li><li>Level: Repeate after 2 days</li><li>Level: Repeate after 4 days</li><li>Level: Repeate after 8 days</li><li>Level: Repeate after 16 days</li></ol>';
 $string['help:practiceanyway'] = 'If you practice anyway, correctly answered cards do not move on, but remain in their current tray.';
 
 // Title and form elements for choosing the settings for a new practice session.
