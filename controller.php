@@ -611,7 +611,7 @@ if ($action === 'practice') {
     $duecardcount = $cardboxxmodel->cardboxx_count_due_cards();
 
     $selection = $cardboxxmodel->cardboxx_get_card_selection($amountcards);
-    $totalcards = count($selection);
+    $totalcards = is_array($selection) ? count($selection) : 0;
 
     // Inform the user that their cardboxx is empty.
     if (empty($cardcount)) {
