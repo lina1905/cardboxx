@@ -26,13 +26,14 @@ function startOptions(Y, __cmid, __openmodal) {
     require(['jquery'], function ($) {
 
         var modal = document.getElementById('cardboxPracticeSettings');
-        
+
         if (__openmodal) {
-            modal.classList.add('show');
+            // modal.classList.add('show');
             modal.classList.add('modal-open');
             modal.style.display = 'block';
         }
 
+        /*
         document.getElementById('cardbox-onlyonetopic').addEventListener('change', function(e) {
             if (document.getElementById('cardbox-onlyonetopic').value!=-1) {
                 document.getElementById('cardbox-topic-select').style.display = 'none';
@@ -44,6 +45,7 @@ function startOptions(Y, __cmid, __openmodal) {
                 document.getElementById('cardbox-onlyonetopic-choices').style.marginBottom = '2em';
             }
         });
+         */
 
         document.getElementById('cardbox-apply-settings').addEventListener('click', function(e) {
             e.preventDefault();
@@ -76,23 +78,26 @@ function startOptions(Y, __cmid, __openmodal) {
 
         function applySettings() {
             
-            var topic = document.getElementById('cardbox-topic').value;
+            //var topic = document.getElementById('cardbox-topic').value;
             var practiceall = document.getElementById('cardbox-practiceall-yes').checked;
-            var onlyonetopic = document.getElementById('cardbox-onlyonetopic').value;
+            //var onlyonetopic = document.getElementById('cardbox-onlyonetopic').value;
             var amountcards = document.getElementById('cardbox-amountcards').value;
             var correctionmode;
 
-            var radios = document.getElementById('cardbox-form').elements['correctionmode'];
+            //var radios = document.getElementById('cardbox-form').elements['correctionmode'];
 
+            /*
             for (var i=0, len=radios.length; i<len; i++) {
                 if ( radios[i].checked ) {
                     correctionmode = radios[i].value;
                     break;
                 }
             }
+            */
 
 
-            var goTo = window.location.pathname + '?id=' + __cmid + '&action=practice&start=true&mode=' + correctionmode + '&topic=' + topic +'&practiceall=' + practiceall +'&onlyonetopic=' + onlyonetopic +'&amountcards=' + amountcards;
+            // mode = 1, da selfcheck
+            var goTo = window.location.pathname + '?id=' + __cmid + '&action=practice&start=true&mode=' + 1 +'&practiceall=' + practiceall;
             window.location.href = goTo;
 
         }
