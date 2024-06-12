@@ -17,7 +17,7 @@
 /**
  * This is the language file for the Card Box activity module.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,13 +26,13 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Meta information.
-$string['cardbox'] = 'Card Box';
-$string['activityname'] = 'Cardbox activity';
+$string['cardboxx'] = 'Card Box';
+$string['activityname'] = 'cardboxx activity';
 $string['modulename'] = 'Card Box';
 $string['modulename_help'] = '<p>This activity allows you to create flashcards for vocabulary, technical terms, formulae, etc. that you want to remember. You can study with the cards as you would do with a card box.</p><p>Cards can be created by every participant, but are only used for practice if a teacher has accepted them.</p>';
 $string['pluginname'] = 'Card Box';
 $string['modulenameplural'] = 'Card Boxes';
-$string['cardboxname'] = 'Name of this Card Box';
+$string['cardboxxname'] = 'Name of this Card Box';
 $string['pluginadministration'] = 'Flashcards Administration';
 $string['setting_autocorrection'] = 'Allow autocorrection';
 $string['setting_autocorrection_help'] = 'Autocorrection only works for normal text. If students may be expected to give formulae answers, you should deactivate autocorrection.';
@@ -51,15 +51,15 @@ $string['numberofcardssetting_help'] = 'Specifies how many cards students should
 $string['studentschoose'] = 'Students choose';
 $string['messageprovider:changenotification'] = 'Notify when a flashcard was edited';
 $string['changenotification:subject'] = 'Change notification';
-$string['changenotification:message'] = 'A flashcard was edited in your cardbox. Here is the card in its current form.';
+$string['changenotification:message'] = 'A flashcard was edited in your cardboxx. Here is the card in its current form.';
 
 // Reminders.
 $string['send_practice_reminders'] = 'Send e-mail reminders to the course participants';
-$string['messageprovider:memo'] = 'Reminders to practice with cardbox';
+$string['messageprovider:memo'] = 'Reminders to practice with cardboxx';
 $string['remindersubject'] = 'Practice reminder';
 $string['remindergreeting'] = 'Hello {$a}, ';
-$string['remindermessagebody'] = 'please remember to study with your cardbox on a regular basis.';
-$string['reminderfooting'] = 'This reminder was sent automatically by your cardbox "{$a->cardboxname}" in the course "{$a->coursename}".';
+$string['remindermessagebody'] = 'please remember to study with your cardboxx on a regular basis.';
+$string['reminderfooting'] = 'This reminder was sent automatically by your cardboxx "{$a->cardboxxname}" in the course "{$a->coursename}".';
 
 // Tab navigation.
 $string['addflashcard'] = 'Add a card';
@@ -146,12 +146,12 @@ $string['topic'] = 'Column name for topic';
 $string['acdisable'] = 'Column name to disable Automatic Check for a card. Yes = 1; No = 0.';
 
 // Info notifications.
-$string['info:statisticspage'] = 'This page tells you how many cards there are in your cardbox (due and not-due) and how well you did in your previous practice sessions.';
+$string['info:statisticspage'] = 'This page tells you how many cards there are in your cardboxx (due and not-due) and how well you did in your previous practice sessions.';
 $string['info:nocardsavailableforreview'] = 'There are no new cards to review at present.';
 $string['info:waslastcardforreview'] = 'This was the last card to be reviewed.';
-$string['info:nocardsavailableforoverview'] = 'There are no cards in this cardbox.';
-$string['info:nocardsavailable'] = 'There are no cards in your cardbox at present.';
-$string['help:nocardsavailable'] = 'Empty Cardbox';
+$string['info:nocardsavailableforoverview'] = 'There are no cards in this cardboxx.';
+$string['info:nocardsavailable'] = 'There are no cards in your cardboxx at present.';
+$string['help:nocardsavailable'] = 'Empty cardboxx';
 $string['help:nocardsavailable_help'] = 'Possible reasons:<ul><li>No cards have been created.</li><li>The teacher has yet to check and accept a card.</li></ul>';
 $string['info:nocardsavailableforpractice'] = 'There are no cards ready for practice.';
 $string['help:nocardsavailableforpractice'] = 'No cards';
@@ -173,7 +173,7 @@ $string['autocorrection'] = 'Automatic check';
 $string['weightopic'] = 'Focus';
 $string['notopicpreferred'] = 'no preference';
 $string['practiceall'] = 'Practice all cards';
-$string['practiceall_help'] = 'These cards do not proceed to the next deck if answered correctly. Thus, you can practice as often as you wish without risking that cards leave the cardbox forever after only a few days.';
+$string['practiceall_help'] = 'These cards do not proceed to the next deck if answered correctly. Thus, you can practice as often as you wish without risking that cards leave the cardboxx forever after only a few days.';
 $string['onlyonetopic'] = 'Topic';
 $string['maxnumbercardspractice'] = 'Max. number of cards';
 $string['undefined'] = 'No limit';

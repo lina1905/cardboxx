@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,18 +28,18 @@
 defined('MOODLE_INTERNAL') || die();
 require_once('card_selection_interface.php');
 /**
- * This class implements the card selection algorithm for the cardbox module.
- * It is based on the Leitner cardbox system.
+ * This class implements the card selection algorithm for the cardboxx module.
+ * It is based on the Leitner cardboxx system.
  */
-class cardbox_card_selection_algorithm implements cardbox_card_selection_interface {
+class cardboxx_card_selection_algorithm implements cardboxx_card_selection_interface {
 
     /**
-     * @var string The priority topic for the cardbox.
+     * @var string The priority topic for the cardboxx.
      */
     private static $prioritytopic;
 
     /**
-     * @var array The spacing for the cardbox.
+     * @var array The spacing for the cardboxx.
      */
     private $spacing;
 
@@ -69,7 +69,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
         $this->practiceall = $practiceall;
 
         if (!empty($topicid) && $topicid != -1) {
-            self::$prioritytopic = $DB->get_field('cardbox_topics', 'topicname', ['id' => $topicid], $strictness = MUST_EXIST);
+            self::$prioritytopic = $DB->get_field('cardboxx_topics', 'topicname', ['id' => $topicid], $strictness = MUST_EXIST);
         }
 
     }
@@ -80,7 +80,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * @param array|null $cards The cards to select from (optional)
      * @return array|null The selected cards
      */
-    public function cardbox_select_cards_for_practice($cards = null) {
+    public function cardboxx_select_cards_for_practice($cards = null) {
 
         if (empty($cards)) {
             return null;
@@ -114,9 +114,9 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
         // 2. Sort the cards according to their ideal repetition date times, deck, number of repetitions and time of last practice.
         // There is an option to prioritise cards by topic first.
         if (!empty(self::$prioritytopic)) {
-            usort($priorityqueue, ['cardbox_card_selection_algorithm', 'cardbox_compare_cards_priority_topic']);
+            usort($priorityqueue, ['cardboxx_card_selection_algorithm', 'cardboxx_compare_cards_priority_topic']);
         } else {
-            usort($priorityqueue, ['cardbox_card_selection_algorithm', 'cardbox_compare_cards_1st_level']);
+            usort($priorityqueue, ['cardboxx_card_selection_algorithm', 'cardboxx_compare_cards_1st_level']);
         }
 
         // 3. Pick the first 10 cards from the queue.
@@ -134,7 +134,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * @param DateTime $now The current date and time
      * @return array The count of due and not due cards
      */
-    public function cardbox_count_due_and_not_due($cards, $now) {
+    public function cardboxx_count_due_and_not_due($cards, $now) {
 
         $result = ['due' => 0, 'notdue' => 0];
 
@@ -158,20 +158,20 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * This function sorts/prioritises cards within a box, favouring those that
      * belong to the specified topic. If neither card or both cards belong to this
      * topic, the usual selection criteria are applied, as specified by
-     * cardbox_compare_cards_1st_level().
+     * cardboxx_compare_cards_1st_level().
      *
      * @param obj $a
      * @param obj $b
      * @return int -1 means, $a comes first, 1 means, $b comes first
      */
-    public static function cardbox_compare_cards_priority_topic($a, $b) {
+    public static function cardboxx_compare_cards_priority_topic($a, $b) {
 
         if ($a->topicname == $b->topicname) {
-            return self::cardbox_compare_cards_1st_level($a, $b);
+            return self::cardboxx_compare_cards_1st_level($a, $b);
         }
 
         if ( ($a->topicname != self::$prioritytopic) && ($b->topicname != self::$prioritytopic) ) {
-            return self::cardbox_compare_cards_1st_level($a, $b);
+            return self::cardboxx_compare_cards_1st_level($a, $b);
         }
 
         if ($a->topicname == self::$prioritytopic) {
@@ -192,7 +192,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * @param object $b The second card
      * @return int The comparison result
      */
-    public static function cardbox_compare_cards_1st_level($a, $b) {
+    public static function cardboxx_compare_cards_1st_level($a, $b) {
 
         // Differences in due datetime that are only up to 3 hours
         // are ignored in favour of second level priorities.
@@ -203,7 +203,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
                 )
             )
         ) {
-            return self::cardbox_compare_cards_2nd_level($a, $b);
+            return self::cardboxx_compare_cards_2nd_level($a, $b);
         }
 
         // Cards that are dues sooner get priority over cards that are due at a later time (whether in the past or future).
@@ -215,7 +215,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
 
     }
     /**
-     * This function sorts cards according to their position in the Leitner cardbox system, i.e.
+     * This function sorts cards according to their position in the Leitner cardboxx system, i.e.
      * according to the number of times they were answered correctly.
      *
      * @param object $a The first card
@@ -223,10 +223,10 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * @return int The comparison result
      * /
      */
-    public static function cardbox_compare_cards_2nd_level($a, $b) {
+    public static function cardboxx_compare_cards_2nd_level($a, $b) {
 
         if ($a->cardposition == $b->cardposition) {
-            return self::cardbox_compare_cards_3rd_level($a, $b);
+            return self::cardboxx_compare_cards_3rd_level($a, $b);
         }
 
         // Prioritise cards from lower decks over those from higher decks.
@@ -235,16 +235,16 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
     }
     /**
      * This function sorts cards according to the number of repetitions a user
-     * needed to get the card into its current position in the cardbox system.
+     * needed to get the card into its current position in the cardboxx system.
      *
      * @param object $a The first card
      * @param object $b The second card
      * @return int The comparison result
      */
-    public static function cardbox_compare_cards_3rd_level($a, $b) {
+    public static function cardboxx_compare_cards_3rd_level($a, $b) {
 
         if ($a->repetitions == $b->repetitions) {
-            return self::cardbox_compare_cards_4th_level($a, $b);
+            return self::cardboxx_compare_cards_4th_level($a, $b);
         }
         // Cards that were difficult for this user in the past get third priority.
         return ($a->repetitions > $b->repetitions) ? -1 : 1;
@@ -260,7 +260,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      * @param object $b The second card
      * @return int The comparison result
      */
-    public static function cardbox_compare_cards_4th_level($a, $b) {
+    public static function cardboxx_compare_cards_4th_level($a, $b) {
 
         if ($a->lastpracticed == $b->lastpracticed) { // Practically never happens because of the precision of timestamps.
             return 0;

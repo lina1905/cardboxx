@@ -18,65 +18,65 @@ defined('MOODLE_INTERNAL') || die();
 
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class cardbox_cardboxmodel {
+class cardboxx_cardboxxmodel {
     /**
-     * @var int The ID of the cardbox.
+     * @var int The ID of the cardboxx.
      */
     private $id;
 
     /**
-     * @var array The flashcards in the cardbox.
+     * @var array The flashcards in the cardboxx.
      */
     private $flashcards;
 
     /**
-     * @var array The boxes in the cardbox, each containing an array of cards.
+     * @var array The boxes in the cardboxx, each containing an array of cards.
      */
     private $boxes = [0 => [], 1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => []];
 
     /**
-     * @var cardbox_card_selection_interface The algorithm used for card selection.
+     * @var cardboxx_card_selection_interface The algorithm used for card selection.
      */
     private $selectionalgorithm;
 
     /**
-     * @var cardbox_card_sorting_interface The algorithm used for card sorting.
+     * @var cardboxx_card_sorting_interface The algorithm used for card sorting.
      */
     private $sortingalgorithm;
     /**
      * Constructor.
      *
-     * @param int $cardboxid
-     * @param cardbox_card_selection_interface $selectionalgorithm
-     * @param cardbox_card_sorting_interface $sortingalgorithm
+     * @param int $cardboxxid
+     * @param cardboxx_card_selection_interface $selectionalgorithm
+     * @param cardboxx_card_sorting_interface $sortingalgorithm
      * @param int $topic
      */
-    public function __construct($cardboxid, cardbox_card_selection_interface $selectionalgorithm = null,
-                                cardbox_card_sorting_interface $sortingalgorithm = null, $topic=-1) {
+    public function __construct($cardboxxid, cardboxx_card_selection_interface $selectionalgorithm = null,
+                                cardboxx_card_sorting_interface $sortingalgorithm = null, $topic=-1) {
 
-        $this->id = $cardboxid;
+        $this->id = $cardboxxid;
 
-        // 1. Add any new cards to the user's cardbox system (represented by the cardbox_progress table).
-        cardbox_add_new_cards($cardboxid, $topic);
+        // 1. Add any new cards to the user's cardboxx system (represented by the cardboxx_progress table).
+        cardboxx_add_new_cards($cardboxxid, $topic);
 
-        // 2. Access all cards in this user's cardbox system and adjust the overall cardcount.
-        $this->cardbox_get_users_cards($topic);
+        // 2. Access all cards in this user's cardboxx system and adjust the overall cardcount.
+        $this->cardboxx_get_users_cards($topic);
 
         $this->selectionalgorithm = $selectionalgorithm;
         $this->sortingalgorithm = $sortingalgorithm;
 
     }
     /**
-     * Function returns the number of cards in the user's cardbox.
+     * Function returns the number of cards in the user's cardboxx.
      *
      * @return int
      */
-    public function cardbox_count_cards() {
+    public function cardboxx_count_cards() {
         if (empty($this->flashcards)) {
             return 0;
         } else {
@@ -84,25 +84,25 @@ class cardbox_cardboxmodel {
         }
     }
     /**
-     * Function returns the number of cards in the user's cardbox that are due for practice.
+     * Function returns the number of cards in the user's cardboxx that are due for practice.
      *
      * @return int
      */
-    public function cardbox_count_due_cards() {
+    public function cardboxx_count_due_cards() {
         $due = 0;
         foreach ($this->flashcards as $card) {
-            if (cardbox_is_card_due($card)) {
+            if (cardboxx_is_card_due($card)) {
                 $due++;
             }
         }
         return $due;
     }
     /**
-     * Function returns the number of cards in the user's cardbox that are not due for practice.
+     * Function returns the number of cards in the user's cardboxx that are not due for practice.
      *
      * @return int
      */
-    public function cardbox_count_mastered_cards() {
+    public function cardboxx_count_mastered_cards() {
         return count($this->boxes[6]);
     }
     /**
@@ -111,7 +111,7 @@ class cardbox_cardboxmodel {
      * @param int $amountcards The amount of cards to select (optional)
      * @return array of ints The ids of the selected cards
      */
-    public function cardbox_get_card_selection($amountcards = 0) {
+    public function cardboxx_get_card_selection($amountcards = 0) {
 
         $selection = [];
 
@@ -119,7 +119,7 @@ class cardbox_cardboxmodel {
         if (!empty($this->flashcards) && !empty($this->selectionalgorithm)) {
 
             // Delegate card selection to the selection algorithm instance.
-            $cards = $this->selectionalgorithm->cardbox_select_cards_for_practice($this->flashcards);
+            $cards = $this->selectionalgorithm->cardboxx_select_cards_for_practice($this->flashcards);
 
         } else {
             return null;
@@ -128,7 +128,7 @@ class cardbox_cardboxmodel {
         // Sort the selected cards.
         if (!empty($cards) && !empty($this->sortingalgorithm)) {
             // Delegate card sorting to the sorting algorithm instance.
-            $cards = $this->sortingalgorithm->cardbox_sort_cards_for_practice($cards);
+            $cards = $this->sortingalgorithm->cardboxx_sort_cards_for_practice($cards);
         }
 
         // Return the ids of the cards.
@@ -151,11 +151,11 @@ class cardbox_cardboxmodel {
 
     /**
      * Function returns an array specifying how many due/not-due cards there are in each box
-     * (for this user and this cardbox instance).
+     * (for this user and this cardboxx instance).
      *
      * @return array
      */
-    public function cardbox_get_status() {
+    public function cardboxx_get_status() {
 
         $now = new DateTime("now");
 
@@ -165,37 +165,37 @@ class cardbox_cardboxmodel {
         $cardsperbox[6] = count($this->boxes[6]);
 
         for ($i = 1; $i <= 5; $i++) {
-            $cardsperbox[$i] = $this->selectionalgorithm->cardbox_count_due_and_not_due($this->boxes[$i], $now);
+            $cardsperbox[$i] = $this->selectionalgorithm->cardboxx_count_due_and_not_due($this->boxes[$i], $now);
         }
 
         return $cardsperbox;
     }
     /**
      * Function retrieves all flashcards that
-     * 1. belong to the current cardbox plugin instance
+     * 1. belong to the current cardboxx plugin instance
      * 2. are registered for the current user in the progress table
-     *    which is the virtual representation of a cardbox system
+     *    which is the virtual representation of a cardboxx system
      *
      * Each card is filed into one of the 'boxes' or 'decks'.
      *
      * @param int $topic The topic of the cards
      */
-    private function cardbox_get_users_cards($topic) {
+    private function cardboxx_get_users_cards($topic) {
 
         global $DB, $USER;
 
         $sql = "SELECT p.card, p.cardposition, p.lastpracticed, p.repetitions, t.topicname "
-                . "FROM {cardbox_progress} p "
-                . "LEFT JOIN {cardbox_cards} c ON c.id = p.card "
-                . "LEFT JOIN {cardbox_topics} t ON c.topic = t.id "
-                . "WHERE p.userid = ? AND c.cardbox = ? "
+                . "FROM {cardboxx_progress} p "
+                . "LEFT JOIN {cardboxx_cards} c ON c.id = p.card "
+                . "LEFT JOIN {cardboxx_topics} t ON c.topic = t.id "
+                . "WHERE p.userid = ? AND c.cardboxx = ? "
                 . "ORDER BY p.cardposition";
 
         $this->flashcards = $DB->get_records_sql($sql, [$USER->id, $this->id]);
 
         if ($topic != -1) {
             $cards = [];
-            $topicname = $DB->get_record_select('cardbox_topics', 'id=' . $topic, null, 'topicname');
+            $topicname = $DB->get_record_select('cardboxx_topics', 'id=' . $topic, null, 'topicname');
             foreach ($this->flashcards as $card) {
                 if (strcmp($card->topicname, $topicname->topicname) == 0) {
                     $cards[] = $card;
@@ -215,11 +215,11 @@ class cardbox_cardboxmodel {
      * @param int $cardid The id of the card
      * @return array The content items of the card
      */
-    public static function cardbox_get_card_contents($cardid) {
+    public static function cardboxx_get_card_contents($cardid) {
 
         global $DB;
-        $contents = $DB->get_records('cardbox_cardcontents', ['card' => $cardid]);
-        usort($contents, ['cardbox_cardboxmodel', 'cardbox_compare_cardcontenttypes']);
+        $contents = $DB->get_records('cardboxx_cardcontents', ['card' => $cardid]);
+        usort($contents, ['cardboxx_cardboxxmodel', 'cardboxx_compare_cardcontenttypes']);
         return $contents;
     }
     /**
@@ -230,7 +230,7 @@ class cardbox_cardboxmodel {
      * @param object $b The second content element
      * @return int The comparison result
      */
-    public static function cardbox_compare_cardcontenttypes($a, $b) {
+    public static function cardboxx_compare_cardcontenttypes($a, $b) {
 
         if ($a->cardside == $b->cardside) {
 
@@ -252,10 +252,10 @@ class cardbox_cardboxmodel {
      * @param int $cardid The id of the card
      * @return int The case sensitivity status
      */
-    public static function cardbox_get_casesensitive($cardid) {
+    public static function cardboxx_get_casesensitive($cardid) {
         global $DB;
 
-        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', ['id' => $cardid], IGNORE_MISSING);
-        return $DB->get_field('cardbox', 'casesensitive', ['id' => $cardboxid], IGNORE_MISSING);
+        $cardboxxid = $DB->get_field('cardboxx_cards', 'cardboxx', ['id' => $cardid], IGNORE_MISSING);
+        return $DB->get_field('cardboxx', 'casesensitive', ['id' => $cardboxxid], IGNORE_MISSING);
     }
 }

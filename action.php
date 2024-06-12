@@ -17,19 +17,19 @@
 /**
  * In this file, incoming AJAX request from  practice.js are handled.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once('../../config.php');
-require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
+require_once($CFG->dirroot . '/mod/cardboxx/locallib.php');
 
 $cmid = required_param('id', PARAM_INT);
 
-list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'cardbox');
-$cardbox = $DB->get_record('cardbox', ['id' => $cm->instance], '*', MUST_EXIST);
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'cardboxx');
+$cardboxx = $DB->get_record('cardboxx', ['id' => $cm->instance], '*', MUST_EXIST);
 
 require_login($course, true, $cm);
 require_sesskey();
@@ -43,8 +43,8 @@ $action = required_param('action', PARAM_ALPHA); // ...'$action' determines what
 
 if ($action === 'updateandnext') {
 
-    require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
-    require_once($CFG->dirroot . '/mod/cardbox/classes/output/practice.php');
+    require_once($CFG->dirroot . '/mod/cardboxx/locallib.php');
+    require_once($CFG->dirroot . '/mod/cardboxx/classes/output/practice.php');
 
     $cardid = required_param('cardid', PARAM_INT);
     $iscorrect = required_param('iscorrect', PARAM_INT);
@@ -57,20 +57,20 @@ if ($action === 'updateandnext') {
     $totalcards = $_SESSION['totalcards']; // Retrieve totalcards from session
 
 
-    $dataobject = $DB->get_record('cardbox_progress', ['userid' => $USER->id, 'card' => $cardid], $fields = '*', MUST_EXIST);
+    $dataobject = $DB->get_record('cardboxx_progress', ['userid' => $USER->id, 'card' => $cardid], $fields = '*', MUST_EXIST);
     if (empty($dataobject)) {
-        echo json_encode(['status' => 'error', 'reason' => 'nocardboxentryfound']);
+        echo json_encode(['status' => 'error', 'reason' => 'nocardboxxentryfound']);
     }
     $lastposition = $dataobject->cardposition;
 
-    $cardisdue = cardbox_is_card_due($dataobject);
+    $cardisdue = cardboxx_is_card_due($dataobject);
 
     // 1. Update the card entry in the DB if
     // a) this is the first time the card was answered in this session and
     // b) the card is (over)due and/or was answered incorrectly.
     if ($isrepetition == 0 && ($cardisdue == true || $iscorrect == 0) ) {
 
-        $success = cardbox_update_card_progress($dataobject, $iscorrect);
+        $success = cardboxx_update_card_progress($dataobject, $iscorrect);
 
         if (empty($success)) {
             echo json_encode(['status' => 'error', 'reason' => 'failedtoupdate']);
@@ -80,8 +80,8 @@ if ($action === 'updateandnext') {
 
     // 2. Get next card and pass it to javascript for rendering.
     if ($next != 0) {
-        $renderer = $PAGE->get_renderer('mod_cardbox');
-        $practice = new cardbox_practice($case, $context, $next, $cardsleft, !$correction);
+        $renderer = $PAGE->get_renderer('mod_cardboxx');
+        $practice = new cardboxx_practice($case, $context, $next, $cardsleft, !$correction);
         $practice->totalcards = $totalcards;
         $newdata = $practice->export_for_template($renderer);
 
@@ -106,12 +106,12 @@ if ($action === 'saveperformance') {
 
     $data = new stdClass();
     $data->userid = $USER->id;
-    $data->cardboxid = $cardbox->id;
+    $data->cardboxxid = $cardboxx->id;
     $data->timeofpractice = time();
     $data->numberofcards = $countright + $countwrong;
     $data->duration = $data->timeofpractice - $starttime;
     $data->percentcorrect = round($percentcorrect, 0, PHP_ROUND_HALF_UP);
-    $success = $DB->insert_record('cardbox_statistics', $data);
+    $success = $DB->insert_record('cardboxx_statistics', $data);
 
     if (empty($success)) {
         echo json_encode(['status' => 'error', 'reason' => 'failedtosaveperformance']);
@@ -126,14 +126,14 @@ if ($action === 'saveperformance') {
 
 if ($action === 'savesuggestedanswer') {
 
-    require_once($CFG->dirroot . '/mod/cardbox/classes/output/practice.php');
+    require_once($CFG->dirroot . '/mod/cardboxx/classes/output/practice.php');
 
     $cardid = required_param('cardid', PARAM_INT);
     $case = optional_param('case', 1, PARAM_INT);
     $userinput = required_param('userinput', PARAM_TEXT);
 
     if (!(empty($userinput) || $userinput === "")) {
-        cardbox_save_new_cardcontent($cardid, CARDBOX_CARDSIDE_ANSWER, CARDBOX_CONTENTTYPE_TEXT,
+        cardboxx_save_new_cardcontent($cardid, cardboxx_CARDSIDE_ANSWER, cardboxx_CONTENTTYPE_TEXT,
                                      $userinput, CARD_ANSWERSUGGESTION_INFORMATION);
     }
 

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,9 +23,9 @@
 defined('MOODLE_INTERNAL') || die();
 require_once('card_sorting_interface.php');
 /**
- * Class cardbox_card_sorting_algorithm
+ * Class cardboxx_card_sorting_algorithm
  */
-class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
+class cardboxx_card_sorting_algorithm implements cardboxx_card_sorting_interface {
 
     /**
      * This function sorts a selection of cards for practice.
@@ -35,19 +35,19 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
      * @param array $cardselection The selection of cards to sort
      * @return array The sorted cards
      */
-    public function cardbox_sort_cards_for_practice($cardselection) {
+    public function cardboxx_sort_cards_for_practice($cardselection) {
 
         global $DB;
 
-        $cardboxid = $DB->get_field('cardbox_cards', 'cardbox', ['id' => $cardselection[0]->card], $strictness = MUST_EXIST);
-        $topics = $DB->get_fieldset_select('cardbox_topics', 'topicname', 'cardboxid = ?', [$cardboxid]);
+        $cardboxxid = $DB->get_field('cardboxx_cards', 'cardboxx', ['id' => $cardselection[0]->card], $strictness = MUST_EXIST);
+        $topics = $DB->get_fieldset_select('cardboxx_topics', 'topicname', 'cardboxxid = ?', [$cardboxxid]);
 
         shuffle($cardselection); // Randomize order of cards before sorting.
 
         if (empty($topics)) {
 
             // 0. Move new and difficult material to the beginning and end of the practice session.
-            usort($cardselection, ['cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency']);
+            usort($cardselection, ['cardboxx_card_sorting_algorithm', 'cardboxx_compare_cards_primacy_recency']);
 
             return $cardselection;
 
@@ -92,7 +92,7 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
         }
 
         // 2. Move new and difficult material to the beginning and end of the practice session.
-        usort($newselection, ['cardbox_card_sorting_algorithm', 'cardbox_compare_cards_primacy_recency']);
+        usort($newselection, ['cardboxx_card_sorting_algorithm', 'cardboxx_compare_cards_primacy_recency']);
 
         return $newselection;
 
@@ -108,7 +108,7 @@ class cardbox_card_sorting_algorithm implements cardbox_card_sorting_interface {
      * @param stdClass $b Object representing a card
      * @return int The comparison result
      */
-    public static function cardbox_compare_cards_primacy_recency($a, $b) {
+    public static function cardboxx_compare_cards_primacy_recency($a, $b) {
 
         if ($a->cardposition == $b->cardposition) {
             return 0;

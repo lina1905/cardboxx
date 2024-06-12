@@ -17,7 +17,7 @@
 /**
  * This is the language file for the Card Box activity module.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,13 +26,13 @@
 defined('MOODLE_INTERNAL') || die;
 
 // Meta Informationen.
-$string['cardbox'] = 'Kartenbox';
+$string['cardboxx'] = 'Kartenbox';
 $string['activityname'] = 'Kartenbox Aktivität';
 $string['modulename'] = 'Kartenbox';
 $string['modulename_help'] = '<p>Diese Aktivität ermöglicht es Ihnen, Karteikarten für Vokabeln, Fachbegriffe, Formeln usw. zu erstellen, die Sie sich merken möchten. Sie können mit den Karten lernen, wie Sie es mit einer Kartenbox tun würden.</p><p>Karten können von jedem Teilnehmer erstellt werden, werden aber nur zum Üben verwendet, wenn ein Lehrer sie akzeptiert hat.</p>';
 $string['pluginname'] = 'Kartenbox';
 $string['modulenameplural'] = 'Kartenboxen';
-$string['cardboxname'] = 'Name dieser Kartenbox';
+$string['cardboxxname'] = 'Name dieser Kartenbox';
 $string['pluginadministration'] = 'Flashcards Verwaltung';
 $string['setting_autocorrection'] = 'Autokorrektur erlauben';
 $string['setting_autocorrection_help'] = 'Die Autokorrektur funktioniert nur für normalen Text. Wenn von den Schülern erwartet wird, dass sie Formelantworten geben, sollten Sie die Autokorrektur deaktivieren.';
@@ -59,7 +59,7 @@ $string['messageprovider:memo'] = 'Erinnerungen zum Üben mit Kartenbox';
 $string['remindersubject'] = 'Übungs-Erinnerung';
 $string['remindergreeting'] = 'Hallo {$a}, ';
 $string['remindermessagebody'] = 'bitte denken Sie daran, regelmäßig mit Ihrer Kartenbox zu lernen.';
-$string['reminderfooting'] = 'Diese Erinnerung wurde automatisch von Ihrer Kartenbox "{$a->cardboxname}" im Kurs "{$a->coursename}" gesendet.';
+$string['reminderfooting'] = 'Diese Erinnerung wurde automatisch von Ihrer Kartenbox "{$a->cardboxxname}" im Kurs "{$a->coursename}" gesendet.';
 
 // Tab-Navigation.
 $string['addflashcard'] = 'Eine Karte hinzufügen';

@@ -17,7 +17,7 @@
 /**
  * This is the startistcs page.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * Description of statistics
  *
  */
-class cardbox_statistics implements \renderable, \templatable {
+class cardboxx_statistics implements \renderable, \templatable {
 
     /**
      * @var bool Flag indicating if the user is a manager.
@@ -106,37 +106,37 @@ class cardbox_statistics implements \renderable, \templatable {
     /**
      * Constructor.
      *
-     * @param int $cardboxid
+     * @param int $cardboxxid
      * @param bool $ismanager
      */
-    public function __construct($cardboxid, $ismanager) {
+    public function __construct($cardboxxid, $ismanager) {
         $this->ismanager = $ismanager;
         if ($ismanager) {
-            $this->init_manager($cardboxid);
+            $this->init_manager($cardboxxid);
         } else {
-            $this->init_student($cardboxid);
+            $this->init_student($cardboxxid);
         }
     }
 
     /**
      * Initialize the statistics for a student.
      *
-     * @param int $cardboxid
+     * @param int $cardboxxid
      */
-    private function init_student($cardboxid) {
+    private function init_student($cardboxxid) {
         global $CFG, $DB, $USER;
-        require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
+        require_once($CFG->dirroot . '/mod/cardboxx/locallib.php');
 
         $this->dates = [];
         $this->performances = [];
 
         $this->set_enrolled_students_threshold_info(false);
 
-        $this->displayaverageprogress = $this->is_enrolled_students_threshold_reached($cardboxid);
+        $this->displayaverageprogress = $this->is_enrolled_students_threshold_reached($cardboxxid);
 
-        $data = $DB->get_records('cardbox_statistics', ['userid' => $USER->id, 'cardboxid' => $cardboxid]);
+        $data = $DB->get_records('cardboxx_statistics', ['userid' => $USER->id, 'cardboxxid' => $cardboxxid]);
         foreach ($data as $record) {
-            $this->dates[] = cardbox_get_user_date($record->timeofpractice);
+            $this->dates[] = cardboxx_get_user_date($record->timeofpractice);
             $this->performances[] = $record->percentcorrect;
         }
     }
@@ -144,9 +144,9 @@ class cardbox_statistics implements \renderable, \templatable {
     /**
      * Initialize the statistics for a manager.
      *
-     * @param int $cardboxid
+     * @param int $cardboxxid
      */
-    private function init_manager($cardboxid) {
+    private function init_manager($cardboxxid) {
         global $DB;
 
         $this->weeks = [];
@@ -164,12 +164,12 @@ class cardbox_statistics implements \renderable, \templatable {
 
         $this->set_enrolled_students_threshold_info(true);
 
-        $this->displayweeklystats = $this->is_enrolled_students_threshold_reached($cardboxid);
+        $this->displayweeklystats = $this->is_enrolled_students_threshold_reached($cardboxxid);
         if (!$this->displayweeklystats) {
             return;
         }
 
-        $data = $DB->get_records('cardbox_statistics', ['cardboxid' => $cardboxid]);
+        $data = $DB->get_records('cardboxx_statistics', ['cardboxxid' => $cardboxxid]);
         $endoflastweek = new DateTime();
         $endoflastweek->modify('Monday this week');
         $endoflastweek = $endoflastweek->format('U');
@@ -195,19 +195,19 @@ class cardbox_statistics implements \renderable, \templatable {
                     $count++;
                 }
             }
-            $this->weeks[] = "" .cardbox_get_user_date_short($i). " - " .cardbox_get_user_date_short($mondayweeklater - 86400);
+            $this->weeks[] = "" .cardboxx_get_user_date_short($i). " - " .cardboxx_get_user_date_short($mondayweeklater - 86400);
 
             $sqlmin = "SELECT MIN(numberofcards) AS numberofcards, MIN(duration) AS duration"
-                . " FROM {cardbox_statistics}"
-                . " WHERE cardboxid = :cbid AND timeofpractice > :start AND timeofpractice < :end";
-            $params = ['cbid' => $cardboxid, 'start' => $i, 'end' => $mondayweeklater];
+                . " FROM {cardboxx_statistics}"
+                . " WHERE cardboxxid = :cbid AND timeofpractice > :start AND timeofpractice < :end";
+            $params = ['cbid' => $cardboxxid, 'start' => $i, 'end' => $mondayweeklater];
             $sqlmax = "SELECT MAX(numberofcards) AS numberofcards, MAX(duration) AS duration"
-                . " FROM {cardbox_statistics}"
-                . " WHERE cardboxid = :cbid AND timeofpractice > :start AND timeofpractice < :end";
+                . " FROM {cardboxx_statistics}"
+                . " WHERE cardboxxid = :cbid AND timeofpractice > :start AND timeofpractice < :end";
             $numberofcardsmin = $DB->get_record_sql($sqlmin, $params);
             $numberofcardsmax = $DB->get_record_sql($sqlmax, $params);
 
-            $practicingusersthreshold = get_config('mod_cardbox', 'weekly_statistics_user_practice_threshold');
+            $practicingusersthreshold = get_config('mod_cardboxx', 'weekly_statistics_user_practice_threshold');
             if ($count == 0 || count($distinctusers) < $practicingusersthreshold) {
                 $durationofsession = 0;
                 $numberofcards = 0;
@@ -222,24 +222,24 @@ class cardbox_statistics implements \renderable, \templatable {
             } else {
                 $durationofsession = ($durationofsession) / 60 / $count;
                 $numberofcards = round($numberofcards / $count);
-                $numberofcardstooltipmin = get_string('numberofcardsmin', 'cardbox') . ": " . $numberofcardsmin->numberofcards;
+                $numberofcardstooltipmin = get_string('numberofcardsmin', 'cardboxx') . ": " . $numberofcardsmin->numberofcards;
                 $this->numberofcardsmin[] = $numberofcardsmin->numberofcards;
-                $numberofcardstooltipmax = get_string('numberofcardsmax', 'cardbox') . ": " . $numberofcardsmax->numberofcards;
+                $numberofcardstooltipmax = get_string('numberofcardsmax', 'cardboxx') . ": " . $numberofcardsmax->numberofcards;
                 $this->numberofcardsmax[] = $numberofcardsmax->numberofcards;
-                $durationofsessiontooltipmin = get_string('durationmin', 'cardbox') . ": " .
+                $durationofsessiontooltipmin = get_string('durationmin', 'cardboxx') . ": " .
                                                format_time($numberofcardsmin->duration);
                 $this->durationmin[] = $numberofcardsmin->duration / 60;
-                $durationofsessiontooltipmax = get_string('durationmax', 'cardbox') . ": " .
+                $durationofsessiontooltipmax = get_string('durationmax', 'cardboxx') . ": " .
                                                format_time($numberofcardsmax->duration);
                 $this->durationmax[] = $numberofcardsmax->duration / 60;
             }
             $this->durationofsessionavg[] = $durationofsession;
             $this->numberofcardsavg[] = $numberofcards;
 
-            $durationofsessiontooltipavg = get_string('durationavg', 'cardbox') . ": " . format_time($durationofsession * 60);
-            $numberofcardstooltipavg = get_string('numberofcardsavg', 'cardbox') . ": " . $numberofcards;
+            $durationofsessiontooltipavg = get_string('durationavg', 'cardboxx') . ": " . format_time($durationofsession * 60);
+            $numberofcardstooltipavg = get_string('numberofcardsavg', 'cardboxx') . ": " . $numberofcards;
             if (count($distinctusers) < $practicingusersthreshold) {
-                $belowthreshold = get_string('linegraphtooltiplabel_below_threshold', 'cardbox', $practicingusersthreshold);
+                $belowthreshold = get_string('linegraphtooltiplabel_below_threshold', 'cardboxx', $practicingusersthreshold);
                 $numberofcardstooltipmin = $belowthreshold;
                 $numberofcardstooltipavg = $belowthreshold;
                 $numberofcardstooltipmax = $belowthreshold;
@@ -262,10 +262,10 @@ class cardbox_statistics implements \renderable, \templatable {
      * @param bool $ismanager
      */
     private function set_enrolled_students_threshold_info($ismanager) {
-        $enrolledstudentsthreshold = get_config('mod_cardbox', 'weekly_statistics_enrolled_students_threshold');
+        $enrolledstudentsthreshold = get_config('mod_cardboxx', 'weekly_statistics_enrolled_students_threshold');
         if ($enrolledstudentsthreshold > 0) {
             $stringid = $ismanager ? 'info:enrolledstudentsthreshold_manager' : 'info:enrolledstudentsthreshold_student';
-            $this->infoenrolledstudentsthreshold = get_string($stringid, 'cardbox', $enrolledstudentsthreshold);
+            $this->infoenrolledstudentsthreshold = get_string($stringid, 'cardboxx', $enrolledstudentsthreshold);
         } else {
             $this->infoenrolledstudentsthreshold = false;
         }
@@ -274,14 +274,14 @@ class cardbox_statistics implements \renderable, \templatable {
     /**
      * Check if the enrolled students threshold is reached.
      *
-     * @param int $cardboxid
+     * @param int $cardboxxid
      * @return bool
      */
-    public static function is_enrolled_students_threshold_reached($cardboxid) {
-        $cm = get_coursemodule_from_instance('cardbox', $cardboxid);
+    public static function is_enrolled_students_threshold_reached($cardboxxid) {
+        $cm = get_coursemodule_from_instance('cardboxx', $cardboxxid);
         $context = context_module::instance($cm->id);
-        $enrolledstudents = get_enrolled_users($context, 'mod/cardbox:practice');
-        $enrolledstudentsthreshold = get_config('mod_cardbox', 'weekly_statistics_enrolled_students_threshold');
+        $enrolledstudents = get_enrolled_users($context, 'mod/cardboxx:practice');
+        $enrolledstudentsthreshold = get_config('mod_cardboxx', 'weekly_statistics_enrolled_students_threshold');
         return count($enrolledstudents) >= $enrolledstudentsthreshold;
     }
 

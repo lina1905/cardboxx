@@ -17,7 +17,7 @@
 /**
  * This is the topics page.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,10 +28,10 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Description of statistics
  */
-class cardbox_topics implements \renderable, \templatable {
+class cardboxx_topics implements \renderable, \templatable {
 
     /**
-     * @var array The topics for the cardbox.
+     * @var array The topics for the cardboxx.
      */
     private $topics = [];
     /**
@@ -40,9 +40,9 @@ class cardbox_topics implements \renderable, \templatable {
      * @param array $list The list of topics
      * @param int $offset The offset for the topics
      * @param int $cmid The course module id
-     * @param int $cardboxid The id of the cardbox
+     * @param int $cardboxxid The id of the cardboxx
      */
-    public function __construct($list, $offset, /* $context, */ $cmid, $cardboxid) {
+    public function __construct($list, $offset, /* $context, */ $cmid, $cardboxxid) {
 
         global $DB, $PAGE;
 
@@ -51,12 +51,12 @@ class cardbox_topics implements \renderable, \templatable {
             if ($topicid != -1) {
                 $topic['id'] = $topicid;
                 $topic['titel'] = $titel;
-                $topic['cards'] = $DB->count_records('cardbox_cards', [ "topic" => $topicid, "cardbox" => $cardboxid]);
+                $topic['cards'] = $DB->count_records('cardboxx_cards', [ "topic" => $topicid, "cardboxx" => $cardboxxid]);
                 $this->topics[] = $topic;
             }
         }
         $perpage = 10;
-        $renderer = $PAGE->get_renderer('mod_cardbox');
+        $renderer = $PAGE->get_renderer('mod_cardboxx');
 
     }
 

@@ -17,12 +17,12 @@
 /**
  * This class is responsible for rendering the preview table.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2021 ITCenter RWTH Aachen (see README.md)
  * @author    Amrita Deb
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace mod_cardbox\output;
+namespace mod_cardboxx\output;
 defined('MOODLE_INTERNAL') || die();
 /**
  * Class previewtable
@@ -58,7 +58,7 @@ class previewtable extends \html_table {
         foreach ($filecolumns as $column) {
             $this->head[] = $column;
         }
-        $this->head[] = ucfirst(get_string('status', 'cardbox'));
+        $this->head[] = ucfirst(get_string('status', 'cardboxx'));
     }
 
     /**
@@ -79,8 +79,8 @@ class previewtable extends \html_table {
             foreach ($fields as $key => $field) {
                 $rowcols[$this->filecolumns[$key]] = s(trim($field));
             }
-            $errors = cardbox_import_validate_row($atleastoneanswer, $rowcols);
-            $columnexceptions = cardbox_import_validate_columns($filecolumns, SHORT_DESCRIPTION);
+            $errors = cardboxx_import_validate_row($atleastoneanswer, $rowcols);
+            $columnexceptions = cardboxx_import_validate_columns($filecolumns, SHORT_DESCRIPTION);
             if (!empty($errors)) {
                 $errorlines[] = $i;
                 $status = "ERR:";
@@ -96,7 +96,7 @@ class previewtable extends \html_table {
             } else {
                 $status = "OK";
             }
-            $rowcols[get_string('status', 'cardbox')] = $status;
+            $rowcols[get_string('status', 'cardboxx')] = $status;
 
             $data[] = $rowcols;
             $i++;

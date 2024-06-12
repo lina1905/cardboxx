@@ -15,7 +15,7 @@
 
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -71,42 +71,42 @@
                     imageques.style.display = 'flex';
                     imagedescription.style.display = 'flex';
                     imagecheckbox.style.display = 'flex';
-                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
                 } else {
                     imageques.style.display = '';
                     imagedescription.style.display = '';
                     imagecheckbox.style.display = '';  
-                    btnimageques.innerHTML = M.util.get_string('addimage', 'cardbox'); 
+                    btnimageques.innerHTML = M.util.get_string('addimage', 'cardboxx'); 
                 }
             });
 
             btnsoundques.addEventListener('click', e => {
                 if (soundques.style.display === '') {
                     soundques.style.display = 'flex';
-                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
                 } else {
                     soundques.style.display = '';
-                    btnsoundques.innerHTML = M.util.get_string('addsound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('addsound', 'cardboxx');
                 }
             });
             /*
             btnquescontext.addEventListener('click', e => {
                 if (quescontext.style.display === '') {
                     quescontext.style.display = 'flex';
-                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 } else {
                     quescontext.style.display = '';
-                    btnquescontext.innerHTML = M.util.get_string('addcontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('addcontext', 'cardboxx');
                 }            
             });
 
             btnanscontext.addEventListener('click', e => {
                 if (anscontext.style.display === '') {
                     anscontext.style.display = 'flex';
-                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 } else {
                     anscontext.style.display = '';
-                    btnanscontext.innerHTML = M.util.get_string('addcontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('addcontext', 'cardboxx');
                 }            
             });
 
@@ -142,23 +142,23 @@
                     imageques.style.display = 'flex';
                     imagedescription.style.display = 'flex';
                     imagecheckbox.style.display = 'flex';
-                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
                 }
     
                 if (_data['showquessound']) {
                     soundques.style.display = 'flex';
-                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
                 }
 
                 /*
                 if (_data['showquescontext']) {
                     quescontext.style.display = 'flex';
-                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 }
     
                 if (_data['showanscontext']) {
                     anscontext.style.display = 'flex';
-                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 }
                 */
 
@@ -167,11 +167,11 @@
             /*
             if (document.getElementById('id_questioncontext').value != '') {
                 quescontext.style.display = 'flex';
-                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
             }
             if (document.getElementById('id_answercontext').value != '') {
                 quescontext.style.display = 'flex';
-                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
             }
             */
 
@@ -179,12 +179,12 @@
                 imageques.style.display = 'flex';
                 imagedescription.style.display = 'flex';
                 imagecheckbox.style.display = 'flex';
-                btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
             }
 
             if (sound[0].style.display === "") {
                 soundques.style.display = 'flex';
-                btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
             } */
 
         }

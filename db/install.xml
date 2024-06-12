@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/cardbox/db" VERSION="20181017" COMMENT="XMLDB file for Moodle mod/cardbox"
+<XMLDB PATH="mod/cardboxx/db" VERSION="20181017" COMMENT="XMLDB file for Moodle mod/cardboxx"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="cardbox" COMMENT="Defines cardbox">
+    <TABLE NAME="cardboxx" COMMENT="Defines cardboxx">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -20,30 +20,30 @@
         <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>
-        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for cardbox"/>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for cardboxx"/>
       </KEYS>
       <INDEXES>
         <INDEX NAME="course_idx" UNIQUE="false" FIELDS="course"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="cardbox_topics" COMMENT="Default comment for the table, please edit me">
+    <TABLE NAME="cardboxx_topics" COMMENT="Default comment for the table, please edit me">
         <FIELDS>
             <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
             <FIELD NAME="topicname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
-            <FIELD NAME="cardboxid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="cardboxxid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
         </FIELDS>
         <KEYS>
             <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         </KEYS>
         <INDEXES>
-            <INDEX NAME="cardboxid_idx" UNIQUE="false" FIELDS="cardboxid"/>
+            <INDEX NAME="cardboxxid_idx" UNIQUE="false" FIELDS="cardboxxid"/>
             <INDEX NAME="topicname_idx" UNIQUE="false" FIELDS="topicname"/>
         </INDEXES>
     </TABLE>
-    <TABLE NAME="cardbox_cards" COMMENT="Save meta information about each flashcard">
+    <TABLE NAME="cardboxx_cards" COMMENT="Save meta information about each flashcard">
         <FIELDS>
             <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-            <FIELD NAME="cardbox" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="cardboxx" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
             <FIELD NAME="topic" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
             <FIELD NAME="author" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
             <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -57,12 +57,12 @@
             <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         </KEYS>
         <INDEXES>
-            <INDEX NAME="cardbox_idx" UNIQUE="false" FIELDS="cardbox"/>
+            <INDEX NAME="cardboxx_idx" UNIQUE="false" FIELDS="cardboxx"/>
             <INDEX NAME="topic_idx" UNIQUE="false" FIELDS="topic"/>
-            <INDEX NAME="cardboxapproved_idx" UNIQUE="false" FIELDS="cardbox, approved"/>
+            <INDEX NAME="cardboxxapproved_idx" UNIQUE="false" FIELDS="cardboxx, approved"/>
         </INDEXES>
     </TABLE>
-    <TABLE NAME="cardbox_progress" COMMENT="traces the progress of cards through the boxes for each user">
+    <TABLE NAME="cardboxx_progress" COMMENT="traces the progress of cards through the boxes for each user">
         <FIELDS>
             <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
             <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -81,7 +81,7 @@
         </INDEXES>
 
     </TABLE>
-    <TABLE NAME="cardbox_cardcontents" COMMENT="saves card content such as prompts, questions, answers and images">
+    <TABLE NAME="cardboxx_cardcontents" COMMENT="saves card content such as prompts, questions, answers and images">
         <FIELDS>
             <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
             <FIELD NAME="card" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -100,11 +100,11 @@
             <INDEX NAME="contenttype_idx" UNIQUE="false" FIELDS="contenttype"/>
         </INDEXES>
     </TABLE>
-    <TABLE NAME="cardbox_statistics" COMMENT="This table tracks the users' performance over time.">
+    <TABLE NAME="cardboxx_statistics" COMMENT="This table tracks the users' performance over time.">
         <FIELDS>
             <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
             <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
-            <FIELD NAME="cardboxid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="cardboxxid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
             <FIELD NAME="timeofpractice" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
             <FIELD NAME="numberofcards" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false"/>
             <FIELD NAME="duration" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -114,8 +114,8 @@
             <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
         </KEYS>
         <INDEXES>
-            <INDEX NAME="userid_cardboxid_idx" UNIQUE="false" FIELDS="userid, cardboxid"/>
-            <INDEX NAME="cardboxid_idx" UNIQUE="false" FIELDS="cardboxid"/>
+            <INDEX NAME="userid_cardboxxid_idx" UNIQUE="false" FIELDS="userid, cardboxxid"/>
+            <INDEX NAME="cardboxxid_idx" UNIQUE="false" FIELDS="cardboxxid"/>
         </INDEXES>
     </TABLE>
   </TABLES>

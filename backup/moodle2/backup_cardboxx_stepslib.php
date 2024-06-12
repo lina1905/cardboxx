@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the backup steps that will be used by the backup_cardbox_activity_task
+ * Define all the backup steps that will be used by the backup_cardboxx_activity_task
  *
  * Moodle creates backups of courses or their parts by executing a so called backup plan.
  * The backup plan consists of a set of backup tasks and finally each backup task consists of one or more backup steps.
@@ -23,7 +23,7 @@
  *
  * See https://docs.moodle.org/dev/Backup_API and https://docs.moodle.org/dev/Backup_2.0_for_developers for more information.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -34,7 +34,7 @@ defined('MOODLE_INTERNAL') || die;
 /**
  * Define the complete pdfannotator structure for backup, with file and id annotations
  */
-class backup_cardbox_activity_structure_step extends backup_activity_structure_step {
+class backup_cardboxx_activity_structure_step extends backup_activity_structure_step {
 
     /**
      * There are three main things that the method must do:
@@ -51,7 +51,7 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
         $userinfo = $this->get_setting_value('userinfo'); // This variable is always 0.
 
         // 2. Define each element separately.
-        $cardbox = new backup_nested_element('cardbox', ['id'], ['name', 'intro', 'introformat', 'enablenotifications',
+        $cardboxx = new backup_nested_element('cardboxx', ['id'], ['name', 'intro', 'introformat', 'enablenotifications',
             'autocorrection', 'necessaryanswers', 'necessaryanswerslocked', 'casesensitive', 'timecreated', 'timemodified']);
 
         $cards = new backup_nested_element('cards');
@@ -63,7 +63,7 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
             ['card', 'cardside', 'contenttype', 'area', 'content']);
 
         $topics = new backup_nested_element('topics');
-        $topic = new backup_nested_element('topic', ['id'], ['topicname', 'cardboxid']);
+        $topic = new backup_nested_element('topic', ['id'], ['topicname', 'cardboxxid']);
 
         if ($userinfo != 0) {
 
@@ -73,45 +73,45 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
 
             $statistics = new backup_nested_element('statistics');
             $statistic = new backup_nested_element('statistic', ['id'],
-                ['userid', 'cardboxid', 'timeofpractice', 'percentcorrect']);
+                ['userid', 'cardboxxid', 'timeofpractice', 'percentcorrect']);
         }
 
         // 3. Build the tree (mind the right order!)
-        $cardbox->add_child($topics);
+        $cardboxx->add_child($topics);
         $topics->add_child($topic);
 
-        $cardbox->add_child($cards);
+        $cardboxx->add_child($cards);
         $cards->add_child($card);
 
         $card->add_child($cardcontents);
         $cardcontents->add_child($cardcontent);
 
         if ($userinfo != 0) {
-            $cardbox->add_child($statistics);
+            $cardboxx->add_child($statistics);
             $statistics->add_child($statistic);
             $card->add_child($progress);
             $progress->add_child($singleprogress);
         }
 
         // 4. Define db sources
-        $cardbox->set_source_table('cardbox', ['id' => backup::VAR_ACTIVITYID]); // Pass the course module id.
+        $cardboxx->set_source_table('cardboxx', ['id' => backup::VAR_ACTIVITYID]); // Pass the course module id.
 
-        // 4.1 Add all cards that belong to this cardbox instance.
-        $card->set_source_table('cardbox_cards', ['cardbox' => backup::VAR_PARENTID]);
+        // 4.1 Add all cards that belong to this cardboxx instance.
+        $card->set_source_table('cardboxx_cards', ['cardboxx' => backup::VAR_PARENTID]);
 
-        // 4.2 Add any topics that were created in this cardbox instance.
-        $topic->set_source_table('cardbox_topics', ['cardboxid' => backup::VAR_PARENTID]);
+        // 4.2 Add any topics that were created in this cardboxx instance.
+        $topic->set_source_table('cardboxx_topics', ['cardboxxid' => backup::VAR_PARENTID]);
 
-        // 4.3 Add the contents such as images and questions to the cards in this cardbox.
-        $cardcontent->set_source_table('cardbox_cardcontents', ['card' => backup::VAR_PARENTID]);
+        // 4.3 Add the contents such as images and questions to the cards in this cardboxx.
+        $cardcontent->set_source_table('cardboxx_cardcontents', ['card' => backup::VAR_PARENTID]);
 
         if ($userinfo != 0) {
 
-            // 4.4 Add the statistics of this cardbox instance.
-            $statistic->set_source_table('cardbox_statistics', ['cardboxid' => backup::VAR_PARENTID]);
+            // 4.4 Add the statistics of this cardboxx instance.
+            $statistic->set_source_table('cardboxx_statistics', ['cardboxxid' => backup::VAR_PARENTID]);
 
-            // 4.5 Add the information on user progresses in this cardbox.
-            $singleprogress->set_source_table('cardbox_progress', ['card' => backup::VAR_PARENTID]);
+            // 4.5 Add the information on user progresses in this cardboxx.
+            $singleprogress->set_source_table('cardboxx_progress', ['card' => backup::VAR_PARENTID]);
 
         }
 
@@ -130,10 +130,10 @@ class backup_cardbox_activity_structure_step extends backup_activity_structure_s
         }
 
         // 6. Define file area annotations (vgl. resource activity).
-        $cardbox->annotate_files('mod_cardbox', 'intro', null); // This file area does not have an itemid.
-        $cardcontent->annotate_files('mod_cardbox', 'content', null); // By content->id.
+        $cardboxx->annotate_files('mod_cardboxx', 'intro', null); // This file area does not have an itemid.
+        $cardcontent->annotate_files('mod_cardboxx', 'content', null); // By content->id.
 
         // 7. Return the root element (pdfannotator), wrapped into standard activity structure.
-        return $this->prepare_activity_structure($cardbox);
+        return $this->prepare_activity_structure($cardboxx);
     }
 }

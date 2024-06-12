@@ -1,4 +1,4 @@
-<div id="cardbox-practice-content" class="row cardbox-practice-content">
+<div id="cardboxx-practice-content" class="row cardboxx-practice-content">
 
     <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12" style="margin-bottom: 35px; margin-top: 10px;">
         <div class="progress" style="height: 18px;">
@@ -11,9 +11,9 @@
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-2"></div>
 
-    <div id="cardbox-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-8 question-answer">
+    <div id="cardboxx-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-8 question-answer">
         {{#question}}
-            {{> mod_cardbox/cardside }}
+            {{> mod_cardboxx/cardside }}
         {{/question}}
 
         <div class="horizontal-line"></div>
@@ -21,32 +21,32 @@
         {{#answer}}
                 {{#morethanonesolution}}
                     {{#texts}}
-                        <li class="cardbox-card-text">{{{text}}}</li>
+                        <li class="cardboxx-card-text">{{{text}}}</li>
                     {{/texts}}
                 {{/morethanonesolution}}
 
                 {{^morethanonesolution}}
                     {{#texts}}
-                        <div class="cardbox-card-text">{{{text}}}</div>
+                        <div class="cardboxx-card-text">{{{text}}}</div>
                     {{/texts}}
                 {{/morethanonesolution}}
         {{/answer}}
     </div>
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-2">
-    <!--<button id="cardbox-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxPracticeSettings">{{# str }} options, cardbox {{/ str }}</button>-->
+    <!--<button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">{{# str }} options, cardboxx {{/ str }}</button>-->
     </div>
 
 </div>
 
 
-<div id="cardbox-practice-user-interaction" class="row">
+<div id="cardboxx-practice-user-interaction" class="row">
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 
-    <div id="cardbox-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 30px">
-    <span id="cardbox-proceed-buttons" class="col-xs-12 cardbox-buttons button-container-check" style="max-width: 100%">
-        <button id="cardbox-mark-as-correct" type="button" class="btn btn-primary">{{# str }} markascorrect, cardbox {{/ str }}</button>
-        <button id="cardbox-mark-as-incorrect" type="button" class="btn btn-primary" >{{# str }} markasincorrect, cardbox {{/ str }}</button>
+    <div id="cardboxx-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 30px">
+    <span id="cardboxx-proceed-buttons" class="col-xs-12 cardboxx-buttons button-container-check" style="max-width: 100%">
+        <button id="cardboxx-mark-as-correct" type="button" class="btn btn-primary">{{# str }} markascorrect, cardboxx {{/ str }}</button>
+        <button id="cardboxx-mark-as-incorrect" type="button" class="btn btn-primary" >{{# str }} markasincorrect, cardboxx {{/ str }}</button>
     </span>
     </div>
 
@@ -54,8 +54,8 @@
 
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 10px">
-        <button id="cardbox-end-session" type="button" class="btn btn-secondary">{{# str }} endpractice, cardbox {{/ str }}</button>
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 10px">
+        <button id="cardboxx-end-session" type="button" class="btn btn-secondary">{{# str }} endpractice, cardboxx {{/ str }}</button>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 

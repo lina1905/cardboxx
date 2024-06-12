@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file defines the capabilities used in the cardbox module
+ * This file defines the capabilities used in the cardboxx module
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
 
-    'mod/cardbox:addinstance' => [
+    'mod/cardboxx:addinstance' => [
         'riskbitmask' => RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -37,7 +37,7 @@ $capabilities = [
         'clonepermissionsfrom' => 'moodle/course:manageactivities',
     ],
 
-    'mod/cardbox:view' => [
+    'mod/cardboxx:view' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -49,7 +49,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:submitcard' => [
+    'mod/cardboxx:submitcard' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -59,7 +59,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:approvecard' => [
+    'mod/cardboxx:approvecard' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -69,7 +69,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:practice' => [
+    'mod/cardboxx:practice' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => [
@@ -77,7 +77,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:deletecard' => [
+    'mod/cardboxx:deletecard' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -87,7 +87,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:seestatus' => [
+    'mod/cardboxx:seestatus' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [
@@ -95,7 +95,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/cardbox:edittopics' => [
+    'mod/cardboxx:edittopics' => [
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => [

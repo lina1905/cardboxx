@@ -23,7 +23,7 @@
  *
  * See https://docs.moodle.org/dev/Backup_API and https://docs.moodle.org/dev/Backup_2.0_for_developers for more information.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -32,15 +32,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Define all the restore steps that will be used by the restore_cardbox_activity_task
+ * Define all the restore steps that will be used by the restore_cardboxx_activity_task
  */
 
 /**
- * Structure step to restore one cardbox activity
+ * Structure step to restore one cardboxx activity
  */
-class restore_cardbox_activity_structure_step extends restore_activity_structure_step {
+class restore_cardboxx_activity_structure_step extends restore_activity_structure_step {
     /**
-     * Defines the structure of the cardbox activity
+     * Defines the structure of the cardboxx activity
      */
     protected function define_structure() {
 
@@ -48,23 +48,23 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
 
         $userinfo = $this->get_setting_value('userinfo');
 
-        $paths[] = new restore_path_element('cardbox', '/activity/cardbox');
-        $paths[] = new restore_path_element('cardbox_topics', '/activity/cardbox/topics/topic');
-        $paths[] = new restore_path_element('cardbox_cards', '/activity/cardbox/cards/card');
-        $paths[] = new restore_path_element('cardbox_cardcontents', '/activity/cardbox/cards/card/cardcontents/cardcontent');
+        $paths[] = new restore_path_element('cardboxx', '/activity/cardboxx');
+        $paths[] = new restore_path_element('cardboxx_topics', '/activity/cardboxx/topics/topic');
+        $paths[] = new restore_path_element('cardboxx_cards', '/activity/cardboxx/cards/card');
+        $paths[] = new restore_path_element('cardboxx_cardcontents', '/activity/cardboxx/cards/card/cardcontents/cardcontent');
         if ($userinfo != 0) {
-            $paths[] = new restore_path_element('cardbox_statistics', '/activity/cardbox/statistics/statistic');
-            $paths[] = new restore_path_element('cardbox_progress', '/activity/cardbox/cards/card/progress/singleprogress');
+            $paths[] = new restore_path_element('cardboxx_statistics', '/activity/cardboxx/statistics/statistic');
+            $paths[] = new restore_path_element('cardboxx_progress', '/activity/cardboxx/cards/card/progress/singleprogress');
         }
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
     }
     /**
-     * Process the cardbox element
+     * Process the cardboxx element
      *
      * @param array $data The data from the XML file
      */
-    protected function process_cardbox($data) {
+    protected function process_cardboxx($data) {
 
         global $DB;
 
@@ -74,104 +74,104 @@ class restore_cardbox_activity_structure_step extends restore_activity_structure
         $data->timecreated = $this->apply_date_offset($data->timecreated);
         $data->timemodified = $this->apply_date_offset($data->timemodified);
 
-        $newitemid = $DB->insert_record('cardbox', $data); // Insert the cardbox record.
+        $newitemid = $DB->insert_record('cardboxx', $data); // Insert the cardboxx record.
 
         $this->apply_activity_instance($newitemid); // Immediately after inserting "activity" record, call this.
     }
     /**
-     * Process the cardbox_topics element
+     * Process the cardboxx_topics element
      *
      * @param array $data The data from the XML file
      */
-    protected function process_cardbox_topics($data) {
+    protected function process_cardboxx_topics($data) {
         global $DB;
 
         $data = (object)$data;
         $oldid = $data->id;
 
-        $data->cardboxid = $this->get_new_parentid('cardbox');
+        $data->cardboxxid = $this->get_new_parentid('cardboxx');
 
-        $newitemid = $DB->insert_record('cardbox_topics', $data);
-        $this->set_mapping('cardbox_topics', $oldid, $newitemid);
+        $newitemid = $DB->insert_record('cardboxx_topics', $data);
+        $this->set_mapping('cardboxx_topics', $oldid, $newitemid);
     }
     /**
-     * Process the cardbox_cards element
+     * Process the cardboxx_cards element
      *
      * @param array $data The data from the XML file
      */
-    protected function process_cardbox_cards($data) {
-
-        global $DB;
-
-        $data = (object)$data;
-        $oldid = $data->id;
-
-        $data->cardbox = $this->get_new_parentid('cardbox');
-
-        $newitemid = $DB->insert_record('cardbox_cards', $data);
-        $this->set_mapping('cardbox_cards', $oldid, $newitemid);
-
-    }
-    /**
-     * Process the cardbox_cardcontents element
-     *
-     * @param array $data The data from the XML file
-     */
-    protected function process_cardbox_cardcontents($data) {
+    protected function process_cardboxx_cards($data) {
 
         global $DB;
 
         $data = (object)$data;
         $oldid = $data->id;
 
-        $data->card = $this->get_new_parentid('cardbox_cards');
+        $data->cardboxx = $this->get_new_parentid('cardboxx');
 
-        $newitemid = $DB->insert_record('cardbox_cardcontents', $data);
-        $this->set_mapping('cardbox_cardcontents', $oldid, $newitemid, true);
+        $newitemid = $DB->insert_record('cardboxx_cards', $data);
+        $this->set_mapping('cardboxx_cards', $oldid, $newitemid);
 
     }
     /**
-     * Process the cardbox_statistics element
+     * Process the cardboxx_cardcontents element
      *
      * @param array $data The data from the XML file
      */
-    protected function process_cardbox_statistics($data) {
+    protected function process_cardboxx_cardcontents($data) {
+
+        global $DB;
+
+        $data = (object)$data;
+        $oldid = $data->id;
+
+        $data->card = $this->get_new_parentid('cardboxx_cards');
+
+        $newitemid = $DB->insert_record('cardboxx_cardcontents', $data);
+        $this->set_mapping('cardboxx_cardcontents', $oldid, $newitemid, true);
+
+    }
+    /**
+     * Process the cardboxx_statistics element
+     *
+     * @param array $data The data from the XML file
+     */
+    protected function process_cardboxx_statistics($data) {
         global $DB;
 
         $data = (object)$data;
         $oldid = $data->id;
 
         $data->userid = $this->get_mappingid('user', $data->userid);
-        $data->cardboxid = $this->get_new_parentid('cardbox');
+        $data->cardboxxid = $this->get_new_parentid('cardboxx');
         $data->timeofpractice = $this->apply_date_offset($data->timeofpractice);
 
-        $newitemid = $DB->insert_record('cardbox_statistics', $data);
-        $this->set_mapping('cardbox_statistics', $oldid, $newitemid);
+        $newitemid = $DB->insert_record('cardboxx_statistics', $data);
+        $this->set_mapping('cardboxx_statistics', $oldid, $newitemid);
     }
     /**
-     * Process the cardbox_progress element
+     * Process the cardboxx_progress element
      *
      * @param array $data The data from the XML file
      */
-    protected function process_cardbox_progress($data) {
+    protected function process_cardboxx_progress($data) {
         global $DB;
 
         $data = (object)$data;
         $oldid = $data->id;
 
         $data->userid = $this->get_mappingid('user', $data->userid);
-        $data->card = $this->get_new_parentid('cardbox_cards');
+        $data->card = $this->get_new_parentid('cardboxx_cards');
         $data->lastpracticed = $this->apply_date_offset($data->lastpracticed);
 
-        $newitemid = $DB->insert_record('cardbox_progress', $data);
-        $this->set_mapping('cardbox_progress', $oldid, $newitemid);
+        $newitemid = $DB->insert_record('cardboxx_progress', $data);
+        $this->set_mapping('cardboxx_progress', $oldid, $newitemid);
     }
     /**
      * After the execution of the step
      */
     protected function after_execute() {
-        // Add cardbox related files, no need to match by itemname (just internally handled context).
-        $this->add_related_files('mod_cardbox', 'intro', null);
-        $this->add_related_files('mod_cardbox', 'content', 'cardbox_cardcontents'); // Cardimage or content?.
+        // Add cardboxx related files, no need to match by itemname (just internally handled context).
+        $this->add_related_files('mod_cardboxx', 'intro', null);
+        $this->add_related_files('mod_cardboxx', 'content', 'cardboxx_cardcontents'); // Cardimage or content?.
     }
 }

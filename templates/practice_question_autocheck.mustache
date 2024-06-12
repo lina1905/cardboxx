@@ -1,55 +1,55 @@
-<div id="cardbox-practice-content" class="row">
+<div id="cardboxx-practice-content" class="row">
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-bottom: 10px">
-        <button id="cardbox-end-session" type="button" class="btn btn-secondary">{{# str }} endpractice, cardbox {{/ str }}</button>
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-bottom: 10px">
+        <button id="cardboxx-end-session" type="button" class="btn btn-secondary">{{# str }} endpractice, cardboxx {{/ str }}</button>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 topic">{{topic}}</div>
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 topic">{{topic}}</div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+    <div id="cardboxx-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
         {{#question}}
-            {{> mod_cardbox/cardside }}
+            {{> mod_cardboxx/cardside }}
         {{/question}}
         {{#deck}}
-            <img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardbox_card_deck_icon">
+            <img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardboxx_card_deck_icon">
         {{/deck}}
     </div>
    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3">
-        <!--<button id="cardbox-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxPracticeSettings">{{# str }} options, cardbox {{/ str }}</button>-->
+        <!--<button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">{{# str }} options, cardboxx {{/ str }}</button>-->
     </div>
 
 </div>
 
 
 
-<div id="cardbox-practice-user-interaction" class="row">
+<div id="cardboxx-practice-user-interaction" class="row">
 
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardbox-userinput"></div>
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardboxx-userinput"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
-        <form id="cardbox-inputform" autocomplete="off">
+        <form id="cardboxx-inputform" autocomplete="off">
 
             {{#contextquestionavailable}}
                 <div class="col-xs-12" >{{{contextquestion}}}</div>
             {{/contextquestionavailable}}
 
             {{#inputfields}}
-                <input id="cardbox-userinput-{{number}}" type="text" name="answer" class="form-control cardbox-userinput">
+                <input id="cardboxx-userinput-{{number}}" type="text" name="answer" class="form-control cardboxx-userinput">
             {{/inputfields}}
 
-            <input id="cardbox-submit-answer" type="submit" value="{{# str }} submitanswer, cardbox {{/ str }}" class="btn btn-primary">
-            <input id="cardbox-do-not-know" type="submit" value="{{# str }} dontknow, cardbox {{/ str }}" class="btn btn-secondary" style="margin-right: 5px">
+            <input id="cardboxx-submit-answer" type="submit" value="{{# str }} submitanswer, cardboxx {{/ str }}" class="btn btn-primary">
+            <input id="cardboxx-do-not-know" type="submit" value="{{# str }} dontknow, cardboxx {{/ str }}" class="btn btn-secondary" style="margin-right: 5px">
         </form>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6"> 
-        <div style="float: right; margin-top: 15px">{{# str }} cardsleft, cardbox {{/ str }} {{cardsleft}}</div>
+        <div style="float: right; margin-top: 15px">{{# str }} cardsleft, cardboxx {{/ str }} {{cardsleft}}</div>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 

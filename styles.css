@@ -1,4 +1,4 @@
-.path-mod-cardbox #page-content {
+.path-mod-cardboxx #page-content {
     max-width: 1120px;
     background-color: #fff;
     border-radius: 15px;
@@ -10,11 +10,11 @@
     }
 }
 
-.path-mod-cardbox .secondary-navigation {
+.path-mod-cardboxx .secondary-navigation {
     max-width: 1120px;
 }
 
-.path-mod-cardbox button {
+.path-mod-cardboxx button {
     border: none;
 }
 
@@ -22,165 +22,165 @@
     display: none;
 }
 
-.path-mod-cardbox #cardbox-cardcontainer-question {
+.path-mod-cardboxx #cardboxx-cardcontainer-question {
     border: 3px solid #707070;
     border-radius: 10px;
     min-height: 200px;
 }
 
-.path-mod-cardbox .cardbox-practice-content .cardbox-selfcheck-question-side {
+.path-mod-cardboxx .cardboxx-practice-content .cardboxx-selfcheck-question-side {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.path-mod-cardbox .cardbox-practice-content .cardbox-cardside,
-.path-mod-cardbox .cardbox-practice-content .cardbox-card-text{
+.path-mod-cardboxx .cardboxx-practice-content .cardboxx-cardside,
+.path-mod-cardboxx .cardboxx-practice-content .cardboxx-card-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.path-mod-cardbox .cardbox-practice-content .horizontal-line {
+.path-mod-cardboxx .cardboxx-practice-content .horizontal-line {
     border-top: 1px solid #000;
 }
 
-.path-mod-cardbox .button-container-check {
+.path-mod-cardboxx .button-container-check {
     display: flex;
     justify-content: center;
 }
-.path-mod-cardbox .button-container-check button:first-child{
+.path-mod-cardboxx .button-container-check button:first-child{
     margin-right: 10px;
 }
-.path-mod-cardbox .button-container-check button:last-child{
+.path-mod-cardboxx .button-container-check button:last-child{
     margin-left: 10px;
 }
 
-.path-mod-cardbox #cardbox-end-session {
+.path-mod-cardboxx #cardboxx-end-session {
     border: 1px solid #F29C39 !important;
     background-color: #FFFFFF;
     color: #F29C39;
 }
 
-.path-mod-cardbox .cardbox-practice-content .cardbox-card-text,
-.path-mod-cardbox.cardbox-practice-content .cardbox-card-text p {
+.path-mod-cardboxx .cardboxx-practice-content .cardboxx-card-text,
+.path-mod-cardboxx.cardboxx-practice-content .cardboxx-card-text p {
     margin: 2rem;
     text-align: center !important;
 }
 
-.path-mod-cardbox .question-answer .cardbox-card-text-question-answer {
+.path-mod-cardboxx .question-answer .cardboxx-card-text-question-answer {
     font-size: 15px;
 }
 
-.path-mod-cardbox .cardbox-card-audio {
+.path-mod-cardboxx .cardboxx-card-audio {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.path-mod-cardbox audio {
+.path-mod-cardboxx audio {
     width: 250px;
     height: 54px;
 }
 
-.path-mod-cardbox .cardbox-image {
+.path-mod-cardboxx .cardboxx-image {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.path-mod-cardbox .cbx-center-align {
+.path-mod-cardboxx .cbx-center-align {
     text-align: center;
 }
 
-.path-mod-cardbox .img-fluid {
+.path-mod-cardboxx .img-fluid {
     max-width: 100%;
     max-height: 600px;
 
 }
 
-.path-mod-cardbox #cardbox-userinput,
-.path-mod-cardbox .cardbox-userinput {
+.path-mod-cardboxx #cardboxx-userinput,
+.path-mod-cardboxx .cardboxx-userinput {
     margin-top: 10px;
     margin-bottom: 15px;
 }
 
-.path-mod-cardbox .cardbox-input-color-correct {
+.path-mod-cardboxx .cardboxx-input-color-correct {
     border-color: #2ab300;
     border: solid;
     margin-bottom: 5px;
 }
 
-.path-mod-cardbox .cardbox-input-color-incorrect {
+.path-mod-cardboxx .cardboxx-input-color-incorrect {
     border-color: #ac0303;
     border: solid;
     margin-bottom: 5px;
 }
 
-.path-mod-cardbox .hidden {
+.path-mod-cardboxx .hidden {
     display: none;
 }
 
-.path-mod-cardbox #cardbox-mark-as-correct {
+.path-mod-cardboxx #cardboxx-mark-as-correct {
     background-color: #71A87F;
     border: none;
 }
 
-.path-mod-cardbox #cardbox-mark-as-incorrect {
+.path-mod-cardboxx #cardboxx-mark-as-incorrect {
     background-color: #BF514C;
     border: none;
 }
 
-.path-mod-cardbox .cardbox-practice .btn {
+.path-mod-cardboxx .cardboxx-practice .btn {
     margin: auto;
     display: block;
     width: fit-content;
 }
-.path-mod-cardbox .cardbox_card_deck_icon {
+.path-mod-cardboxx .cardboxx_card_deck_icon {
     height: 35px;
     width: 50px;
     margin-bottom: 1%;
     padding-bottom: 2px;
 }
-.path-mod-cardbox .cardbox_autocorrect_icon {
+.path-mod-cardboxx .cardboxx_autocorrect_icon {
     height: 1.6em;
     margin-left: 2%;
 }
-.path-mod-cardbox #cardbox-practice {
+.path-mod-cardboxx #cardboxx-practice {
     margin-top: 30px;
 }
 
-.path-mod-cardbox .cardbox-contextfield-practice {
+.path-mod-cardboxx .cardboxx-contextfield-practice {
     max-width: none;
     padding: 0%;
     min-height: 2em;
 }
 
-.path-mod-cardbox #review-button-wrapper {
+.path-mod-cardboxx #review-button-wrapper {
     text-align: center;
     max-width: fit-content;
     padding-right: 0px;
 }
 
-.path-mod-cardbox #cardbox-topic-in-review {
+.path-mod-cardboxx #cardboxx-topic-in-review {
     display: flex;
 }
 
-.path-mod-cardbox .reviewcontent,
-.path-mod-cardbox .overviewcontent {
+.path-mod-cardboxx .reviewcontent,
+.path-mod-cardboxx .overviewcontent {
     margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
 }
 
-.path-mod-cardbox .topic-review,
-.path-mod-cardbox .topic-overview {
+.path-mod-cardboxx .topic-review,
+.path-mod-cardboxx .topic-overview {
     margin-bottom: 10px;
 }
 
-.path-mod-cardbox .cardbox-review-button,
-.path-mod-cardbox .cardbox-overview-button-edit,
-.path-mod-cardbox .cardbox-overview-button-delete {
+.path-mod-cardboxx .cardboxx-review-button,
+.path-mod-cardboxx .cardboxx-overview-button-edit,
+.path-mod-cardboxx .cardboxx-overview-button-delete {
     border-radius: 5px !important;
     margin-top: 5px !important;
     margin-bottom: 5px !important;
@@ -188,25 +188,25 @@
 }
 
 
-.path-mod-cardbox .cardbox-statistics {
+.path-mod-cardboxx .cardboxx-statistics {
     margin-top: 3em;
 }
 
 /************************** Practice: modal with practice options *****************************************************/
 
-.path-mod-cardbox .modal {
+.path-mod-cardboxx .modal {
     /*background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(32, 32, 32, 0.75); /* Black w/ opacity */
 }
 
-.path-mod-cardbox .modal-content {
+.path-mod-cardboxx .modal-content {
     -webkit-overflow-scrolling: initial !important;
 }
-.path-mod-cardbox .modal-body .cardbox-options .row {
+.path-mod-cardboxx .modal-body .cardboxx-options .row {
     margin-bottom: 1.5em;
 }
 
-.path-mod-cardbox .cardbox-options {
+.path-mod-cardboxx .cardboxx-options {
     display: grid;
     grid-template-columns: 45% 55%;
     /*grid-template-rows: 33% 33% 34%;/*61.8% 38.2%;*/
@@ -215,62 +215,62 @@
     justify-items: start; /*no visible effect*/
 }
 
-.path-mod-cardbox .goldenleft,
-.path-mod-cardbox .goldenrigth {
+.path-mod-cardboxx .goldenleft,
+.path-mod-cardboxx .goldenrigth {
     margin-bottom: 2em;
 }
 
-.path-mod-cardbox .item {
+.path-mod-cardboxx .item {
     display: flex;
     align-self: center;
     box-sizing: border-box;
 }
-.path-mod-cardbox .item.a {
+.path-mod-cardboxx .item.a {
     grid-area: A;
     margin-top: 15px;
 }
-.path-mod-cardbox .item.b {
+.path-mod-cardboxx .item.b {
     grid-area: B;
     margin-left: 20px;
     margin-top: 15px;
 }
-.path-mod-cardbox .item.c {
+.path-mod-cardboxx .item.c {
     grid-area: C;
 }
-.path-mod-cardbox .item.d {
+.path-mod-cardboxx .item.d {
     grid-area: D;
 }
 
-.path-mod-cardbox .item.e {
+.path-mod-cardboxx .item.e {
     grid-area: E;
 }
 
-.path-mod-cardbox .item.f {
+.path-mod-cardboxx .item.f {
     grid-area: F;
 }
 
-.path-mod-cardbox .item.g {
+.path-mod-cardboxx .item.g {
     grid-area: G;
     /*margin-bottom: 0em; */
 }
 
-.path-mod-cardbox .item.h {
+.path-mod-cardboxx .item.h {
     grid-area: H;
     /* margin-bottom: 0em; */
     margin-left: 20px;
 }
 
-.path-mod-cardbox .item.i {
+.path-mod-cardboxx .item.i {
     grid-area: I;
     margin-bottom: 0em;
 }
 
-.path-mod-cardbox .item.j {
+.path-mod-cardboxx .item.j {
     grid-area: J;
     margin-bottom: 0em;
 }
 
-.path-mod-cardbox .modal-dialog .cardbox-options select {
+.path-mod-cardboxx .modal-dialog .cardboxx-options select {
     width: inherit;
 }
 
@@ -279,15 +279,15 @@
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/
 
-.path-mod-cardbox .cardbox-card-text,
-.path-mod-cardbox .cardbox-text {
+.path-mod-cardboxx .cardboxx-card-text,
+.path-mod-cardboxx .cardboxx-text {
     font-size: 16px;
 }
-.path-mod-cardbox #review-div {
+.path-mod-cardboxx #review-div {
     display: none;
 }
 
-.path-mod-cardbox .sticky-review-arr {
+.path-mod-cardboxx .sticky-review-arr {
     position: fixed;
     bottom: 50%;
     left: 80%;
@@ -295,44 +295,44 @@
     width: 400px;
 }
 
-.path-mod-cardbox .cardbox-card-context {
+.path-mod-cardboxx .cardboxx-card-context {
     font-size: 0.9375rem;
     margin-bottom: 1%;
     height: 10%;
 }
 
-.path-mod-cardbox .cardbox-selfcheck-question-side {
+.path-mod-cardboxx .cardboxx-selfcheck-question-side {
     margin-bottom: 1rem;
 }
 
-.path-mod-cardbox .cardbox-column {
+.path-mod-cardboxx .cardboxx-column {
     padding-left: 0em;
     padding-right: 0em;
 }
 
-.path-mod-cardbox .cardbox-context-overview {
+.path-mod-cardboxx .cardboxx-context-overview {
     margin-left: 16%;
     margin-right: 16%;
     margin-bottom: 1em;
     padding: 10px;
 }
 
-.path-mod-cardbox .cardbox-context-practice {
+.path-mod-cardboxx .cardboxx-context-practice {
     margin-left: 25%;
     margin-right: 25%;
     padding: 10px;
     margin-top: 1em;
 }
 
-.path-mod-cardbox .cardbox-card-left-side,
-.path-mod-cardbox .cardbox-card-right-side {
+.path-mod-cardboxx .cardboxx-card-left-side,
+.path-mod-cardboxx .cardboxx-card-right-side {
     border: 3px solid #707070;
     border-radius: 10px;
     /* margin-bottom: 2em; */
     padding: 1em;
     height: 100%;
 }
-.path-mod-cardbox .cardbox-card-right-side-multi {
+.path-mod-cardboxx .cardboxx-card-right-side-multi {
     border-radius: 3px;
     /* margin-bottom: 2em; */
     margin-right: 1em;
@@ -340,22 +340,22 @@
     height: 100%;
     display: grid;
 }
-.path-mod-cardbox .cardbox-cardside-multi {
+.path-mod-cardboxx .cardboxx-cardside-multi {
     border: 1px solid #e6e6e6;
     padding: 1em;
     margin-bottom: 1%;
 }
-.path-mod-cardbox .cardbox-cardside-multi:last-child {
+.path-mod-cardboxx .cardboxx-cardside-multi:last-child {
     margin-bottom: 0;
 }
-.path-mod-cardbox .cardbox-cardside-multi.suggestion {
+.path-mod-cardboxx .cardboxx-cardside-multi.suggestion {
     border-color: mediumvioletred;
     border-style: solid;
 }
-.path-mod-cardbox .checkbox-card {
+.path-mod-cardboxx .checkbox-card {
     margin-left: 2%;
 }
-.path-mod-cardbox .kontext-grid {
+.path-mod-cardboxx .kontext-grid {
     display: grid;
     grid-template-columns: 33.33% 33.33%;
     justify-content: center;
@@ -365,37 +365,37 @@
 }
 
 @media (max-width: 600px) {
-    .path-mod-cardbox .review-button {
+    .path-mod-cardboxx .review-button {
         margin-top: 10%;
     }
-    .path-mod-cardbox .cardbox-qside {
+    .path-mod-cardboxx .cardboxx-qside {
         margin-right: 1%;
         margin-left: 1%;
     }
-    .path-mod-cardbox .cardbox-aside {
+    .path-mod-cardboxx .cardboxx-aside {
         margin-right: 1%;
         margin-left: 1%;
         margin-top: 10%;
     }
-    .path-mod-cardbox .context-column {
+    .path-mod-cardboxx .context-column {
         text-align: center;
         font-style: italic;
     }
-    .path-mod-cardbox .common-margin {
+    .path-mod-cardboxx .common-margin {
         font-size: 0.7rem;
     }
-    .path-mod-cardbox .edit-topic {
+    .path-mod-cardboxx .edit-topic {
         margin-left: 0%;
     }
 }
 
 @media (max-width: 323px) {
-    .path-mod-cardbox .review-button {
+    .path-mod-cardboxx .review-button {
         margin-top: 10%;
     }
-    .path-mod-cardbox #cardbox-feedback-wrapper,
-    .path-mod-cardbox #cardbox-feedback,
-    .path-mod-cardbox #cardbox-proceed-buttons {
+    .path-mod-cardboxx #cardboxx-feedback-wrapper,
+    .path-mod-cardboxx #cardboxx-feedback,
+    .path-mod-cardboxx #cardboxx-proceed-buttons {
         padding: 0em;
     }
 
@@ -403,27 +403,27 @@
 
 /* col-sm Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    .path-mod-cardbox .review-button {
+    .path-mod-cardboxx .review-button {
         margin-top: 10%;
     }
-    .path-mod-cardbox .cardbox-card-text,
-    .path-mod-cardbox .cardbox-image {
+    .path-mod-cardboxx .cardboxx-card-text,
+    .path-mod-cardboxx .cardboxx-image {
         font-size: 1.2rem;
     }
 
-    .path-mod-cardbox .cardbox-card-left-side {
+    .path-mod-cardboxx .cardboxx-card-left-side {
         margin-right: 0.2em;
         margin-left: 0.2em;
         padding: 2em;
     }
 
-    .path-mod-cardbox .cardbox-card-right-side {
+    .path-mod-cardboxx .cardboxx-card-right-side {
         margin-right: 0.2em;
         margin-left: 0.2em;
         padding: 2em;
     }
 
-    .path-mod-cardbox .cardbox-feedback {
+    .path-mod-cardboxx .cardboxx-feedback {
         padding-left: 0;
         padding-right: 0;
     }
@@ -433,11 +433,11 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
 
-    .path-mod-cardbox .cardbox-feedback {
+    .path-mod-cardboxx .cardboxx-feedback {
         padding-left: 2em;
         padding-right: 2em;
     }
-    .path-mod-cardbox .edit-topic {
+    .path-mod-cardboxx .edit-topic {
         margin-left: 13.5%;
     }
 
@@ -446,30 +446,30 @@
 
 /* col-lg Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 992px) {
-    .path-mod-cardbox .edit-topic {
+    .path-mod-cardboxx .edit-topic {
         margin-left: 13.5%;
     }
 
-    .path-mod-cardbox .icon-deck-manager {
+    .path-mod-cardboxx .icon-deck-manager {
         margin-right: 1.4em;
     }
 }
 
 /* col-xl Extra large devices (large laptops and desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .path-mod-cardbox .edit-topic {
+    .path-mod-cardboxx .edit-topic {
         margin-left: 13.5%;
     }
 }
 
 @media only screen and (min-width: 1062px) {
-    .path-mod-cardbox .cardbox-card-text,
-    .path-mod-cardbox .cardbox-image {
+    .path-mod-cardboxx .cardboxx-card-text,
+    .path-mod-cardboxx .cardboxx-image {
         font-size: 1.3rem;
     }
 }
 
-.path-mod-cardbox #cardbox-feedback {
+.path-mod-cardboxx #cardboxx-feedback {
     /* font-size: 16px; */
     /* padding-top: 0.2em; */
     margin-top: 4%;
@@ -478,7 +478,7 @@
     /* font-size: 1.4rem!important; */
 }
 
-.path-mod-cardbox .cardbox-feedback {
+.path-mod-cardboxx .cardboxx-feedback {
     border: 1px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -486,112 +486,112 @@
     padding-right: 2em;*/
 }
 
-.path-mod-cardbox .cardbox-success {
+.path-mod-cardboxx .cardboxx-success {
     /* background-color: #8dc060;
     border-color: #8dc060; */
     color: #2ab300;
 }
 
-.path-mod-cardbox .cardbox-warning {
+.path-mod-cardboxx .cardboxx-warning {
     /*     background-color: #fff059;
     border-color: #fff059;
     */    color: #b1a415;
 }
 
-.path-mod-cardbox .cardbox-error {
+.path-mod-cardboxx .cardboxx-error {
     /*     background-color: #cc071e;
     border-color: #cc071e;
     color: white; */
     color: #ac0303;
 }
 
-.path-mod-cardbox #id_addcontextques,
-.path-mod-cardbox #id_addcontextans,
-.path-mod-cardbox #id_addcontextques,
-.path-mod-cardbox #id_addcontextans,
-.path-mod-cardbox #id_addsound,
-.path-mod-cardbox #id_addimage {
+.path-mod-cardboxx #id_addcontextques,
+.path-mod-cardboxx #id_addcontextans,
+.path-mod-cardboxx #id_addcontextques,
+.path-mod-cardboxx #id_addcontextans,
+.path-mod-cardboxx #id_addsound,
+.path-mod-cardboxx #id_addimage {
     color: #fff;
     background-color: #F19D38;
     border-color: #F19D38;
 }
 
 
-.path-mod-cardbox #id_addsound:hover,
-.path-mod-cardbox #id_addimage:hover {
+.path-mod-cardboxx #id_addsound:hover,
+.path-mod-cardboxx #id_addimage:hover {
     background-color: #bb2424;
 }
 
-.path-mod-cardbox #fitem_id_cardimage,
-.path-mod-cardbox #fitem_id_imagedescription,
-.path-mod-cardbox #fitem_id_cardsound,
-.path-mod-cardbox #fitem_id_questioncontext,
-.path-mod-cardbox #fitem_id_answercontext,
-.path-mod-cardbox #fgroup_id_imgdescriptionar,
-.path-mod-cardbox #fitem_id_answer2,
-.path-mod-cardbox #fitem_id_answer3,
-.path-mod-cardbox #fitem_id_answer4,
-.path-mod-cardbox #fitem_id_answer5,
-.path-mod-cardbox #fitem_id_answer6,
-.path-mod-cardbox #fitem_id_answer7,
-.path-mod-cardbox #fitem_id_answer8,
-.path-mod-cardbox #fitem_id_answer9,
-.path-mod-cardbox #fitem_id_answer10 {
+.path-mod-cardboxx #fitem_id_cardimage,
+.path-mod-cardboxx #fitem_id_imagedescription,
+.path-mod-cardboxx #fitem_id_cardsound,
+.path-mod-cardboxx #fitem_id_questioncontext,
+.path-mod-cardboxx #fitem_id_answercontext,
+.path-mod-cardboxx #fgroup_id_imgdescriptionar,
+.path-mod-cardboxx #fitem_id_answer2,
+.path-mod-cardboxx #fitem_id_answer3,
+.path-mod-cardboxx #fitem_id_answer4,
+.path-mod-cardboxx #fitem_id_answer5,
+.path-mod-cardboxx #fitem_id_answer6,
+.path-mod-cardboxx #fitem_id_answer7,
+.path-mod-cardboxx #fitem_id_answer8,
+.path-mod-cardboxx #fitem_id_answer9,
+.path-mod-cardboxx #fitem_id_answer10 {
     display: none;
 }
 
-.path-mod-cardbox .card-icon-grid-div {
+.path-mod-cardboxx .card-icon-grid-div {
     float: right;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 1px;
 }
-.path-mod-cardbox .review-icon-grid-div {
+.path-mod-cardboxx .review-icon-grid-div {
     float: right;
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1px;
 }
-.path-mod-cardbox .rep-icon-grid-div {
+.path-mod-cardboxx .rep-icon-grid-div {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 10%;
 }
-.path-mod-cardbox .common-margin {
+.path-mod-cardboxx .common-margin {
     margin-right: 10px;
     font-size: small;
 }
-.path-mod-cardbox .common-margin:last-child {
+.path-mod-cardboxx .common-margin:last-child {
     margin-right: 0px;
 }
 
-.path-mod-cardbox #id_newtopic {
+.path-mod-cardboxx #id_newtopic {
     display: none;
 }
 
-.path-mod-cardbox #id_newtopic.shown {
+.path-mod-cardboxx #id_newtopic.shown {
     display: flex;
 }
 
-.path-mod-cardbox .cardbox-create-topic-titles {
+.path-mod-cardboxx .cardboxx-create-topic-titles {
     margin-top: 1em;
     margin-bottom: 0.5em;
     font-weight: 600;
 }
 
-.path-mod-cardbox #create-new-topic {
+.path-mod-cardboxx #create-new-topic {
     margin-right: 5px;
     width: 30em;
 }
 
-.path-mod-cardbox .displaynone {
+.path-mod-cardboxx .displaynone {
     display: none;
 }
 
-.path-mod-cardbox .review-topic {
+.path-mod-cardboxx .review-topic {
     margin-left: 13%;
 }
-.path-mod-cardbox .common-margin {
+.path-mod-cardboxx .common-margin {
     font-size: small;
 }
 /*.mul-ans-text{
@@ -599,55 +599,55 @@
     right: 9em;
     bottom: 1em;
 }*/
-.path-mod-cardbox .anscount_icon {
+.path-mod-cardboxx .anscount_icon {
     height: 1.75em;
 }
-.path-mod-cardbox .autocorrect_icon {
+.path-mod-cardboxx .autocorrect_icon {
     height: 1.6em;
 }
-.path-mod-cardbox .ques-teil {
+.path-mod-cardboxx .ques-teil {
     padding: 0px;
 }
-.path-mod-cardbox .ans-teil {
+.path-mod-cardboxx .ans-teil {
     padding: 0px;
 }
 
 @media (max-width: 800px) {
-    .path-mod-cardbox .review-topic {
+    .path-mod-cardboxx .review-topic {
         margin-left: 1%;
     }
-    .path-mod-cardbox .common-margin {
+    .path-mod-cardboxx .common-margin {
         font-size: x-small;
     }
-    .path-mod-cardbox .cardbox-card-right-side-multi {
+    .path-mod-cardboxx .cardboxx-card-right-side-multi {
         margin-right: 0em;
         margin-left: 0em;
     }
-    .path-mod-cardbox .ques-teil {
+    .path-mod-cardboxx .ques-teil {
         padding: 0px;
     }
-    .path-mod-cardbox .ans-teil {
+    .path-mod-cardboxx .ans-teil {
         padding: 0px;
     }
-    .path-mod-cardbox .review-button-wrapper {
+    .path-mod-cardboxx .review-button-wrapper {
         margin-top: 2em;
     }
-    .path-mod-cardbox .cardbox-card-left-side {
+    .path-mod-cardboxx .cardboxx-card-left-side {
         margin-right: 2%;
         margin-left: 2%;
     }
-    .path-mod-cardbox .cardbox-card-right-side {
+    .path-mod-cardboxx .cardboxx-card-right-side {
         margin-right: 2%;
         margin-left: 2%;
     }
-    .path-mod-cardbox .cardbox-card-right-side-multi {
+    .path-mod-cardboxx .cardboxx-card-right-side-multi {
         margin-right: 2%;
         margin-left: 2%;
     }
 }
 
 /* Fix display of multiple answers containing formulas in self check practice. */
-.path-mod-cardbox .cardbox-card-text p {
+.path-mod-cardboxx .cardboxx-card-text p {
     display: inline-block;
 }
 
@@ -655,14 +655,14 @@
 
 
 /* goughnut chart */
-.path-mod-cardbox .doughnut-chart {
+.path-mod-cardboxx .doughnut-chart {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     position: relative;
 }
 
-.path-mod-cardbox .doughnut-chart::before {
+.path-mod-cardboxx .doughnut-chart::before {
     content: "";
     display: block;
     position: absolute;
@@ -674,7 +674,7 @@
     border-radius: 50%;
 }
 
-.path-mod-cardbox .doughnut-chart-text {
+.path-mod-cardboxx .doughnut-chart-text {
     position: absolute;
     top: 50%;
     left: 50%;

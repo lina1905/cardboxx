@@ -1,13 +1,13 @@
-<div id="cardbox-practice-content" class="row">
+<div id="cardboxx-practice-content" class="row">
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
     <br>
 
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
-        {{# str }} suggestanswer_label, cardbox {{/ str }}
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+        {{# str }} suggestanswer_label, cardboxx {{/ str }}
         <br>
         {{#question}}
-            {{> mod_cardbox/cardside }}
+            {{> mod_cardboxx/cardside }}
         {{/question}}
     </div>
    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3">
@@ -15,7 +15,7 @@
 
 </div>
 
-<div id="cardbox-practice-user-interaction" class="row">
+<div id="cardboxx-practice-user-interaction" class="row">
 
     {{#contextquestionavailable}}
 
@@ -25,15 +25,15 @@
 
     {{/contextquestionavailable}}
 
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardbox-userinput"></div>
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardboxx-userinput"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
-        <form id="cardbox-inputform" autocomplete="off">
+        <form id="cardboxx-inputform" autocomplete="off">
 {{!             {{#inputfields}}
-                <input id="cardbox-suggestanswer-input" {{#suggestedansinput}}value={{{suggestedansinput}}} {{/suggestedansinput}} 
-                type="text" name="answer" class="form-control cardbox-userinput">
+                <input id="cardboxx-suggestanswer-input" {{#suggestedansinput}}value={{{suggestedansinput}}} {{/suggestedansinput}} 
+                type="text" name="answer" class="form-control cardboxx-userinput">
 {{!             {{/inputfields}}
-            <button id="cardbox-savesuggestedanswer" type="button" class="btn btn-primary">{{# str }} suggestanswer_send, cardbox {{/ str }}</button>
-            <button id="cardbox-cancel-button" type="button" class="btn btn-secondary">{{# str }} cancel, cardbox {{/ str }}</button>
+            <button id="cardboxx-savesuggestedanswer" type="button" class="btn btn-primary">{{# str }} suggestanswer_send, cardboxx {{/ str }}</button>
+            <button id="cardboxx-cancel-button" type="button" class="btn btn-secondary">{{# str }} cancel, cardboxx {{/ str }}</button>
         </form>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
