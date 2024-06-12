@@ -185,7 +185,7 @@ $string['cancel'] = 'Abbrechen';
 // Practice mode: Buttons.
 $string['options'] = 'Trotzdem üben';
 $string['endpractice'] = 'Übung beenden';
-$string['chartpractice'] = 'Übung heute:';
+$string['chartpractice'] = 'Heute zu<br> wiederholen:';
 
 $string['dontknow'] = "Ich weiß es nicht";
 $string['checkanswer'] = 'Überprüfen';
