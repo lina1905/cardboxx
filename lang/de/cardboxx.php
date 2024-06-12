@@ -325,3 +325,5 @@ $string['status'] = 'Status';
 $string['continue'] = 'Fortsetzen';
 $string['unmatchedanswers'] = 'CSV-Datei erfordert {$a->csvschema} Antworten; nur {$a->actual} gegeben.';
 $string['emptyimportfile'] = 'Nichts zu importieren - CSV-Datei hat keine Zeilen.';
+
+$string['continuepracticebutton'] = 'Weiter Üben';
