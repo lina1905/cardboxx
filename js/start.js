@@ -23,7 +23,7 @@
 
 function startOptions(Y, __cmid, __openmodal) {
 
-    require(['jquery'], function ($) {
+    require(['jquery', 'core/chartjs'], function ($) {
 
         var modal = document.getElementById('cardboxPracticeSettings');
 
@@ -56,7 +56,8 @@ function startOptions(Y, __cmid, __openmodal) {
             modal.classList.remove('show');
             modal.style.display = 'none';
         });
-        
+
+
         document.getElementById('cardbox-close-settings').addEventListener('click', function(e) {
             modal.classList.remove('show');
             modal.style.display = 'none';
@@ -75,6 +76,52 @@ function startOptions(Y, __cmid, __openmodal) {
                 modal.style.display = "none";
             }
         }
+
+        /*
+        var cardcount = $('#cardcount').val();
+        var duecardcount = $('#duecardcount').val();
+
+        console.log(cardcount);
+        console.log(duecardcount);
+
+        // Create the doughnut chart
+        var ctx = document.getElementById('startChart').getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Card Count', 'Due Card Count'],
+                datasets: [{
+                    data: [cardcount, duecardcount],
+                    backgroundColor: [
+                        '#71A87F',
+                        '#BF514C'
+                    ],
+                    borderColor: [
+                        '#71A87F',
+                        '#BF514C'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: `hi`
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+        */
+
+
 
         function applySettings() {
             

@@ -46,6 +46,10 @@ class cardbox_start implements \renderable, \templatable {
      */
     private $amountcards;
 
+    public $cardcount;
+
+    public $duecardcount;
+
     /**
      * This function prepares the topics and the amount of cards to study.
      *
@@ -127,6 +131,12 @@ class cardbox_start implements \renderable, \templatable {
         $data['choicestopics'] = $this->choicestopics;
         $data['helpbuttonpracticeall'] = $OUTPUT->help_icon('practiceall', 'cardbox');
         $data['amountcards'] = $this->amountcards;
+        $data['cardcount'] = $this->cardcount;
+        $data['duecardcount'] = $this->duecardcount;
+        $data['duecardcountpercentage'] = round(($this->duecardcount / $this->cardcount) * 100, 0);
+
+
+
         return $data;
 
     }

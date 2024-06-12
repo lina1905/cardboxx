@@ -685,6 +685,8 @@ if ($action === 'practice') {
         $PAGE->requires->js_init_call('startOptions', [$cmid, $openmodal], true);
 
         $start = new cardbox_start($cardbox->autocorrection, $cardbox->id);
+        $start->cardcount = $cardcount;
+        $start->duecardcount = $duecardcount;
 
         echo $renderer->cardbox_render_practice_start($start);
 

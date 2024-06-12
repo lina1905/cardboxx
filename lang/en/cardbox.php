@@ -185,6 +185,7 @@ $string['cancel'] = 'Cancel';
 // Practice mode: Buttons.
 $string['options'] = 'Practice anyway';
 $string['endpractice'] = 'End practice';
+$string['chartpractice'] = 'Practice today:';
 
 $string['dontknow'] = "I don't know";
 $string['checkanswer'] = 'Check';
