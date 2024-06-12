@@ -133,7 +133,7 @@ class cardboxx_start implements \renderable, \templatable {
         $data['amountcards'] = $this->amountcards;
         $data['cardcount'] = $this->cardcount;
         $data['duecardcount'] = $this->duecardcount;
-        $data['cardboxxx'] = round(($this->duecardcount / $this->cardcount) * 100, 0);
+        $data['duecardcountpercentage'] = round(($this->duecardcount / $this->cardcount) * 100, 0);
 
 
 
