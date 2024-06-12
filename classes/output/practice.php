@@ -117,6 +117,9 @@ class cardbox_practice implements \renderable, \templatable {
      */
     private $cardsleft;
 
+    public $totalcards;
+
+
     /**
      * This function constructs the cardbox_practice object.
      *
@@ -297,7 +300,8 @@ class cardbox_practice implements \renderable, \templatable {
      * @return array
      */
     public function export_for_template(\renderer_base $output) {
-
+        $remainingCards = $this->totalcards - $this->cardsleft + 1;
+        $percentage = round(($remainingCards / $this->totalcards) * 100);
         $data = [];
         $data['topic'] = $this->topic;
         $data['question'] = $this->question;
@@ -319,6 +323,9 @@ class cardbox_practice implements \renderable, \templatable {
         $data['cardsleft'] = $this->cardsleft;
         $data['deck'] = $this->deck;
         $data['deckimgurl'] = $this->deckimgurl;
+        $data['totalcards'] = $this->totalcards;
+        $data['remainingcards'] = $remainingCards;
+        $data['percentage'] = $percentage;
         return $data;
 
     }

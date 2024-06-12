@@ -1,11 +1,15 @@
 <div id="cardbox-practice-content" class="row cardbox-practice-content">
 
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
-        <div style="float: right; margin-top: 15px">{{# str }} cardsleft, cardbox {{/ str }} {{cardsleft}}</div>
+
+    <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12" style="margin-bottom: 35px; margin-top: 10px;"">
+        <div class="progress" style="height: 23px;">
+            <div class="progress-bar" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{remainingcards}}" aria-valuemin="0" aria-valuemax="{{totalcards}}">
+                {{remainingcards}} / {{totalcards}}</div>
+        </div>
     </div>
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    
+
+
+
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
     <div id="cardbox-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardbox-selfcheck-question-side">
             {{#question}}

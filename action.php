@@ -54,6 +54,9 @@ if ($action === 'updateandnext') {
     $cardsleft = required_param('cardsleft', PARAM_INT);
     $correction = required_param('mode', PARAM_INT);
 
+    $totalcards = $_SESSION['totalcards']; // Retrieve totalcards from session
+
+
     $dataobject = $DB->get_record('cardbox_progress', ['userid' => $USER->id, 'card' => $cardid], $fields = '*', MUST_EXIST);
     if (empty($dataobject)) {
         echo json_encode(['status' => 'error', 'reason' => 'nocardboxentryfound']);
@@ -79,6 +82,7 @@ if ($action === 'updateandnext') {
     if ($next != 0) {
         $renderer = $PAGE->get_renderer('mod_cardbox');
         $practice = new cardbox_practice($case, $context, $next, $cardsleft, !$correction);
+        $practice->totalcards = $totalcards;
         $newdata = $practice->export_for_template($renderer);
 
         echo json_encode(['status' => 'success', 'lastposition' => $lastposition, 'newdata' => $newdata]);

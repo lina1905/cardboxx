@@ -610,6 +610,9 @@ if ($action === 'practice') {
     $cardcount = $cardboxmodel->cardbox_count_cards();
     $duecardcount = $cardboxmodel->cardbox_count_due_cards();
 
+    $selection = $cardboxmodel->cardbox_get_card_selection($amountcards);
+    $totalcards = count($selection);
+
     // Inform the user that their cardbox is empty.
     if (empty($cardcount)) {
 
@@ -641,6 +644,8 @@ if ($action === 'practice') {
         require_once($CFG->dirroot . '/mod/cardbox/classes/output/practice.php');
 
         $selection = $cardboxmodel->cardbox_get_card_selection($amountcards);
+
+
         $autocorrectval = [];
         foreach ($selection as $card) {
             $acvalue = $DB->get_record('cardbox_cards', ['id' => $card]);
@@ -657,6 +662,8 @@ if ($action === 'practice') {
             $case = 1;
         }*/
         $practice = new cardbox_practice($case, $context, $selection[0], count($selection), !$correction);
+        $practice->totalcards = $totalcards;
+        $_SESSION['totalcards'] = $totalcards; // Store totalcards in session
         $data = $practice->export_for_template($renderer);
 
         // 3. Give javascript access to the language string repository and to the relevant model data and add it to the page.

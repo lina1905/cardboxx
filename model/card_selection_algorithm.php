@@ -48,6 +48,7 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
      */
     private $practiceall;
 
+
     /**
      * Constructor for the card selection algorithm.
      *
@@ -123,7 +124,6 @@ class cardbox_card_selection_algorithm implements cardbox_card_selection_interfa
             $card = $priorityqueue[$i];
             $selection[] = $card;
         }
-
         return $selection;
     }
 
