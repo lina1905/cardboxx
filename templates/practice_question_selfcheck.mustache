@@ -1,8 +1,8 @@
 <div id="cardbox-practice-content" class="row cardbox-practice-content">
 
 
-    <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12" style="margin-bottom: 35px; margin-top: 10px;"">
-        <div class="progress" style="height: 23px;">
+    <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12" style="margin-bottom: 35px; margin-top: 10px;">
+        <div class="progress" style="height: 18px;">
             <div class="progress-bar" role="progressbar" style="width: {{percentage}}%; text-align: left;
                     padding-left: 15px; color:#AC332D; font-weight: bold; background-color: #F29C39;" aria-valuenow="{{remainingcards}}" aria-valuemin="0" aria-valuemax="{{totalcards}}">
                 {{remainingcards}} / {{totalcards}}</div>
@@ -11,13 +11,13 @@
 
 
 
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardbox-selfcheck-question-side">
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-2"></div>
+    <div id="cardbox-cardcontainer-question" class="col-xs-12 col-md-10 col-lg-8 col-xl-8 cardbox-selfcheck-question-side">
             {{#question}}
                 {{> mod_cardbox/cardside }}
             {{/question}}
     </div>
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3">
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-2">
     <!--<button id="cardbox-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxPracticeSettings">{{# str }} options, cardbox {{/ str }}</button>-->
     </div>
 

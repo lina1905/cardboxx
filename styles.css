@@ -65,8 +65,7 @@
 
 .path-mod-cardbox .cardbox-practice-content .cardbox-card-text,
 .path-mod-cardbox.cardbox-practice-content .cardbox-card-text p {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
     text-align: center !important;
 }
 
@@ -466,7 +465,7 @@
 @media only screen and (min-width: 1062px) {
     .path-mod-cardbox .cardbox-card-text,
     .path-mod-cardbox .cardbox-image {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 }
 
