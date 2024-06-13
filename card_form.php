@@ -197,7 +197,7 @@ class mod_cardboxx_card_form extends moodleform {
             $cardapproved = false;
         }
 
-        if (has_capability('mod/cardboxx:approvecard', $context) && !$cardapproved) {
+        if (has_capability('mod/cardboxx:approvecard', $context)) {
             $this->add_action_buttons_for_managers(true);
 
         }

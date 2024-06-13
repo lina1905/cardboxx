@@ -62,7 +62,7 @@ $string['remindermessagebody'] = 'bitte denken Sie daran, regelmäßig mit Ihrer
 $string['reminderfooting'] = 'Diese Erinnerung wurde automatisch von Ihrer Kartenbox "{$a->cardboxxname}" im Kurs "{$a->coursename}" gesendet.';
 
 // Tab-Navigation.
-$string['addflashcard'] = 'Eine Karte hinzufügen';
+$string['addflashcard'] = 'Karten anlegen';
 $string['practice'] = 'Üben';
 $string['statistics'] = 'Fortschritt';
 $string['overview'] = 'Übersicht';
@@ -83,7 +83,7 @@ $string['reviewtopic'] = 'THEMA: ';
 $string['notopic'] = 'nicht zugewiesen';
 $string['addnewtopic'] = 'ein Thema erstellen';
 $string['entertopic'] = 'ein Thema erstellen';
-$string['enterquestion'] = 'Frage oder Aufforderung';
+$string['enterquestion'] = 'Frage';
 $string['entercontextquestion'] = 'Zusätzliche Informationen zu dieser Frage';
 $string['addcontext'] = 'Kontext anzeigen';
 $string['removecontext'] = 'Kontext ausblenden';
@@ -96,12 +96,12 @@ $string['removeimage'] = 'Bildoptionen ausblenden';
 $string['image'] = 'Fragebild';
 $string['imagedescription'] = 'Beschreiben Sie dieses Bild für jemanden, der es nicht sehen kann (empfohlen)';
 $string['imgdescriptionnecessary_label'] = 'Dieses Bild ist nur dekorativ';
-$string['addsound'] = 'Soundoptionen anzeigen';
-$string['removesound'] = 'Soundoptionen ausblenden';
+$string['addsound'] = 'Audiooptionen anzeigen';
+$string['removesound'] = 'Audiooptionen ausblenden';
 $string['sound'] = 'Fragesound';
 $string['answerimage'] = 'Antwortbild';
 $string['answersound'] = 'Antwortsound';
-$string['enteranswer'] = 'Lösung';
+$string['enteranswer'] = 'Lösungstext';
 $string['answer_repeat'] = 'Eine weitere Lösung hinzufügen';
 $string['autocorrectlocked'] = 'Automatische Überprüfung deaktivieren';
 $string['autocorrecticon'] = 'Nur Selbstüberprüfung';
@@ -130,7 +130,7 @@ $string['error:createcard'] = 'Die Karte wurde nicht erstellt, da entweder eine 
 
 // Import cards.
 //$string['examplesinglecsv'] = 'Beispieltextdatei für Karten mit einzelnen Antworten';
-$string['examplesinglecsv'] = 'Beispieltextdatei für Karten';
+$string['examplesinglecsv'] = 'Beispieltextdatei für den Import von Karten';
 $string['examplesinglecsv_help'] = 'Beispieltextdatei für Karten mit einzelnen Antworten';
 $string['examplemulticsv'] = 'Beispieltextdatei für Karten mit mehreren Antworten';
 $string['examplemulticsv_help'] = 'Beispieltextdatei für Karten mit mehreren Antworten';
@@ -162,7 +162,7 @@ $string['info:enrolledstudentsthreshold_student'] = 'Der durchschnittliche Forts
 $string['help:nocardsdueforpractice'] = 'Keine fälligen Karten';
 $string['help:nocardsdueforpractice_help'] = 'Neue Karten sind sofort fällig. Für jede andere Karte entscheidet das Deck:<ol><li>Deck: täglich</li><li>Deck: nach 3 Tagen</li><li>Deck: nach 7 Tagen</li><li>Deck: nach 16 Tagen</li><li>Deck: nach 34 Tagen</li></ol>';
 $string['help:whenarecardsdue'] = 'Wann sind Karten fällig';
-$string['help:whenarecardsdue_help'] = 'Neue Karten sind sofort zur Übung fällig. Für jede andere Karte entscheidet das Level:<ol><li>Level: Täglich wiederholen</li><li>Level: Nach 2 Tagen wiederholen</li><li>Level: Nach 4 Tagen wiederholen</li><li>Level: Nach 8 Tagen wiederholen</li><li>Level: Nach 16 Tagen wiederholen</li></ol>';
+$string['help:whenarecardsdue_help'] = 'Neue Karten müssen sofort wiederholt werden. Sonst entscheidet das Level:<ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
 $string['help:practiceanyway'] = 'Wenn Sie trotzdem üben, bleiben korrekt beantwortete Karten in ihrem aktuellen Fach und rücken nicht vor.';
 
 // Title and form elements for choosing the settings for a new practice session.
@@ -186,12 +186,13 @@ $string['cancel'] = 'Abbrechen';
 $string['options'] = 'Trotzdem üben';
 $string['endpractice'] = 'Übung beenden';
 $string['chartpractice'] = 'Heute zu<br> wiederholen:';
+$string['chartpracticedone'] = 'Du hast alle<br> Karten für<br> heute gelernt';
 
 $string['dontknow'] = "Ich weiß es nicht";
 $string['checkanswer'] = 'Überprüfen';
 $string['submitanswer'] = 'Antworten';
-$string['markascorrect'] = 'Richtig';
-$string['markasincorrect'] = 'Falsch';
+$string['markascorrect'] = 'Gewusst';
+$string['markasincorrect'] = 'Nicht gewusst';
 $string['override'] = 'Überschreiben';
 $string['override_iscorrect'] = 'Nein, ich hatte recht!';
 $string['override_isincorrect'] = 'Nein, ich lag falsch.';
@@ -213,15 +214,17 @@ $string['feedback:notknown'] = 'Keine Antwort gegeben!';
 
 $string['sessioncompleted'] = 'Fertig! :-)';
 $string['titleprogresschart'] = 'Ergebnisse';
-$string['right'] = 'richtig';
-$string['wrong'] = 'falsch';
+$string['right'] = 'Gewusst';
+$string['wrong'] = 'Nicht gewusst';
 $string['titleoverviewchart'] = 'Übersicht Level';
 $string['new'] = 'neu';
-$string['known'] = 'beherrscht';
+$string['known'] = 'gelernt';
 $string['flashcards'] = 'Karten';
 $string['flashcardsdue'] = 'fällig';
 $string['flashcardsnotdue'] = 'noch nicht fällig';
 $string['box'] = 'Box';
+$string['titelpracticechartone'] = 'Lerneinheit geschafft! Du hast';
+$string['titelpracticecharttwo'] = '% der Karten gewusst.';
 
 $string['titleperformancechart'] = 'Vergangene Übungssitzungen';
 $string['performance'] = '% korrekt';
@@ -271,7 +274,7 @@ $string['linegraphtooltiplabel_below_threshold'] = 'keine Statistiken, weil <{$a
 $string['lastpractise'] = 'zuletzt geübt';
 $string['nopractise'] = 'noch nicht geübt';
 $string['newcard'] = 'neue Karten';
-$string['knowncard'] = 'beherrschte Karten';
+$string['knowncard'] = 'gelernte Karten';
 $string['averagestudentscompare'] = 'Durchschnitt aller Schüler';
 $string['absolutenumberofcards'] = 'Absolute Anzahl der Karten';
 
@@ -284,7 +287,7 @@ $string['delete'] = 'Löschen';
 
 
 $string['topicfilter'] = 'Thema ';
-$string['deckfilter'] = 'Stufe';
+$string['deckfilter'] = 'Level:';
 $string['noselection'] = 'alle';
 $string['createddate'] = 'Erstellungsdatum';
 $string['alphabetical'] = 'Alphabetisch';
@@ -294,13 +297,13 @@ $string['ascending'] = 'aufsteigend';
 
 $string['card'] = 'Frage/Antwort:';
 $string['cardposition'] = 'Deck:';
-$string['cardposition_help'] = 'Zeigt, in welchem Deck sich diese Karte befindet. Je höher die Zahl, desto besser wurde die Karte bereits gelernt. Neue Karten sind noch nicht in einer Box. Nach Box 5 werden Karten als "beherrscht" angesehen und nicht mehr geübt.';
+$string['cardposition_help'] = 'Zeigt, in welchem Deck sich diese Karte befindet. Je höher die Zahl, desto besser wurde die Karte bereits gelernt. Neue Karten sind noch nicht in einer Box. Nach Box 5 werden Karten als "gelernt" angesehen und nicht mehr geübt.';
 
 // Overview Tab.
 $string['student:deckdescription'] = 'Diese Karte liegt im Deck {$a}';
 $string['manager:deckdescription'] = 'Im Durchschnitt liegt diese Karte im Deck {$a} bei allen Schülern';
-$string['manager:repeatdesc'] = 'Diese Karte wurde im Durchschnitt nach {$a} Wiederholungen von den Schülern beherrscht';
-$string['student:repeatdesc'] = 'Diese Karte wurde nach {$a} Wiederholungen beherrscht';
+$string['manager:repeatdesc'] = 'Diese Karte wurde im Durchschnitt nach {$a} Wiederholungen von den Schülern gelernt';
+$string['student:repeatdesc'] = 'Diese Karte wurde nach {$a} Wiederholungen gelernt';
 
 // Edit topics Tab.
 $string['deletetopic'] = 'Thema löschen';

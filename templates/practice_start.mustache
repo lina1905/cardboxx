@@ -1,7 +1,12 @@
 <div class="doughnut-chart" style="margin-top: 30px; background: conic-gradient(#BF514C {{duecardcountpercentage}}%, #71A87F {{duecardcountpercentage}}% 100%);">
     <div class="doughnut-chart-text">
-        {{# str }} chartpractice, cardboxx {{/str}} <br>
-        {{duecardcount}}/{{cardcount}}
+        {{#duecardcount}}
+            {{# str }} chartpractice, cardboxx {{/str}}<br>
+            {{duecardcount}}/{{cardcount}}
+        {{/duecardcount}}
+        {{^duecardcount}}
+            {{# str }} chartpracticedone, cardboxx {{/str}}
+        {{/duecardcount}}
     </div>
 </div>
 

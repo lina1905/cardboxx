@@ -1180,7 +1180,7 @@ class Statistics {
                     },
                     title: {
                         display: true,
-                        text: `Lerneinheit geschafft! Du hast ${percentRight.toFixed(2)}% der Karten gewusst`
+                        text: M.util.get_string('titelpracticechartone', 'cardboxx') + " " + percentRight.toFixed(2) + "" + M.util.get_string('titelpracticecharttwo', 'cardboxx')
                     }
                 },
                 cutout: '70%'

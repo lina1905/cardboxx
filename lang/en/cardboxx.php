@@ -130,7 +130,7 @@ $string['error:createcard'] = 'The card was not created, because it is either mi
 
 // Import cards.
 //$string['examplesinglecsv'] = 'Example text file for cards having single answers';
-$string['examplesinglecsv'] = 'Example text file for cards';
+$string['examplesinglecsv'] = 'Example text file for import of cards';
 $string['examplesinglecsv_help'] = 'Example text file for cards having single answers';
 $string['examplemulticsv'] = 'Example text file for cards having multiple answers';
 $string['examplemulticsv_help'] = 'Example text file for cards having multiple answers';
@@ -186,6 +186,7 @@ $string['cancel'] = 'Cancel';
 $string['options'] = 'Practice anyway';
 $string['endpractice'] = 'End practice';
 $string['chartpractice'] = 'Practice today:';
+$string['chartpracticedone'] = 'You have<br> learned all cards<br> for today';
 
 $string['dontknow'] = "I don't know";
 $string['checkanswer'] = 'Check';
@@ -222,6 +223,8 @@ $string['flashcards'] = 'cards';
 $string['flashcardsdue'] = 'due';
 $string['flashcardsnotdue'] = 'not due yet';
 $string['box'] = 'box';
+$string['titelpracticechartone'] = 'Finished Session! You have';
+$string['titelpracticecharttwo'] = '% of the cards right.';
 
 $string['titleperformancechart'] = 'Past practice sessions';
 $string['performance'] = '% correct';
