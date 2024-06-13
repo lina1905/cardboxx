@@ -27,13 +27,17 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
 
-    $settings->add(new admin_setting_heading('cardboxx_statistics_heading', get_string('statistics_heading', 'cardboxx'), ''));
+    /*
 
-    $settings->add(new admin_setting_configtext('mod_cardboxx/weekly_statistics_user_practice_threshold',
-                    get_string('weekly_users_practice_threshold', 'cardboxx'),
-                    get_string('weekly_users_practice_threshold_desc', 'cardboxx'), 5, PARAM_INT));
+$settings->add(new admin_setting_heading('cardboxx_statistics_heading', get_string('statistics_heading', 'cardboxx'), ''));
 
-    $settings->add(new admin_setting_configtext('mod_cardboxx/weekly_statistics_enrolled_students_threshold',
-                    get_string('weekly_enrolled_students_threshold', 'cardboxx'),
-                    get_string('weekly_enrolled_students_threshold_desc', 'cardboxx'), 10, PARAM_INT));
+$settings->add(new admin_setting_configtext('mod_cardboxx/weekly_statistics_user_practice_threshold',
+                get_string('weekly_users_practice_threshold', 'cardboxx'),
+                get_string('weekly_users_practice_threshold_desc', 'cardboxx'), 5, PARAM_INT));
+
+$settings->add(new admin_setting_configtext('mod_cardboxx/weekly_statistics_enrolled_students_threshold',
+                get_string('weekly_enrolled_students_threshold', 'cardboxx'),
+                get_string('weekly_enrolled_students_threshold_desc', 'cardboxx'), 10, PARAM_INT));
+*/
+
 }

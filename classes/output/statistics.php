@@ -256,6 +256,7 @@ class cardboxx_statistics implements \renderable, \templatable {
         }
     }
 
+
     /**
      * Set the information about the enrolled students threshold.
      *
@@ -263,12 +264,14 @@ class cardboxx_statistics implements \renderable, \templatable {
      */
     private function set_enrolled_students_threshold_info($ismanager) {
         $enrolledstudentsthreshold = get_config('mod_cardboxx', 'weekly_statistics_enrolled_students_threshold');
+        /*
         if ($enrolledstudentsthreshold > 0) {
             $stringid = $ismanager ? 'info:enrolledstudentsthreshold_manager' : 'info:enrolledstudentsthreshold_student';
             $this->infoenrolledstudentsthreshold = get_string($stringid, 'cardboxx', $enrolledstudentsthreshold);
         } else {
             $this->infoenrolledstudentsthreshold = false;
         }
+        */
     }
 
     /**
@@ -284,6 +287,7 @@ class cardboxx_statistics implements \renderable, \templatable {
         $enrolledstudentsthreshold = get_config('mod_cardboxx', 'weekly_statistics_enrolled_students_threshold');
         return count($enrolledstudents) >= $enrolledstudentsthreshold;
     }
+
 
     /**
      * Export data for template.

@@ -146,7 +146,7 @@ $string['topic'] = 'Spaltenname für Thema';
 $string['acdisable'] = 'Spaltenname zum Deaktivieren der automatischen Überprüfung für eine Karte. Ja = 1; Nein = 0.';
 
 // Info notifications.
-$string['info:statisticspage'] = 'Diese Seite zeigt Ihnen, wie viele Karten in Ihrer Kartenbox sind (fällig und nicht fällig) und wie gut Sie in Ihren vorherigen Übungssitzungen waren.';
+$string['info:statisticspage'] = 'Diese Seite zeigt, in welchem Level die Karten sind und ob diese wiederholt werden müssen. Außerdem wird angezeigt, wie gut die Lerneinheiten waren.';
 $string['info:nocardsavailableforreview'] = 'Es gibt derzeit keine neuen Karten zur Überprüfung.';
 $string['info:waslastcardforreview'] = 'Dies war die letzte Karte zur Überprüfung.';
 $string['info:nocardsavailableforoverview'] = 'Es gibt keine Karten in dieser Kartenbox.';

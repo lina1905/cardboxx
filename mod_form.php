@@ -64,18 +64,23 @@ class mod_cardboxx_mod_form extends moodleform_mod {
         $attributes['rows'] = 5;
         $element->setAttributes($attributes);
 
+        /*
         $mform->addElement('advcheckbox', 'enablenotifications', get_string('setting_enablenotifications', 'cardboxx'),
             get_string('setting_enablenotifications_label', 'cardboxx'), null, [0, 1]);
         $mform->setType('enablenotifications', PARAM_BOOL);
         $mform->setDefault('enablenotifications', 0);
         $mform->addHelpButton('enablenotifications', 'setting_enablenotifications', 'cardboxx');
+        */
 
+        /*
         $mform->addElement('advcheckbox', 'autocorrection', get_string('setting_autocorrection', 'cardboxx'),
                     get_string('setting_autocorrection_label', 'cardboxx'), null, [0, 1]);
         $mform->setType('autocorrection', PARAM_BOOL);
         $mform->setDefault('autocorrection', 1);
         $mform->addHelpButton('autocorrection', 'setting_autocorrection', 'cardboxx');
+        */
 
+        /*
         $mform->addElement('select', 'necessaryanswers', get_string('necessaryanswers_activity', 'cardboxx'),
                   [
                       '0' => get_string('necessaryanswers_all', 'cardboxx'),
@@ -94,6 +99,7 @@ class mod_cardboxx_mod_form extends moodleform_mod {
                       '0' => get_string('yes', 'cardboxx'),
                       '1' => get_string('no', 'cardboxx')]);
         $mform->addHelpButton('casesensitive', 'casesensitive', 'cardboxx');
+        */
 
         $this->standard_coursemodule_elements();
 

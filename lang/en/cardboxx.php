@@ -146,7 +146,7 @@ $string['topic'] = 'Column name for topic';
 $string['acdisable'] = 'Column name to disable Automatic Check for a card. Yes = 1; No = 0.';
 
 // Info notifications.
-$string['info:statisticspage'] = 'This page tells you how many cards there are in your cardboxx (due and not-due) and how well you did in your previous practice sessions.';
+$string['info:statisticspage'] = 'This page tells you how many cards there are in your cardbox (due and not-due) and how well you did in your previous practice sessions.';
 $string['info:nocardsavailableforreview'] = 'There are no new cards to review at present.';
 $string['info:waslastcardforreview'] = 'This was the last card to be reviewed.';
 $string['info:nocardsavailableforoverview'] = 'There are no cards in this cardbox.';

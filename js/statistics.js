@@ -170,6 +170,8 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
            }]
        };
 
+        /*
+
         if (__performance.displayaverageprogress) {
             var __averageboxcount = __params['averageboxcount'];
             cardboxxdata.datasets.push({
@@ -187,6 +189,8 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 stack: 'Stack 1'
             });
         }
+
+         */
 
        var barChart1 = new Chart(context, {
            type: 'bar',
