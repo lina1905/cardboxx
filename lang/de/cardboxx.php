@@ -166,7 +166,7 @@ $string['help:whenarecardsdue_help'] = 'Neue Karten müssen sofort wiederholt we
 $string['help:practiceanyway'] = 'Wenn Sie trotzdem üben, bleiben korrekt beantwortete Karten in ihrem aktuellen Fach und rücken nicht vor.';
 
 // Title and form elements for choosing the settings for a new practice session.
-$string['titleforchoosesettings'] = 'Übungsoptionen';
+$string['titleforchoosesettings'] = 'Jetzt starten?';
 $string['choosecorrectionmode'] = 'Übungsmodus';
 $string['selfcorrection'] = 'Selbstkontrolle';
 $string['autocorrection'] = 'Automatische Überprüfung';
@@ -178,15 +178,18 @@ $string['onlyonetopic'] = 'Thema';
 $string['maxnumbercardspractice'] = 'Max. Anzahl von Karten';
 $string['undefined'] = 'Keine Begrenzung';
 
-$string['beginpractice'] = 'Übung starten';
+$string['beginpractice'] = 'Starten';
 $string['applysettings'] = 'Anwenden';
 $string['cancel'] = 'Abbrechen';
 
 // Practice mode: Buttons.
-$string['options'] = 'Trotzdem üben';
+$string['options'] = 'Trotzdem Üben';
+$string['optionsone'] = 'Trotzdem Üben';
+$string['optionstwo'] = 'Jetzt Üben';
 $string['endpractice'] = 'Übung beenden';
 $string['chartpractice'] = 'Heute zu<br> wiederholen:';
 $string['chartpracticedone'] = 'Du hast alle<br> Karten für<br> heute gelernt';
+$string['totalcardsinbox'] = 'Gesamtzahl an Karten: ';
 
 $string['dontknow'] = "Ich weiß es nicht";
 $string['checkanswer'] = 'Überprüfen';

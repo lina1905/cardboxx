@@ -1,16 +1,16 @@
 <div class="modal-dialog" style="max-width: 400px">
     <div class="modal-content">
 
-        <div class="modal-header">
-          <h4 class="modal-title">{{# str }} titleforchoosesettings, cardboxx {{/ str }}</h4>
-          <button id="cardboxx-close-settings" type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-header" style="position: relative;">
+            <h4 class="modal-title" style="text-align: center; width: 100%;">{{# str }} titleforchoosesettings, cardboxx {{/ str }}</h4>
+            <button id="cardboxx-close-settings" type="button" class="close" data-dismiss="modal" style="position: absolute; right: 15px;">&times;</button>
         </div>
 
         <input type="hidden" id="cardcount" value="{{cardcount}}">
         <input type="hidden" id="duecardcount" value="{{duecardcount}}">
 
 
-        <div class="modal-body cardboxx-options">
+        <div class="modal-body cardboxx-options" style="display: none">
 
             <!--
 
@@ -41,8 +41,8 @@
             </div>
                         -->
 
-            <div id="cardboxx-practiceall-select" class="item g goldenleft">{{# str }} practiceall, cardboxx {{/ str }}&nbsp; {{{helpbuttonpracticeall}}}</div>
-            <div id="cardboxx-practiceall-choices" class="item h goldenrigth">
+            <div id="cardboxx-practiceall-select" style="display: none;" class="item g goldenleft">{{# str }} practiceall, cardboxx {{/ str }}&nbsp; {{{helpbuttonpracticeall}}}</div>
+            <div id="cardboxx-practiceall-choices" style="display: none;" class="item h goldenrigth">
                 <form id="cardboxx-form-practiceall" class="felement">
                     <input type="radio" id="cardboxx-practiceall-yes" name="practiceall" value="0" class="form-check-input"> {{# str }} yes, cardboxx {{/ str }}<br>
                     <input type="radio" id="cardboxx-practiceall-no" name="practiceall" value="1" class="form-check-input" checked>{{# str }} no, cardboxx {{/ str }}
@@ -50,7 +50,7 @@
 
             </div>
 
-
+            <!--
             <div class="item i goldenleft" id="cardboxx-amount-cards">{{# str }} maxnumbercardspractice, cardboxx {{/ str }}</div>
             <div class="item j goldenrigth" id="cardboxx-amount-cards-select">
                 <select id="cardboxx-amountcards" name="amount-cards" class="custom-select">
@@ -59,6 +59,7 @@
                     {{/amountcards}}
                 </select>
             </div>
+            -->
 
         </div>
 

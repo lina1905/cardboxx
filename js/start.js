@@ -63,6 +63,13 @@ function startOptions(Y, __cmid, __openmodal) {
             modal.style.display = 'none';
         });
 
+        document.getElementById('cardboxx-see-optionstwo').addEventListener('click', function(e) {
+            document.getElementById('cardboxx-practiceall-select').style.display = 'none';
+            document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
+            document.getElementById('cardboxx-practiceall-yes').checked = false;
+        });
+
+
         document.getElementById('cardboxx-see-options').addEventListener('click', function(e) {
             document.getElementById('cardboxx-practiceall-select').style.display = 'none';
             document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
@@ -128,7 +135,7 @@ function startOptions(Y, __cmid, __openmodal) {
             //var topic = document.getElementById('cardboxx-topic').value;
             var practiceall = document.getElementById('cardboxx-practiceall-yes').checked;
             //var onlyonetopic = document.getElementById('cardboxx-onlyonetopic').value;
-            var amountcards = document.getElementById('cardboxx-amountcards').value;
+            // var amountcards = document.getElementById('cardboxx-amountcards').value;
             var correctionmode;
 
             //var radios = document.getElementById('cardboxx-form').elements['correctionmode'];

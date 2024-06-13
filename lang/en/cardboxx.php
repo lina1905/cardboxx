@@ -166,7 +166,7 @@ $string['help:whenarecardsdue_help'] = 'New cards are immediately due for practi
 $string['help:practiceanyway'] = 'If you practice anyway, correctly answered cards do not move on, but remain in their current tray.';
 
 // Title and form elements for choosing the settings for a new practice session.
-$string['titleforchoosesettings'] = 'Practice options';
+$string['titleforchoosesettings'] = 'Practice now?';
 $string['choosecorrectionmode'] = 'Practice mode';
 $string['selfcorrection'] = 'Check yourself';
 $string['autocorrection'] = 'Automatic check';
@@ -178,15 +178,18 @@ $string['onlyonetopic'] = 'Topic';
 $string['maxnumbercardspractice'] = 'Max. number of cards';
 $string['undefined'] = 'No limit';
 
-$string['beginpractice'] = 'Start practice';
+$string['beginpractice'] = 'Start';
 $string['applysettings'] = 'Apply';
 $string['cancel'] = 'Cancel';
 
 // Practice mode: Buttons.
 $string['options'] = 'Practice anyway';
+$string['optionsone'] = 'Practice anyway';
+$string['optionstwo'] = 'Practice now';
 $string['endpractice'] = 'End practice';
 $string['chartpractice'] = 'Practice today:';
 $string['chartpracticedone'] = 'You have<br> learned all cards<br> for today';
+$string['totalcardsinbox'] = 'Total number of cards: ';
 
 $string['dontknow'] = "I don't know";
 $string['checkanswer'] = 'Check';

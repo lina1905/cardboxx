@@ -206,6 +206,13 @@
     background-color: rgba(32, 32, 32, 0.75); /* Black w/ opacity */
 }
 
+.path-mod-cardboxx .modal-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .path-mod-cardboxx .modal-content {
     -webkit-overflow-scrolling: initial !important;
 }

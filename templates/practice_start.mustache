@@ -1,24 +1,43 @@
-<div class="doughnut-chart" style="margin-top: 30px; background: conic-gradient(#BF514C {{duecardcountpercentage}}%, #71A87F {{duecardcountpercentage}}% 100%);">
-    <div class="doughnut-chart-text">
-        {{#duecardcount}}
-            {{# str }} chartpractice, cardboxx {{/str}}<br>
-            {{duecardcount}}/{{cardcount}}
-        {{/duecardcount}}
-        {{^duecardcount}}
-            {{# str }} chartpracticedone, cardboxx {{/str}}
-        {{/duecardcount}}
+<!-- <div style="display: flex; align-items: center; flex-direction: column";> -->
+    <div class="doughnut-chart" style="margin-top: 30px; background: conic-gradient(#BF514C {{duecardcountpercentage}}%, #71A87F {{duecardcountpercentage}}% 100%);">
+        <div class="doughnut-chart-text">
+            {{#duecardcount}}
+                {{# str }} chartpractice, cardboxx {{/str}}<br>
+                {{duecardcount}}/{{cardcount}}
+            {{/duecardcount}}
+            {{^duecardcount}}
+                {{# str }} chartpracticedone, cardboxx {{/str}}
+            {{/duecardcount}}
+        </div>
     </div>
-</div>
 
-<button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 40px;">
-    {{# str }} options, cardboxx {{/ str }}
-</button>
+    <div style="margin-top: 35px; font-weight: bold">
+        {{# str }} totalcardsinbox, cardboxx {{/str}} {{cardcount}}
+    </div>
+
+    {{#duecardcount}}
+        <button id="cardboxx-see-optionstwo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+            {{# str }} optionstwo, cardboxx {{/ str }}
+        </button>
+        <button id="cardboxx-see-options" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+            {{# str }} optionsone, cardboxx {{/ str }}
+        </button>
+    {{/duecardcount}}
+    {{^duecardcount}}
+        <button id="cardboxx-see-optionstwo" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+            {{# str }} optionstwo, cardboxx {{/ str }}
+        </button>
+        <button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+            {{# str }} optionsone, cardboxx {{/ str }}
+        </button>
+    {{/duecardcount}}
 
 
 
-<div class="modal" id="cardboxxPracticeSettings">
-    {{> mod_cardboxx/options }}
-</div>
+    <div class="modal" id="cardboxxPracticeSettings">
+        {{> mod_cardboxx/options }}
+    </div>
+<!-- </div> -->
 
 <!--
 <input type="hidden" id="cardcount" value="{{cardcount}}">

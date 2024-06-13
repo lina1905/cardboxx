@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cardboxx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cardboxx.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/card_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/practice.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/practice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/de/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/de/cardboxx.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/en/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/cardboxx.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/options.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/options.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/practice_start.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_start.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +46,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -60,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718264880252</updated>
-      <workItem from="1718264881212" duration="8818000" />
+      <workItem from="1718264881212" duration="14837000" />
     </task>
     <servers />
   </component>
