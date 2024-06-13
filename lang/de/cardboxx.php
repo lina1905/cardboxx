@@ -118,7 +118,7 @@ $string['saveandaccept'] = 'Speichern';
 
 // Erfolgsbenachrichtigungen.
 $string['success:addnewcard'] = 'Die Karte wurde erstellt und wartet auf Genehmigung.';
-$string['success:addandapprovenewcard'] = 'Die Karte wurde erstellt und zum Üben freigegeben.';
+$string['success:addandapprovenewcard'] = 'Die Karte wurde erstellt.';
 $string['success:approve'] = 'Die Karte wurde genehmigt und ist jetzt zur Verwendung freigegeben.';
 $string['success:edit'] = 'Die Karte wurde bearbeitet.';
 $string['success:reject'] = 'Die Karte wurde gelöscht.';
@@ -150,20 +150,21 @@ $string['info:statisticspage'] = 'Diese Seite zeigt Ihnen, wie viele Karten in I
 $string['info:nocardsavailableforreview'] = 'Es gibt derzeit keine neuen Karten zur Überprüfung.';
 $string['info:waslastcardforreview'] = 'Dies war die letzte Karte zur Überprüfung.';
 $string['info:nocardsavailableforoverview'] = 'Es gibt keine Karten in dieser Kartenbox.';
-$string['info:nocardsavailable'] = 'Es gibt derzeit keine Karten in Ihrer Kartenbox.';
-$string['help:nocardsavailable'] = 'Leere Kartenbox';
-$string['help:nocardsavailable_help'] = 'Mögliche Gründe:<ul><li>Es wurden keine Karten erstellt.</li><li>Der Lehrer hat noch keine Karte geprüft und akzeptiert.</li></ul>';
+$string['info:nocardsavailable'] = 'Es gibt derzeit keine Karten in dieser Karteikartenbox.';
+$string['help:nocardsavailable'] = 'Leere Karteikartenbox';
+$string['help:nocardsavailable_help'] = 'Möglicher Grund: Es wurden keine Karten erstellt.';
 $string['info:nocardsavailableforpractice'] = 'Es gibt keine Karten, die bereit zum Üben sind.';
 $string['help:nocardsavailableforpractice'] = 'Keine Karten';
-$string['help:nocardsavailableforpractice_help'] = 'Sie haben jede derzeit verfügbare Karte 5 Mal über einen Zeitraum von mindestens zwei Monaten korrekt beantwortet. Diese Karten gelten als gemeistert und werden nicht mehr wiederholt.';
+$string['help:nocardsavailableforpractice_help'] = 'Sie haben jede derzeit verfügbare Karte 5 Mal über einen Zeitraum von mindestens 1 Monat korrekt beantwortet. Diese Karten gelten als gemeistert und werden nicht mehr wiederholt.';
 $string['info:nocardsdueforpractice'] = 'Keine Ihrer Karten ist derzeit zur Wiederholung fällig.';
 $string['info:enrolledstudentsthreshold_manager'] = 'Es müssen mindestens {$a} Studenten in diesem Kurs eingeschrieben sein, damit die wöchentlichen Übungsstatistiken angezeigt werden.';
 $string['info:enrolledstudentsthreshold_student'] = 'Der durchschnittliche Fortschritt der Studenten wird nur angezeigt, wenn mindestens {$a} Studenten im Kurs eingeschrieben sind.';
 $string['help:nocardsdueforpractice'] = 'Keine fälligen Karten';
 $string['help:nocardsdueforpractice_help'] = 'Neue Karten sind sofort fällig. Für jede andere Karte entscheidet das Deck:<ol><li>Deck: täglich</li><li>Deck: nach 3 Tagen</li><li>Deck: nach 7 Tagen</li><li>Deck: nach 16 Tagen</li><li>Deck: nach 34 Tagen</li></ol>';
-$string['help:whenarecardsdue'] = 'Wann sind Karten fällig';
+$string['help:whenarecardsdue'] = 'Erklärung Level';
 $string['help:whenarecardsdue_help'] = 'Neue Karten müssen sofort wiederholt werden. Sonst entscheidet das Level:<ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
-$string['help:practiceanyway'] = 'Wenn Sie trotzdem üben, bleiben korrekt beantwortete Karten in ihrem aktuellen Fach und rücken nicht vor.';
+$string['help:practiceanyway_help'] = 'Wenn Sie trotzdem üben, bleiben korrekt beantwortete Karten im aktuellen Level und rücken nicht vor. Karten sind fällig gemäß ihrem Level: <ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
+$string['help:practiceanyway'] = 'Trotzdem üben';
 
 // Title and form elements for choosing the settings for a new practice session.
 $string['titleforchoosesettings'] = 'Jetzt starten?';
@@ -189,7 +190,7 @@ $string['optionstwo'] = 'Jetzt Üben';
 $string['endpractice'] = 'Übung beenden';
 $string['chartpractice'] = 'Heute zu<br> wiederholen:';
 $string['chartpracticedone'] = 'Du hast alle<br> Karten für<br> heute gelernt';
-$string['totalcardsinbox'] = 'Gesamtzahl an Karten: ';
+$string['totalcardsinbox'] = 'Gesamtzahl an Karten in Karteikartenbox: ';
 
 $string['dontknow'] = "Ich weiß es nicht";
 $string['checkanswer'] = 'Überprüfen';

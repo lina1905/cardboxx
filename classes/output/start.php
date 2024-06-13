@@ -135,7 +135,8 @@ class cardboxx_start implements \renderable, \templatable {
         $data['duecardcount'] = $this->duecardcount;
         $data['duecardcountpercentage'] = round(($this->duecardcount / $this->cardcount) * 100, 0);
 
-
+        $help = $OUTPUT->help_icon('help:practiceanyway', 'cardboxx');
+        $data['infoHtmlPracticeDone'] = $help;
 
         return $data;
 

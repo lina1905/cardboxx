@@ -11,25 +11,26 @@
         </div>
     </div>
 
-    <div style="margin-top: 35px; font-weight: bold">
+    <div style="margin-top: 35px; font-weight: bold; margin-bottom: 35px">
         {{# str }} totalcardsinbox, cardboxx {{/str}} {{cardcount}}
     </div>
 
     {{#duecardcount}}
-        <button id="cardboxx-see-optionstwo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+        <button id="cardboxx-see-optionstwo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">
             {{# str }} optionstwo, cardboxx {{/ str }}
         </button>
-        <button id="cardboxx-see-options" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+        <button id="cardboxx-see-options" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">
             {{# str }} optionsone, cardboxx {{/ str }}
         </button>
     {{/duecardcount}}
     {{^duecardcount}}
-        <button id="cardboxx-see-optionstwo" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+        <button id="cardboxx-see-optionstwo" type="button" class="hidden btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">
             {{# str }} optionstwo, cardboxx {{/ str }}
         </button>
-        <button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings" style="margin-top: 30px;">
+        <button id="cardboxx-see-options" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardboxxPracticeSettings">
             {{# str }} optionsone, cardboxx {{/ str }}
         </button>
+        {{{infoHtmlPracticeDone}}}
     {{/duecardcount}}
 
 

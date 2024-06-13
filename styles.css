@@ -14,6 +14,12 @@
     max-width: 1120px;
 }
 
+.path-mod-cardboxx #page-content .alert-info {
+    color: #F29C39;
+    background-color: #FAE5CC;
+    border-color: #FAE5CC;
+}
+
 .path-mod-cardboxx div#region-main-box .nav-tabs a.nav-link.active {
     color: #fff !important;
     background-color: #6a737b !important;
@@ -64,7 +70,8 @@
 }
 
 .path-mod-cardboxx #cardboxx-end-session,
-.path-mod-cardboxx input#id_cancel.btn.btn-secondary {
+.path-mod-cardboxx input#id_cancel.btn.btn-secondary,
+.path-mod-cardboxx button#cardboxx-cancel-settings {
     border: 1px solid #F29C39 !important;
     background-color: #FFFFFF;
     color: #F29C39;

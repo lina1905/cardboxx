@@ -118,7 +118,7 @@ $string['saveandaccept'] = 'Save';
 
 // Success notifications.
 $string['success:addnewcard'] = 'The card was created and awaits approval.';
-$string['success:addandapprovenewcard'] = 'The card was created and approved for practice.';
+$string['success:addandapprovenewcard'] = 'The card was created.';
 $string['success:approve'] = 'The card was approved and is now free to use.';
 $string['success:edit'] = 'The card was edited.';
 $string['success:reject'] = 'The card was deleted.';
@@ -149,21 +149,23 @@ $string['acdisable'] = 'Column name to disable Automatic Check for a card. Yes =
 $string['info:statisticspage'] = 'This page tells you how many cards there are in your cardboxx (due and not-due) and how well you did in your previous practice sessions.';
 $string['info:nocardsavailableforreview'] = 'There are no new cards to review at present.';
 $string['info:waslastcardforreview'] = 'This was the last card to be reviewed.';
-$string['info:nocardsavailableforoverview'] = 'There are no cards in this cardboxx.';
-$string['info:nocardsavailable'] = 'There are no cards in your cardboxx at present.';
+$string['info:nocardsavailableforoverview'] = 'There are no cards in this cardbox.';
+$string['info:nocardsavailable'] = 'There are no cards in your cardbox at present.';
 $string['help:nocardsavailable'] = 'Empty cardboxx';
-$string['help:nocardsavailable_help'] = 'Possible reasons:<ul><li>No cards have been created.</li><li>The teacher has yet to check and accept a card.</li></ul>';
+$string['help:nocardsavailable_help'] = 'Possible reason: No cards have been created.';
 $string['info:nocardsavailableforpractice'] = 'There are no cards ready for practice.';
 $string['help:nocardsavailableforpractice'] = 'No cards';
-$string['help:nocardsavailableforpractice_help'] = 'You have correctly answered every card that is currently available 5 times over a period of at least two months. These cards are regarded as mastered and no longer repeated.';
+$string['help:nocardsavailableforpractice_help'] = 'You have correctly answered every card that is currently available 5 times over a period of at least one months. These cards are regarded as mastered and no longer repeated.';
 $string['info:nocardsdueforpractice'] = 'None of your cards are due for repetition yet.';
 $string['info:enrolledstudentsthreshold_manager'] = 'There must be at least {$a} students enrolled in this course for weekly practice statistics to be displayed.';
 $string['info:enrolledstudentsthreshold_student'] = 'Average progress among students is only displayed if there are at least {$a} students enrolled in the course.';
 $string['help:nocardsdueforpractice'] = 'No cards due';
 $string['help:nocardsdueforpractice_help'] = 'New cards are due immediately. For any other card the deck decides:<ol><li>deck: daily</li><li>deck: after 3 days</li><li>deck: after 7 days</li><li>deck: after 16 days</li><li>deck: after 34 days</li></ol>';
-$string['help:whenarecardsdue'] = 'When are cards due';
+$string['help:whenarecardsdue'] = 'Explanation Level';
 $string['help:whenarecardsdue_help'] = 'New cards are immediately due for practice. For any other card the level decides:<ol><li>Level: Repeate daily</li><li>Level: Repeate after 2 days</li><li>Level: Repeate after 4 days</li><li>Level: Repeate after 8 days</li><li>Level: Repeate after 16 days</li></ol>';
-$string['help:practiceanyway'] = 'If you practice anyway, correctly answered cards do not move on, but remain in their current tray.';
+$string['help:practiceanyway'] = 'Practice anyway';
+$string['help:practiceanyway_help'] = 'If you practice anyway, correctly answered cards do not move on, but remain in their current level. Cards are due according to their level: <ol><li>deck: daily</li><li>deck: after 3 days</li><li>deck: after 7 days</li><li>deck: after 16 days</li><li>deck: after 34 days</li></ol>';
+
 
 // Title and form elements for choosing the settings for a new practice session.
 $string['titleforchoosesettings'] = 'Practice now?';

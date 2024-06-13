@@ -168,7 +168,7 @@ class cardboxx_overview implements \renderable, \templatable {
 
 
         $help = $OUTPUT->help_icon('help:whenarecardsdue', 'cardboxx');
-        $data['infoHtml'] = $help;
+        $data['infoHtmloverview'] = $help;
 
         return $data;
     }

@@ -372,6 +372,7 @@ if ($action === 'editcard') {
             $submitbutton = null;
         }
 
+        /*
         // Create or select a topic for the card.
         switch ($formdata->topic) {
             case -1: // Card belongs to no topic.
@@ -387,6 +388,7 @@ if ($action === 'editcard') {
             default: // Card belongs to an already existing topic.
                 $topicid = $formdata->topic;
         }
+        */
         $necessaryanswerslocked = $DB->get_field('cardboxx', 'necessaryanswerslocked', ['id' => $customdata['cardboxxid']],
             IGNORE_MISSING);
         if (!empty($formdata->answers)) {
@@ -630,12 +632,12 @@ if ($action === 'practice') {
         return;
     } else if (empty($duecardcount) && !$startnow) {
         // Inform the user that none of their cards are due for practice right now.
-        $infopart1 = get_string('info:nocardsdueforpractice', 'cardboxx');
+        /* $infopart1 = get_string('info:nocardsdueforpractice', 'cardboxx');
         $infopart2 = get_string('help:practiceanyway', 'cardboxx');
         $help = $OUTPUT->help_icon('help:nocardsdueforpractice', 'cardboxx');
         echo "<span id='nocardsduenotification' class='notification alert alert-info alert-block fade in'
                     role='alert' style='display:block'>" .
-             $infopart1 . " " . $help . "<br>" . $infopart2 . "</span>";
+             $infopart1 . " " . $help . "<br>" . $infopart2 . "</span>"; */
         $openmodal = false;
     }
 
