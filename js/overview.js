@@ -50,12 +50,12 @@
         }
         */
 
-        deckfilter.onchange = function() {
-
-            var select = this.options[this.selectedIndex];
-            __deck = select['value'];
-            window.location.href = window.location.pathname + '?id=' + __cmid + '&action=overview&deck=' + __deck;
-
+        if (deckfilter) {
+            deckfilter.onchange = function() {
+                var select = this.options[this.selectedIndex];
+                __deck = select['value'];
+                window.location.href = window.location.pathname + '?id=' + __cmid + '&action=overview&deck=' + __deck;
+            }
         }
 
         /*

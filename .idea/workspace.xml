@@ -6,14 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/de/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/de/cardboxx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/cardboxx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mod_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/mod_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/output/overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/overview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/overview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_start.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_start.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/overview.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/overview.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718264880252</updated>
-      <workItem from="1718264881212" duration="21432000" />
+      <workItem from="1718264881212" duration="26525000" />
     </task>
     <servers />
   </component>

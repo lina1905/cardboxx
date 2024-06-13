@@ -66,6 +66,9 @@ class cardboxx_overview implements \renderable, \templatable {
      */
     private $decks = [];
 
+    private $allowedtoedit;
+
+
     /**
      * Constructor.
      *
@@ -111,12 +114,15 @@ class cardboxx_overview implements \renderable, \templatable {
         }
 
         $perpage = 10;
+
         $renderer = $PAGE->get_renderer('mod_cardboxx');
 
         if (has_capability('mod/cardboxx:approvecard', $context) && !$usedforemail) {
             $allowedtoedit = true;
+            $this->allowedtoedit = true;
         } else {
             $allowedtoedit = false;
+            $this->allowedtoedit = false;
         }
 
         if (has_capability('mod/cardboxx:seestatus', $context)) {
@@ -166,6 +172,7 @@ class cardboxx_overview implements \renderable, \templatable {
         $data['sortaa'] = $this->sort === 3;
         $data['cards'] = $this->cards;
 
+        $data['allowedtoedit'] = $this->allowedtoedit;
 
         $help = $OUTPUT->help_icon('help:whenarecardsdue', 'cardboxx');
         $data['infoHtmloverview'] = $help;
