@@ -15,9 +15,9 @@
 }
 
 .path-mod-cardboxx #page-content .alert-info {
-    color: #495057;
-    background-color: #FAE5CC;
-    border-color: #FAE5CC;
+    color: #1c3f1a;
+    background-color: #d7e4d6;
+    border-color: #c6dac6;
 }
 
 .path-mod-cardboxx div#region-main-box .nav-tabs a.nav-link.active {
@@ -206,6 +206,18 @@
 }
 
 /************************** Practice: modal with practice options *****************************************************/
+
+.path-mod-cardboxx .modal-dialog {
+    width: 80% !important;
+    position: fixed !important;
+    top: 40% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.path-mod-cardboxx .modal .show .modal-dialog {
+    transform: translate(-50%, -50%) !important;
+}
 
 .path-mod-cardboxx .modal {
     /*background-color: rgb(0, 0, 0); /* Fallback color */
@@ -449,6 +461,15 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .path-mod-cardboxx .practice-start-view {
+        display: flex !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {

@@ -146,7 +146,7 @@ $string['topic'] = 'Spaltenname für Thema';
 $string['acdisable'] = 'Spaltenname zum Deaktivieren der automatischen Überprüfung für eine Karte. Ja = 1; Nein = 0.';
 
 // Info notifications.
-$string['info:statisticspage'] = 'Diese Seite zeigt, in welchem Level die Karten sind und ob diese wiederholt werden müssen. Außerdem wird angezeigt, wie gut die Lerneinheiten waren.';
+$string['info:statisticspage'] = 'Hier siehst du deine Fortschritte. Du kannst sehen in welchen Level deine Karten sind und wie gut deine Lerneinheiten waren.';
 $string['info:nocardsavailableforreview'] = 'Es gibt derzeit keine neuen Karten zur Überprüfung.';
 $string['info:waslastcardforreview'] = 'Dies war die letzte Karte zur Überprüfung.';
 $string['info:nocardsavailableforoverview'] = 'Es gibt keine Karten in dieser Kartenbox.';
@@ -163,11 +163,11 @@ $string['help:nocardsdueforpractice'] = 'Keine fälligen Karten';
 $string['help:nocardsdueforpractice_help'] = 'Neue Karten sind sofort fällig. Für jede andere Karte entscheidet das Deck:<ol><li>Deck: täglich</li><li>Deck: nach 3 Tagen</li><li>Deck: nach 7 Tagen</li><li>Deck: nach 16 Tagen</li><li>Deck: nach 34 Tagen</li></ol>';
 $string['help:whenarecardsdue'] = 'Erklärung Level';
 $string['help:whenarecardsdue_help'] = 'Neue Karten müssen sofort wiederholt werden. Sonst entscheidet das Level:<ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
-$string['help:practiceanyway_help'] = 'Wenn Sie trotzdem üben, bleiben korrekt beantwortete Karten im aktuellen Level und rücken nicht vor. Karten sind fällig gemäß ihrem Level: <ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
+$string['help:practiceanyway_help'] = 'Es sind derzeit keine Karten fällig. Wenn du trotzdem übst, bleiben deine Karten im aktuellen Level und rücken nicht vor. Karten sind fällig gemäß ihrem Level: <ol><li>Level: Wiederholung täglich</li><li>Level: Wiederholung nach 2 Tagen</li><li>Level: Wiederholung nach 4 Tagen</li><li>Level: Wiederholung nach 8 Tagen</li><li>Level: Wiederholung nach 16 Tagen</li></ol>';
 $string['help:practiceanyway'] = 'Trotzdem üben';
 
 // Title and form elements for choosing the settings for a new practice session.
-$string['titleforchoosesettings'] = 'Jetzt starten?';
+$string['titleforchoosesettings'] = 'Jetzt Üben?';
 $string['choosecorrectionmode'] = 'Übungsmodus';
 $string['selfcorrection'] = 'Selbstkontrolle';
 $string['autocorrection'] = 'Automatische Überprüfung';
@@ -190,7 +190,7 @@ $string['optionstwo'] = 'Jetzt Üben';
 $string['endpractice'] = 'Übung beenden';
 $string['chartpractice'] = 'Heute zu<br> wiederholen:';
 $string['chartpracticedone'] = 'Du hast alle<br> Karten für<br> heute gelernt';
-$string['totalcardsinbox'] = 'Gesamtzahl an Karten in Karteikartenbox: ';
+$string['totalcardsinbox'] = 'Gesamtzahl an Karten: ';
 
 $string['dontknow'] = "Ich weiß es nicht";
 $string['checkanswer'] = 'Überprüfen';

@@ -1146,6 +1146,8 @@ class Statistics {
             window.location.href = window.location.pathname + '?id=' + cmid + '&action=practice';
         });
 
+        document.getElementById('cardboxx-practice-feedback-collection').style.display = 'flex';
+
         // 3. Then display it as a doughnut chart.
         var ctx = document.getElementById("cardboxx-practice-feedback").getContext("2d");
 

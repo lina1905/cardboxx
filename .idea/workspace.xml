@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/overview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/overview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/practice.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/practice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/de/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/de/cardboxx.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/overview.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/overview.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/practice.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/practice_start.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_start.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,29 +26,29 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2hoeV8YCF4PisBv1YMkahvP0d7x" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature",
-    "last_opened_file_path": "C:/Users/suppo/OneDrive/Desktop/Moodle4.1.9/MoodleWindowsInstaller-latest-401/server/moodle/mod/cardboxx",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/suppo/OneDrive/Desktop/Moodle4.1.9/MoodleWindowsInstaller-latest-401/server/moodle/mod/cardboxx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +57,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718264880252</updated>
-      <workItem from="1718264881212" duration="26525000" />
+      <workItem from="1718264881212" duration="27837000" />
+      <workItem from="1718355996214" duration="5149000" />
     </task>
     <servers />
   </component>
@@ -73,5 +75,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/start.js</url>
+          <line>80</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
