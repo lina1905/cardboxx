@@ -27,12 +27,13 @@ function startOptions(Y, __cmid, __openmodal) {
 
         var modal = document.getElementById('cardboxxPracticeSettings');
 
+        /*
         if (__openmodal) {
             // modal.classList.add('show');
             modal.classList.add('modal-open');
             modal.style.display = 'block';
         }
-
+        */
         /*
         document.getElementById('cardboxx-onlyonetopic').addEventListener('change', function(e) {
             if (document.getElementById('cardboxx-onlyonetopic').value!=-1) {
