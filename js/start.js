@@ -24,10 +24,10 @@
 function startOptions(Y, __cmid, __openmodal) {
 
     require(['jquery', 'core/chartjs'], function ($) {
-
+        /*
         var modal = document.getElementById('cardboxxPracticeSettings');
 
-        /*
+
         if (__openmodal) {
             // modal.classList.add('show');
             modal.classList.add('modal-open');
@@ -48,11 +48,7 @@ function startOptions(Y, __cmid, __openmodal) {
         });
          */
 
-        document.getElementById('cardboxx-apply-settings').addEventListener('click', function(e) {
-            e.preventDefault();
-            applySettings();
-        });
-
+        /*
         document.getElementById('cardboxx-cancel-settings').addEventListener('click', function(e) {
             modal.classList.remove('show');
             modal.style.display = 'none';
@@ -63,20 +59,36 @@ function startOptions(Y, __cmid, __openmodal) {
             modal.classList.remove('show');
             modal.style.display = 'none';
         });
+        */
+
 
         document.getElementById('cardboxx-see-optionstwo').addEventListener('click', function(e) {
-            document.getElementById('cardboxx-practiceall-select').style.display = 'none';
-            document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
+            //document.getElementById('cardboxx-practiceall-select').style.display = 'none';
+            //document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
             document.getElementById('cardboxx-practiceall-yes').checked = false;
+            e.preventDefault();
+            applySettings();
         });
 
 
         document.getElementById('cardboxx-see-options').addEventListener('click', function(e) {
-            document.getElementById('cardboxx-practiceall-select').style.display = 'none';
-            document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
+            //document.getElementById('cardboxx-practiceall-select').style.display = 'none';
+            //document.getElementById('cardboxx-practiceall-choices').style.display = 'none';
             document.getElementById('cardboxx-practiceall-yes').checked = true;
+            e.preventDefault();
+            applySettings();
         });
 
+        /*
+
+        document.getElementById('cardboxx-apply-settings').addEventListener('click', function(e) {
+            e.preventDefault();
+            applySettings();
+        });
+        */
+
+
+        /*
         // If the user clicks anywhere outside of the modal, close it.
         window.onclick = function(event) {
             if (event.target == modal) {
@@ -84,6 +96,8 @@ function startOptions(Y, __cmid, __openmodal) {
                 modal.style.display = "none";
             }
         }
+        */
+
 
         /*
         var cardcount = $('#cardcount').val();
@@ -137,7 +151,7 @@ function startOptions(Y, __cmid, __openmodal) {
             var practiceall = document.getElementById('cardboxx-practiceall-yes').checked;
             //var onlyonetopic = document.getElementById('cardboxx-onlyonetopic').value;
             // var amountcards = document.getElementById('cardboxx-amountcards').value;
-            var correctionmode;
+            //var correctionmode;
 
             //var radios = document.getElementById('cardboxx-form').elements['correctionmode'];
 

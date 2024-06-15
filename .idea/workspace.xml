@@ -7,6 +7,7 @@
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/practice_start.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_start.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1718264880252</updated>
       <workItem from="1718264881212" duration="27837000" />
-      <workItem from="1718355996214" duration="6283000" />
+      <workItem from="1718355996214" duration="9230000" />
+      <workItem from="1718487452016" duration="2202000" />
     </task>
     <servers />
   </component>

@@ -33,12 +33,17 @@
         {{{infoHtmlPracticeDone}}}
     {{/duecardcount}}
 
+    <div id="cardboxx-practiceall-select" style="display: none;" class="item g goldenleft">{{# str }} practiceall, cardboxx {{/ str }}&nbsp; {{{helpbuttonpracticeall}}}</div>
+    <div id="cardboxx-practiceall-choices" style="display: none;" class="item h goldenrigth">
+        <form id="cardboxx-form-practiceall" class="felement">
+            <input type="radio" id="cardboxx-practiceall-yes" name="practiceall" value="0" class="form-check-input"> {{# str }} yes, cardboxx {{/ str }}<br>
+            <input type="radio" id="cardboxx-practiceall-no" name="practiceall" value="1" class="form-check-input" checked>{{# str }} no, cardboxx {{/ str }}
+        </form>
 
-
-    <div class="modal" id="cardboxxPracticeSettings">
-        {{> mod_cardboxx/options }}
     </div>
+
 </div>
+
 
 <!--
 <input type="hidden" id="cardcount" value="{{cardcount}}">
