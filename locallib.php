@@ -23,17 +23,17 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define('cardboxx_EVALUATE_ALL', 0);
-define('cardboxx_EVALUATE_ONE', 1);
+define('CARDBOXX_EVALUATE_ALL', 0);
+define('CARDBOXX_EVALUATE_ONE', 1);
 define('CARD_MAIN_INFORMATION', 0);
 define('CARD_CONTEXT_INFORMATION', 1);
 define('CARD_IMAGEDESCRIPTION_INFORMATION', 2);
 define('CARD_ANSWERSUGGESTION_INFORMATION', 3);
-define('cardboxx_CARDSIDE_QUESTION', 0);
-define('cardboxx_CARDSIDE_ANSWER', 1);
-define('cardboxx_CONTENTTYPE_IMAGE', 0);
-define('cardboxx_CONTENTTYPE_TEXT', 1);
-define('cardboxx_CONTENTTYPE_AUDIO', 2);
+define('CARDBOXX_CARDSIDE_QUESTION', 0);
+define('CARDBOXX_CARDSIDE_ANSWER', 1);
+define('CARDBOXX_CONTENTTYPE_IMAGE', 0);
+define('CARDBOXX_CONTENTTYPE_TEXT', 1);
+define('CARDBOXX_CONTENTTYPE_AUDIO', 2);
 define ('LONG_DESCRIPTION', 1);
 define ('SHORT_DESCRIPTION', 0);
 
@@ -343,7 +343,7 @@ function cardboxx_get_questiontext($cardid) {
 
     global $DB;
     $questiontext = $DB->get_field('cardboxx_cardcontents', 'content',
-        ['card' => $cardid, 'cardside' => cardboxx_CARDSIDE_QUESTION, 'contenttype' => cardboxx_CONTENTTYPE_TEXT,
+        ['card' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_QUESTION, 'contenttype' => CARDBOXX_CONTENTTYPE_TEXT,
         'area' => CARD_MAIN_INFORMATION], IGNORE_MISSING);
     if (empty($questiontext)) {
         $questiontext = '';
@@ -361,7 +361,7 @@ function cardboxx_get_answers($cardid) {
     global $DB;
     return $DB->get_fieldset_select('cardboxx_cardcontents', 'content',
         'card = :cardid AND cardside = :cardside AND contenttype = :contenttype AND area = :area',
-        ['cardid' => $cardid, 'cardside' => cardboxx_CARDSIDE_ANSWER, 'contenttype' => cardboxx_CONTENTTYPE_TEXT,
+        ['cardid' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_ANSWER, 'contenttype' => CARDBOXX_CONTENTTYPE_TEXT,
         'area' => CARD_MAIN_INFORMATION]);
 }
 
@@ -375,7 +375,7 @@ function cardboxx_get_notapproved_answers($cardid) {
     global $DB;
     return $DB->get_fieldset_select('cardboxx_cardcontents', 'content',
         'card = :cardid AND cardside = :cardside AND contenttype = :contenttype AND area = :area',
-        ['cardid' => $cardid, 'cardside' => cardboxx_CARDSIDE_ANSWER, 'contenttype' => cardboxx_CONTENTTYPE_TEXT,
+        ['cardid' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_ANSWER, 'contenttype' => CARDBOXX_CONTENTTYPE_TEXT,
         'area' => CARD_ANSWERSUGGESTION_INFORMATION]);
 }
 
@@ -388,7 +388,7 @@ function cardboxx_get_notapproved_answers($cardid) {
 function cardboxx_get_questioncontext($cardid) {
 
     global $DB;
-    $context = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' => cardboxx_CARDSIDE_QUESTION,
+    $context = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_QUESTION,
      'area' => CARD_CONTEXT_INFORMATION], IGNORE_MISSING);
     if (empty($context)) {
         $context = '';
@@ -406,7 +406,7 @@ function cardboxx_get_questioncontext($cardid) {
 function cardboxx_get_answercontext($cardid) {
 
     global $DB;
-    $context = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' => cardboxx_CARDSIDE_ANSWER,
+    $context = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_ANSWER,
      'area' => CARD_CONTEXT_INFORMATION], IGNORE_MISSING);
     if (empty($context)) {
         $context = '';
@@ -507,7 +507,7 @@ function cardboxx_get_image_itemid($cardid) {
 
     global $DB;
     $imageitemid = $DB->get_field('cardboxx_cardcontents', 'id',
-        ['card' => $cardid, 'contenttype' => cardboxx_CONTENTTYPE_IMAGE], IGNORE_MISSING);
+        ['card' => $cardid, 'contenttype' => CARDBOXX_CONTENTTYPE_IMAGE], IGNORE_MISSING);
     return $imageitemid;
 
 }
@@ -521,7 +521,7 @@ function cardboxx_get_imagedescription($cardid) {
 
     global $DB;
     $imagedescription = $DB->get_field('cardboxx_cardcontents', 'content',
-        ['card' => $cardid, 'cardside' => cardboxx_CARDSIDE_QUESTION,
+        ['card' => $cardid, 'cardside' => CARDBOXX_CARDSIDE_QUESTION,
      'area' => CARD_IMAGEDESCRIPTION_INFORMATION], IGNORE_MISSING);
     if (empty($imagedescription)) {
         $imagedescription = '';
@@ -745,7 +745,7 @@ function cardboxx_import_cards(\csv_import_reader $cir, array $columns, int $car
                 if ($value !== "") {
                     // Common to all content.
                     $cardcontent->card = $cardid;
-                    $cardcontent->contenttype = cardboxx_CONTENTTYPE_TEXT;
+                    $cardcontent->contenttype = CARDBOXX_CONTENTTYPE_TEXT;
                     $cardcontent->content = '<p>'.$value.'</p>';
                     // Based on which info it is, create DB records
                     // ques : This is the main question
@@ -754,16 +754,16 @@ function cardboxx_import_cards(\csv_import_reader $cir, array $columns, int $car
                     // acontext: This is the context info for answer.
                     $columnname = $columns[$key];
                     if ($columnname == 'ques') {
-                        $cardcontent->cardside = cardboxx_CARDSIDE_QUESTION;
+                        $cardcontent->cardside = CARDBOXX_CARDSIDE_QUESTION;
                         $cardcontent->area = CARD_MAIN_INFORMATION;
                     } else if (preg_match('/^ans[0-9]*$/', $columnname)) {
-                        $cardcontent->cardside = cardboxx_CARDSIDE_ANSWER;
+                        $cardcontent->cardside = CARDBOXX_CARDSIDE_ANSWER;
                         $cardcontent->area = CARD_MAIN_INFORMATION;
                     } else if ($columnname == 'qcontext') {
-                        $cardcontent->cardside = cardboxx_CARDSIDE_QUESTION;
+                        $cardcontent->cardside = CARDBOXX_CARDSIDE_QUESTION;
                         $cardcontent->area = CARD_CONTEXT_INFORMATION;
                     } else if ($columnname == 'acontext') {
-                        $cardcontent->cardside = cardboxx_CARDSIDE_ANSWER;
+                        $cardcontent->cardside = CARDBOXX_CARDSIDE_ANSWER;
                         $cardcontent->area = CARD_CONTEXT_INFORMATION;
                     } else {
                         continue;

@@ -144,20 +144,20 @@ class cardboxx_card implements \renderable, \templatable {
         $fs = get_file_storage();
         foreach ($contents as $content) {
 
-            if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == cardboxx_CARDSIDE_QUESTION) {
+            if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                 // Check if there is context for the question.
 
                 $this->questioncontext = format_text($content->content);
 
-            } else if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == cardboxx_CARDSIDE_ANSWER) {
+            } else if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == CARDBOXX_CARDSIDE_ANSWER) {
                 // Check if there is context for the answer.
 
                 $this->answercontext = format_text($content->content);
 
-            } else if ($content->contenttype == cardboxx_CONTENTTYPE_IMAGE) {
+            } else if ($content->contenttype == CARDBOXX_CONTENTTYPE_IMAGE) {
 
                 $downloadurl = cardboxx_get_download_url($context, $content->id, $content->content);
-                if ($content->cardside == cardboxx_CARDSIDE_QUESTION) {
+                if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                     if ($content->area == CARD_IMAGEDESCRIPTION_INFORMATION) {
                         $this->question['images'][0] += ['imagealt' => $content->content];
                         continue;
@@ -168,12 +168,12 @@ class cardboxx_card implements \renderable, \templatable {
                     $answercount++;
                 }
 
-            } else if ($content->cardside == cardboxx_CARDSIDE_QUESTION && $content->contenttype == cardboxx_CONTENTTYPE_AUDIO) {
+            } else if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION && $content->contenttype == CARDBOXX_CONTENTTYPE_AUDIO) {
 
                 $downloadurl = cardboxx_get_download_url($context, $content->id, $content->content);
                 $this->question['sounds'][] = ['soundsrc' => $downloadurl];
 
-            } else if ($content->cardside == cardboxx_CARDSIDE_QUESTION) {
+            } else if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
 
                 $content->content = format_text($content->content);
                 $this->question['texts'][] = ['text' => $content->content];

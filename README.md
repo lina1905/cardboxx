@@ -19,8 +19,5 @@ Please note that this plugin also contains files that are under the
 ### Installation:
 
 - Unzip and copy "cardboxx" folder into Moodle's "mod" folder
-- Set values for the below fields
-   - Threshold practicers per week : How many users need to practice per week in order for managers to see statistics for that week.
-   - Threshold enrolled students :  How many students need to be enrolled into the course for weekly statistics to be shown for managers.
 
 For further installation instructions please see: <http://docs.moodle.org/en/Installing_contributed_modules_or_plugins>

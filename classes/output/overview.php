@@ -66,21 +66,24 @@ class cardboxx_overview implements \renderable, \templatable {
      */
     private $decks = [];
 
+    /**
+     * @var bool Whether the user is allowed to edit.
+     */
     private $allowedtoedit;
 
 
     /**
      * Constructor.
      *
-     * @param array $list
-     * @param int $offset
-     * @param context $context
-     * @param int $cmid
-     * @param int $cardboxxid
-     * @param int $topicid
-     * @param int $deck
-     * @param int $sort
-     * @param bool $usedforemail
+     * @param array $list List of cards
+     * @param int $offset Offset for pagination
+     * @param int $context Context ID
+     * @param int $cmid Course module ID
+     * @param int $cardboxxid Cardboxx ID
+     * @param int $topicid Topic ID
+     * @param bool $usedforemail Whether the overview is used for email
+     * @param int $sort Sort order
+     * @param int $deck Deck ID
      */
     public function __construct($list, $offset, $context, $cmid, $cardboxxid, $topicid, $usedforemail = false,
                                 $sort = null, $deck = null) {

@@ -36,7 +36,6 @@ class mod_cardboxx_review_form extends moodleform {
      * Form definition.
      *
      * @param moodle_url|null $action URL to submit the form to (optional)
-     * @param mixed|null $customdata Custom data for the form (optional)
      * @param mixed|null $preselected Preselected form values (optional)
      */
     public function definition($action = null, $preselected = null) {
@@ -102,20 +101,20 @@ class mod_cardboxx_review_form extends moodleform {
                 }
 
                 // Question Side.
-                if ($cardcontent->cardside == cardboxx_CARDSIDE_QUESTION) {
+                if ($cardcontent->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                     switch($cardcontent->contenttype){
-                        case cardboxx_CONTENTTYPE_IMAGE:
+                        case CARDBOXX_CONTENTTYPE_IMAGE:
                             $downloadurl = cardboxx_get_download_url($customdata['context'], $cardcontent->id,
                                         $cardcontent->content);
                             $question .= '<div class="cardboxx-image"><img src="'.$downloadurl.'" alt=""
                                             class="img-fluid  d-block"></div>';
                         break;
-                        case cardboxx_CONTENTTYPE_TEXT:
+                        case CARDBOXX_CONTENTTYPE_TEXT:
                             $question .= '<div class="cardboxx-card-text text-center"><div class="text_to_html"
                                             style="text-align: center;">'.
                             $cardcontent->content.'</div></div>';
                         break;
-                        case cardboxx_CONTENTTYPE_AUDIO:
+                        case CARDBOXX_CONTENTTYPE_AUDIO:
                             $downloadurl = cardboxx_get_download_url($customdata['context'], $cardcontent->id,
                                 $cardcontent->content);
                             $question .= '<audio controls="">
@@ -130,7 +129,7 @@ class mod_cardboxx_review_form extends moodleform {
                     $countapprovedanswers = $DB->count_records('cardboxx_cardcontents',
                         ['cardside' => $cardcontent->cardside, 'card' => $cardid, 'area' => CARD_MAIN_INFORMATION]);
                     $countsuggestedanswers = $countapprovedanswers + $DB->count_records('cardboxx_cardcontents',
-                        ['cardside' => cardboxx_CARDSIDE_ANSWER, 'card' => $cardid, 'area' => CARD_ANSWERSUGGESTION_INFORMATION]);
+                        ['cardside' => CARDBOXX_CARDSIDE_ANSWER, 'card' => $cardid, 'area' => CARD_ANSWERSUGGESTION_INFORMATION]);
 
                     if ($countsuggestedanswers > 1) {
                         $count++;
@@ -142,7 +141,8 @@ class mod_cardboxx_review_form extends moodleform {
 
                         $answerapproved = $cardcontent->area != CARD_ANSWERSUGGESTION_INFORMATION;
                         $suggestedanswers = $DB->get_records('cardboxx_cardcontents', ['card' => $cardid,
-                            'cardside' => cardboxx_CARDSIDE_ANSWER, 'area' => CARD_ANSWERSUGGESTION_INFORMATION], '', 'id, content');
+                            'cardside' => CARDBOXX_CARDSIDE_ANSWER, 'area' => CARD_ANSWERSUGGESTION_INFORMATION], '', 'id,
+                            content');
                         $class = 'cardboxx-cardside-multi';
                         if (!$answerapproved) {
                             $class .= ' suggestion';
@@ -228,11 +228,12 @@ class mod_cardboxx_review_form extends moodleform {
             $mform->addElement('html', '</div>'); // Ending cardboxx-card-in-review and row reviewcontent.
 
             $qcontext = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' =>
-                cardboxx_CARDSIDE_QUESTION,
-                'contenttype' => cardboxx_CONTENTTYPE_TEXT, 'area' => CARD_CONTEXT_INFORMATION]);
+                CARDBOXX_CARDSIDE_QUESTION,
+                'contenttype' => CARDBOXX_CONTENTTYPE_TEXT, 'area' => CARD_CONTEXT_INFORMATION]);
             $qcontext = format_text($qcontext);
-            $acontext = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' => cardboxx_CARDSIDE_ANSWER,
-                'contenttype' => cardboxx_CONTENTTYPE_TEXT, 'area' => CARD_CONTEXT_INFORMATION]);
+            $acontext = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'cardside' =>
+                CARDBOXX_CARDSIDE_ANSWER,
+                'contenttype' => CARDBOXX_CONTENTTYPE_TEXT, 'area' => CARD_CONTEXT_INFORMATION]);
             $acontext = format_text($acontext);
             $mform->addElement('html', '<div id="cardboxx-card-in-review" class="row reviewcontent"
                 style="display: -webkit-box; margin-top: 10px">

@@ -59,7 +59,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022601, 'cardboxx');
     }
 
@@ -85,7 +85,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022602, 'cardboxx');
     }
 
@@ -109,7 +109,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022603, 'cardboxx');
     }
 
@@ -132,7 +132,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022604, 'cardboxx');
     }
 
@@ -153,13 +153,13 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022605, 'cardboxx');
     }
 
     if ($oldversion < 2019022700) {
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022700, 'cardboxx');
     }
 
@@ -174,7 +174,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019022702, 'cardboxx');
     }
 
@@ -189,7 +189,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019032700, 'cardboxx');
     }
 
@@ -204,7 +204,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019032800, 'cardboxx');
     }
 
@@ -227,7 +227,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019040200, 'cardboxx');
     }
 
@@ -242,7 +242,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019040201, 'cardboxx');
     }
 
@@ -257,7 +257,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019062700, 'cardboxx');
     }
 
@@ -268,7 +268,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         $sql = "UPDATE {cardboxx_cards} SET approved = 1 WHERE approvedby IS NOT NULL";
         $DB->execute($sql);
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019070101, 'cardboxx');
     }
 
@@ -284,7 +284,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $DB->insert_record($table, ['type' => 'file', 'name' => 'audio'], false, false);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2019081300, 'cardboxx');
     }
 
@@ -297,7 +297,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         if (!$dbman->index_exists($table, $index)) {
             $dbman->add_index($table, $index);
         }
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021032301, 'cardboxx');
     }
 
@@ -310,7 +310,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         if (!$dbman->index_exists($table, $indexcardboxxid)) {
             $dbman->add_index($table, $indexcardboxxid);
         }
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021032302, 'cardboxx');
     }
 
@@ -383,7 +383,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         if (!$dbman->index_exists($tablecontenttypes, $indextypes)) {
             $dbman->add_index($tablecontenttypes, $indextypes);
         }
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021032306, 'cardboxx');
     }
 
@@ -407,7 +407,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         if (!$dbman->index_exists($table, $indextopicname)) {
             $dbman->add_index($table, $indextopicname);
         }
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021032308, 'cardboxx');
     }
 
@@ -421,7 +421,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021072102, 'cardboxx');
     }
 
@@ -435,7 +435,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021072600, 'cardboxx');
     }
 
@@ -449,7 +449,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021072800, 'cardboxx');
     }
 
@@ -463,7 +463,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021072902, 'cardboxx');
     }
 
@@ -493,7 +493,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021073003, 'cardboxx');
     }
 
@@ -508,7 +508,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021080201, 'cardboxx');
     }
 
@@ -523,7 +523,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021080400, 'cardboxx');
     }
 
@@ -545,7 +545,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->drop_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021090102, 'cardboxx');
     }
 
@@ -556,11 +556,11 @@ function xmldb_cardboxx_upgrade($oldversion) {
         $contenttypetext = $DB->get_field('cardboxx_contenttypes', 'id', ['name' => 'text'], MUST_EXIST);
         $contenttypeaudio = $DB->get_field('cardboxx_contenttypes', 'id', ['name' => 'audio'], MUST_EXIST);
         $DB->execute("UPDATE {cardboxx_cardcontents} SET contenttype = :newvalue WHERE contenttype = :oldvalue",
-            ['oldvalue' => $contenttypeimage, 'newvalue' => cardboxx_CONTENTTYPE_IMAGE]);
+            ['oldvalue' => $contenttypeimage, 'newvalue' => CARDBOXX_CONTENTTYPE_IMAGE]);
         $DB->execute("UPDATE {cardboxx_cardcontents} SET contenttype = :newvalue WHERE contenttype = :oldvalue",
-            ['oldvalue' => $contenttypetext, 'newvalue' => cardboxx_CONTENTTYPE_TEXT]);
+            ['oldvalue' => $contenttypetext, 'newvalue' => CARDBOXX_CONTENTTYPE_TEXT]);
         $DB->execute("UPDATE {cardboxx_cardcontents} SET contenttype = :newvalue WHERE contenttype = :oldvalue",
-            ['oldvalue' => $contenttypeaudio, 'newvalue' => cardboxx_CONTENTTYPE_AUDIO]);
+            ['oldvalue' => $contenttypeaudio, 'newvalue' => CARDBOXX_CONTENTTYPE_AUDIO]);
 
         // Define table cardboxx_contenttypes to be created.
         $table = new xmldb_table('cardboxx_contenttypes');
@@ -570,7 +570,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->drop_table($table);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021090600, 'cardboxx');
     }
 
@@ -592,7 +592,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021100101, 'cardboxx');
     }
 
@@ -633,7 +633,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         global $DB;
         $sql = "UPDATE {cardboxx_cardcontents} SET contenttype = 1 WHERE contenttype = 2 and cardside = 1";
         $DB->execute($sql);
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2021111900, 'cardboxx');
     }
 
@@ -649,7 +649,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         $sql = "UPDATE {cardboxx_cards} SET disableautocorrect = 0 WHERE disableautocorrect IS NULL";
         $DB->execute($sql);
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2022060100, 'cardboxx');
     }
 
@@ -664,7 +664,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2023052401, 'cardboxx');
     }
 
@@ -675,7 +675,7 @@ function xmldb_cardboxx_upgrade($oldversion) {
         $sql = "UPDATE {cardboxx} SET enablenotifications = 1";
         $DB->execute($sql);
 
-        // cardboxx savepoint reached.
+        // Cardboxx savepoint reached.
         upgrade_mod_savepoint(true, 2023052402, 'cardboxx');
     }
 

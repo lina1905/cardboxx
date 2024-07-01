@@ -85,7 +85,7 @@ class mod_cardboxx_mod_form extends moodleform_mod {
                   [
                       '0' => get_string('necessaryanswers_all', 'cardboxx'),
                       '1' => get_string('necessaryanswers_one', 'cardboxx')]);
-        $mform->setDefault('necessaryanswers', cardboxx_EVALUATE_ALL);
+        $mform->setDefault('necessaryanswers', CARDBOXX_EVALUATE_ALL);
         $mform->addHelpButton('necessaryanswers', 'necessaryanswers_activity', 'cardboxx');
 
         $mform->addElement('select', 'necessaryanswerslocked', get_string('necessaryanswers_activity_locked', 'cardboxx'),

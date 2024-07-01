@@ -114,7 +114,7 @@ if ($action === 'addflashcard') {
             $necessaryanswers = $DB->get_field('cardboxx', 'necessaryanswers',
                                        ['id' => $customdata['cardboxxid']], IGNORE_MISSING);
         } else {
-            $necessaryanswers = cardboxx_EVALUATE_ALL;
+            $necessaryanswers = CARDBOXX_EVALUATE_ALL;
         }
         if (isset($formdata->disableautocorrect)) {
             if ($formdata->disableautocorrect == DISABLE_AUTOCORRECT) {
@@ -130,7 +130,8 @@ if ($action === 'addflashcard') {
 
         // Save the question text if there is any.
         if (!empty($formdata->question['text'])) {
-            cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_TEXT, $formdata->question['text'], CARD_MAIN_INFORMATION);
+            cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_TEXT, $formdata->question['text'],
+                CARD_MAIN_INFORMATION);
         }
         // Save the text of the answer/s.
 
@@ -139,19 +140,19 @@ if ($action === 'addflashcard') {
             $answertext = $formdata->{$answer}['text'];
             if ($answertext != "") {
                 $answertext = str_replace("&nbsp;", " ", $answertext);
-                cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_TEXT, $answertext, CARD_MAIN_INFORMATION);
+                cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_TEXT, $answertext, CARD_MAIN_INFORMATION);
             }
         }
 
         // Save the questioncontext text if there is any.
         if (!empty($formdata->questioncontext['text'])) {
-            cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_TEXT,
+            cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_TEXT,
                                          $formdata->questioncontext['text'], CARD_CONTEXT_INFORMATION);
         }
 
         // Save the questioncontext text if there is any.
         if (!empty($formdata->answercontext['text'])) {
-            cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_TEXT,
+            cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_TEXT,
                                          $formdata->answercontext['text'], CARD_CONTEXT_INFORMATION);
         }
 
@@ -169,7 +170,7 @@ if ($action === 'addflashcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemid = cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_IMAGE,
+                    $itemid = cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_IMAGE,
                                                            $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemid, $context->id, $component, $filearea, $itemid, $options);
@@ -178,7 +179,7 @@ if ($action === 'addflashcard') {
             }
             // Save the imagedescription if there is any.
             if (!empty($formdata->imagedescription)) {
-                cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_IMAGE,
+                cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_IMAGE,
                                              $formdata->imagedescription, CARD_IMAGEDESCRIPTION_INFORMATION);
             }
         }
@@ -196,7 +197,7 @@ if ($action === 'addflashcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemidaudio, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemidaudio = cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_AUDIO,
+                    $itemidaudio = cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_AUDIO,
                                                                 $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemidaudio, $context->id, $component, $filearea, $itemidaudio, $options);
@@ -218,7 +219,7 @@ if ($action === 'addflashcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid3, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemid3 = cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_IMAGE,
+                    $itemid3 = cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_IMAGE,
                                                             $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemid3, $context->id, $component, $filearea, $itemid3, $options);
@@ -239,7 +240,7 @@ if ($action === 'addflashcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid4, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemid4 = cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_AUDIO,
+                    $itemid4 = cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_AUDIO,
                                                             $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemid4, $context->id, $component, $filearea, $itemid4, $options);
@@ -298,11 +299,11 @@ if ($action === 'editcard') {
 
     $draftitemid = file_get_submitted_draft_itemid('cardimage'); // Name of the filemanager element.
     $itemid = $DB->get_field('cardboxx_cardcontents', 'id', ['card' => $cardid, 'contenttype' =>
-        cardboxx_CONTENTTYPE_IMAGE], IGNORE_MISSING);
+        CARDBOXX_CONTENTTYPE_IMAGE], IGNORE_MISSING);
 
     $draftitemid2 = file_get_submitted_draft_itemid('cardsound'); // Name of the filemanager element.
     $itemid2 = $DB->get_field('cardboxx_cardcontents', 'id', ['card' => $cardid, 'contenttype' =>
-        cardboxx_CONTENTTYPE_AUDIO], IGNORE_MISSING);
+        CARDBOXX_CONTENTTYPE_AUDIO], IGNORE_MISSING);
 
     $answers = [];
     $topic = cardboxx_get_topic($cardid);
@@ -397,7 +398,7 @@ if ($action === 'editcard') {
             $necessaryanswers = $DB->get_field('cardboxx', 'necessaryanswers', ['id' => $customdata['cardboxxid']],
                 IGNORE_MISSING);
         } else {
-            $necessaryanswers = cardboxx_EVALUATE_ALL;
+            $necessaryanswers = CARDBOXX_EVALUATE_ALL;
         }
         if (isset($formdata->disableautocorrect)) {
             if ($formdata->disableautocorrect == DISABLE_AUTOCORRECT) {
@@ -416,7 +417,8 @@ if ($action === 'editcard') {
 
         // Save the question text if there is any.
         if (!empty($formdata->question)) {
-            cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_TEXT, $formdata->question['text'], CARD_MAIN_INFORMATION);
+            cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_TEXT, $formdata->question['text'],
+                CARD_MAIN_INFORMATION);
         }
         // Save the text of the answer/s.
         for ($i = 1; $i <= 10; $i++) {
@@ -424,18 +426,18 @@ if ($action === 'editcard') {
             $answertext = $formdata->{$answer}['text'];
             if ($answertext != "") {
                 $answertext = str_replace("&nbsp;", " ", $answertext);
-                cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_TEXT, $answertext, CARD_MAIN_INFORMATION);
+                cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_TEXT, $answertext, CARD_MAIN_INFORMATION);
             }
         }
 
         // Save the questioncontext text if there is any.
         if (!empty($formdata->questioncontext['text'])) {
-            cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_TEXT,
+            cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_TEXT,
                                          $formdata->questioncontext['text'], CARD_CONTEXT_INFORMATION);
         }
         // Save the answercontext text of the answer/s.
         if (!empty($formdata->answercontext['text'])) {
-            cardboxx_save_new_cardcontent($cardid, 1, cardboxx_CONTENTTYPE_TEXT,
+            cardboxx_save_new_cardcontent($cardid, 1, CARDBOXX_CONTENTTYPE_TEXT,
                                          $formdata->answercontext['text'], CARD_CONTEXT_INFORMATION);
         }
 
@@ -452,7 +454,7 @@ if ($action === 'editcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemid = cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_IMAGE,
+                    $itemid = cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_IMAGE,
                                                            $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemid, $context->id, $component, $filearea, $itemid, $options);
@@ -461,7 +463,7 @@ if ($action === 'editcard') {
             }
             // Save the imagedescription if there is any.
             if (!empty($formdata->imagedescription)) {
-                cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_IMAGE,
+                cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_IMAGE,
                                              $formdata->imagedescription, CARD_IMAGEDESCRIPTION_INFORMATION);
             }
         }
@@ -478,7 +480,7 @@ if ($action === 'editcard') {
             if ($files = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid2, 'sortorder, id', false)) {
                 foreach ($files as $file) {
                     // Save a reference to the image data in cardboxx_cardcontents.
-                    $itemid2 = cardboxx_save_new_cardcontent($cardid, 0, cardboxx_CONTENTTYPE_AUDIO,
+                    $itemid2 = cardboxx_save_new_cardcontent($cardid, 0, CARDBOXX_CONTENTTYPE_AUDIO,
                                                             $file->get_filename(), CARD_MAIN_INFORMATION);
                     // Save the actual image data in moodle.
                     file_save_draft_area_files($draftitemid2, $context->id, $component, $filearea, $itemid2, $options);
@@ -565,7 +567,7 @@ if ($action === 'rejectcard') {
             $content = substr($cardid, ($pos + 1));
             $idcard = substr($cardid, 0, $pos);
             $sugg = $DB->get_records_select('cardboxx_cardcontents', 'card = :id AND cardside = :cardside AND area = 3' ,
-            ['id' => $idcard, 'cardside' => cardboxx_CARDSIDE_ANSWER], '', 'id, content');
+            ['id' => $idcard, 'cardside' => CARDBOXX_CARDSIDE_ANSWER], '', 'id, content');
             foreach ($sugg as $sug) {
                 if (strip_tags(str_replace(" ", "", $sug->content)) === $content) {
                     $id = $sug->id;
@@ -665,7 +667,7 @@ if ($action === 'practice') {
         }*/
         $practice = new cardboxx_practice($case, $context, $selection[0], count($selection), !$correction);
         $practice->totalcards = $totalcards;
-        $_SESSION['totalcards'] = $totalcards; // Store totalcards in session
+        $_SESSION['totalcards'] = $totalcards; // Store totalcards in session.
         $data = $practice->export_for_template($renderer);
 
         // 3. Give javascript access to the language string repository and to the relevant model data and add it to the page.
@@ -877,7 +879,7 @@ if ($action === 'review') {
         list($insql, $inparams) = $DB->get_in_or_equal(array_column($cards, 'id'), SQL_PARAMS_NAMED);
         $anssuggestions = $DB->get_records_select('cardboxx_cardcontents',
             'area = :area AND cardside = :cardside AND card ' . $insql,
-            array_merge(['area' => CARD_ANSWERSUGGESTION_INFORMATION, 'cardside' => cardboxx_CARDSIDE_ANSWER], $inparams));
+            array_merge(['area' => CARD_ANSWERSUGGESTION_INFORMATION, 'cardside' => CARDBOXX_CARDSIDE_ANSWER], $inparams));
         foreach ($anssuggestions as $anssuggestion) {
             if (!in_array($anssuggestion->card, $reviewablecardids)) {
                 array_push($reviewablecardids, $anssuggestion->card);

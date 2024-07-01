@@ -129,7 +129,6 @@ $string['error:createcard'] = 'Die Karte wurde nicht erstellt, da entweder eine 
 
 
 // Import cards.
-//$string['examplesinglecsv'] = 'Beispieltextdatei für Karten mit einzelnen Antworten';
 $string['examplesinglecsv'] = 'Beispieltextdatei für den Import von Karten';
 $string['examplesinglecsv_help'] = 'Beispieltextdatei für Karten mit einzelnen Antworten';
 $string['examplemulticsv'] = 'Beispieltextdatei für Karten mit mehreren Antworten';

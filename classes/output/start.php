@@ -46,8 +46,14 @@ class cardboxx_start implements \renderable, \templatable {
      */
     private $amountcards;
 
+    /**
+     * @var int The amount of cards in the cardboxx.
+     */
     public $cardcount;
 
+    /**
+     * @var int The amount of due cards in the cardboxx.
+     */
     public $duecardcount;
 
     /**
@@ -60,12 +66,10 @@ class cardboxx_start implements \renderable, \templatable {
 
         $this->cardboxx_prepare_topics_to_study($cardboxxid);
 
-
         if ($autocorrection == 1) {
-            // Keine Saubere Lösung, aber es funktioniert; eigentlich auf true, wenn man mit autocorrect arbeitet
+            // Keine Saubere Lösung, aber es funktioniert; eigentlich auf true, wenn man mit autocorrect arbeitet.
             $this->autocorrectionoption = false;
         }
-
 
         $this->cardboxx_define_amount_of_cards_to_study();
 

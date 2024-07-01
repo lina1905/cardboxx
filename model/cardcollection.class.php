@@ -151,7 +151,7 @@ class cardboxx_cardcollection {
         global $DB;
 
         $question = $DB->get_field('cardboxx_cardcontents', 'content', ['card' => $cardid, 'area' => CARD_MAIN_INFORMATION,
-            'cardside' => cardboxx_CARDSIDE_QUESTION]);
+            'cardside' => CARDBOXX_CARDSIDE_QUESTION]);
         return strip_tags($question);
     }
 

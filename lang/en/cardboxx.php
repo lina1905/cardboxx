@@ -129,7 +129,6 @@ $string['error:createcard'] = 'The card was not created, because it is either mi
 
 
 // Import cards.
-//$string['examplesinglecsv'] = 'Example text file for cards having single answers';
 $string['examplesinglecsv'] = 'Example text file for import of cards';
 $string['examplesinglecsv_help'] = 'Example text file for cards having single answers';
 $string['examplemulticsv'] = 'Example text file for cards having multiple answers';

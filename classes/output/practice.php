@@ -117,6 +117,9 @@ class cardboxx_practice implements \renderable, \templatable {
      */
     private $cardsleft;
 
+    /**
+     * @var int The total amount of the card.
+     */
     public $totalcards;
 
 
@@ -208,18 +211,18 @@ class cardboxx_practice implements \renderable, \templatable {
         $solutioncount = 0;
         foreach ($contents as $content) {
 
-            if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == cardboxx_CARDSIDE_QUESTION) {
+            if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                 // Check for question context.
                 $this->questioncontext = format_text($content->content);
 
-            } else if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == cardboxx_CARDSIDE_ANSWER) {
+            } else if ($content->area == CARD_CONTEXT_INFORMATION && $content->cardside == CARDBOXX_CARDSIDE_ANSWER) {
                 // Check for answer context.
                 $this->answercontext = format_text($content->content);
 
-            } else if ($content->contenttype == cardboxx_CONTENTTYPE_IMAGE) { // Check for images.
+            } else if ($content->contenttype == CARDBOXX_CONTENTTYPE_IMAGE) { // Check for images.
 
                 $downloadurl = cardboxx_get_download_url($context, $content->id, $content->content);
-                if ($content->cardside == cardboxx_CARDSIDE_QUESTION) {
+                if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                     if ($content->area == CARD_IMAGEDESCRIPTION_INFORMATION) {
                         $this->question['images'][0] += ['imagealt' => $content->content];
                         continue;
@@ -229,16 +232,16 @@ class cardboxx_practice implements \renderable, \templatable {
                     $this->answer['images'][] = ['imagesrc' => $downloadurl];
                 }
 
-            } else if ($content->contenttype == cardboxx_CONTENTTYPE_AUDIO) { // Audio files.
+            } else if ($content->contenttype == CARDBOXX_CONTENTTYPE_AUDIO) { // Audio files.
 
                 $downloadurl = cardboxx_get_download_url($context, $content->id, $content->content);
-                if ($content->cardside == cardboxx_CARDSIDE_QUESTION) {
+                if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
                     $this->question['sounds'][] = ['soundsrc' => $downloadurl];
                 } else {
                     $this->answer['sounds'][] = ['soundsrc' => $downloadurl];
                 }
 
-            } else if ($content->cardside == cardboxx_CARDSIDE_QUESTION) {
+            } else if ($content->cardside == CARDBOXX_CARDSIDE_QUESTION) {
 
                 $content->content = format_text($content->content);
 
@@ -300,8 +303,8 @@ class cardboxx_practice implements \renderable, \templatable {
      * @return array
      */
     public function export_for_template(\renderer_base $output) {
-        $remainingCards = $this->totalcards - $this->cardsleft + 1;
-        $percentage = round(($remainingCards / $this->totalcards) * 100);
+        $remainingcards = $this->totalcards - $this->cardsleft + 1;
+        $percentage = round(($remainingcards / $this->totalcards) * 100);
         $data = [];
         $data['topic'] = $this->topic;
         $data['question'] = $this->question;
@@ -324,7 +327,7 @@ class cardboxx_practice implements \renderable, \templatable {
         $data['deck'] = $this->deck;
         $data['deckimgurl'] = $this->deckimgurl;
         $data['totalcards'] = $this->totalcards;
-        $data['remainingcards'] = $remainingCards;
+        $data['remainingcards'] = $remainingcards;
         $data['percentage'] = $percentage;
         return $data;
 

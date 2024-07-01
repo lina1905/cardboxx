@@ -24,8 +24,8 @@
  */
 
 defined('MOODLE_INTERNAL') || die(); // It must be included from a Moodle page.
-define ('ALLOW_AUTOCORRECTION_FOR_ENTIRE_cardboxx', 1);
-define ('AUTOCORRECTION_NOT_ALLOWED_FOR_ENTIRE_cardboxx', 0);
+define ('ALLOW_AUTOCORRECTION_FOR_ENTIRE_CARDBOXX', 1);
+define ('AUTOCORRECTION_NOT_ALLOWED_FOR_ENTIRE_CARDBOXX', 0);
 require_once("$CFG->libdir/formslib.php");
 require_once('locallib.php');
 
@@ -212,7 +212,6 @@ class mod_cardboxx_card_form extends moodleform {
      *
      * @param bool $cancel Whether to cancel the action, default is true
      * @param string|null $submitlabel The label for the submit button, default is null
-     * @param string|null $submit2label The label for the second submit button, default is null
      */
     public function add_action_buttons_for_managers($cancel=true, $submitlabel=null) {
         if (is_null($submitlabel)) {

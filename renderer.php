@@ -79,7 +79,6 @@ class mod_cardboxx_renderer extends plugin_renderer_base {
         }
         */
 
-
         /*
         if (has_capability('mod/cardboxx:edittopics', $context)) {
             $level1[] = $this->cardboxx_create_tab($baseurl, 'edittopic', 'edittopic');

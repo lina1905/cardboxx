@@ -54,7 +54,7 @@ if ($action === 'updateandnext') {
     $cardsleft = required_param('cardsleft', PARAM_INT);
     $correction = required_param('mode', PARAM_INT);
 
-    $totalcards = $_SESSION['totalcards']; // Retrieve totalcards from session
+    $totalcards = $_SESSION['totalcards']; // Retrieve totalcards from session.
 
 
     $dataobject = $DB->get_record('cardboxx_progress', ['userid' => $USER->id, 'card' => $cardid], $fields = '*', MUST_EXIST);
@@ -133,7 +133,7 @@ if ($action === 'savesuggestedanswer') {
     $userinput = required_param('userinput', PARAM_TEXT);
 
     if (!(empty($userinput) || $userinput === "")) {
-        cardboxx_save_new_cardcontent($cardid, cardboxx_CARDSIDE_ANSWER, cardboxx_CONTENTTYPE_TEXT,
+        cardboxx_save_new_cardcontent($cardid, CARDBOXX_CARDSIDE_ANSWER, CARDBOXX_CONTENTTYPE_TEXT,
                                      $userinput, CARD_ANSWERSUGGESTION_INFORMATION);
     }
 
