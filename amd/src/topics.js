@@ -30,9 +30,9 @@ export const init = (cmid) => {
  */
 function registerEventListeners(cmid) {
 
-    const deletebtns = document.querySelectorAll('#cardbox-topics .cardbox-edittopics-delete-button');
+    const deletebtns = document.querySelectorAll('#cardboxx-topics .cardboxx-edittopics-delete-button');
     deletebtns.forEach(btn => {
-        const topic = btn.closest('#cardbox-topic-in-review');
+        const topic = btn.closest('#cardboxx-topic-in-review');
         const topicid = topic.getAttribute('data-topicid');
         const topictitel = topic.getAttribute('data-titel');
         btn.addEventListener('click', () => {
@@ -40,9 +40,9 @@ function registerEventListeners(cmid) {
         });
     });
 
-    const editbtns = document.querySelectorAll('#cardbox-topics .cardbox-edittopics-edit-button');
+    const editbtns = document.querySelectorAll('#cardboxx-topics .cardboxx-edittopics-edit-button');
     editbtns.forEach(btn => {
-        const edit = btn.closest('#cardbox-topic-in-review');
+        const edit = btn.closest('#cardboxx-topic-in-review');
         const topicid = edit.getAttribute('data-topicid');
 
         btn.addEventListener('click', () => {
@@ -51,32 +51,32 @@ function registerEventListeners(cmid) {
         });
     });
 
-    document.getElementById("cardbox-submit-new-topic").addEventListener('click', () => {
+    document.getElementById("cardboxx-submit-new-topic").addEventListener('click', () => {
         savenewtopic(cmid);
     });
 }
 /**
- * Function to delete a topic from Cardbox instance
+ * Function to delete a topic from cardboxx instance
  * @param {int} cmid
  * @param {int} topicid
  * @param {string} topictitel
  */
 function deletetopic(cmid, topicid, topictitel) {
     getStrings([
-        {key: 'deletetopic', component: 'cardbox'},
-        {key: 'deletetopicinfo', component: 'cardbox', param: "'" + topictitel + "'"},
+        {key: 'deletetopic', component: 'cardboxx'},
+        {key: 'deletetopicinfo', component: 'cardboxx', param: "'" + topictitel + "'"},
         {key: 'yes'},
         {key: 'cancel'}
     ])
     .then(strings => {
         Notification.confirm(strings[0], strings[1], strings[2], strings[3], () => {
             Ajax.call([{
-                methodname:'mod_cardbox_deletetopic',
+                methodname:'mod_cardboxx_deletetopic',
                 args: {
                     'topicid': topicid,
                 },
                 done: () => {
-                    document.getElementById("cardbox-topic-"+topicid).parentElement.parentElement.remove();
+                    document.getElementById("cardboxx-topic-"+topicid).parentElement.parentElement.remove();
                 },
                 fail: Notification.exception
             }]);
@@ -84,50 +84,50 @@ function deletetopic(cmid, topicid, topictitel) {
     }).catch(Notification.exception);
 }
 /**
- * Function to edit an existing topic from the cardbox instance
+ * Function to edit an existing topic from the cardboxx instance
  * @param {int} cmid
  * @param {int} topicid
  * @param {string} topictitel
  */
 function edittopic(cmid, topicid, topictitel) {
 
-    document.getElementById("cardbox-topic-"+topicid).classList.add('displaynone');
-    document.getElementById("cardbox-topic-rename-"+topicid).classList.remove('displaynone');
-    document.getElementById("cardbox-changedtopic-"+topicid).value = topictitel;
-    document.getElementById("cardbox-changedtopic-"+topicid).focus();
-    document.getElementById("cardbox-topic-rename-"+topicid).addEventListener('keydown', () => {
+    document.getElementById("cardboxx-topic-"+topicid).classList.add('displaynone');
+    document.getElementById("cardboxx-topic-rename-"+topicid).classList.remove('displaynone');
+    document.getElementById("cardboxx-changedtopic-"+topicid).value = topictitel;
+    document.getElementById("cardboxx-changedtopic-"+topicid).focus();
+    document.getElementById("cardboxx-topic-rename-"+topicid).addEventListener('keydown', () => {
         if (window.event.keyCode == 13) {
-            var newtopicname = document.getElementById("cardbox-changedtopic-"+topicid).value;
+            var newtopicname = document.getElementById("cardboxx-changedtopic-"+topicid).value;
             if (newtopicname != topictitel){
                 Ajax.call([{
-                    methodname:'mod_cardbox_renametopic',
+                    methodname:'mod_cardboxx_renametopic',
                     args: {
                         'topicid': topicid,
                         'newtopicname': newtopicname,
                     },
                     done: () => {
                         document.getElementById("topictitel-"+topicid).innerHTML = newtopicname;
-                        document.getElementById("cardbox-topic-"+topicid).parentElement.setAttribute('data-titel', newtopicname);
+                        document.getElementById("cardboxx-topic-"+topicid).parentElement.setAttribute('data-titel', newtopicname);
                     },
                     fail: Notification.exception
                 }]);
             }
-            document.getElementById("cardbox-topic-"+topicid).classList.remove('displaynone');
-            document.getElementById("cardbox-topic-rename-"+topicid).classList.add('displaynone');
+            document.getElementById("cardboxx-topic-"+topicid).classList.remove('displaynone');
+            document.getElementById("cardboxx-topic-rename-"+topicid).classList.add('displaynone');
         }
         if (window.event.keyCode == 27) {
-            document.getElementById("cardbox-topic-"+topicid).classList.remove('displaynone');
-            document.getElementById("cardbox-topic-rename-"+topicid).classList.add('displaynone');
+            document.getElementById("cardboxx-topic-"+topicid).classList.remove('displaynone');
+            document.getElementById("cardboxx-topic-rename-"+topicid).classList.add('displaynone');
         }
     });
-    document.getElementById("cardbox-changedtopic-"+topicid).addEventListener('blur', () => {
-        document.getElementById("cardbox-topic-"+topicid).classList.remove('displaynone');
-        document.getElementById("cardbox-topic-rename-"+topicid).classList.add('displaynone');
+    document.getElementById("cardboxx-changedtopic-"+topicid).addEventListener('blur', () => {
+        document.getElementById("cardboxx-topic-"+topicid).classList.remove('displaynone');
+        document.getElementById("cardboxx-topic-rename-"+topicid).classList.add('displaynone');
     });
 
 }
 /**
- * Function to save new topic to the cardbox instance
+ * Function to save new topic to the cardboxx instance
  * @param {int} cmid
  */
 function savenewtopic (cmid) {

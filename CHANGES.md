@@ -1,4 +1,4 @@
-moodle-mod_cardbox
+moodle-mod_cardboxx
 ========================
 
 Changes

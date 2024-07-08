@@ -15,33 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Web service local plugin cardbox external functions and service definitions.
+ * Web service local plugin cardboxx external functions and service definitions.
  *
- * @package    mod_cardbox
+ * @package    mod_cardboxx
  * @copyright  2015 Caio Bressan Doneda
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$functions = array(
+$functions = [
 
-    'mod_cardbox_deletetopic' => array(
-        'classname'    => 'mod_cardbox_external',
+    'mod_cardboxx_deletetopic' => [
+        'classname'    => 'mod_cardboxx_external',
         'methodname'   => 'deletetopic',
-        'classpath'    => 'mod/cardbox/externallib.php',
-        'description'  => 'Delete topic in a cardbox instance.',
+        'classpath'    => 'mod/cardboxx/externallib.php',
+        'description'  => 'Delete topic in a cardboxx instance.',
         'type'         => 'write',
         'ajax'         => true,
-        'capabilities' => 'mod/cardbox:edittopics'
-    ),
-    'mod_cardbox_renametopic' => array(
-        'classname'    => 'mod_cardbox_external',
+        'capabilities' => 'mod/cardboxx:edittopics',
+    ],
+    'mod_cardboxx_renametopic' => [
+        'classname'    => 'mod_cardboxx_external',
         'methodname'   => 'renametopic',
-        'classpath'    => 'mod/cardbox/externallib.php',
-        'description'  => 'Rename topic in a cardbox instance.',
+        'classpath'    => 'mod/cardboxx/externallib.php',
+        'description'  => 'Rename topic in a cardboxx instance.',
         'type'         => 'write',
         'ajax'         => true,
-        'capabilities' => 'mod/cardbox:edittopics'
-    ),
-);
+        'capabilities' => 'mod/cardboxx:edittopics',
+    ],
+];

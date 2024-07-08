@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   mod_cardbox
+ * This is the start page.
+ *
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,21 +29,49 @@ defined('MOODLE_INTERNAL') || die();
  * Description of start
  *
  */
-class cardbox_start implements \renderable, \templatable {
+class cardboxx_start implements \renderable, \templatable {
 
+    /**
+     * @var array The topics for the cardboxx.
+     */
     private $topics;
+
+    /**
+     * @var bool The autocorrection option status.
+     */
     private $autocorrectionoption = false;
+
+    /**
+     * @var array The amount of cards to study.
+     */
     private $amountcards;
 
-    public function __construct($autocorrection, $cardboxid) {
+    /**
+     * @var int The amount of cards in the cardboxx.
+     */
+    public $cardcount;
 
-        $this->cardbox_prepare_topics_to_study($cardboxid);
+    /**
+     * @var int The amount of due cards in the cardboxx.
+     */
+    public $duecardcount;
+
+    /**
+     * This function prepares the topics and the amount of cards to study.
+     *
+     * @param bool $autocorrection The autocorrection status
+     * @param int $cardboxxid The id of the cardboxx
+     */
+    public function __construct($autocorrection, $cardboxxid) {
+
+        $this->cardboxx_prepare_topics_to_study($cardboxxid);
 
         if ($autocorrection == 1) {
-            $this->autocorrectionoption = true;
+            // Keine Saubere Lösung, aber es funktioniert; eigentlich auf true, wenn man mit autocorrect arbeitet.
+            $this->autocorrectionoption = false;
         }
 
-        $this->cardbox_define_amount_of_cards_to_study();
+        $this->cardboxx_define_amount_of_cards_to_study();
 
     }
 
@@ -50,37 +80,41 @@ class cardbox_start implements \renderable, \templatable {
      * The user can then choose to prioritise one of the topics in the
      * selection of cards for a practice session.
      *
-     * @global type $CFG
+     * @param int $cardboxxid The id of the cardboxx
      */
-    public function cardbox_prepare_topics_to_study($cardboxid) {
+    public function cardboxx_prepare_topics_to_study($cardboxxid) {
 
         global $CFG;
-        require_once($CFG->dirroot . '/mod/cardbox/locallib.php');
+        require_once($CFG->dirroot . '/mod/cardboxx/locallib.php');
 
-        $this->topics = array();
-        $this->choicestopics = array();
+        $this->topics = [];
+        $this->choicestopics = [];
 
-        $topiclist = cardbox_get_topics($cardboxid);
+        $topiclist = cardboxx_get_topics($cardboxxid);
 
         foreach ($topiclist as $key => $value) {
-            $this->topics[] = array('value' => $key, 'label' => $value);
+            $this->topics[] = ['value' => $key, 'label' => $value];
             if ($key === -1) {
-                $this->choicestopics[] = array('value' => $key, 'label' => 'all');
+                $this->choicestopics[] = ['value' => $key, 'label' => 'all'];
             } else {
-                $this->choicestopics[] = array('value' => $key, 'label' => $value);
+                $this->choicestopics[] = ['value' => $key, 'label' => $value];
             }
         }
 
     }
 
-    public function cardbox_define_amount_of_cards_to_study() {
-        $this->amountcards = array();
-        $this->amountcards[] = array('value' => 0, 'label' => get_string('undefined', 'cardbox'));
-        $this->amountcards[] = array('value' => 10, 'label' => 10);
-        $this->amountcards[] = array('value' => 20, 'label' => 20);
-        $this->amountcards[] = array('value' => 30, 'label' => 30);
-        $this->amountcards[] = array('value' => 40, 'label' => 40);
-        $this->amountcards[] = array('value' => 50, 'label' => 50);
+    /**
+     * Function includes the amount of cards to study in the practice options modal.
+     *
+     */
+    public function cardboxx_define_amount_of_cards_to_study() {
+        $this->amountcards = [];
+        $this->amountcards[] = ['value' => 0, 'label' => get_string('undefined', 'cardboxx')];
+        $this->amountcards[] = ['value' => 10, 'label' => 10];
+        $this->amountcards[] = ['value' => 20, 'label' => 20];
+        $this->amountcards[] = ['value' => 30, 'label' => 30];
+        $this->amountcards[] = ['value' => 40, 'label' => 40];
+        $this->amountcards[] = ['value' => 50, 'label' => 50];
 
     }
 
@@ -88,9 +122,8 @@ class cardbox_start implements \renderable, \templatable {
      * Function returns an array with data. The keys of the array have matching variables
      * in the template. These are replaced with the array values by the renderer.
      *
-     * @global type $OUTPUT
-     * @param \renderer_base $output
-     * @return type
+     * @param \renderer_base $output The renderer base instance
+     * @return array The data to be exported for the template
      */
     public function export_for_template(\renderer_base $output) {
 
@@ -100,8 +133,15 @@ class cardbox_start implements \renderable, \templatable {
         $data['autodisabled'] = !$this->autocorrectionoption;
         $data['topics'] = $this->topics;
         $data['choicestopics'] = $this->choicestopics;
-        $data['helpbuttonpracticeall'] = $OUTPUT->help_icon('practiceall', 'cardbox');
+        $data['helpbuttonpracticeall'] = $OUTPUT->help_icon('practiceall', 'cardboxx');
         $data['amountcards'] = $this->amountcards;
+        $data['cardcount'] = $this->cardcount;
+        $data['duecardcount'] = $this->duecardcount;
+        $data['duecardcountpercentage'] = round(($this->duecardcount / $this->cardcount) * 100, 0);
+
+        $help = $OUTPUT->help_icon('help:practiceanyway', 'cardboxx');
+        $data['infoHtmlPracticeDone'] = $help;
+
         return $data;
 
     }

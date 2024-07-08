@@ -15,7 +15,7 @@
 
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -45,10 +45,10 @@
             var imagecheckbox = document.getElementById('fgroup_id_imgdescriptionar');
             var btnsoundques = document.getElementById('id_addsound');
             var soundques = document.getElementById('fitem_id_cardsound');
-            var btnquescontext = document.getElementById('id_addcontextques');
-            var quescontext = document.getElementById('fitem_id_questioncontext');
-            var btnanscontext = document.getElementById('id_addcontextans');
-            var anscontext = document.getElementById('fitem_id_answercontext');
+            // ...var btnquescontext = document.getElementById('id_addcontextques');
+            // ...var quescontext = document.getElementById('fitem_id_questioncontext');
+            // ...var btnanscontext = document.getElementById('id_addcontextans');
+            // ...var anscontext = document.getElementById('fitem_id_answercontext');
             var countans = (_answersvisible + 1);
 
             if (countans>2) {
@@ -56,7 +56,7 @@
                     document.getElementById('fitem_id_answer' + i).style.display = 'flex';
                 }
             }
-
+            /*
             document.getElementById('id_topic').onchange = function() {
                 if (document.getElementById('id_topic').value == '0') {
                     document.getElementById('id_newtopic').classList.add("shown");
@@ -64,55 +64,60 @@
                     document.getElementById('id_newtopic').classList.remove("shown");
                 }
             }
+             */
             
             btnimageques.addEventListener('click', e => {
                 if (imageques.style.display === '') {
                     imageques.style.display = 'flex';
                     imagedescription.style.display = 'flex';
                     imagecheckbox.style.display = 'flex';
-                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
                 } else {
                     imageques.style.display = '';
                     imagedescription.style.display = '';
                     imagecheckbox.style.display = '';  
-                    btnimageques.innerHTML = M.util.get_string('addimage', 'cardbox'); 
+                    btnimageques.innerHTML = M.util.get_string('addimage', 'cardboxx'); 
                 }
             });
 
             btnsoundques.addEventListener('click', e => {
                 if (soundques.style.display === '') {
                     soundques.style.display = 'flex';
-                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
                 } else {
                     soundques.style.display = '';
-                    btnsoundques.innerHTML = M.util.get_string('addsound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('addsound', 'cardboxx');
                 }
             });
-
+            /*
             btnquescontext.addEventListener('click', e => {
                 if (quescontext.style.display === '') {
                     quescontext.style.display = 'flex';
-                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 } else {
                     quescontext.style.display = '';
-                    btnquescontext.innerHTML = M.util.get_string('addcontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('addcontext', 'cardboxx');
                 }            
             });
 
             btnanscontext.addEventListener('click', e => {
                 if (anscontext.style.display === '') {
                     anscontext.style.display = 'flex';
-                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 } else {
                     anscontext.style.display = '';
-                    btnanscontext.innerHTML = M.util.get_string('addcontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('addcontext', 'cardboxx');
                 }            
             });
+
+
 
             document.getElementById('id_addanswer').addEventListener('click', e => {
                 document.getElementById('fitem_id_answer' + countans).style.display = 'flex';
                 countans++;
             });
+
+             */
 
         }
 
@@ -124,10 +129,10 @@
             var imagecheckbox = document.getElementById('fgroup_id_imgdescriptionar');
             var btnsoundques = document.getElementById('id_addsound');
             var soundques = document.getElementById('fitem_id_cardsound');
-            var btnquescontext = document.getElementById('id_addcontextques');
-            var quescontext = document.getElementById('fitem_id_questioncontext');
-            var btnanscontext = document.getElementById('id_addcontextans');
-            var anscontext = document.getElementById('fitem_id_answercontext');
+            // ...var btnquescontext = document.getElementById('id_addcontextques');
+            // ...var quescontext = document.getElementById('fitem_id_questioncontext');
+            // ...var btnanscontext = document.getElementById('id_addcontextans');
+            // ...var anscontext = document.getElementById('fitem_id_answercontext');
 /*             var image = document.getElementById('id_cardimage_fieldset').getElementsByClassName('filemanager');
             var sound = document.getElementById('id_cardimage_fieldset').getElementsByClassName('filemanager'); */
 
@@ -137,44 +142,49 @@
                     imageques.style.display = 'flex';
                     imagedescription.style.display = 'flex';
                     imagecheckbox.style.display = 'flex';
-                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                    btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
                 }
     
                 if (_data['showquessound']) {
                     soundques.style.display = 'flex';
-                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                    btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
                 }
-    
+
+                /*
                 if (_data['showquescontext']) {
                     quescontext.style.display = 'flex';
-                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 }
     
                 if (_data['showanscontext']) {
                     anscontext.style.display = 'flex';
-                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                    btnanscontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
                 }
+                */
+
             }
 
+            /*
             if (document.getElementById('id_questioncontext').value != '') {
                 quescontext.style.display = 'flex';
-                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
             }
             if (document.getElementById('id_answercontext').value != '') {
                 quescontext.style.display = 'flex';
-                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardbox');
+                btnquescontext.innerHTML = M.util.get_string('removecontext', 'cardboxx');
             }
+            */
 
             /* if (image[0].style.display === "") {
                 imageques.style.display = 'flex';
                 imagedescription.style.display = 'flex';
                 imagecheckbox.style.display = 'flex';
-                btnimageques.innerHTML = M.util.get_string('removeimage', 'cardbox');
+                btnimageques.innerHTML = M.util.get_string('removeimage', 'cardboxx');
             }
 
             if (sound[0].style.display === "") {
                 soundques.style.display = 'flex';
-                btnsoundques.innerHTML = M.util.get_string('removesound', 'cardbox');
+                btnsoundques.innerHTML = M.util.get_string('removesound', 'cardboxx');
             } */
 
         }

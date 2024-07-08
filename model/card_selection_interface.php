@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,8 +23,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-interface cardbox_card_selection_interface {
-
-    public function cardbox_select_cards_for_practice($cards = null);
+/**
+ * Interface for card selection
+ */
+interface cardboxx_card_selection_interface {
+    /**
+     * Select cards for practice
+     *
+     * @param array $cards
+     * @return array
+     */
+    public function cardboxx_select_cards_for_practice($cards = null);
 
 }

@@ -15,7 +15,7 @@
 
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -99,7 +99,6 @@ function startPractice(Y, __cmid, __selection, __case, __data, __mode, __disable
                     notificationpanel.removeChild(notificationpanel.firstChild);
             } 
         }
-
     });
 }
 
@@ -115,7 +114,7 @@ class EventHandling {
      */
     registerEventsForQuestionSelfCheck() {
 
-        document.getElementById('cardbox-check-answer').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-check-answer').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -125,7 +124,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-end-session').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-end-session').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -142,9 +141,9 @@ class EventHandling {
      */
     registerEventsForQuestionAutoCheck() {
 
-        document.getElementById('cardbox-userinput-1').focus();
+        document.getElementById('cardboxx-userinput-1').focus();
 
-        document.getElementById('cardbox-submit-answer').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-submit-answer').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -154,7 +153,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-do-not-know').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-do-not-know').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -164,7 +163,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-end-session').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-end-session').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -182,7 +181,7 @@ class EventHandling {
     registerEventsForAnswerSelfCheck() {
 
         // Button tells the server that the current card was answered correctly and requests a new flashcard.
-        document.getElementById('cardbox-mark-as-correct').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-mark-as-correct').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -193,21 +192,33 @@ class EventHandling {
         }.bind(this));
 
         // Button tells the server that the current card was answered incorrectly and requests a new flashcard.
-        document.getElementById('cardbox-mark-as-incorrect').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-mark-as-incorrect').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
 
             // Notify controller of this click event.
 /*             this.controller.reactTo('mark-as-incorrect'); */
-            document.getElementById('cardbox-proceed').hidden = false;
-            document.getElementById('cardbox-suggestanswer').hidden = false; 
-            document.getElementById('cardbox-mark-as-incorrect').disabled = true;
-            document.getElementById('cardbox-mark-as-correct').disabled = true;
+            //document.getElementById('cardboxx-proceed').hidden = false;
+            //document.getElementById('cardboxx-suggestanswer').hidden = false;
+            //document.getElementById('cardboxx-mark-as-incorrect').disabled = true;
+            //document.getElementById('cardboxx-mark-as-correct').disabled = true;
+            this.controller.reactTo('mark-as-incorrect');
 
         }.bind(this));
 
-        document.getElementById('cardbox-suggestanswer').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-end-session').addEventListener('click', function(e) {
+
+            // Prevent page reload.
+            e.preventDefault();
+
+            // Notify controller of this click event.
+            this.controller.reactTo('end-practice');
+
+        }.bind(this));
+
+        /*
+        document.getElementById('cardboxx-suggestanswer').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -217,7 +228,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-proceed').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-proceed').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -226,7 +237,7 @@ class EventHandling {
             this.controller.reactTo('mark-as-incorrect');
 
         }.bind(this));
-
+        */
     }
     /**
      * 
@@ -235,7 +246,7 @@ class EventHandling {
     registerEventsForAnswerAutoCheck() {
 
         // Button overrides the result of the automatic check, tells the server and requests a new flashcard to render.
-        document.getElementById('cardbox-override').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-override').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -247,7 +258,7 @@ class EventHandling {
 
 
         // Button sends the result of the automatic check to the server and requests a new flashcard to render.
-        document.getElementById('cardbox-proceed').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-proceed').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -257,7 +268,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-suggestanswer').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-suggestanswer').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -272,9 +283,9 @@ class EventHandling {
 
     registerEventsForSuggestAnswerAutoCheck() {
 
-        document.getElementById('cardbox-suggestanswer-input').focus();
+        document.getElementById('cardboxx-suggestanswer-input').focus();
 
-        document.getElementById('cardbox-cancel-button').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-cancel-button').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -284,7 +295,7 @@ class EventHandling {
 
         }.bind(this));
 
-        document.getElementById('cardbox-savesuggestedanswer').addEventListener('click', function(e) {
+        document.getElementById('cardboxx-savesuggestedanswer').addEventListener('click', function(e) {
 
             // Prevent page reload.
             e.preventDefault();
@@ -388,12 +399,12 @@ class Coordinate {
                 case 'override':
 
                     this.evaluate.overrideJudgement();
-                    document.getElementById('cardbox-override').disabled = true;
-                    var feedbackbox = document.getElementById("cardbox-feedback");
-                    feedbackbox.classList.remove('cardbox-error');                
-                    feedbackbox.classList.add('cardbox-success');
-                    feedbackbox.innerHTML = M.util.get_string('feedback:correctandcomplete', 'cardbox');
-                    document.getElementById('cardbox-user-solution').classList.replace('cardbox-input-color-incorrect', 'cardbox-input-color-correct');
+                    document.getElementById('cardboxx-override').disabled = true;
+                    var feedbackbox = document.getElementById("cardboxx-feedback");
+                    feedbackbox.classList.remove('cardboxx-error');                
+                    feedbackbox.classList.add('cardboxx-success');
+                    feedbackbox.innerHTML = M.util.get_string('feedback:correctandcomplete', 'cardboxx');
+                    document.getElementById('cardboxx-user-solution').classList.replace('cardboxx-input-color-incorrect', 'cardboxx-input-color-correct');
                     break;
                 
                 case 'suggest-answer':
@@ -470,7 +481,7 @@ class Coordinate {
 
         savesuggestedAnswer(data, iscorrect) {
 
-            var userinput = document.getElementById('cardbox-suggestanswer-input').value;  
+            var userinput = document.getElementById('cardboxx-suggestanswer-input').value;  
 
             $.ajax({
                 type: 'POST',
@@ -645,7 +656,7 @@ class Evaluate {
         this.data = data;
         var answer = {
             userinput: ' ',
-            colorclass: 'cardbox-input-color-incorrect'
+            colorclass: 'cardboxx-input-color-incorrect'
         };        
         this.data['userinputitems'] = answer;
     }
@@ -677,7 +688,7 @@ class Evaluate {
         }
         for (i = 1; i <= length; i++) {
             (function (innerI){
-                var ui = document.getElementById('cardbox-userinput-' + innerI).value;  
+                var ui = document.getElementById('cardboxx-userinput-' + innerI).value;  
                 if (ui.trim() !== '') {
                     userinput.push(ui.trim());
                 }
@@ -705,7 +716,7 @@ class Evaluate {
         if (answers.length === 0) {
             var answer = {
                 userinput: ' ',
-                colorclass: 'cardbox-input-color-incorrect'
+                colorclass: 'cardboxx-input-color-incorrect'
             };        
             answers.push(answer);
             this.data['userinputitems'] = answers;
@@ -785,11 +796,11 @@ class Evaluate {
 
                 var answer = {
                     userinput: userinput,
-                    colorclass: 'cardbox-input-color-correct'
+                    colorclass: 'cardboxx-input-color-correct'
                 };
                 if (this.necessaryanswers === "1") {
                     this.necessaryanswers = -1;
-/*                     document.getElementById('cardbox-proceed').disabled = false; */
+/*                     document.getElementById('cardboxx-proceed').disabled = false; */
                 }
 
             } /* else if (userinput === "" || userinput === null)  {
@@ -797,14 +808,14 @@ class Evaluate {
                 this.answeriscorrect = 0;
                 var answer = {
                     userinput: "-",
-                    colorclass: 'cardbox-input-color-incorrect'
+                    colorclass: 'cardboxx-input-color-incorrect'
                 }
             } */ else {
                 // Note that the user made at least one mistake.
                 this.answeriscorrect = 0;
                 var answer = {
                     userinput: userinput,
-                    colorclass: 'cardbox-input-color-incorrect'
+                    colorclass: 'cardboxx-input-color-incorrect'
                 };
             }
 
@@ -869,9 +880,9 @@ class Output {
     renderNewQuestion(eventhandling, data) {
 
         (function (templates, data, mode) {
-                    templates.render('mod_cardbox/practice', data)
+                    templates.render('mod_cardboxx/practice', data)
                             .then(function (html, js) {
-                                templates.replaceNodeContents('#cardbox-practice', html, js);
+                                templates.replaceNodeContents('#cardboxx-practice', html, js);
                             }).then(function () {
                                     // Register event listeners for the newly rendered partial.
                                     if (eventhandling.controller.case == Case_Autocheck) { 
@@ -912,9 +923,9 @@ class Output {
         }
 
         (function (templates, data) {
-                    templates.render('mod_cardbox/practice', data)
+                    templates.render('mod_cardboxx/practice', data)
                             .then(function (html, js) {
-                                templates.replaceNodeContents('#cardbox-practice', html, js);
+                                templates.replaceNodeContents('#cardboxx-practice', html, js);
                             }).then(function () {
 
                             eventhandling.registerEventsForSuggestAnswerAutoCheck();
@@ -991,9 +1002,9 @@ class Output {
             }
             
             if (considercardcorrect) {
-                newdata['overridelabel'] = M.util.get_string('override_isincorrect', 'cardbox');
+                newdata['overridelabel'] = M.util.get_string('override_isincorrect', 'cardboxx');
             } else {
-                newdata['overridelabel'] = M.util.get_string('override_iscorrect', 'cardbox');
+                newdata['overridelabel'] = M.util.get_string('override_iscorrect', 'cardboxx');
             }
             
             
@@ -1007,9 +1018,9 @@ class Output {
         }
         
         (function (templates, notification, data, mode) {
-                    templates.render('mod_cardbox/practice', data)
+                    templates.render('mod_cardboxx/practice', data)
                             .then(function (html, js) {
-                                templates.replaceNodeContents('#cardbox-practice', html, js);
+                                templates.replaceNodeContents('#cardboxx-practice', html, js);
                             })
                             .then(function () {
                                 var acval = eventhandling.controller.acvals.filter(checkacvalue, eventhandling.controller.cardId);
@@ -1054,32 +1065,32 @@ class Output {
          */
         function giveFeedback(evaluation) {
 
-/*             var wrapper = document.getElementById("cardbox-feedback-wrapper"); */
-            var feedbackbox = document.getElementById("cardbox-feedback");
+/*             var wrapper = document.getElementById("cardboxx-feedback-wrapper"); */
+            var feedbackbox = document.getElementById("cardboxx-feedback");
 
             if (evaluation === 'correctandcomplete') {
                 
-//                feedbackbox.classList.add('cardbox-success');
-                feedbackbox.innerHTML = M.util.get_string('feedback:correctandcomplete', 'cardbox');
+//                feedbackbox.classList.add('cardboxx-success');
+                feedbackbox.innerHTML = M.util.get_string('feedback:correctandcomplete', 'cardboxx');
 
 
             } else if (evaluation === 'incomplete') {
 
-//                feedbackbox.classList.add('cardbox-warning');
-                feedbackbox.innerHTML = M.util.get_string('feedback:incomplete', 'cardbox');
+//                feedbackbox.classList.add('cardboxx-warning');
+                feedbackbox.innerHTML = M.util.get_string('feedback:incomplete', 'cardboxx');
 
 
             } else if (evaluation === 'notknown') {
 
-//                feedbackbox.classList.add('cardbox-error');
-                feedbackbox.innerHTML = M.util.get_string('feedback:notknown', 'cardbox');
-                document.getElementById('cardbox-override').disabled = true; 
+//                feedbackbox.classList.add('cardboxx-error');
+                feedbackbox.innerHTML = M.util.get_string('feedback:notknown', 'cardboxx');
+                document.getElementById('cardboxx-override').disabled = true; 
 
 
             } else {
 
-//                feedbackbox.classList.add('cardbox-error');
-                feedbackbox.innerHTML = M.util.get_string('feedback:incorrectandpossiblyincomplete', 'cardbox');
+//                feedbackbox.classList.add('cardboxx-error');
+                feedbackbox.innerHTML = M.util.get_string('feedback:incorrectandpossiblyincomplete', 'cardboxx');
             }
 
         }
@@ -1095,8 +1106,9 @@ class Statistics {
         this.countwrong = 0;
         this.chart = chart;
         this.starttime = Math.floor(new Date().getTime()/1000.0);
+
     }
-    
+
     incrementCountRight() {
         this.countright++;
     }
@@ -1113,9 +1125,12 @@ class Statistics {
     finishPractice(cmid) {
 
         // 1. Hide the last card that was practiced.
-        $('#cardbox-practice-replacable').toggleClass('hidden');
+        $('#cardboxx-practice-replacable').toggleClass('hidden');
 
-        // 2. Save this session's performance in cardbox_statistics.
+        // Show the "back-to-start" button when the canvas is shown
+        $('#back-to-start').show();
+
+        // 2. Save this session's performance in cardboxx_statistics.
         $.ajax({
             type: 'POST',
             url: 'action.php',
@@ -1125,44 +1140,54 @@ class Statistics {
             }
         });
 
+        // adding Button for back to start page of practice
+        document.getElementById('back-to-start').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = window.location.pathname + '?id=' + cmid + '&action=practice';
+        });
+
+        document.getElementById('cardboxx-practice-feedback-collection').style.display = 'flex';
+
         // 3. Then display it as a doughnut chart.
-        var ctx = document.getElementById("cardbox-practice-feedback").getContext("2d");
+        var ctx = document.getElementById("cardboxx-practice-feedback").getContext("2d");
 
         var chartdata = {
             datasets: [{
                 label: 'Progress',
                 data: [this.countright, this.countwrong],
                 backgroundColor: [
-                    '#00b33c',
-                    '#ff9900'
+                    '#71A87F',
+                    '#BF514C'
                 ]
             }],
 
             // These labels appear in the legend and in the tooltips when hovering different arcs.
             labels: [
-                M.util.get_string('right', 'cardbox'),
-                M.util.get_string('wrong', 'cardbox')
+                M.util.get_string('right', 'cardboxx'),
+                M.util.get_string('wrong', 'cardboxx')
             ]
         };
+
+        var totalCards = this.countright + this.countwrong
+        var percentRight = (this.countright / totalCards) * 100;
 
         var myDoughnutChart = new Chart(ctx, {
             type: 'doughnut',
             data: chartdata,
             options: {
-                title: {
-                    display: true,
-                    text: M.util.get_string('titleprogresschart', 'cardbox'),
-                    fontSize: 16,
-                    position: 'top'
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom', // Position der Legende ändern
+                    },
+                    title: {
+                        display: true,
+                        text: M.util.get_string('titelpracticechartone', 'cardboxx') + " " + percentRight.toFixed(2) + "" + M.util.get_string('titelpracticecharttwo', 'cardboxx')
+                    }
                 },
-                legend: {
-                    position: 'bottom'
-                },
-                rotation: 1 * Math.PI,
-                circumference: 1 * Math.PI,
-                cutoutPercentage: 60
+                cutout: '70%'
             }
-        }); 
+        });
 
     }
 

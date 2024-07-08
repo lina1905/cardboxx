@@ -15,7 +15,7 @@
 
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,7 +26,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
     var __ismanager = __params['ismanager'];
     
     const ABSOLUTE_CARDS_OVER_DECK = 1;
-    const CARDBOX_STATUS = 2;
+    const cardboxx_STATUS = 2;
     const USER_PERFORMANCE_OVER_TIME = 3;
     const CARDS_OVER_TIME = 4;
     const SESSION_DURATION = 5;
@@ -42,7 +42,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 displayDurationOfASessionOverTime();
             }
         } else {
-            displayCardboxStatus();
+            displaycardboxxStatus();
             displayUserPerformanceOverTime();
         }
         
@@ -50,18 +50,18 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
     /**
     * Function builds and displays a bar chart that shows how many cards
-    * there are in the boxes of the current user's cardbox.
+    * there are in the boxes of the current user's cardboxx.
     * 
     * @returns {undefined}
     */
    function displayAbsoluteCardsOverDecks() {
     var __absoluteboxcount = __params['absoluteboxcount'];
-    var context = document.getElementById("cardbox-statistics-absolute-over-deck").getContext("2d");
+    var context = document.getElementById("cardboxx-statistics-absolute-over-deck").getContext("2d");
     var mixedChart = new Chart(context, {
         type: 'bar',
         data: {
             datasets: [{
-                label: M.util.get_string('absolutenumberofcards', 'cardbox'),
+                label: M.util.get_string('absolutenumberofcards', 'cardboxx'),
                 backgroundColor: [
                     '#0066ff',
                     '#0066ff',
@@ -74,19 +74,19 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 data: [__absoluteboxcount[0], __absoluteboxcount[1], __absoluteboxcount[2], __absoluteboxcount[3], __absoluteboxcount[4], __absoluteboxcount[5], __absoluteboxcount[6]],
             }],
             labels: [
-                M.util.get_string('new', 'cardbox'),
+                M.util.get_string('new', 'cardboxx'),
                 '1',
                 '2',
                 '3',
                 '4',
                 '5',
-                M.util.get_string('known', 'cardbox')
+                M.util.get_string('known', 'cardboxx')
             ]
         },
         options: {
             title: {
                 display: true,
-                text: M.util.get_string('barchartstatistic1', 'cardbox'),
+                text: M.util.get_string('barchartstatistic1', 'cardboxx'),
                 fontSize: 16,
                 position: 'top'
               },
@@ -94,7 +94,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: M.util.get_string('barchartxaxislabel', 'cardbox'),
+                        labelString: M.util.get_string('barchartxaxislabel', 'cardboxx'),
                         fontSize: 16,
                     },
                     stacked: true
@@ -102,7 +102,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: M.util.get_string('barchartyaxislabel', 'cardbox'),
+                        labelString: M.util.get_string('barchartyaxislabel', 'cardboxx'),
                         fontSize: 16
                     },
                     ticks: {
@@ -119,89 +119,97 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
    }
     /**
     * Function builds and displays a bar chart that shows how many cards
-    * there are in the boxes of the current user's cardbox.
+    * there are in the boxes of the current user's cardboxx.
     * 
     * @returns {undefined}
     */
-   function displayCardboxStatus() {
+   function displaycardboxxStatus() {
 
-        var context = document.getElementById("cardbox-statistics-cardboxstatus").getContext("2d");
+        var context = document.getElementById("cardboxx-statistics-cardboxxstatus").getContext("2d");
         var __studentboxcount = __params['studentboxcount'];
-        var cardboxdata = {
+        var cardboxxdata = {
 
            // These labels appear in the legend and in the tooltips when hovering different arcs.
             labels: [
-                M.util.get_string('new', 'cardbox'),
+                M.util.get_string('new', 'cardboxx'),
                 '1',
                 '2',
                 '3',
                 '4',
                 '5',
-                M.util.get_string('known', 'cardbox')
+                M.util.get_string('known', 'cardboxx')
             ],
 
            datasets: [{
-                label: M.util.get_string('flashcardsdue', 'cardbox'),
+                label: M.util.get_string('flashcardsdue', 'cardboxx'),
                 data: [__studentboxcount[0], __studentboxcount[1]['due'], __studentboxcount[2]['due'], __studentboxcount[3]['due'], __studentboxcount[4]['due'], __studentboxcount[5]['due'], 0],
                 backgroundColor: [
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
-                        '#0066ff',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
+                        '#BF504C',
                         '#00b33c'
                 ],
                 stack: 'Stack 0'
             },
             {
-                label: M.util.get_string('flashcardsnotdue', 'cardbox'),
+                label: M.util.get_string('flashcardsnotdue', 'cardboxx'),
                 data: [0, __studentboxcount[1]['notdue'], __studentboxcount[2]['notdue'], __studentboxcount[3]['notdue'], __studentboxcount[4]['notdue'], __studentboxcount[5]['notdue'], __studentboxcount[6]],
                 backgroundColor: [
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
-                        '#99c2ff',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
+                        '#F29C39',
                         '#00b33c'
                 ],
                 stack: 'Stack 0'
            }]
        };
 
+        /*
+
         if (__performance.displayaverageprogress) {
             var __averageboxcount = __params['averageboxcount'];
-            cardboxdata.datasets.push({
-                label: M.util.get_string('averagestudentscompare', 'cardbox'),
+            cardboxxdata.datasets.push({
+                label: M.util.get_string('averagestudentscompare', 'cardboxx'),
                 data: [__averageboxcount[0], __averageboxcount[1], __averageboxcount[2], __averageboxcount[3], __averageboxcount[4], __averageboxcount[5], __averageboxcount[6]],
                 backgroundColor: [
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC',
-                        '#7A6FAC'
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F',
+                        '#71A87F'
                 ],
                 stack: 'Stack 1'
             });
         }
 
+         */
+
        var barChart1 = new Chart(context, {
            type: 'bar',
-           data: cardboxdata,
+           data: cardboxxdata,
            options: {
                responsive: true,
-               title: {
-                   display: true,
-                   text: M.util.get_string('titleoverviewchart', 'cardbox'),
-                   fontSize: 16,
-                   position: 'top'
-               },
-               legend: {
-                   display: true,
-                   position: 'top'
+               plugins: {
+                   title: {
+                       display: true,
+                       text: M.util.get_string('titleoverviewchart', 'cardboxx'),
+                       font: {
+                           size: 16,
+                       },
+                       position: 'top'
+                   },
+                   legend: {
+                       display: true,
+                       position: 'top'
+                   },
                },
                ticks: {
                    beginAtZero: true,
@@ -211,7 +219,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('barchartxaxislabel', 'cardbox'),
+                            labelString: M.util.get_string('barchartxaxislabel', 'cardboxx'),
                             fontSize: 16,
                         },
                         stacked: true
@@ -219,13 +227,13 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('barchartyaxislabel', 'cardbox'),
+                            labelString: M.util.get_string('barchartyaxislabel', 'cardboxx'),
                             fontSize: 16
                         },
                         ticks: {
                             beginAtZero: true,
                             min: 0,
-                            stepSize: calculateStepSize(CARDBOX_STATUS),
+                            stepSize: calculateStepSize(cardboxx_STATUS),
                         },
                         stacked: true
                     }]
@@ -236,13 +244,13 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
     /**
      * Function builds and displays a line graph that shows the user's
-     * past performances in practicing with the current cardbox.
+     * past performances in practicing with the current cardboxx.
      * 
      * @returns {undefined}
      */
     function displayUserPerformanceOverTime() {
        
-        var context = document.getElementById("cardbox-statistics-progress-over-time").getContext("2d");
+        var context = document.getElementById("cardboxx-statistics-progress-over-time").getContext("2d");
 
         var userdata = {
 
@@ -250,20 +258,20 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
             labels: __performance.dates,
 
             datasets: [{
-                 label: M.util.get_string('performance', 'cardbox'),
+                 label: M.util.get_string('performance', 'cardboxx'),
                  data: __performance.performances,
-                 backgroundColor: '#0066ff', // '#0066ff'
-                 borderColor: '#0066ff', // specifies the line color
+                 backgroundColor: '#F29C39', // '#0066ff'
+                 borderColor: '#F29C39', // specifies the line color
                  borderCapStyle: 'butt', // no change
                  borderDash: [], // no change
                  borderDashOffset: 0.0, // no change
                  borderJoinStyle: 'miter', // no change
-                 pointBorderColor: "#0066ff",
-                 pointBackgroundColor: "#0066ff",
+                 pointBorderColor: "#F29C39",
+                 pointBackgroundColor: "#F29C39",
                  pointBorderWidth: 1,
                  pointHoverRadius: 5,
-                 pointHoverBackgroundColor: "#0066ff",
-                 pointHoverBorderColor: "#0066ff",
+                 pointHoverBackgroundColor: "#F29C39",
+                 pointHoverBorderColor: "#F29C39",
                  pointHoverBorderWidth: 2,
                  pointRadius: 1,
                  pointHitRadius: 10,
@@ -278,12 +286,16 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
              type: 'line',
              data: userdata,
              options: {
-                 title: {
-                    display: true,
-                    text: M.util.get_string('titleperformancechart', 'cardbox'),
-                    fontSize: 16,
-                    position: 'top'
-                },
+                 plugins: {
+                     title: {
+                         display: true,
+                         text: M.util.get_string('titleperformancechart', 'cardboxx'),
+                         font: {
+                             size: 16,
+                         },
+                         position: 'top'
+                     },
+                 },
                 legend: {
                     display: false
                 },
@@ -302,7 +314,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphxaxislabel', 'cardbox'),
+                            labelString: M.util.get_string('linegraphxaxislabel', 'cardboxx'),
                             fontSize: 16
                         },
                     }],
@@ -310,7 +322,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                         stacked: true,
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphyaxislabel_performance', 'cardbox'),
+                            labelString: M.util.get_string('linegraphyaxislabel_performance', 'cardboxx'),
                             fontSize: 16
                         },
                         ticks: {
@@ -328,7 +340,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
    function displayNumberOfCardsOverTime() {
        
-        var context = document.getElementById("cardbox-statistics-number-of-cards").getContext("2d");
+        var context = document.getElementById("cardboxx-statistics-number-of-cards").getContext("2d");
 
         var userdata = {
 
@@ -337,7 +349,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
             datasets: [
                 {
-                    label: M.util.get_string('numberofcardsmin', 'cardbox'),                     //Min
+                    label: M.util.get_string('numberofcardsmin', 'cardboxx'),                     //Min
                     data: __performance.numberofcardsmin,
                     tooltiplabels: __performance.tooltips.numberofcards.min,
                     backgroundColor: '#0066ff', // '#0066ff'
@@ -361,7 +373,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     lineTension: 0                
                 },
                 {
-                label: M.util.get_string('numberofcardsavg', 'cardbox'),                      //Average
+                label: M.util.get_string('numberofcardsavg', 'cardboxx'),                      //Average
                 data: __performance.numberofcardsavg,
                 tooltiplabels: __performance.tooltips.numberofcards.average,
                 backgroundColor: '#9C9E9F', // '#9C9E9F'
@@ -385,7 +397,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 lineTension: 0                
             },
             {
-                label: M.util.get_string('numberofcardsmax', 'cardbox'),                      //Max
+                label: M.util.get_string('numberofcardsmax', 'cardboxx'),                      //Max
                 data: __performance.numberofcardsmax,
                 tooltiplabels: __performance.tooltips.numberofcards.max,
                 backgroundColor: '#57AB27', // '#57AB27'
@@ -418,7 +430,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
             options: {
                 title: {
                     display: true,
-                    text: M.util.get_string('titlenumberofcards', 'cardbox'),
+                    text: M.util.get_string('titlenumberofcards', 'cardboxx'),
                     fontSize: 16,
                     position: 'top'
                 },
@@ -449,7 +461,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphxaxislabel', 'cardbox'),
+                            labelString: M.util.get_string('linegraphxaxislabel', 'cardboxx'),
                             fontSize: 16
                         },
                         stacked: true
@@ -458,7 +470,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                         stacked: false,
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphyaxislabel_numbercards', 'cardbox'),
+                            labelString: M.util.get_string('linegraphyaxislabel_numbercards', 'cardboxx'),
                             fontSize: 16
                         },
                         ticks: {
@@ -476,7 +488,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
     function displayDurationOfASessionOverTime() {
        
-        var context = document.getElementById("cardbox-statistics-duration-of-a-session").getContext("2d");
+        var context = document.getElementById("cardboxx-statistics-duration-of-a-session").getContext("2d");
 
         var userdata = {
 
@@ -485,7 +497,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
 
             datasets: [
                 {
-                    label: M.util.get_string('durationmin', 'cardbox'),                              //Min
+                    label: M.util.get_string('durationmin', 'cardboxx'),                              //Min
                     data: __performance.durationofsessionmin,
                     tooltiplabels: __performance.tooltips.durationofsession.min,
                     backgroundColor: '#0066ff', // '#0066ff'
@@ -509,7 +521,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     lineTension: 0                
                 },
                 {
-                label: M.util.get_string('durationavg', 'cardbox'),                             //Average
+                label: M.util.get_string('durationavg', 'cardboxx'),                             //Average
                 data: __performance.durationofsessionavg,
                 tooltiplabels: __performance.tooltips.durationofsession.average,
                 backgroundColor: '#9C9E9F', // '#9C9E9F'
@@ -533,7 +545,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 lineTension: 0                
             },
             {
-                label: M.util.get_string('durationmax', 'cardbox'),                                //Max
+                label: M.util.get_string('durationmax', 'cardboxx'),                                //Max
                 data: __performance.durationofsessionmax,
                 tooltiplabels: __performance.tooltips.durationofsession.max,
                 backgroundColor: '#57AB27', // '#57AB27'
@@ -566,7 +578,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
             options: {
                 title: {
                     display: true,
-                    text: M.util.get_string('titledurationofasession', 'cardbox'),
+                    text: M.util.get_string('titledurationofasession', 'cardboxx'),
                     fontSize: 16,
                     position: 'top'
                 },
@@ -598,7 +610,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                     xAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphxaxislabel', 'cardbox'),
+                            labelString: M.util.get_string('linegraphxaxislabel', 'cardboxx'),
                             fontSize: 16
                         },
                         stacked: true
@@ -607,7 +619,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                         stacked: false,
                         scaleLabel: {
                             display: true,
-                            labelString: M.util.get_string('linegraphyaxislabel_duration', 'cardbox'),
+                            labelString: M.util.get_string('linegraphyaxislabel_duration', 'cardboxx'),
                             fontSize: 16
                         },
                         ticks: {
@@ -631,7 +643,7 @@ function displayCharts(Y, __params) { // Wrapper function that is called by cont
                 var max = Math.max(...values);
                 var stepsize = compareStepSize(max);
                 break;
-            case CARDBOX_STATUS:
+            case cardboxx_STATUS:
                 var __studentboxcount = __params['studentboxcount'];
                 var max = __studentboxcount[0];
                 for (let i = 1; i < 6; i++) {

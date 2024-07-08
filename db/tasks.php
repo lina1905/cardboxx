@@ -18,7 +18,7 @@
  * This file sets the default schedule for system notifications (practice reminders).
  * Managers can change the timing via site administration -> server -> scheduled tasks.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,8 +27,8 @@
 defined('MOODLE_INTERNAL') || die();
 $tasks = [
     [
-        'classname' => 'mod_cardbox\task\remind',
-        'blocking' => 0, // does not prevent other scheduled tasks from running at the same time.
+        'classname' => 'mod_cardboxx\task\remind',
+        'blocking' => 0, // Does not prevent other scheduled tasks from running at the same time.
         'minute' => '00',
         'hour' => '15',
         'day' => '*',

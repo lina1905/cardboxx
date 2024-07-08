@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   mod_cardbox
+ * This is the overview page.
+ *
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,58 +30,112 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @author ah105090
  */
-class cardbox_overview implements \renderable, \templatable {
-
+class cardboxx_overview implements \renderable, \templatable {
+    /**
+     * @var int The topic ID.
+     */
     private $topicid;
+
+    /**
+     * @var int The deck ID.
+     */
     private $deckid;
+
+    /**
+     * @var string The sort order.
+     */
     private $sort;
+
+    /**
+     * @var string The description.
+     */
     private $desc;
-    private $topics = array();
-    private $cards = array();
-    private $decks = array();
 
-    public function __construct($list, $offset, $context, $cmid, $cardboxid, $topicid, $usedforemail = false,  $sort, $deck) {
+    /**
+     * @var array The topics.
+     */
+    private $topics = [];
 
+    /**
+     * @var array The cards.
+     */
+    private $cards = [];
+
+    /**
+     * @var array The decks.
+     */
+    private $decks = [];
+
+    /**
+     * @var bool Whether the user is allowed to edit.
+     */
+    private $allowedtoedit;
+
+
+    /**
+     * Constructor.
+     *
+     * @param array $list List of cards
+     * @param int $offset Offset for pagination
+     * @param int $context Context ID
+     * @param int $cmid Course module ID
+     * @param int $cardboxxid Cardboxx ID
+     * @param int $topicid Topic ID
+     * @param bool $usedforemail Whether the overview is used for email
+     * @param int $sort Sort order
+     * @param int $deck Deck ID
+     */
+    public function __construct($list, $offset, $context, $cmid, $cardboxxid, $topicid, $usedforemail = false,
+                                $sort = null, $deck = null) {
+        if ($deck === null) {
+            throw new InvalidArgumentException("Deck parameter is required");
+        }
+        if ($sort === null) {
+            throw new InvalidArgumentException("Sort parameter is required");
+        }
         require_once('card.php');
 
         global $DB, $PAGE;
 
-        $topics = $DB->get_records('cardbox_topics', array('cardboxid' => $cardboxid));
+        $topics = $DB->get_records('cardboxx_topics', ['cardboxxid' => $cardboxxid]);
         $this->topicid = $topicid;
         foreach ($topics as $topic) {
             if ($topic->id == $topicid) {
-                $this->topics[] = array('topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => true);
+                $this->topics[] = ['topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => true];
             } else {
-                $this->topics[] = array('topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => false);
+                $this->topics[] = ['topicid' => $topic->id, 'topic' => $topic->topicname, 'selected' => false];
             }
         }
 
         $this->deckid = $deck;
         for ($i = 1; $i < 6; $i++) {
             if ($deck == $i) {
-                $this->decks[] = array('deck' => $i, 'selected' => true);
+                $this->decks[] = ['deck' => $i, 'selected' => true];
             } else {
-                $this->decks[] = array('deck' => $i, 'selected' => false);
+                $this->decks[] = ['deck' => $i, 'selected' => false];
             }
         }
 
         $perpage = 10;
-        $renderer = $PAGE->get_renderer('mod_cardbox');
 
-        if (has_capability('mod/cardbox:approvecard', $context) && !$usedforemail) {
+        $renderer = $PAGE->get_renderer('mod_cardboxx');
+
+        if (has_capability('mod/cardboxx:approvecard', $context) && !$usedforemail) {
             $allowedtoedit = true;
+            $this->allowedtoedit = true;
         } else {
             $allowedtoedit = false;
+            $this->allowedtoedit = false;
         }
 
-        if (has_capability('mod/cardbox:seestatus', $context)) {
+        if (has_capability('mod/cardboxx:seestatus', $context)) {
             $seestatus = true;
         } else {
             $seestatus = false;
         }
 
         for ($i = $offset; ($i < count($list) && $i < $offset + $perpage); $i++) {
-            $card = new cardbox_card($list[$i], $context, $cmid, $allowedtoedit, $seestatus);
+            $card = new cardboxx_card($list[$i], $context, $cmid, $allowedtoedit, $seestatus);
             $this->cards[] = $card->export_for_template($renderer);
         }
 
@@ -87,8 +143,15 @@ class cardbox_overview implements \renderable, \templatable {
 
     }
 
+    /**
+     * Export data for template.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
     public function export_for_template(\renderer_base $output) {
-        $data = array();
+        global $OUTPUT;
+        $data = [];
 
         if ($this->topicid == -1) {
             $data['nopreference'] = true;
@@ -111,6 +174,12 @@ class cardbox_overview implements \renderable, \templatable {
         $data['sortad'] = $this->sort === 2;
         $data['sortaa'] = $this->sort === 3;
         $data['cards'] = $this->cards;
+
+        $data['allowedtoedit'] = $this->allowedtoedit;
+
+        $help = $OUTPUT->help_icon('help:whenarecardsdue', 'cardboxx');
+        $data['infoHtmloverview'] = $help;
+
         return $data;
     }
 }

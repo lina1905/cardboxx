@@ -17,19 +17,26 @@
 /**
  * Bulk user upload forms
  *
- * @package    mod_cardbox
+ * @package    mod_cardboxx
  * @copyright  2021 Amrita Deb, RWTH Aachen University <Deb@itc.rwth-aachen.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace mod_cardbox\output;
+namespace mod_cardboxx\output;
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/csvlib.class.php');
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/user/editlib.php');
-
+/**
+ * Form for mass import of cards
+ */
 class massimport_form extends \moodleform {
-    public function definition () {
+    /**
+     * Form definition
+     *
+     * This method is used to define the Moodle form. It doesn't require any parameters.
+     */
+    public function definition() {
         $mform = $this->_form;
         $cbxdata = $this->_customdata;
 
@@ -41,13 +48,15 @@ class massimport_form extends \moodleform {
         $mform->setType('action', PARAM_ALPHANUM);
         $mform->setDefault('action', 'massimport');
 
-        $singleurl = new \moodle_url('example_singleans.csv');
-        $singlelink = \html_writer::link($singleurl, 'example_singleans.csv');
-        $mform->addElement('static', 'examplesinglecsv', get_string('examplesinglecsv', 'cardbox'), $singlelink);
+        $singleurl = new \moodle_url('example_import.csv');
+        $singlelink = \html_writer::link($singleurl, 'example_import.csv');
+        $mform->addElement('static', 'examplesinglecsv', get_string('examplesinglecsv', 'cardboxx'), $singlelink);
 
+        /*
         $multiurl = new \moodle_url('example_multians.csv');
         $multilink = \html_writer::link($multiurl, 'example_multians.csv');
-        $mform->addElement('static', 'examplemulticsv', get_string('examplemulticsv', 'cardbox'), $multilink);
+        $mform->addElement('static', 'examplemulticsv', get_string('examplemulticsv', 'cardboxx'), $multilink);
+        */
 
         $mform->addElement('filepicker', 'cardimportfile', get_string('file'));
         $mform->addRule('cardimportfile', null, 'required');
@@ -65,6 +74,6 @@ class massimport_form extends \moodleform {
         $choices = \core_text::get_encodings();
         $mform->addElement('select', 'encoding', get_string('encoding', 'tool_uploaduser'), $choices);
         $mform->setDefault('encoding', 'UTF-8');
-        $this->add_action_buttons(false, get_string('massimport', 'cardbox'));
+        $this->add_action_buttons(false, get_string('massimport', 'cardboxx'));
     }
 }

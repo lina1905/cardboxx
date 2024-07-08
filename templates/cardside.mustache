@@ -1,19 +1,21 @@
-<div class="cardbox-cardside">
+<div class="cardboxx-cardside">
 
     {{#images}}
-        <div class="cardbox-image">
+        <div class="cardboxx-image">
             <img src='{{imagesrc}}' class='img-fluid mx-auto d-block' alt='{{imagealt}}'>
         </div>
     {{/images}}
 
     {{#texts}}
-        <div class="cardbox-card-text {{#images}}text-center{{/images}}">{{{text}}}</div>
+        <div class="cardboxx-card-text cardboxx-card-text-question-answer {{#images}}text-center{{/images}}">{{{text}}}</div>
     {{/texts}}
 
     {{#sounds}}
-        <audio controls>
-            <source src='{{soundsrc}}' type='audio/mpeg'>
-        </audio>
+        <div class="cardboxx-card-audio">
+            <audio controls>
+                <source src='{{soundsrc}}' type='audio/mpeg'>
+            </audio>
+        </div>
     {{/sounds}}
 
 </div>

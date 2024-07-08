@@ -15,16 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-
-interface cardbox_card_sorting_interface {
-
-    public function cardbox_sort_cards_for_practice($cardselection);
+/**
+ * Interface for card sorting
+ */
+interface cardboxx_card_sorting_interface {
+    /**
+     * Sort cards for practice
+     *
+     * @param array $cardselection
+     * @return array
+     */
+    public function cardboxx_sort_cards_for_practice($cardselection);
 
 }
 

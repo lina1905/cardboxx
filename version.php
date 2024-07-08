@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   mod_cardbox
+ * Version details
+ *
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_cardbox';
-$plugin->version = 2023102600;
+$plugin->component = 'mod_cardboxx';
+$plugin->version = 2024070100;
 $plugin->release = '1.0.5';
 $plugin->requires = 2018120302.05;
 $plugin->maturity = MATURITY_STABLE;

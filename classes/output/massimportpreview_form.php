@@ -17,25 +17,33 @@
 /**
  * Bulk user upload forms
  *
- * @package    mod_cardbox
+ * @package    mod_cardboxx
  * @copyright  2021 Amrita Deb, RWTH Aachen University <Deb@itc.rwth-aachen.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace mod_cardbox\output;
+namespace mod_cardboxx\output;
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/csvlib.class.php');
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->dirroot . '/user/editlib.php');
-require_once($CFG->dirroot.'/mod/cardbox/locallib.php');
-
+require_once($CFG->dirroot.'/mod/cardboxx/locallib.php');
+/**
+ * Form for mass import preview
+ */
 class massimportpreview_form extends \moodleform {
-    public function definition ($action = null, $preselected = null) {
+    /**
+     * Form definition
+     *
+     * @param string|null $action The action to perform, default is null
+     * @param array|null $preselected The preselected data, default is null
+     */
+    public function definition($action = null, $preselected = null) {
         $mform = $this->_form;
         $data = $this->_customdata;
 
-        $mform->addElement('hidden', 'cardboxid');
-        $mform->setType('cardboxid', PARAM_INT);
+        $mform->addElement('hidden', 'cardboxxid');
+        $mform->setType('cardboxxid', PARAM_INT);
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -56,12 +64,12 @@ class massimportpreview_form extends \moodleform {
         $mform->addElement('hidden', 'error');
         $mform->setType('error', PARAM_INT);
 
-        $reviewbtngrp = array();
+        $reviewbtngrp = [];
         if ($data['error'] == 0) {
-            $reviewbtngrp[] =& $mform->createElement('submit', 'importbtn', get_string('massimport', 'cardbox'));
+            $reviewbtngrp[] =& $mform->createElement('submit', 'importbtn', get_string('massimport', 'cardboxx'));
         }
-        $reviewbtngrp[] =& $mform->createElement('submit', 'rejectbtn', get_string('cancel', 'cardbox'));
-        $mform->addGroup($reviewbtngrp, 'reviewbtnarr', '', array(''), false);
+        $reviewbtngrp[] =& $mform->createElement('submit', 'rejectbtn', get_string('cancel', 'cardboxx'));
+        $mform->addGroup($reviewbtngrp, 'reviewbtnarr', '', [''], false);
         $mform->setType('reviewbtnarr', PARAM_RAW);
         $mform->closeHeaderBefore('reviewbtnarr');
 

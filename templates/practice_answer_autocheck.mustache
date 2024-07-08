@@ -1,13 +1,13 @@
-<div id="cardbox-practice-content" class="row">
+<div id="cardboxx-practice-content" class="row">
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 topic">{{topic}}</div>
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 topic">{{topic}}</div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
-    <div id="cardbox-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+    <div id="cardboxx-cardcontainer" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
         {{#question}}
-            {{> mod_cardbox/cardside }}
+            {{> mod_cardboxx/cardside }}
         {{/question}}
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
@@ -16,36 +16,36 @@
 
 <div class="row">
 
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardbox-userinput"></div>
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardboxx-userinput"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
 
         {{#contextquestionavailable}}
-        <div class="col-xs-12 col-xl-6 cardbox-contextfield-practice" >{{{contextquestion}}}</div>
+        <div class="col-xs-12 col-xl-6 cardboxx-contextfield-practice" >{{{contextquestion}}}</div>
         {{/contextquestionavailable}}
 
         {{#userinputitems}}
-            <div id="cardbox-user-solution" class="col-xs-12 col-xl-6 cardbox-contextfield-practice {{colorclass}} cardbox-card-text" ><p style="margin: 1%">{{userinput}}</p></div>
+            <div id="cardboxx-user-solution" class="col-xs-12 col-xl-6 cardboxx-contextfield-practice {{colorclass}} cardboxx-card-text" ><p style="margin: 1%">{{userinput}}</p></div>
         {{/userinputitems}}
 
 
-        <div id="cardbox-feedback" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardbox-card-text cardbox-feedback" ></div>
+        <div id="cardboxx-feedback" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardboxx-card-text cardboxx-feedback" ></div>
 
-{{!         <div id="cardbox-feedback" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardbox-card-text cardbox-feedback" style="font-size: 1.4rem!important;"></div> }}
+{{!         <div id="cardboxx-feedback" class="col-xs-12 col-md-10 col-lg-8 col-xl-6 cardboxx-card-text cardboxx-feedback" style="font-size: 1.4rem!important;"></div> }}
 
         {{^cardcorrect}}
 
         {{#answer}}
-        <div id="cardbox-answer-text">
+        <div id="cardboxx-answer-text">
 
             {{#morethanonesolution}}
             {{#texts}}
-            <li class="cardbox-card-text">{{{text}}}</li>
+            <li class="cardboxx-card-text">{{{text}}}</li>
             {{/texts}}
             {{/morethanonesolution}}
 
             {{^morethanonesolution}}
             {{#texts}}
-            <div class="cardbox-card-text">{{{text}}}</div>
+            <div class="cardboxx-card-text">{{{text}}}</div>
             {{/texts}}
             {{/morethanonesolution}}
 
@@ -55,34 +55,34 @@
         {{/cardcorrect}}
         
         {{#contextansweravailable}}
-        <div class="col-xs-12 col-xl-6 cardbox-contextfield-practice" >{{{contextanswer}}}</div>
+        <div class="col-xs-12 col-xl-6 cardboxx-contextfield-practice" >{{{contextanswer}}}</div>
         {{/contextansweravailable}}
 
     </div>
-    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardbox-userinput"></div>
+    <div class="hidden-xs col-md-1 col-lg-2 col-xl-3 cardboxx-userinput"></div>
 
     <div class="hidden-xs col-lg-1 col-xl-2 col-xl-3"></div>
-    <div id="cardbox-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
+    <div id="cardboxx-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6">
             {{#showbuttonsuggestanswer}}
-            <button id="cardbox-override" type="button" class="btn btn-secondary" >{{overridelabel}}</button>
+            <button id="cardboxx-override" type="button" class="btn btn-secondary" >{{overridelabel}}</button>
             {{/showbuttonsuggestanswer}}
 
             {{^showbuttonsuggestanswer}}
-            <button id="cardbox-override" type="button" class="btn btn-secondary" hidden>{{overridelabel}}</button>
+            <button id="cardboxx-override" type="button" class="btn btn-secondary" hidden>{{overridelabel}}</button>
             {{/showbuttonsuggestanswer}}
     </div>
     <div class="hidden-xs col-lg-1 col-xl-2 col-xl-3"></div>
 
     <div class="hidden-xs col-lg-1 col-xl-2 col-xl-3"></div>
-    <div id="cardbox-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 5px">
-            <button id="cardbox-proceed" type="button" class="btn btn-primary">{{# str }} proceed, cardbox {{/ str }}</button>
+    <div id="cardboxx-buttons-practice" class="col-xs-12 col-md-10 col-lg-8 col-xl-6" style="margin-top: 5px">
+            <button id="cardboxx-proceed" type="button" class="btn btn-primary">{{# str }} proceed, cardboxx {{/ str }}</button>
 
             {{#showbuttonsuggestanswer}}
-            <button id="cardbox-suggestanswer" type="button" class="btn btn-secondary" >{{# str }} suggestanswer, cardbox {{/ str }}</button>
+            <button id="cardboxx-suggestanswer" type="button" class="btn btn-secondary" >{{# str }} suggestanswer, cardboxx {{/ str }}</button>
             {{/showbuttonsuggestanswer}}
 
             {{^showbuttonsuggestanswer}}
-            <button id="cardbox-suggestanswer" type="button" class="btn btn-secondary" hidden>{{# str }} suggestanswer, cardbox {{/ str }}</button>   
+            <button id="cardboxx-suggestanswer" type="button" class="btn btn-secondary" hidden>{{# str }} suggestanswer, cardboxx {{/ str }}</button>   
             {{/showbuttonsuggestanswer}}
 
     </div>
@@ -90,7 +90,7 @@
 
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 col-xl-6"> 
-        <div style="float: right; margin-top: 15px">{{# str }} cardsleft, cardbox {{/ str }} {{cardsleft}}</div>
+        <div style="float: right; margin-top: 15px">{{# str }} cardsleft, cardboxx {{/ str }} {{cardsleft}}</div>
     </div>
     <div class="hidden-xs col-md-1 col-lg-2 col-xl-3"></div>
 

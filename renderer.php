@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   mod_cardbox
+ * Renderer for cardboxx module.
+ *
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,24 +26,26 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once('../../config.php');
-
-class mod_cardbox_renderer extends plugin_renderer_base {
+/**
+ * Renderer for cardboxx module.
+ */
+class mod_cardboxx_renderer extends plugin_renderer_base {
 
     /**
      * Construct a tab header.
      *
-     * @param moodle_url $baseurl
-     * @param string $namekey
-     * @param string $what
-     * @param string $subpage
-     * @param string $nameargs
-     * @return tabobject
+     * @param moodle_url $baseurl Base URL for the tab
+     * @param string $action Action associated with the tab
+     * @param string|null $namekey Key for the name of the tab (optional)
+     * @param string|null $cardboxxname Name of the cardboxx (optional)
+     * @param string|null $nameargs Arguments for the name (optional)
+     * @return tabobject The constructed tab object
      */
-    private function cardbox_create_tab(moodle_url $baseurl, $action, $namekey = null, $cardboxname = null, $nameargs = null) {
-        $taburl = new moodle_url($baseurl, array('action' => $action));
-        $tabname = get_string($namekey, 'cardbox', $nameargs);
-        if ($cardboxname) {
-            strlen($cardboxname) > 20 ? $tabname = substr($cardboxname, 0, 21) . "..." : $tabname = $cardboxname;
+    private function cardboxx_create_tab(moodle_url $baseurl, $action, $namekey = null, $cardboxxname = null, $nameargs = null) {
+        $taburl = new moodle_url($baseurl, ['action' => $action]);
+        $tabname = get_string($namekey, 'cardboxx', $nameargs);
+        if ($cardboxxname) {
+            strlen($cardboxxname) > 20 ? $tabname = substr($cardboxxname, 0, 21) . "..." : $tabname = $cardboxxname;
         }
         $id = $action;
         $tab = new tabobject($id, $taburl, $tabname);
@@ -50,107 +54,121 @@ class mod_cardbox_renderer extends plugin_renderer_base {
     /**
      * Render the tab header hierarchy.
      *
-     * @param moodle_url $baseurl
-     * @param type $selected
-     * @param type $cardboxname
-     * @param type $context
-     * @param type $inactive
-     * @return type
+     * @param moodle_url $baseurl Base URL for the tabs
+     * @param context $context The context for the tabs
+     * @param string|null $selected The selected tab (optional)
+     * @param string|null $inactive The inactive tab (optional)
+     * @return string Rendered tabs
      */
-    public function cardbox_render_tabs(moodle_url $baseurl, $context, $selected = null, $inactive = null) {
+    public function cardboxx_render_tabs(moodle_url $baseurl, $context, $selected = null, $inactive = null) {
 
         global $USER;
-
-        if (has_capability('mod/cardbox:submitcard', $context)) {
-            $level1 = array($this->cardbox_create_tab($baseurl, 'addflashcard', 'addflashcard'));
-            $level1[] = $this->cardbox_create_tab($baseurl, 'massimport', 'massimport');
+        if (has_capability('mod/cardboxx:approvecard', $context)) {
+            $level1 = [$this->cardboxx_create_tab($baseurl, 'addflashcard', 'addflashcard')];
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'massimport', 'massimport');
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'practice', 'practice');
+        } else {
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'practice', 'practice');
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'statistics', 'statistics');
         }
-        $level1[] = $this->cardbox_create_tab($baseurl, 'practice', 'practice');
-        $level1[] = $this->cardbox_create_tab($baseurl, 'statistics', 'statistics');
+        $level1[] = $this->cardboxx_create_tab($baseurl, 'overview', 'overview');
 
-        if (has_capability('mod/cardbox:approvecard', $context)) {
-            $level1[] = $this->cardbox_create_tab($baseurl, 'review', 'review');
+        /*
+        if (has_capability('mod/cardboxx:approvecard', $context)) {
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'review', 'review');
         }
+        */
 
-        $level1[] = $this->cardbox_create_tab($baseurl, 'overview', 'overview');
-
-        if (has_capability('mod/cardbox:edittopics', $context)) {
-            $level1[] = $this->cardbox_create_tab($baseurl, 'edittopic', 'edittopic');
+        /*
+        if (has_capability('mod/cardboxx:edittopics', $context)) {
+            $level1[] = $this->cardboxx_create_tab($baseurl, 'edittopic', 'edittopic');
         }
+        */
 
         return $this->tabtree($level1, $selected, $inactive);
     }
     /**
+     * Render the study view.
      *
-     * @param \templatable $studyview
-     * @return type
+     * @param \templatable $studyview The study view to render
+     * @return string Rendered study view
      */
-    public function cardbox_render_studyview(\templatable $studyview) {
+    public function cardboxx_render_studyview(\templatable $studyview) {
         $data = $studyview->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/studyview', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardboxx/studyview', $data);
     }
     /**
+     * Render the practice view.
      *
-     * @param \templatable $practice
-     * @return type
+     * @param \templatable $practice The practice view to render
+     * @return string Rendered practice view
      */
-    public function cardbox_render_practice(\templatable $practice) {
+    public function cardboxx_render_practice(\templatable $practice) {
         $data = $practice->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/practice', $data);
+        return $this->render_from_template('mod_cardboxx/practice', $data);
     }
     /**
      * Function renders a modal dialogue which asks the user to choose a correction mode
      * and/or topics to prefer in card selection.
      *
-     * @param \templatable $practice
-     * @return type
+     * @param \templatable $practice The practice start view to render
+     * @return string Rendered practice start view
      */
-    public function cardbox_render_practice_start(\templatable $practice) {
+    public function cardboxx_render_practice_start(\templatable $practice) {
         $data = $practice->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/practice_start', $data);
+        return $this->render_from_template('mod_cardboxx/practice_start', $data);
     }
     /**
+     * Render the statistics view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $statistics The statistics view to render
+     * @return string Rendered statistics view
      */
-    public function cardbox_render_statistics(\templatable $statistics) {
+    public function cardboxx_render_statistics(\templatable $statistics) {
         $data = $statistics->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/statistics', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardboxx/statistics', $data);
     }
     /**
+     * Render the review view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $review The review view to render
+     * @return string Rendered review view
      */
-    public function cardbox_render_review(\templatable $review) {
+    public function cardboxx_render_review(\templatable $review) {
         $data = $review->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/review', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardboxx/review', $data);
     }
     /**
+     * Render the overview view.
      *
-     * @param \templatable $review
-     * @return type
+     * @param \templatable $review The overview view to render
+     * @return string Rendered overview view
      */
-    public function cardbox_render_overview(\templatable $review) {
+    public function cardboxx_render_overview(\templatable $review) {
         $data = $review->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/overview', $data);
+        return $this->render_from_template('mod_cardboxx/overview', $data);
     }
     /**
+     * Render the error import view.
      *
-     * @param \array $errorlines : consists of errored rows, no of successfully imported card, url to continue
-     * @return type
+     * @param array $errorlines The error lines to render
+     * @return string Rendered error import view
      */
-    public function cardbox_render_errimport(array $errorlines) {
-        return $this->render_from_template('mod_cardbox/errimport', $errorlines);
+    public function cardboxx_render_errimport(array $errorlines) {
+        return $this->render_from_template('mod_cardboxx/errimport', $errorlines);
     }
     /**
+     * Render the topics view.
      *
-     * @param \templatable $edittopics
-     * @return type
+     * @param \templatable $topics The topics view to render
+     * @return string Rendered topics view
      */
-    public function cardbox_render_topics(\templatable $topics) {
+    public function cardboxx_render_topics(\templatable $topics) {
         $data = $topics->export_for_template($this);
-        return $this->render_from_template('mod_cardbox/topic', $data); // 1. Param specifies the template, 2. param the data to pass into it.
+        // 1. Param specifies the template, 2. param the data to pass into it.
+        return $this->render_from_template('mod_cardboxx/topic', $data);
     }
 }

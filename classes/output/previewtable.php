@@ -14,19 +14,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace mod_cardbox\output;
-
-/*
- * @package   mod_cardbox
+/**
+ * This class is responsible for rendering the preview table.
+ *
+ * @package   mod_cardboxx
  * @copyright 2021 ITCenter RWTH Aachen (see README.md)
  * @author    Amrita Deb
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
+namespace mod_cardboxx\output;
 defined('MOODLE_INTERNAL') || die();
-
+/**
+ * Class previewtable
+ */
 class previewtable extends \html_table {
-    /** @var \csv_import_reader  */
+    /**
+     * @var \csv_import_reader
+     */
     protected $cir;
     /** @var array */
     protected $filecolumns;
@@ -38,10 +42,8 @@ class previewtable extends \html_table {
     /**
      * preview constructor.
      *
-     * @param \csv_import_reader $cir
-     * @param array $filecolumns
-     * @param int $previewrows
-     * @throws \coding_exception
+     * @param \csv_import_reader $cir CSV import reader instance
+     * @param array $filecolumns The columns in the file
      */
     public function __construct(\csv_import_reader $cir, array $filecolumns) {
         parent::__construct();
@@ -50,29 +52,35 @@ class previewtable extends \html_table {
 
         $this->id = "cbxpreview";
         $this->attributes['class'] = 'generaltable';
-        $this->head = array();
+        $this->head = [];
         $this->data = $this->read_data($filecolumns);
         $this->head[] = get_string('uucsvline', 'tool_uploaduser');
         foreach ($filecolumns as $column) {
             $this->head[] = $column;
         }
-        $this->head[] = ucfirst(get_string('status', 'cardbox'));
+        $this->head[] = ucfirst(get_string('status', 'cardboxx'));
     }
 
+    /**
+     * Read data from csv file.
+     *
+     * @param array $filecolumns
+     * @return array
+     */
     protected function read_data(array $filecolumns) {
         $this->cir->init();
         $i = 1; // Always start from 1 since 0 is csv column header.
         while ($fields = $this->cir->next()) {
-            $errors = array();
+            $errors = [];
             $atleastoneanswer = 0;
             $status = "";
-            $rowcols = array();
+            $rowcols = [];
             $rowcols['line'] = $i;
             foreach ($fields as $key => $field) {
                 $rowcols[$this->filecolumns[$key]] = s(trim($field));
             }
-            $errors = cardbox_import_validate_row($atleastoneanswer, $rowcols);
-            $columnexceptions = cardbox_import_validate_columns($filecolumns, SHORT_DESCRIPTION);
+            $errors = cardboxx_import_validate_row($atleastoneanswer, $rowcols);
+            $columnexceptions = cardboxx_import_validate_columns($filecolumns, SHORT_DESCRIPTION);
             if (!empty($errors)) {
                 $errorlines[] = $i;
                 $status = "ERR:";
@@ -88,7 +96,7 @@ class previewtable extends \html_table {
             } else {
                 $status = "OK";
             }
-            $rowcols[get_string('status', 'cardbox')] = $status;
+            $rowcols[get_string('status', 'cardboxx')] = $status;
 
             $data[] = $rowcols;
             $i++;

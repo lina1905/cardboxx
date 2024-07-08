@@ -1,122 +1,121 @@
-<div id="cardbox-overview">
+<div id="cardboxx-overview">
 
-    <span>{{#str}} topicfilter, cardbox {{/str}} </span><span><select id="cardbox-overview-topicfilter" class="custom-select">
-        <option value="-1" {{#nopreference}}selected{{/nopreference}}>{{#str}} noselection, cardbox {{/str}}</option>
-        {{#topics}}
-            <option value="{{topicid}}" {{#selected}}selected{{/selected}}>{{topic}}</option>
-        {{/topics}}
-        <option value="0" {{#cardswithouttopic}}selected{{/cardswithouttopic}}>{{# str }} notopic, cardbox {{/ str }}</option>
-    </select></span>
-
-    <span>{{#str}} deckfilter, cardbox {{/str}} </span><span><select id="cardbox-overview-deckfilter" class="custom-select">
-        <option value="-1" {{#nopreferencedeck}}selected{{/nopreferencedeck}}>{{#str}} noselection, cardbox {{/str}}</option>
-        <option value="0" {{#newcard}}selected{{/newcard}}>{{#str}} new, cardbox {{/str}}</option>
+    <div>
+        {{#allowedtoedit}}
+            <div></div>
+        {{/allowedtoedit}}
+        {{^allowedtoedit}}
+            <span>{{#str}} deckfilter, cardboxx {{/str}} </span>
+            <span>
+    <select id="cardboxx-overview-deckfilter" class="custom-select">
+    <option value="-1" {{#nopreferencedeck}}selected{{/nopreferencedeck}}>{{#str}} noselection, cardboxx {{/str}}</option>
+    <option value="0" {{#newcard}}selected{{/newcard}}>{{#str}} new, cardboxx {{/str}}</option>
         {{#decks}}
             <option value="{{deck}}" {{#selected}}selected{{/selected}}>{{deck}}</option>
         {{/decks}}
-        <option value="6" {{#masteredcard}}selected{{/masteredcard}}>{{#str}} known, cardbox {{/str}}</option>
-    </select></span>
+        <option value="6" {{#masteredcard}}selected{{/masteredcard}}>{{#str}} known, cardboxx {{/str}}</option>
+    </select>
+    </span>
+            {{{infoHtmloverview}}}
+        {{/allowedtoedit}}
+    </div>
 
-    <span>{{#str}} sorting, cardbox {{/str}} </span><span>
-        <select id="cardbox-filter-options" class="custom-select">
-            <option value="0">{{#str}} createddate, cardbox {{/str}} {{#str}} ascending, cardbox {{/str}}</option>
-            <option value="1" {{#sortca}}selected{{/sortca}}>{{#str}} createddate, cardbox {{/str}} {{#str}} descending, cardbox {{/str}}</option>
-            <option value="2" {{#sortad}}selected{{/sortad}}>{{#str}} alphabetical, cardbox {{/str}} {{#str}} ascending, cardbox {{/str}}</option>
-            <option value="3" {{#sortaa}}selected{{/sortaa}}>{{#str}} alphabetical, cardbox {{/str}} {{#str}} descending, cardbox {{/str}}</option>
+
+    <!--
+    <span>{{#str}} sorting, cardboxx {{/str}} </span><span>
+        <select id="cardboxx-filter-options" class="custom-select">
+            <option value="0">{{#str}} createddate, cardboxx {{/str}} {{#str}} ascending, cardboxx {{/str}}</option>
+            <option value="1" {{#sortca}}selected{{/sortca}}>{{#str}} createddate, cardboxx {{/str}} {{#str}} descending, cardboxx {{/str}}</option>
+            <option value="2" {{#sortad}}selected{{/sortad}}>{{#str}} alphabetical, cardboxx {{/str}} {{#str}} ascending, cardboxx {{/str}}</option>
+            <option value="3" {{#sortaa}}selected{{/sortaa}}>{{#str}} alphabetical, cardboxx {{/str}} {{#str}} descending, cardboxx {{/str}}</option>
         </select>
     </span>
+    -->
 
-    <div class="container-fluid cardbox-studyview">            
+    <div class="container-fluid cardboxx-studyview">            
 
         {{#cards}}
 
-            <div id="cardbox-card-in-overview" data-cardid="{{cardid}}" class="row overviewcontent" style="margin-bottom: 0px;">  
+            <div id="cardboxx-card-in-overview" data-cardid="{{cardid}}" class="row overviewcontent" style="margin-bottom: 30px;">
 
                 {{#allowedtoedit}}
 {{!                     <div class="col-xl-2"></div> }}
-                    <div class="col-xl-4 review-topic topic" >{{#str}}reviewtopic, cardbox{{/str}} {{topic}}</div>
-                    <div class="col-xl-4" style="padding-left: 0.4%; margin-right: 1em;"> 
-                        <div class="card-icon-grid-div"> 
+                    <div class="col-xl-5 col-lg-5"></div>
+                    <div class="col-xl-5 col-lg-5 icon-deck-manager" style="padding-left: 0.4%;">
+                        <div class="card-icon-grid-div">
                         {{^disableautocorrect}}
                         <div></div>
-                        {{/disableautocorrect}} 
+                        {{/disableautocorrect}}
                         {{#disableautocorrect}}
-                        <div><span class="badge badge-secondary" data-toggle = "tooltip" title = "{{#str}}autocorrecticon_help, cardbox, {{decktext}}{{/str}}">{{acimgurl}}</span></div>
-                        {{/disableautocorrect}} 
+                        {{/disableautocorrect}}
                         <div class="common-margin">
                         {{#multipleanswers}}
                         {{#allansnecessary}}
-                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}allanswersnecessary_help, cardbox, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span>
+                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}allanswersnecessary_help, cardboxx, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span>
                         {{/allansnecessary}}
                         {{^allansnecessary}}
-                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}oneanswersnecessary_help, cardbox, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span> 
+                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}oneanswersnecessary_help, cardboxx, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span>
                         {{/allansnecessary}}{{/multipleanswers}}</div>
-                            <div class="rep-icon-grid-div common-margin" data-toggle = "tooltip" title = "{{#str}}manager:repeatdesc, cardbox, {{repsnummer}}{{/str}}">
+                            <div class="rep-icon-grid-div common-margin" data-toggle = "tooltip" title = "{{#str}}manager:repeatdesc, cardboxx, {{repsnummer}}{{/str}}">
                             {{#reps}}<img src="https://img.icons8.com/ios-glyphs/30/000000/repeat.png"/> {{repsnummer}}{{/reps}}</div>
-                            <div class="common-margin"><img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardbox_card_deck_icon" 
-                            data-toggle = "tooltip" title = "{{#str}}manager:deckdescription, cardbox, {{decktext}}{{/str}}"></div>
+
+                            <!--
+                            <div class="common-margin"><img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardboxx_card_deck_icon"
+                            data-toggle = "tooltip" title = "{{#str}}manager:deckdescription, cardboxx, {{decktext}}{{/str}}"></div>
+                            -->
                         </div>
                     </div>
-                    <div class="col-xl-2"></div> 
+
                 {{/allowedtoedit}}
 
                 {{^allowedtoedit}}
-                    <div class="col-xl-2"></div>
-                    <div class="col-xl-4">{{#str}}reviewtopic, cardbox{{/str}} {{topic}}</div>
-                    <div class="col-xl-4" style="padding-left: 0.4%"> 
+                    <div class="col-xl-5 col-lg-5"></div>
+                    <div class="col-xl-5 col-lg-5" style="padding-left: 0.4%">
                         <div class="card-icon-grid-div"> <div class="common-margin">
-                        {{#multipleanswers}} 
+                        {{#multipleanswers}}
                            {{#allansnecessary}}
-                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}allanswersnecessary_help, cardbox, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span>
                         {{/allansnecessary}}
                         {{^allansnecessary}}
-                        <span class="badge badge-dark" data-toggle = "tooltip" title = "{{#str}}oneanswersnecessary_help, cardbox, {{decktext}}{{/str}}">{{howmanyanswersnecessary}}</span> 
                         {{/allansnecessary}}
                         {{/multipleanswers}}</div>
-                            <div class="rep-icon-grid-div common-margin" data-toggle = "tooltip" title = "{{#str}}student:repeatdesc, cardbox, {{repsnummer}}{{/str}}">
+                            <div class="rep-icon-grid-div common-margin" data-toggle = "tooltip" title = "{{#str}}student:repeatdesc, cardboxx, {{repsnummer}}{{/str}}">
                             {{#reps}}<img src="https://img.icons8.com/ios-glyphs/30/000000/repeat.png"/> {{repsnummer}}{{/reps}}
                             </div>
                             {{^disableautocorrect}}
                         <div></div>
-                        {{/disableautocorrect}} 
-                        {{#disableautocorrect}}
-                        <div><span class="badge badge-secondary" data-toggle = "tooltip" title = "{{#str}}autocorrecticon_help, cardbox, {{decktext}}{{/str}}">{{acimgurl}}</span></div>
                         {{/disableautocorrect}}
-                            <div class="common-margin"><img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardbox_card_deck_icon" 
-                            style="margin-bottom: 10px" data-toggle = "tooltip" title = "{{#str}}student:deckdescription, cardbox, {{decktext}}{{/str}}"></div>
+                        {{#disableautocorrect}}
+                        {{/disableautocorrect}}
+                            <div class="common-margin"><img src={{deckimgurl}} alt="This card belongs to Deck {{deck}}" class="cardboxx_card_deck_icon" 
+                            style="margin-bottom: 1px" data-toggle = "tooltip" title = "{{#str}}student:deckdescription, cardboxx, {{decktext}}{{/str}}"></div>
                         </div>
                     </div>
-                    <div class="col-xl-2"></div> 
                 {{/allowedtoedit}}
 
-                <div class="col-xl-4 ques-teil" style="padding-right: 1px; padding-left: 1px"><div class="cardbox-column" style="height: 100%;">
+
+                <div class="col-xl-5 col-lg-5 ques-teil" style="padding-right: 1px; padding-left: 1px"><div class="cardboxx-column" style="height: 100%;">
                     
-                        <div class="cardbox-card-left-side">
-                            <div class="cardbox-cardside">
+                        <div class="cardboxx-card-left-side">
+                            <div class="cardboxx-cardside">
                                 <div style="height:100%">
                                 {{#question}}
-                                    {{> mod_cardbox/cardside }}
+                                    {{> mod_cardboxx/cardside }}
                                 {{/question}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{#ismobile}}
-                    <div class="col-xl-4" style="padding: 3%;">
-                        <div class="cardbox-column" >{{{questioncontext}}}</div>
-                </div>
-                {{/ismobile}}
 
-                <div class="col-xl-4 ans-teil" style="padding-right: 1px; padding-left: 1px">
-                    <div class="cardbox-column" style="height: 100%;">
+                <div class="col-xl-5 col-lg-5 ans-teil" style="padding-right: 1px; padding-left: 1px">
+                    <div class="cardboxx-column" style="height: 100%;">
                         {{#multipleanswers}}
                         {{#answer}}
                         <div style="height: 100%">
-                            <div class="cardbox-card-right-side-multi">
+                            <div class="cardboxx-card-right-side-multi">
                             {{#texts}}
-                                <div class="cardbox-cardside-multi">
-                                    <div class="cardbox-card-text">{{{text}}}</div>
+                                <div class="cardboxx-cardside-multi">
+                                    <div class="cardboxx-card-text">{{{text}}}</div>
                                 </div>
                             {{/texts}}
                             </div>
@@ -124,11 +123,11 @@
                         {{/answer}}
                         {{/multipleanswers}}
                         {{^multipleanswers}}
-                        <div class="cardbox-card-right-side">
+                        <div class="cardboxx-card-right-side">
                             <div>
-                                <div class="cardbox-cardside">
+                                <div class="cardboxx-cardside">
                                     {{#answer}}
-                                        {{> mod_cardbox/cardside }}
+                                        {{> mod_cardboxx/cardside }}
                                     {{/answer}}
                                 </div>
                             </div>
@@ -136,13 +135,8 @@
                         {{/multipleanswers}}
                     </div>
                 </div>
-                {{#ismobile}}
-                    <div class="col-xl-4" style="padding: 3%;">
-                        <div class="cardbox-column" >{{{answercontext}}}</div>
-                    </div>
-                {{/ismobile}}
-                {{#allowedtoedit}}
 
+                {{#allowedtoedit}}
                 <div class="col-xs-2">
                     <div id="review-button-wrapper">
                     {{#ismobile}}
@@ -151,35 +145,17 @@
                     {{^ismobile}}
                         <div class="btn-group-vertical" role="group" aria-label="review-actions">
                     {{/ismobile}}
-                            <button id="cardbox-edit-{{cardid}}" type="button" class="btn btn-primary cardbox-overview-button-edit" title="Edit"><i class="icon fa fa-pencil fa-fw"></i></button>
-                            <button id="cardbox-delete-{{cardid}}" type="button" class="btn btn-primary cardbox-delete-button cardbox-overview-button-delete" title="{{# str }} delete, cardbox {{/ str }}"><i class="icon fa fa-trash fa-fw"></i></button>
+                            <button id="cardboxx-edit-{{cardid}}" type="button" class="btn btn-primary cardboxx-overview-button-edit" title="Edit"><i class="icon fa fa-pencil fa-fw"></i></button>
+                            <button id="cardboxx-delete-{{cardid}}" type="button" class="btn btn-primary cardboxx-delete-button cardboxx-overview-button-delete" title="{{# str }} delete, cardboxx {{/ str }}"><i class="icon fa fa-trash fa-fw"></i></button>
                         </div>
                     </div>
                 </div>
 
             </div>
-            {{^ismobile}}
-            <div id="cardbox-card-in-overview" class="row overviewcontent" style="display: -webkit-box; margin-top: 10px">
-                <div class="col-xl-4" style="margin-left: 15%; padding-right: 0px; padding-left: 1%;">
-                    <div class="cardbox-column" >{{{questioncontext}}}</div>
-                </div>
-                <div class="col-xl-4" style="padding-left:0.5%;">
-                    <div class="cardbox-column" >
-                        <div>{{{answercontext}}}</div>
-                    </div>
-                </div>
-            </div>
-            {{/ismobile}}
             {{/allowedtoedit}}
             
             {{^allowedtoedit}}
             </div>
-            <div id="cardbox-card-in-overview" class="row overviewcontent" style="display: -webkit-box; margin-top: 10px">
-                <div class="col-xl-2"></div>
-                <div class="col-xl-4">{{{questioncontext}}}</div>
-                <div class="col-xl-4" style="padding-left: 0.4%">{{{answercontext}}}</div>
-                <div class="col-xl-2"></div> 
-            </div> 
             {{/allowedtoedit}}
 
         {{/cards}}

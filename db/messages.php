@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The cardbox plugin is registered as a message provider and the messages
+ * The cardboxx plugin is registered as a message provider and the messages
  * produced are defined.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,21 +26,21 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$messageproviders = array (
+$messageproviders = [
 
-    'memo' => array (
-        'capability'  => 'mod/cardbox:practice',
-        'defaults' => array(
+    'memo' => [
+        'capability'  => 'mod/cardboxx:practice',
+        'defaults' => [
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        )
-    ),
+        ],
+    ],
 
-    'changenotification' => array (
-        'capability'  => 'mod/cardbox:practice',
-        'defaults' => array(
+    'changenotification' => [
+        'capability'  => 'mod/cardboxx:practice',
+        'defaults' => [
             'popup' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
             'email' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_ENABLED,
-        )
-    ),
-);
+        ],
+    ],
+];

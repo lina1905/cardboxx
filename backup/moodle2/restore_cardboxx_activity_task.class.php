@@ -23,7 +23,7 @@
  *
  * See https://docs.moodle.org/dev/Backup_API and https://docs.moodle.org/dev/Backup_2.0_for_developers for more information.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -31,9 +31,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/cardbox/backup/moodle2/restore_cardbox_stepslib.php'); // Because it exists (must).
+require_once($CFG->dirroot . '/mod/cardboxx/backup/moodle2/restore_cardboxx_stepslib.php'); // Because it exists (must).
 
-class restore_cardbox_activity_task extends restore_activity_task {
+/**
+ * Restore task for the cardboxx activity module
+ */
+class restore_cardboxx_activity_task extends restore_activity_task {
 
     /**
      * Define (add) particular settings this activity can have
@@ -45,8 +48,8 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * Define (add) particular steps this activity can have
      */
     protected function define_my_steps() {
-        // Cardbox only has one structure step.
-        $this->add_step(new restore_cardbox_activity_structure_step('cardbox_structure', 'cardbox.xml'));
+        // Cardboxx only has one structure step.
+        $this->add_step(new restore_cardboxx_activity_structure_step('cardboxx_structure', 'cardboxx.xml'));
     }
 
     /*************************************** optional *******************************************/
@@ -56,9 +59,9 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * processed by the link decoder.
      */
     public static function define_decode_contents() {
-        $contents = array();
+        $contents = [];
 
-        $contents[] = new restore_decode_content('cardbox', array('intro'), 'cardbox');
+        $contents[] = new restore_decode_content('cardboxx', ['intro'], 'cardboxx');
 
         return $contents;
     }
@@ -68,10 +71,10 @@ class restore_cardbox_activity_task extends restore_activity_task {
      * to the activity to be executed by the link decoder
      */
     public static function define_decode_rules() {
-        $rules = array();
+        $rules = [];
 
-        $rules[] = new restore_decode_rule('CARDBOXVIEWBYID', '/mod/cardbox/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('CARDBOXINDEX', '/mod/cardbox/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('cardboxxVIEWBYID', '/mod/cardboxx/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('cardboxxINDEX', '/mod/cardboxx/index.php?id=$1', 'course');
 
         return $rules;
 
@@ -79,34 +82,34 @@ class restore_cardbox_activity_task extends restore_activity_task {
 
     /**
      * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
-     * pdfannotator logs. It must return one array
-     * of {@link restore_log_rule} objects
+     * by the restore_logs_processor when restoring
+     * cardboxx logs. It must return one array
+     * of restore_log_rule objects
      */
     public static function define_restore_log_rules() {
-        $rules = array();
+        $rules = [];
 
-        $rules[] = new restore_log_rule('cardbox', 'add', 'view.php?id={course_module}', '{cardbox}');
-        $rules[] = new restore_log_rule('cardbox', 'update', 'view.php?id={course_module}', '{cardbox}');
-        $rules[] = new restore_log_rule('cardbox', 'view', 'view.php?id={course_module}', '{cardbox}');
+        $rules[] = new restore_log_rule('cardboxx', 'add', 'view.php?id={course_module}', '{cardboxx}');
+        $rules[] = new restore_log_rule('cardboxx', 'update', 'view.php?id={course_module}', '{cardboxx}');
+        $rules[] = new restore_log_rule('cardboxx', 'view', 'view.php?id={course_module}', '{cardboxx}');
 
         return $rules;
     }
 
     /**
      * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
+     * by the restore_logs_processor when restoring
      * course logs. It must return one array
-     * of {@link restore_log_rule} objects
+     * of restore_log_rule objects
      *
-     * Note this rules are applied when restoring course logs
-     * by the restore final task, but are defined here at
-     * activity level. All them are rules not linked to any module instance (cmid = 0)
+     * Note these rules are applied when restoring course logs
+     * by the final restore task, but are defined here at
+     * activity level. All of them are rules not linked to any module instance (cmid = 0)
      */
     public static function define_restore_log_rules_for_course() {
-        $rules = array();
+        $rules = [];
 
-        $rules[] = new restore_log_rule('cardbox', 'view all', 'index.php?id={course}', null);
+        $rules[] = new restore_log_rule('cardboxx', 'view all', 'index.php?id={course}', null);
 
         return $rules;
     }

@@ -18,7 +18,7 @@
  * In this process, the teacher checks whether the student provided content is
  * correct and should be included in the collection of flashcards.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -40,18 +40,18 @@ function startReview(Y, __cmid) {
 
         function registerEventListeners() {
             
-            const editbtns = document.querySelectorAll('#cardbox-review .cardbox-review-button');
+            const editbtns = document.querySelectorAll('#cardboxx-review .cardboxx-review-button');
             editbtns.forEach(btn => {
-                const card = btn.closest('#cardbox-card-in-review');
+                const card = btn.closest('#cardboxx-card-in-review');
                 const cardid = card.getAttribute('data-cardid');
                 btn.addEventListener('click', e => {
                     edit(cardid);
                 });
             });
-            const checkboxes = document.querySelectorAll('#cardbox-review input[type="checkbox"]');
+            const checkboxes = document.querySelectorAll('#cardboxx-review input[type="checkbox"]');
             checkboxes.forEach(c => {
                 c.addEventListener('click', e => {
-                    var checked = document.querySelectorAll('#cardbox-review input:checked');
+                    var checked = document.querySelectorAll('#cardboxx-review input:checked');
                     if (checked.length === 0) {
                         // there are no checked checkboxes
                         document.getElementById('review-div').style.display = 'none';
@@ -77,7 +77,7 @@ function startReview(Y, __cmid) {
 }
 function rejectcard(Y, __cmid, cardlist, countcard) {
     require(['jquery', 'core/notification'], function ($, notification) {
-    notification.confirm(M.util.get_string('rejectcard','cardbox'),M.util.get_string('rejectcardinfo','cardbox', countcard),M.util.get_string('yes', 'cardbox'), M.util.get_string('cancel', 'cardbox'),function () {
+    notification.confirm(M.util.get_string('rejectcard','cardboxx'),M.util.get_string('rejectcardinfo','cardboxx', countcard),M.util.get_string('yes', 'cardboxx'), M.util.get_string('cancel', 'cardboxx'),function () {
         /* return */ $.ajax({
             type: "POST",
             url: "controller.php",

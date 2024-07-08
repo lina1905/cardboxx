@@ -15,13 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines backup_cardbox_activity_task
+ * Defines backup_cardboxx_activity_task
  *
  * Moodle creates backups of courses or their parts by executing a so called backup plan.
  * The backup plan consists of a set of backup tasks and finally each backup task consists
  * of one or more backup steps. This file provides the activity task class.
  *
- * @package   mod_cardbox
+ * @package   mod_cardboxx
  * @copyright 2019 RWTH Aachen (see README.md)
  * @author    Anna Heynkes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,14 +29,14 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot . '/mod/cardbox/backup/moodle2/backup_cardbox_stepslib.php');
+require_once($CFG->dirroot . '/mod/cardboxx/backup/moodle2/backup_cardboxx_stepslib.php');
 
 /**
- * Cardbox backup task that provides all the settings and steps to perform one
+ * cardboxx backup task that provides all the settings and steps to perform one
  * complete backup of the activity
  *
  */
-class backup_cardbox_activity_task extends backup_activity_task {
+class backup_cardboxx_activity_task extends backup_activity_task {
 
     /**
      * Define (add) particular settings this activity can have
@@ -44,11 +44,11 @@ class backup_cardbox_activity_task extends backup_activity_task {
      * Most modules just leave the method body empty.
      */
     protected function define_my_settings() {
-        // No particular settings for the cardbox activity.
+        // No particular settings for the cardboxx activity.
     }
 
     /**
-     * Defines a backup step to store the instance data in the cardbox.xml file
+     * Defines a backup step to store the instance data in the cardboxx.xml file
      *
      * Define (add) particular steps this activity can have
      * This method typically consists of one or more $this->add_step() calls.
@@ -56,7 +56,7 @@ class backup_cardbox_activity_task extends backup_activity_task {
      */
     protected function define_my_steps() {
 
-        $this->add_step(new backup_cardbox_activity_structure_step('cardbox_structure', 'cardbox.xml'));
+        $this->add_step(new backup_cardboxx_activity_structure_step('cardboxx_structure', 'cardboxx.xml'));
 
     }
 
@@ -82,13 +82,13 @@ class backup_cardbox_activity_task extends backup_activity_task {
 
         $base = preg_quote($CFG->wwwroot, "/");
 
-        // Link to the list of cardboxex.
-        $search = "/(".$base."\/mod\/cardbox\/index.php\?id\=)([0-9]+)/";
-        $content = preg_replace($search, '$@CARDBOXINDEX*$2@$', $content);
+        // Link to the list of cardboxxex.
+        $search = "/(".$base."\/mod\/cardboxx\/index.php\?id\=)([0-9]+)/";
+        $content = preg_replace($search, '$@cardboxxINDEX*$2@$', $content);
 
-        // Link to cardbox view by moduleid.
-        $search = "/(".$base."\/mod\/cardbox\/view.php\?id\=)([0-9]+)/";
-        $content = preg_replace($search, '$@CARDBOXINDEX*$2@$', $content);
+        // Link to cardboxx view by moduleid.
+        $search = "/(".$base."\/mod\/cardboxx\/view.php\?id\=)([0-9]+)/";
+        $content = preg_replace($search, '$@cardboxxINDEX*$2@$', $content);
 
         return $content;
     }
