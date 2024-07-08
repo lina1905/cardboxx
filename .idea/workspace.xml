@@ -6,26 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action.php" beforeDir="false" afterPath="$PROJECT_DIR$/action.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/card_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/card.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/overview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/practice.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/practice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/start.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/start.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/upgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/upgrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example_import.csv" beforeDir="false" afterPath="$PROJECT_DIR$/example_import.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/de/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/de/cardboxx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en/cardboxx.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/cardboxx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallib.php" beforeDir="false" afterPath="$PROJECT_DIR$/locallib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mod_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/mod_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cardcollection.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/cardcollection.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/renderer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/review_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.php" beforeDir="false" afterPath="$PROJECT_DIR$/version.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +58,7 @@
       <workItem from="1718618563860" duration="240000" />
       <workItem from="1718828748986" duration="14421000" />
       <workItem from="1719237143152" duration="2470000" />
-      <workItem from="1719434858518" duration="10093000" />
+      <workItem from="1719434858518" duration="11427000" />
     </task>
     <servers />
   </component>
