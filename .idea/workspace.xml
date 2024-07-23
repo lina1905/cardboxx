@@ -5,90 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/cardbox.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/cardboxx.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_stepslib.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example_import.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lang/de/cardboxx.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/5.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/mastered.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pix/newpix/new.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGES.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/action.php" beforeDir="false" afterPath="$PROJECT_DIR$/action.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amd/build/topics.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/amd/build/topics.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amd/build/topics.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/amd/build/topics.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amd/src/topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/amd/src/topics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/backup_cardbox_activity_task.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/backup_cardboxx_activity_task.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/backup_cardbox_stepslib.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/backup_cardboxx_stepslib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/restore_cardbox_activity_task.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/restore_cardbox_stepslib.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/card_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/card_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/card.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/massimport_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/massimport_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/massimportpreview_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/massimportpreview_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/overview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/practice.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/practice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/previewtable.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/previewtable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/start.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/start.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/statistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/statistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/output/topics.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/output/topics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/privacy/provider.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/privacy/provider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/task/remind.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/task/remind.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/access.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/access.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/install.xml" beforeDir="false" afterPath="$PROJECT_DIR$/db/install.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/messages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/upgrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/upgrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/externallib.php" beforeDir="false" afterPath="$PROJECT_DIR$/externallib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/addcard.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/addcard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/overview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/practice.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/practice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/review.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/review.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/statistics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en/cardbox.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/en/cardboxx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locallib.php" beforeDir="false" afterPath="$PROJECT_DIR$/locallib.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mod_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/mod_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/card_selection_algorithm.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/card_selection_algorithm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/card_selection_interface.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/card_selection_interface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/card_sorting_algorithm.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/card_sorting_algorithm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/card_sorting_interface.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/card_sorting_interface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cardbox.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/cardboxx.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/cardcollection.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/cardcollection.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/renderer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/review_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/card.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/card.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cardside.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cardside.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errimport.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errimport.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/options.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/options.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/overview.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/overview.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_answer_autocheck.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_answer_autocheck.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_answer_selfcheck.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_answer_selfcheck.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_question_autocheck.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_question_autocheck.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_question_selfcheck.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_question_selfcheck.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_start.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_start.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/practice_suggest_answer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/practice_suggest_answer.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/statistics.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistics.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/templates/topic.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.php" beforeDir="false" afterPath="$PROJECT_DIR$/version.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,21 +30,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging master",
-    "last_opened_file_path": "C:/Users/suppo/OneDrive/Desktop/Moodle4.1.9/MoodleWindowsInstaller-latest-401/server/moodle/mod/cardboxx",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/suppo/OneDrive/Desktop/Moodle4.1.9/MoodleWindowsInstaller-latest-401/server/moodle/mod/cardboxx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -143,6 +61,7 @@
       <workItem from="1719237143152" duration="2470000" />
       <workItem from="1719434858518" duration="11427000" />
       <workItem from="1720424686860" duration="400000" />
+      <workItem from="1721722651466" duration="2960000" />
     </task>
     <servers />
   </component>

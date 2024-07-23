@@ -73,8 +73,8 @@ class restore_cardboxx_activity_task extends restore_activity_task {
     public static function define_decode_rules() {
         $rules = [];
 
-        $rules[] = new restore_decode_rule('cardboxxVIEWBYID', '/mod/cardboxx/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('cardboxxINDEX', '/mod/cardboxx/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('CARDBOXXVIEWBYID', '/mod/cardboxx/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('CARDBOXXINDEX', '/mod/cardboxx/index.php?id=$1', 'course');
 
         return $rules;
 
