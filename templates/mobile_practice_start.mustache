@@ -1,0 +1,85 @@
+{{=<% %>=}}
+
+<style>
+/* doughnut chart */
+.doughnut-chart {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+position: relative;
+}
+
+.doughnut-chart::before {
+content: "";
+display: block;
+position: absolute;
+top: 20px;
+left: 20px;
+right: 20px;
+bottom: 20px;
+background: #fff;
+border-radius: 50%;
+}
+
+.doughnut-chart-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+width: 100%;
+}
+</style>
+
+<div class="practice-start-view-mobile">
+    <ion-card>
+        <ion-card-content>
+            <div class="doughnut-chart" style="margin-top: 30px; background: conic-gradient(#BF514C <% duecardcountpercentage %>%, #71A87F <% duecardcountpercentage %>% 100%);">
+                <div class="doughnut-chart-text">
+                    <%# duecardcount %>
+                    {{ 'plugin.mod_cardboxx.chartpractice' | translate }}<br>
+                    <% duecardcount %>/<% cardcount %>
+                    <%/ duecardcount %>
+                    <%^ duecardcount %>
+                    {{ 'plugin.mod_cardboxx.chartpracticedone' | translate }}
+                    <%/ duecardcount %>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; font-weight: bold; margin-bottom: 20px">
+                {{ 'plugin.mod_cardboxx.totalcardsinbox' | translate }} <% cardcount %>
+            </div>
+
+            <%# duecardcount %>
+            <ion-button id="cardboxx-see-optionstwo" expand="full" data-toggle="modal" data-target="#cardboxxPracticeSettings">
+                {{ 'plugin.mod_cardboxx.optionstwo' | translate }}
+            </ion-button>
+            <%/ duecardcount %>
+
+            <%^ duecardcount %>
+            <ion-button id="cardboxx-see-options" expand="full" data-toggle="modal" data-target="#cardboxxPracticeSettings">
+                {{ 'plugin.mod_cardboxx.optionsone' | translate }}
+            </ion-button>
+            <% infoHtmlPracticeDone %>
+            <%/ duecardcount %>
+
+            <!--
+            <div id="cardboxx-practiceall-select" style="display: none;" class="item g goldenleft">´<% translate('practiceall') %>&nbsp; <% helpbuttonpracticeall %></div>
+            <div id="cardboxx-practiceall-choices" style="display: none;" class="item h goldenright">
+                <form id="cardboxx-form-practiceall" class="felement">
+                    <ion-radio-group>
+                        <ion-item>
+                            <ion-label><% translate('yes') %></ion-label>
+                            <ion-radio slot="start" value="0"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label><% translate('no') %></ion-label>
+                            <ion-radio slot="start" value="1" checked></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                </form>
+            </div>
+            -->
+        </ion-card-content>
+    </ion-card>
+</div>
