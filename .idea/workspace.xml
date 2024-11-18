@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="012179f9-d9a7-4e1a-a6c4-a60c0e93ce69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/classes/output/mobile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/mobile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles_app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mobile_practice.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mobile_practice_question_selfcheck.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mobile_practice_start.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cardbox.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mobile_overview.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mobile_statistics.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +44,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -71,7 +65,8 @@
       <workItem from="1728977256225" duration="7491000" />
       <workItem from="1729674609510" duration="24880000" />
       <workItem from="1730187769686" duration="11877000" />
-      <workItem from="1730709295094" duration="30154000" />
+      <workItem from="1730709295094" duration="36334000" />
+      <workItem from="1731924456220" duration="1377000" />
     </task>
     <servers />
   </component>
