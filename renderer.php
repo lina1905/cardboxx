@@ -105,6 +105,7 @@ class mod_cardboxx_renderer extends plugin_renderer_base {
      * @return string Rendered practice view
      */
     public function cardboxx_render_practice(\templatable $practice) {
+        echo '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
         $data = $practice->export_for_template($this);
         return $this->render_from_template('mod_cardboxx/practice', $data);
     }

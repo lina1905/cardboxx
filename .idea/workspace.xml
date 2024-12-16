@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1bb97826-4846-4605-a81e-fa6e13fef111" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/backup/moodle2/restore_cardboxx_activity_task.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/practice.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/practice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/renderer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,7 @@
       <workItem from="1719434858518" duration="11427000" />
       <workItem from="1720424686860" duration="400000" />
       <workItem from="1721722651466" duration="2960000" />
+      <workItem from="1734341964541" duration="3324000" />
     </task>
     <servers />
   </component>

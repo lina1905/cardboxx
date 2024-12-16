@@ -441,6 +441,10 @@ class Coordinate {
          * @returns {undefined}
          */
         proceed(iscorrect) {
+            if (typeof $ === 'undefined' || typeof $.ajax !== 'function') {
+                console.error('jQuery is not loaded');
+                return;
+            }
 
             // 1. Determine which (if any) card is next to come.
             this.determineNextCard(iscorrect);
